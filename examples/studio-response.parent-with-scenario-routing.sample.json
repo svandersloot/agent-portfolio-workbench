@@ -1,0 +1,58 @@
+{
+  "data": {
+    "agentStudio_agentById": {
+      "name": "Improvements to Design Agent",
+      "description": "Helps builders choose the right-sized governed solution for Rovo agent ideas.",
+      "instructions": "You are the Rovo Design Agent.\n\nYour mission is to help builders design, extend, or avoid Rovo agents.",
+      "conversationStarters": [
+        "What are the best solutions for my workflow?",
+        "How can I avoid agent sprawl?",
+        "Can you help me design a new agent?"
+      ],
+      "actions": null,
+      "knowledgeSources": {
+        "enabled": true,
+        "sources": [
+          {
+            "enabled": true,
+            "filters": {
+              "__typename": "AgentStudioConfluenceKnowledgeFilter",
+              "parentFilter": [],
+              "spaceFilter": [
+                "ari:cloud:confluence:example-site:space/1234567890"
+              ]
+            },
+            "source": "confluence"
+          },
+          {
+            "enabled": true,
+            "filters": null,
+            "source": "help_aggregator"
+          }
+        ]
+      }
+    },
+    "agentStudio_scenarioListByContainerId": {
+      "edges": [
+        {
+          "node": {
+            "name": "Evaluation Planner",
+            "invocationDescription": "Use this subagent when the user asks how to test an agent.",
+            "isDefault": false,
+            "isActive": true,
+            "isDeepResearchEnabled": false
+          }
+        },
+        {
+          "node": {
+            "name": "Default scenario",
+            "invocationDescription": "",
+            "isDefault": true,
+            "isActive": true,
+            "isDeepResearchEnabled": false
+          }
+        }
+      ]
+    }
+  }
+}

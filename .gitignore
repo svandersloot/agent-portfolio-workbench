@@ -15,6 +15,7 @@ Confluence-export-*.zip
 
 # Local multi-agent tracking config can contain private Studio URLs.
 config/studio-agents.yml
+config/confluence-pages.yml
 
 # PowerShell/editor noise.
 *.log

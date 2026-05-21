@@ -24,7 +24,9 @@
 - Append change-log entries to agent governance pages.
 - Sync central Agent Inventory from normalized configs.
 - Publish approved templates to Confluence with explicit dry-run and apply modes.
+- Add update-mode support for already-created Confluence pages.
 - Generate page creation plans for Measurement, Context Readiness, Decision Log, User Guide, and Backlog pages.
+- Move/reparent legacy inventory pages and apply archive banners through the API while preserving page identity and history.
 
 ## Phase 4: Optional Capture Automation
 
@@ -38,8 +40,8 @@ Do not build write-back to Studio until Atlassian exposes a stable supported API
 
 See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The highest-return items are:
 
-1. Merge inventory pages.
-2. Create Measurement and Value Tracking.
-3. Create Context Readiness Checklist.
-4. Create User Guide - Designing Agents.
-5. Move CoP notes and create Backlog and Improvement Roadmap.
+1. Update Space Structure and Navigation to reflect Governance and Safety.
+2. Merge inventory pages.
+3. Move CoP notes and create Backlog and Improvement Roadmap.
+4. Add update-mode support to the Confluence publisher.
+5. Prepare inventory cleanup dry run.

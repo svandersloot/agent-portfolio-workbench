@@ -2,7 +2,14 @@
 Run this in DevTools Console on a ROVO Studio agent page.
 
 It captures matching Studio GraphQL responses in memory only.
-After refreshing the page, run:
+Important: a full browser refresh removes this Console hook.
+
+After running this script, trigger Studio to fetch the agent again without
+refreshing the browser tab. For example, use Studio's in-app navigation to
+open a different agent and then return to the target agent, or switch between
+Studio views if that causes the agent details to reload.
+
+After the Console logs at least one captured Studio response, run:
 
   copyStudioAgentCaptures()
 
@@ -74,5 +81,7 @@ Do not commit data/raw.
     console.log(`Copied ${matches.length} captured Studio response(s).`);
   };
 
-  console.log("Studio capture enabled. Refresh the agent page, then run copyStudioAgentCaptures().");
+  console.log(
+    "Studio capture enabled. Do not browser-refresh; use Studio in-app navigation to reload the agent, then run copyStudioAgentCaptures()."
+  );
 })();

@@ -87,15 +87,15 @@ function ConvertTo-KnowledgeSources {
         foreach ($source in $KnowledgeSources.sources) {
             $sources += [ordered]@{
                 source = [string] $source.source
-                enabled = $source.enabled
-                resourceType = $source.resourceType
-                filters = ConvertTo-FilterSummary -Filters $source.filters
+                enabled = Get-JsonProperty -Object $source -Name "enabled"
+                resourceType = Get-JsonProperty -Object $source -Name "resourceType"
+                filters = ConvertTo-FilterSummary -Filters (Get-JsonProperty -Object $source -Name "filters")
             }
         }
     }
 
     return [ordered]@{
-        enabled = if ($null -eq $KnowledgeSources) { $null } else { $KnowledgeSources.enabled }
+        enabled = if ($null -eq $KnowledgeSources) { $null } else { Get-JsonProperty -Object $KnowledgeSources -Name "enabled" }
         sources = @($sources)
     }
 }
@@ -136,6 +136,26 @@ function ConvertTo-Tools {
     }
 
     return @($items)
+}
+
+function Get-JsonProperty {
+    param($Object, [Parameter(Mandatory = $true)][string] $Name)
+
+    if ($null -eq $Object -or $null -eq $Object.PSObject) { return $null }
+    $property = $Object.PSObject.Properties[$Name]
+    if ($null -eq $property) { return $null }
+    return $property.Value
+}
+
+function Get-FirstJsonProperty {
+    param($Object, [Parameter(Mandatory = $true)][string[]] $Names)
+
+    foreach ($name in $Names) {
+        $value = Get-JsonProperty -Object $Object -Name $name
+        if ($null -ne $value) { return $value }
+    }
+
+    return $null
 }
 
 function Write-SimpleYaml {
@@ -235,16 +255,53 @@ function Find-StudioPayload {
         return $null
     }
 
-    if ($null -ne $Json.data -and $null -ne $Json.data.agentStudio_agentById) {
-        return $Json
-    }
-
-    if ($null -ne $Json.text) {
+    if ($Json -is [string]) {
+        if ($Json -notmatch "agentStudio_agentById") { return $null }
         try {
-            return Find-StudioPayload -Json ($Json.text | ConvertFrom-Json)
+            return Find-StudioPayload -Json ($Json | ConvertFrom-Json)
         }
         catch {
             return $null
+        }
+    }
+
+    $data = Get-JsonProperty -Object $Json -Name "data"
+    if ($null -ne $data -and $null -ne (Get-JsonProperty -Object $data -Name "agentStudio_agentById")) {
+        return $Json
+    }
+
+    $text = Get-JsonProperty -Object $Json -Name "text"
+    if ($null -ne $text) {
+        try {
+            return Find-StudioPayload -Json ($text | ConvertFrom-Json)
+        }
+        catch {
+            return $null
+        }
+    }
+
+    $response = Get-JsonProperty -Object $Json -Name "response"
+    $content = Get-JsonProperty -Object $response -Name "content"
+    $responseText = Get-JsonProperty -Object $content -Name "text"
+    if ($null -ne $responseText) {
+        $candidate = Find-StudioPayload -Json ([string] $responseText)
+        if ($null -ne $candidate) { return $candidate }
+    }
+
+    $log = Get-JsonProperty -Object $Json -Name "log"
+    $entries = Get-JsonProperty -Object $log -Name "entries"
+    if ($null -ne $entries) {
+        return Find-StudioPayload -Json @($entries)
+    }
+
+    if ($Json -is [pscustomobject]) {
+        foreach ($property in $Json.PSObject.Properties) {
+            if ($property.Name -like "__*") { continue }
+            $value = $property.Value
+            if ($null -eq $value) { continue }
+            if ($value -is [string] -and $value -notmatch "agentStudio_agentById") { continue }
+            $candidate = Find-StudioPayload -Json $value
+            if ($null -ne $candidate) { return $candidate }
         }
     }
 
@@ -260,6 +317,23 @@ if ($null -eq $payload) {
 }
 
 $agent = $payload.data.agentStudio_agentById
+
+$missingAgentFields = @()
+foreach ($field in @("description", "instructions", "conversationStarters", "knowledgeSources")) {
+    if ($null -eq $agent.PSObject.Properties[$field]) {
+        $missingAgentFields += $field
+    }
+}
+
+if (@($missingAgentFields).Count -gt 0) {
+    throw @"
+The Studio response in $RawPath contains agentStudio_agentById, but it is only a partial agent shell.
+Missing fields: $($missingAgentFields -join ", ")
+
+Capture a fuller GraphQL response that includes agent instructions/configuration, or export a HAR with response bodies and run scripts/Extract-StudioResponsesFromHar.ps1.
+"@
+}
+
 $scenarioEdges = @()
 if ($null -ne $payload.data.agentStudio_scenarioListByContainerId -and $null -ne $payload.data.agentStudio_scenarioListByContainerId.edges) {
     $scenarioEdges = @($payload.data.agentStudio_scenarioListByContainerId.edges)
@@ -273,33 +347,42 @@ New-Item -ItemType Directory -Force -Path $subagentDir | Out-Null
 $subagents = @()
 foreach ($edge in $scenarioEdges) {
     $node = $edge.node
+    $nodeTools = Get-FirstJsonProperty -Object $node -Names @("tools", "actions")
     $subagents += [ordered]@{
         name = [string] $node.name
         slug = ConvertTo-Slug -Value ([string] $node.name)
         active = [bool] $node.isActive
         default = [bool] $node.isDefault
-        webSearchEnabled = $node.isWebSearchEnabled
-        deepResearchEnabled = $node.isDeepResearchEnabled
-        knowledgeSources = ConvertTo-KnowledgeSources -KnowledgeSources $node.knowledgeSources
-        tools = @(ConvertTo-Tools -Tools $node.tools)
+        webSearchEnabled = Get-JsonProperty -Object $node -Name "isWebSearchEnabled"
+        deepResearchEnabled = Get-JsonProperty -Object $node -Name "isDeepResearchEnabled"
+        invocationDescriptionCaptured = $null -ne (Get-JsonProperty -Object $node -Name "invocationDescription")
+        instructionsCaptured = $null -ne (Get-JsonProperty -Object $node -Name "instructions")
+        knowledgeSources = ConvertTo-KnowledgeSources -KnowledgeSources (Get-JsonProperty -Object $node -Name "knowledgeSources")
+        tools = @(ConvertTo-Tools -Tools $nodeTools)
     }
 }
+
+$agentTools = Get-FirstJsonProperty -Object $agent -Names @("tools", "actions")
 
 $normalized = [ordered]@{
     schemaVersion = 1
     name = [string] $agent.name
     slug = $slug
     description = [string] $agent.description
-    isPublished = $agent.isPublished
-    responseStrategy = $agent.responseStrategy
+    isPublished = Get-JsonProperty -Object $agent -Name "isPublished"
+    responseStrategy = Get-JsonProperty -Object $agent -Name "responseStrategy"
     conversationStarters = @($agent.conversationStarters)
     parent = [ordered]@{
-        webSearchEnabled = $agent.isWebSearchEnabled
-        deepResearchEnabled = $agent.isDeepResearchEnabled
+        webSearchEnabled = Get-JsonProperty -Object $agent -Name "isWebSearchEnabled"
+        deepResearchEnabled = Get-JsonProperty -Object $agent -Name "isDeepResearchEnabled"
         knowledgeSources = ConvertTo-KnowledgeSources -KnowledgeSources $agent.knowledgeSources
-        tools = @(ConvertTo-Tools -Tools $agent.tools)
+        tools = @(ConvertTo-Tools -Tools $agentTools)
     }
     subagents = $subagents
+    captureNotes = [ordered]@{
+        parentToolsCaptured = $null -ne $agentTools
+        subagentInstructionsMayRequireSeparateCapture = $true
+    }
 }
 
 Write-SimpleYaml -Value $normalized -Path (Join-Path $agentDir "agent.yml")
@@ -318,27 +401,32 @@ foreach ($edge in $scenarioEdges) {
         active = [bool] $node.isActive
         default = [bool] $node.isDefault
         studioType = "scenario"
-        webSearchEnabled = $node.isWebSearchEnabled
-        deepResearchEnabled = $node.isDeepResearchEnabled
+        webSearchEnabled = Get-JsonProperty -Object $node -Name "isWebSearchEnabled"
+        deepResearchEnabled = Get-JsonProperty -Object $node -Name "isDeepResearchEnabled"
+        invocationDescriptionCaptured = $null -ne (Get-JsonProperty -Object $node -Name "invocationDescription")
+        instructionsCaptured = $null -ne (Get-JsonProperty -Object $node -Name "instructions")
     }
     $frontMatterPath = Join-Path $subagentDir "$scenarioSlug.meta.yml"
     Write-SimpleYaml -Value $frontMatter -Path $frontMatterPath
 
-    $tools = @(ConvertTo-Tools -Tools $node.tools)
+    $tools = @(ConvertTo-Tools -Tools (Get-FirstJsonProperty -Object $node -Names @("tools", "actions")))
     $toolLines = if (@($tools).Count -eq 0) { "_None captured._" } else { ($tools | ForEach-Object { "- $($_.displayName) ($($_.riskTier))" }) -join "`n" }
-    $knowledge = ConvertTo-KnowledgeSources -KnowledgeSources $node.knowledgeSources
+    $knowledge = ConvertTo-KnowledgeSources -KnowledgeSources (Get-JsonProperty -Object $node -Name "knowledgeSources")
     $knowledgeLines = if (@($knowledge.sources).Count -eq 0) { "_None captured._" } else { (@($knowledge.sources) | ForEach-Object { "- $($_.source), enabled=$($_.enabled)" }) -join "`n" }
+    $invocationDescription = Get-JsonProperty -Object $node -Name "invocationDescription"
+    $instructions = Get-JsonProperty -Object $node -Name "instructions"
+    $instructionText = if ($null -eq $instructions) { "_Not captured in this Studio response._" } else { [string] $instructions }
 
     $content = @"
 # $($node.name)
 
 ## Invocation
 
-$($node.invocationDescription)
+$invocationDescription
 
 ## Instructions
 
-$($node.instructions)
+$instructionText
 
 ## Knowledge Sources
 

@@ -10,15 +10,15 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 | 1.2 | Move CoP 5/15/26 under Working Group Notes | P1 | None | Space admin | CoP page is a child of Working Group Notes. |
 | 1.3 | Move Confluence Formatting Standards under Governance and Safety | P1 | None | Space admin | Governance and Safety parent exists. Formatting Standards is a child page. |
 | 1.4 | Promote Pattern Library patterns to child pages | P2 | None | Working group lead | Each core pattern is individually linkable. Parent page is an index. |
-| 1.5 | Update Space Structure and Navigation | P1 | 1.1-1.4 | Space admin | Page tree documentation matches actual structure. |
-| 1.6 | Update Agent Governance Home | P1 | 1.1-1.5 | Space admin | New top-level sections are linked. Recommended structure is current. |
+| 1.5 | Update Space Structure and Navigation | P1 | 1.1-1.4 | Space admin | Page tree documentation matches actual structure, including the `Governance and Safety` section. |
+| 1.6 | Update Agent Governance Home | P1 | 1.1-1.5 | Space admin | Done: `Governance and Safety` is linked from the recommended structure list. Continue refreshing this page as later structure changes land. |
 
 ## Milestone 2: Template Creation
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
 | 2.1 | Create Agent Design Record Template | P0 | None | Working group lead | Template exists under Templates and includes sections from `templates/confluence/agent-design-record-template.md`. |
-| 2.2 | Create Context Readiness Checklist | P0 | None | Working group lead | Top-level page exists with criteria table, scoring rubric, and remediation table. |
+| 2.2 | Create Context Readiness Checklist | P0 | None | Working group lead | Done: page-ready draft exists at `docs/confluence-pages/context-readiness-checklist.md`; Confluence page created under `Governance and Safety`. |
 | 2.3 | Create Agent Governance Review Template | P1 | None | Working group lead | Template exists under Templates with human-facing checklist. |
 | 2.4 | Create Agent ADR Template | P1 | None | Working group lead | Template exists under Templates. |
 | 2.5 | Create Decision Log index page | P1 | 2.4 | Working group lead | Page exists with ADR naming convention. |
@@ -27,7 +27,7 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
-| 3.1 | Create Governance and Safety section | P0 | 1.3 | Working group lead | Parent page exists with Governance Review Checklist, Known Risks and Limitations, and Formatting Standards as children. |
+| 3.1 | Create Governance and Safety section | P0 | 1.3 | Working group lead | Done: parent page exists under Agent Governance Home. Remaining children to move or create include Governance Review Checklist, Known Risks and Limitations, and Formatting Standards. |
 | 3.2 | Create Known Risks and Limitations page | P1 | None | Working group lead | Page includes platform limitations, organizational risks, mitigations, and workarounds. |
 | 3.3 | Add Context Readiness Assessment to Doc Health Gate | P1 | 2.2 | Meta-agent owner | Doc Health Gate includes context readiness as a P1 audit check. |
 | 3.4 | Add measurement plan check to Doc Health Gate | P1 | 5.1 | Meta-agent owner | Doc Health Gate includes measurement plan as a P1 check. |
@@ -49,7 +49,7 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
-| 5.1 | Create Measurement and Value Tracking page | P0 | None | Working group lead | Page exists with adoption, time saved, quality, rework, and satisfaction framework. |
+| 5.1 | Create Measurement and Value Tracking page | P0 | None | Working group lead | Done: page-ready draft exists at `docs/confluence-pages/measurement-and-value-tracking.md`; Confluence page created under `Governance and Safety`. |
 | 5.2 | Add success metrics to Release Health Analyst Project Brain | P1 | 5.1 | Agent owner | Release Health Analyst includes baseline and target metrics. |
 | 5.3 | Create quarterly review template | P2 | 5.1 | Working group lead | Template exists for portfolio review. |
 
@@ -57,7 +57,7 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
-| 6.1 | Create User Guide - Designing Agents | P1 | 1.5, 2.1 | Working group lead | A new builder can follow the guide without working group hand-holding. |
+| 6.1 | Create User Guide - Designing Agents | P1 | 1.5, 2.1 | Working group lead | Done: page-ready draft exists at `docs/confluence-pages/user-guide-designing-agents.md`; Confluence page created under `Governance and Safety`. |
 | 6.2 | Create Admin and Owner Guide | P2 | None | Space admin | Page exists with admin responsibilities, label management, review cadence, and retirement process. |
 | 6.3 | Create Backlog and Improvement Roadmap | P1 | None | Working group lead | All open CoP action items are migrated. |
 | 6.4 | Run pilot with one new builder | P1 | 6.1 | Working group lead | Builder completes process and at least three improvements are identified. |

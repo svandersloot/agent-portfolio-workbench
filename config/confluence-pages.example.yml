@@ -1,0 +1,38 @@
+# Copy this file to config/confluence-pages.yml when you are ready to publish
+# or update pages through the Confluence API. Keep real page IDs in the copied
+# local file if your organization treats them as sensitive.
+spaceKey: ROVO
+pages:
+  - slug: governance-and-safety
+    title: Governance and Safety
+    sourcePath: docs/confluence-pages/governance-and-safety.md
+    labels:
+      - agent-governance
+    pageId: null
+    parentPageId: null
+  - slug: measurement-and-value-tracking
+    title: Measurement and Value Tracking
+    sourcePath: docs/confluence-pages/measurement-and-value-tracking.md
+    parentSlug: governance-and-safety
+    labels:
+      - agent-governance
+      - agent-measurement
+    pageId: null
+    parentPageId: null
+  - slug: context-readiness-checklist
+    title: Context Readiness Checklist
+    sourcePath: docs/confluence-pages/context-readiness-checklist.md
+    parentSlug: governance-and-safety
+    labels:
+      - agent-governance
+      - context-readiness
+    pageId: null
+    parentPageId: null
+  - slug: user-guide-designing-agents
+    title: User Guide - Designing Agents
+    sourcePath: docs/confluence-pages/user-guide-designing-agents.md
+    parentSlug: governance-and-safety
+    labels:
+      - agent-governance
+    pageId: null
+    parentPageId: null
