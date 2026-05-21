@@ -309,6 +309,9 @@ Acceptance checks:
 - Dry-run targets exactly `Rovo Design Agent vNext - Rovo Studio Configuration`, page ID `5281349770`.
 - Published content replaces app/Forge routing with agent candidate routing.
 - Published content preserves the parent and five-subagent Studio configuration structure.
-- Parent instructions, subagent triggers, subagent instructions, knowledge sources, skills, and conversation starters remain copy-paste code blocks.
+- Parent conversation starters are 85 characters or fewer.
+- Subagent triggers, subagent instructions, knowledge sources, and skills remain copy-paste code blocks.
+- Only subagents have triggers; only the parent agent has conversation starters.
+- Post-copy capture workflow remains repo-only and is not published into this Confluence page.
 - Published content keeps Codex/repo-only pipeline language out of Confluence.
 - Studio update remains manual after the page publish.

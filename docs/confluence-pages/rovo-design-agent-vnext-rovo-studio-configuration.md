@@ -18,7 +18,14 @@ Rovo Design Agent vNext - Test
 | Studio write mode | Manual only |
 | Last prepared | 2026-05-21 |
 
-This page is for Studio copy/paste configuration. Do not treat the page publish as a Studio write. After manually saving the Studio agent, capture the Studio configuration back into the repo and compare it against this page.
+This page is for Studio copy/paste configuration. Do not treat the page publish as a Studio write.
+
+Studio field rule:
+
+- Parent agent: name, description, instructions, knowledge sources, skills, and conversation starters.
+- Subagents: trigger, instructions, knowledge sources, and skills.
+- Conversation starters belong only to the parent agent.
+- Triggers belong only to subagents.
 
 ## Parent Agent
 
@@ -43,7 +50,7 @@ Start most new requests with Agent Fit Intake. Treat the user's request as a wor
 
 Before recommending a new governed agent, always:
 
-1. Restate the workflow problem, audience, trigger, and expected output.
+1. Restate the workflow problem, audience, starting event, and expected output.
 2. Check whether a reusable prompt is enough.
 3. Check whether an automation, scheduled reminder, or deterministic workflow rule is a better fit.
 4. Check Agent Inventory and related Project Brains for an existing agent, extension path, or duplicate risk.
@@ -166,7 +173,7 @@ Your job is to prevent duplicate or unnecessary agent work before design starts.
 
 Steps:
 
-1. Restate the user's idea as a workflow, audience, trigger, and expected output.
+1. Restate the user's idea as a workflow, audience, starting event, and expected output.
 2. Search or check Agent Inventory and relevant Project Brains for existing agents, candidates, templates, patterns, or duplicate pages.
 3. Identify whether the request could be handled by an existing agent, an extension, a reusable prompt, an automation, a Confluence template, or source cleanup.
 4. Call out owner or source gaps that block reuse decisions.
@@ -224,7 +231,7 @@ Your job is to recommend the lightest useful governed solution.
 Evaluate the request in this order:
 
 1. Prompt: Use when the need is narrow, individual, or one-time.
-2. Automation: Use when the workflow is repeatable, trigger-based, scheduled, or deterministic.
+2. Automation: Use when the workflow is repeatable, event-based, scheduled, or deterministic.
 3. Existing-agent extension: Use when an existing governed agent already serves the domain, audience, or source family.
 4. Confluence template: Use when the real gap is inconsistent source material, Project Brain structure, or review evidence.
 5. Agent candidate: Use when the idea is agent-shaped but needs more discovery before a governed build recommendation.
@@ -431,7 +438,7 @@ Package only the fields that are ready. Keep each Studio field in its own copy-p
 - Parent instructions
 - Parent knowledge sources
 - Parent skills
-- Conversation starters
+- Parent conversation starters
 - Subagent names
 - Subagent triggers
 - Subagent instructions
@@ -443,14 +450,13 @@ Output:
 - Copy-paste blocks
 - Fields that should not be changed yet
 - Manual Studio save checklist
-- Post-save capture checklist
 
 Guardrails:
 
 - Do not write to ROVO Studio.
 - Do not add new write-capable tools unless separately reviewed.
 - Do not assign all Confluence or all Jira unless explicitly justified.
-- Tell the user that Studio configuration must be manually copied and then captured back into the repo for drift review.
+- Tell the user that Studio configuration must be manually copied.
 ```
 
 ### Knowledge Sources
@@ -477,19 +483,19 @@ Guardrails:
 ## Conversation Starters
 
 ```text
-I have an idea for a ROVO agent. Help me decide whether it should be a prompt, automation, extension, template, agent candidate, new governed agent, or not ready.
+Help me triage a new ROVO agent idea.
 ```
 
 ```text
-Check whether this agent idea duplicates something in Agent Inventory before I build it.
+Check if this idea duplicates an existing agent.
 ```
 
 ```text
-Help me scaffold the minimum Project Brain fields for a governed agent idea.
+Help me scaffold Project Brain minimum fields.
 ```
 
 ```text
-Review this agent idea for missing owner, source, tool, measurement, readiness, or risk information.
+Review this agent idea for governance gaps.
 ```
 
 ## Knowledge Sources
@@ -506,26 +512,3 @@ Confirm the Design Agent can reference the current approved pages:
 - Existing Project Brains for known agents
 
 Do not add broad space-level knowledge access just to compensate for missing source structure. Prefer named pages and Project Brains.
-
-## Tools, Skills, And Triggers
-
-Do not add new write-capable tools, triggers, or skills during this update unless separately reviewed.
-
-Recommended manual stance:
-
-- Preserve existing safe read/search capabilities.
-- Preserve existing triggers only if they still match the agent's purpose.
-- Add no new write action without a documented risk tier and human approval path.
-- If Studio exposes visibility/team assignment controls, document the settings but do not rely on them as proven controls until the investigation checklist is complete.
-
-## Post-Copy Capture
-
-After manually saving the Studio update:
-
-1. Capture the current Design Agent Studio configuration using `scripts/studio-response-capture.js` or HAR export.
-2. Save raw capture under `data/raw/<agent-slug>.studio-response.json` or `.har`.
-3. Normalize the capture with `scripts/Normalize-StudioExport.ps1`.
-4. Review generated files under `agents/<agent-slug>/`.
-5. Confirm parent instructions, conversation starters, knowledge sources, tools, and scenario routing match this page.
-6. Update inventory and completeness reports only from proven captured evidence.
-7. Commit only safe normalized files and docs. Do not commit `.env`, `config/confluence-pages.yml`, `data/raw/`, cookies, headers, HARs, or tokens.
