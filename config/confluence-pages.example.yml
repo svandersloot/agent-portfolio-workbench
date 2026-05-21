@@ -59,3 +59,11 @@ pages:
       - agent-governance
     pageId: null
     parentPageId: null
+  - slug: rovo-design-agent-vnext-rovo-studio-configuration
+    title: Rovo Design Agent vNext - Rovo Studio Configuration
+    sourcePath: docs/confluence-pages/rovo-design-agent-vnext-rovo-studio-configuration.md
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+    pageId: null
+    parentPageId: null

@@ -297,3 +297,16 @@ Acceptance checks:
 - Verifies parent instructions, routing, starters, knowledge sources, and tools/skills.
 - Updates inventory/completeness docs only from proven captured evidence.
 - Commits safe local artifacts only.
+
+## 17. Next: Publish Design Agent Studio Configuration Source
+
+```text
+/goal Publish the latest Rovo Design Agent vNext Studio Configuration source to the existing Confluence page https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5281349770/Rovo+Design+Agent+vNext+-+Rovo+Studio+Configuration. Use docs/confluence-pages/rovo-design-agent-vnext-rovo-studio-configuration.md and slug rovo-design-agent-vnext-rovo-studio-configuration. First run .\scripts\Publish-ConfluencePages.ps1 -Slug rovo-design-agent-vnext-rovo-studio-configuration -UpdateExisting and confirm it shows exactly one intended page, page ID 5281349770. Apply only after approval. Do not write to Studio.
+```
+
+Acceptance checks:
+
+- Dry-run targets exactly `Rovo Design Agent vNext - Rovo Studio Configuration`, page ID `5281349770`.
+- Published content replaces app/Forge routing with agent candidate routing.
+- Published content keeps Codex/repo-only pipeline language out of Confluence.
+- Studio update remains manual after the page publish.
