@@ -31,7 +31,7 @@ Acceptance checks:
 - `-Slug <slug> -UpdateExisting` limits the plan to one intended page.
 - `.env` and `config/confluence-pages.yml` remain ignored.
 
-## 3. Add Publish History Records
+## 3. Started: Add Publish History Records
 
 ```text
 /goal Add local publish-history records for Confluence page updates. For every API-assisted apply, record page ID, page title, old version, new version, source file, command, timestamp, and verification result under docs/publish-history/. Keep dry-run-first behavior and do not include tokens or private config values.
@@ -39,7 +39,7 @@ Acceptance checks:
 
 Acceptance checks:
 
-- A publish-history file is created for the Space Structure update already applied.
+- A publish-history file is created for the Agent Fit Intake page publish.
 - Future apply runs can produce a similar record.
 - The record is safe to commit.
 
@@ -75,11 +75,21 @@ Acceptance checks:
 - The model supports leadership reporting and builder reuse.
 - The first version does not require every existing page to be migrated at once.
 
-## 6. Define Agent Fit Intake And Status Policy
+## 6. Completed: Publish Agent Fit Intake And Status Policy
 
 ```text
 /goal Finalize and publish the Agent Fit Intake and lifecycle status policy for ROVO agents. Review docs/confluence-pages/agent-fit-intake.md, confirm the Design Agent can recommend prompt, automation, existing-agent extension, Confluence template, app candidate, new governed agent, or not ready, and publish it under Governance and Safety after a dry-run.
 ```
+
+Applied result:
+
+- Page: `Agent Fit Intake`
+- Page ID: `5301174273`
+- Parent: `Governance and Safety`
+- Parent page ID: `5297995845`
+- Version: `1`
+- Source: `docs/confluence-pages/agent-fit-intake.md`
+- Publish history: `docs/publish-history/2026-05-21-agent-fit-intake.md`
 
 Acceptance checks:
 
@@ -89,7 +99,32 @@ Acceptance checks:
 - Active/Ready approval is limited to the space maintainer and Atlassian admins.
 - Experimental agents are intended for a select audience while Studio visibility controls are investigated.
 
-## 7. Design Monthly Governance Snapshot
+## 7. Update Design Agent Intake Flow
+
+```text
+/goal Update the ROVO Design Agent guidance so new agent ideas start with Agent Fit Intake. The Design Agent should route ideas to prompt, automation, existing-agent extension, Confluence template, app candidate, new governed agent, or not ready; require the minimum Project Brain scaffolding fields before recommending build; and check inventory for duplicates before recommending a new governed agent.
+```
+
+Acceptance checks:
+
+- Design Agent uses `Agent Fit Intake` as the front door.
+- Design Agent can explicitly recommend not building an agent.
+- Design Agent requires owner, backup owner or needed note, status, knowledge sources, tools/actions, measurement idea, and readiness risks before scaffolding a Project Brain.
+- Design Agent checks for existing agents or pages before recommending `CREATE NEW`.
+
+## 8. Investigate Studio Visibility Controls
+
+```text
+/goal Investigate ROVO Studio team assignment and discoverability controls for Draft, In Review, and Experimental agents. Determine whether experimental agents can be limited to a select audience, document who can change visibility, and update the governance policy with recommended controls.
+```
+
+Acceptance checks:
+
+- Documents what Studio can and cannot restrict today.
+- Defines a practical control for Experimental agents.
+- Confirms Active/Ready approval remains limited to the space maintainer and Atlassian admins.
+
+## 9. Design Monthly Governance Snapshot
 
 ```text
 /goal Design the monthly ROVO agent governance snapshot. Define the sections, data inputs, and report format for leadership and interested builders, including what changed, what exists, what is ready, what is experimental, what is missing required governance fields, and what duplicate or reuse opportunities were found.

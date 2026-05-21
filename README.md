@@ -82,13 +82,15 @@ Completed Confluence pages:
 2. `Measurement and Value Tracking`
 3. `Context Readiness Checklist`
 4. `User Guide - Designing Agents`
+5. `Agent Fit Intake`
 
 The next recommended actions are:
 
 1. Merge the two inventory pages.
 2. Move CoP notes under Working Group Notes and create the Backlog page.
-3. Use the publisher update-mode for future page refreshes.
-4. Continue inventory cleanup.
+3. Update the ROVO Design Agent flow to use Agent Fit Intake.
+4. Investigate Studio team assignment and discoverability controls.
+5. Design the monthly governance snapshot.
 
 ## Why This Exists
 

@@ -37,7 +37,7 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
-| 4.1 | Add Agent Fit Intake to Design Agent flow | P0 | None | Meta-agent owner | Draft exists at `docs/confluence-pages/agent-fit-intake.md`. Design Agent helps route an idea to prompt, automation, existing-agent extension, Confluence template, new governed agent, app candidate, or not ready. Intake asks about problem, audience, repeatability, existing agents checked, knowledge, tools, owner, backup owner, measurement, and readiness risks. |
+| 4.1 | Add Agent Fit Intake to Design Agent flow | P0 | None | Meta-agent owner | Intake page published to Confluence as `Agent Fit Intake`. Next: update Design Agent behavior so it routes ideas to prompt, automation, existing-agent extension, Confluence template, new governed agent, app candidate, or not ready. |
 | 4.2 | Add context readiness pre-check to Design Agent | P1 | 2.2 | Meta-agent owner | Output includes readiness summary. Critical gaps can route to `NOT READY`. |
 | 4.3 | Add inventory dedup check to Design Agent | P1 | 1.1 | Meta-agent owner | Output states inventory was checked before recommending `CREATE NEW`. |
 | 4.4 | Add risk tier classification to Design Agent output | P2 | None | Meta-agent owner | Risk tier appears in every design packet. |
@@ -53,7 +53,7 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 | 5.1 | Create Measurement and Value Tracking page | P0 | None | Working group lead | Done: page-ready draft exists at `docs/confluence-pages/measurement-and-value-tracking.md`; Confluence page created under `Governance and Safety`. |
 | 5.2 | Add success metrics to Release Health Analyst Project Brain | P1 | 5.1 | Agent owner | Release Health Analyst includes baseline and target metrics. |
 | 5.3 | Create quarterly review template | P2 | 5.1 | Working group lead | Template exists for portfolio review. |
-| 5.4 | Add publish-history records | P1 | 5.1 | Space admin | Each API-assisted Confluence update records page ID, old version, new version, source file, command, timestamp, and verification result. |
+| 5.4 | Add publish-history records | P1 | 5.1 | Space admin | Started: `docs/publish-history/2026-05-21-agent-fit-intake.md` records page ID, old version, new version, source file, command, timestamp, and verification result. Next: automate or standardize this for every API-assisted apply. |
 | 5.5 | Create governance completeness report | P1 | 1.1, 5.4 | Space admin | Report identifies agents missing owner, backup owner, status, purpose, audience, knowledge sources, tools or skills, measurement plan, readiness status, Project Brain link, or last-reviewed date. |
 | 5.6 | Create duplicate-agent discovery report | P1 | 1.1 | Working group lead | Report helps builders find existing agents or patterns before creating new work. |
 | 5.7 | Create monthly governance snapshot | P1 | 5.5, 5.6 | Space admin | Monthly report summarizes what changed, what exists, what is ready, what is experimental, governance gaps, duplicate candidates, and reuse opportunities. |

@@ -55,7 +55,7 @@ See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The high
 
 1. Merge inventory pages.
 2. Move CoP notes and create Backlog and Improvement Roadmap.
-3. Add publish-history records for Confluence updates.
-4. Define the Agent Fit Intake and lifecycle status contract.
-5. Define the first structured agent inventory/completeness contract.
-6. Prepare inventory cleanup dry run.
+3. Update the ROVO Design Agent flow to use Agent Fit Intake.
+4. Investigate Studio team assignment and discoverability controls.
+5. Design the monthly governance snapshot.
+6. Define the first structured agent inventory/completeness contract.
