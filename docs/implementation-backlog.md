@@ -6,11 +6,11 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
-| 1.1 | Merge Agent Inventory pages | P0 | None | Space admin + Michael Holian | One canonical inventory page exists. `Rovo Agent Inventory Home` is archived with a legacy banner. Meta-agents point to the merged page. |
+| 1.1 | Merge Agent Inventory pages | P0 | None | Space admin + Michael Holian | Dry-run evidence suggests `Agent Inventory` is the canonical inventory page and `Rovo Agent Inventory Home` is the space overview/root. Preserve page history by updating links and applying any legacy/banner treatment without copy/recreate. |
 | 1.2 | Move CoP 5/15/26 under Working Group Notes | P1 | None | Space admin | CoP page is a child of Working Group Notes. |
 | 1.3 | Move Confluence Formatting Standards under Governance and Safety | P1 | None | Space admin | Governance and Safety parent exists. Formatting Standards is a child page. |
 | 1.4 | Promote Pattern Library patterns to child pages | P2 | None | Working group lead | Each core pattern is individually linkable. Parent page is an index. |
-| 1.5 | Update Space Structure and Navigation | P1 | 1.1-1.4 | Space admin | Page tree documentation matches actual structure, including the `Governance and Safety` section. |
+| 1.5 | Update Space Structure and Navigation | P1 | 1.1-1.4 | Space admin | Repo draft exists at `docs/confluence-pages/space-structure-and-navigation.md`; dry-run should update page `5281218620` from version 1 to version 2. |
 | 1.6 | Update Agent Governance Home | P1 | 1.1-1.5 | Space admin | Done: `Governance and Safety` is linked from the recommended structure list. Continue refreshing this page as later structure changes land. |
 
 ## Milestone 2: Template Creation

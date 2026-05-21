@@ -197,7 +197,24 @@ Create missing pages only after reviewing the dry-run:
 .\scripts\Publish-ConfluencePages.ps1 -Apply
 ```
 
-The current publisher creates missing pages and records returned page IDs in local `config/confluence-pages.yml`. It does not update existing pages yet.
+Dry-run an update for one existing page:
+
+```powershell
+.\scripts\Publish-ConfluencePages.ps1 `
+  -Slug space-structure-and-navigation `
+  -UpdateExisting
+```
+
+Apply an existing-page update only after reviewing the current and planned versions:
+
+```powershell
+.\scripts\Publish-ConfluencePages.ps1 `
+  -Slug space-structure-and-navigation `
+  -UpdateExisting `
+  -Apply
+```
+
+The publisher creates missing pages, records returned page IDs in local `config/confluence-pages.yml`, and can update existing pages when `-UpdateExisting` is passed. Use `-Slug` when applying updates so only the intended page changes.
 
 ## First Confluence Changes To Make
 

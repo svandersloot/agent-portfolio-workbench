@@ -3,6 +3,13 @@
 # local file if your organization treats them as sensitive.
 spaceKey: ROVO
 pages:
+  - slug: space-structure-and-navigation
+    title: Space Structure and Navigation
+    sourcePath: docs/confluence-pages/space-structure-and-navigation.md
+    labels:
+      - agent-governance
+    pageId: null
+    parentPageId: null
   - slug: governance-and-safety
     title: Governance and Safety
     sourcePath: docs/confluence-pages/governance-and-safety.md

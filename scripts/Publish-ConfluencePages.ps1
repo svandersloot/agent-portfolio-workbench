@@ -2,6 +2,8 @@
 param(
     [string] $EnvPath = ".\.env",
     [string] $ConfigPath = ".\config\confluence-pages.yml",
+    [string[]] $Slug,
+    [switch] $UpdateExisting,
     [switch] $Apply
 )
 
@@ -252,6 +254,16 @@ function Find-ConfluencePageByTitle {
     return Invoke-RestMethod -Method Get -Uri $uri -Headers $Headers
 }
 
+function Get-ConfluencePageById {
+    param(
+        [Parameter(Mandatory = $true)][string] $BaseUrl,
+        [Parameter(Mandatory = $true)][hashtable] $Headers,
+        [Parameter(Mandatory = $true)][string] $PageId
+    )
+
+    return Invoke-RestMethod -Method Get -Uri "$BaseUrl/api/v2/pages/$PageId`?body-format=storage" -Headers $Headers
+}
+
 function New-ConfluencePage {
     param(
         [Parameter(Mandatory = $true)][string] $BaseUrl,
@@ -282,6 +294,34 @@ function New-ConfluencePage {
     return Invoke-RestMethod -Method Post -Uri "$BaseUrl/rest/api/content" -Headers $Headers -Body $json
 }
 
+function Update-ConfluencePage {
+    param(
+        [Parameter(Mandatory = $true)][string] $BaseUrl,
+        [Parameter(Mandatory = $true)][hashtable] $Headers,
+        [Parameter(Mandatory = $true)][string] $PageId,
+        [Parameter(Mandatory = $true)][string] $Title,
+        [Parameter(Mandatory = $true)][string] $StorageValue,
+        [Parameter(Mandatory = $true)][int] $VersionNumber
+    )
+
+    $body = [ordered]@{
+        id = $PageId
+        status = "current"
+        title = $Title
+        body = @{
+            representation = "storage"
+            value = $StorageValue
+        }
+        version = @{
+            number = $VersionNumber
+            message = "Publish from local governance source"
+        }
+    }
+
+    $json = $body | ConvertTo-Json -Depth 100
+    return Invoke-RestMethod -Method Put -Uri "$BaseUrl/api/v2/pages/$PageId" -Headers $Headers -Body $json
+}
+
 function Add-ConfluenceLabels {
     param(
         [Parameter(Mandatory = $true)][string] $BaseUrl,
@@ -298,12 +338,13 @@ function Add-ConfluenceLabels {
 function Write-LocalPageIds {
     param(
         [Parameter(Mandatory = $true)][string] $ConfigPath,
+        [Parameter(Mandatory = $true)][string] $SpaceKey,
         [Parameter(Mandatory = $true)] $Pages
     )
 
     $lines = New-Object System.Collections.Generic.List[string]
     $lines.Add("# Local Confluence page publishing targets. This file is ignored by Git.")
-    $lines.Add("spaceKey: ROVO")
+    $lines.Add("spaceKey: $SpaceKey")
     $lines.Add("pages:")
     foreach ($page in $Pages) {
         $lines.Add("  - slug: $($page.slug)")
@@ -331,19 +372,37 @@ $baseUrl = $envConfig["CONFLUENCE_API_BASE"].TrimEnd("/")
 $headers = New-ConfluenceHeaders -Config $envConfig
 
 $createdOrPlanned = @()
+$requestedSlugs = @($Slug | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
 $pageBySlug = @{}
 foreach ($page in $pageConfig.pages) {
     $pageBySlug[$page.slug] = $page
 }
 
-foreach ($page in $pageConfig.pages) {
+$selectedPages = @($pageConfig.pages)
+if ($requestedSlugs.Count -gt 0) {
+    $selectedPages = @($pageConfig.pages | Where-Object { $requestedSlugs -contains $_.slug })
+    foreach ($requestedSlug in $requestedSlugs) {
+        if (-not $pageBySlug.ContainsKey($requestedSlug)) {
+            throw "Unknown slug '$requestedSlug' in $ConfigPath"
+        }
+    }
+}
+
+foreach ($page in $selectedPages) {
     if (-not (Test-Path -LiteralPath $page.sourcePath)) {
         throw "Missing sourcePath for $($page.slug): $($page.sourcePath)"
     }
 
-    $existing = Find-ConfluencePageByTitle -BaseUrl $baseUrl -Headers $headers -SpaceKey $pageConfig.spaceKey -Title $page.title
-    if ($existing.size -gt 0) {
-        $page.pageId = [string] $existing.results[0].id
+    $existingPage = $null
+    if ($page.PSObject.Properties["pageId"] -and -not [string]::IsNullOrWhiteSpace($page.pageId)) {
+        $existingPage = Get-ConfluencePageById -BaseUrl $baseUrl -Headers $headers -PageId $page.pageId
+    }
+    else {
+        $existing = Find-ConfluencePageByTitle -BaseUrl $baseUrl -Headers $headers -SpaceKey $pageConfig.spaceKey -Title $page.title
+        if ($existing.size -gt 0) {
+            $page.pageId = [string] $existing.results[0].id
+            $existingPage = Get-ConfluencePageById -BaseUrl $baseUrl -Headers $headers -PageId $page.pageId
+        }
     }
 
     $parentPageId = $page.parentPageId
@@ -354,7 +413,23 @@ foreach ($page in $pageConfig.pages) {
         $parentPageId = $pageBySlug[$page.parentSlug].pageId
     }
 
-    $action = if ([string]::IsNullOrWhiteSpace($page.pageId)) { "create" } else { "exists" }
+    $currentVersion = $null
+    $plannedVersion = $null
+    if ($null -ne $existingPage) {
+        $currentVersion = [int] $existingPage.version.number
+        $plannedVersion = if ($UpdateExisting) { $currentVersion + 1 } else { $null }
+    }
+
+    $action = if ([string]::IsNullOrWhiteSpace($page.pageId)) {
+        "create"
+    }
+    elseif ($UpdateExisting) {
+        "update"
+    }
+    else {
+        "exists"
+    }
+
     $createdPageId = $page.pageId
     if ($Apply -and $action -eq "create") {
         if ($page.PSObject.Properties["parentSlug"] -and -not [string]::IsNullOrWhiteSpace($page.parentSlug) -and [string]::IsNullOrWhiteSpace($parentPageId)) {
@@ -369,6 +444,13 @@ foreach ($page in $pageConfig.pages) {
             Add-ConfluenceLabels -BaseUrl $baseUrl -Headers $headers -PageId $createdPageId -Labels @($page.labels) | Out-Null
         }
     }
+    elseif ($Apply -and $action -eq "update") {
+        $markdown = Get-Content -LiteralPath $page.sourcePath -Raw
+        $storage = ConvertTo-ConfluenceStorage -Markdown $markdown
+        $updated = Update-ConfluencePage -BaseUrl $baseUrl -Headers $headers -PageId $page.pageId -Title $page.title -StorageValue $storage -VersionNumber $plannedVersion
+        $currentVersion = [int] $updated.version.number
+        $plannedVersion = $currentVersion
+    }
 
     $createdOrPlanned += [pscustomobject]@{
         slug = $page.slug
@@ -376,17 +458,21 @@ foreach ($page in $pageConfig.pages) {
         action = $action
         pageId = $createdPageId
         parentPageId = $parentPageId
+        currentVersion = $currentVersion
+        plannedVersion = $plannedVersion
         sourcePath = $page.sourcePath
         labels = @($page.labels)
     }
 }
 
 if ($Apply) {
-    Write-LocalPageIds -ConfigPath $ConfigPath -Pages $pageConfig.pages
+    Write-LocalPageIds -ConfigPath $ConfigPath -SpaceKey $pageConfig.spaceKey -Pages $pageConfig.pages
 }
 
 [pscustomobject]@{
     mode = if ($Apply) { "apply" } else { "dry-run" }
+    updateExisting = [bool] $UpdateExisting
+    selectedSlugs = @($requestedSlugs)
     spaceKey = $pageConfig.spaceKey
     pageCount = @($createdOrPlanned).Count
     pages = @($createdOrPlanned)

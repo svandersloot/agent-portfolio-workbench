@@ -82,10 +82,10 @@ Completed Confluence pages:
 
 The next recommended actions are:
 
-1. Update `Space Structure and Navigation` so it matches the actual page tree.
+1. Apply the reviewed `Space Structure and Navigation` update through publisher update-mode.
 2. Merge the two inventory pages.
 3. Move CoP notes under Working Group Notes and create the Backlog page.
-4. Add update-mode support to the Confluence publisher.
+4. Use the publisher update-mode for future page refreshes.
 5. Continue inventory cleanup.
 
 ## Why This Exists
