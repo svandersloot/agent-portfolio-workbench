@@ -165,14 +165,24 @@ Completed local artifact:
 
 - `templates/confluence/monthly-governance-snapshot-template.md`
 
-## 10. Apply Agent Fit Intake Update After Approval
+## 10. Completed: Apply Governance Front Door Updates
 
 ```text
 /goal Review the local Agent Fit Intake update, then run .\scripts\Publish-ConfluencePages.ps1 -Slug agent-fit-intake -UpdateExisting as a dry-run. Apply only after confirming the plan shows exactly one intended page: Agent Fit Intake, page ID 5301174273, currentVersion 1, plannedVersion 2. Do not change Studio.
 ```
 
+Applied result:
+
+- `Agent Fit Intake` updated from version `1` to `2`.
+- `Governance and Safety` updated from version `1` to `2`.
+- `Measurement and Value Tracking` updated from version `1` to `2`.
+- `User Guide - Designing Agents` updated from version `1` to `2`.
+- Publish history: `docs/publish-history/2026-05-21-governance-front-door-updates.md`.
+- No Studio changes were made; Studio configuration remains a manual copy step.
+
 Acceptance checks:
 
-- Dry-run targets only `Agent Fit Intake`.
-- Apply is run only after explicit approval.
-- Publish history is updated with old version, new version, source file, command, timestamp, and verification result.
+- Dry-runs targeted exactly one intended page per command.
+- Applies were run after approval.
+- Post-apply dry-runs confirmed all four pages at `currentVersion: 2`.
+- Publish history records old version, new version, source file, command, timestamp, and verification result.
