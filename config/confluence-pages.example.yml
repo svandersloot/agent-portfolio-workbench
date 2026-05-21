@@ -10,6 +10,15 @@ pages:
       - agent-governance
     pageId: null
     parentPageId: null
+  - slug: agent-fit-intake
+    title: Agent Fit Intake
+    sourcePath: docs/confluence-pages/agent-fit-intake.md
+    parentSlug: governance-and-safety
+    labels:
+      - agent-governance
+      - agent-intake
+    pageId: null
+    parentPageId: null
   - slug: governance-and-safety
     title: Governance and Safety
     sourcePath: docs/confluence-pages/governance-and-safety.md

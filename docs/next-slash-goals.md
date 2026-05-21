@@ -78,7 +78,7 @@ Acceptance checks:
 ## 6. Define Agent Fit Intake And Status Policy
 
 ```text
-/goal Define the Agent Fit Intake and lifecycle status policy for ROVO agents. Capture the intake questions builders should answer before creating a new agent, define statuses Idea, Draft, In Review, Experimental, Active, Needs Remediation, and Deprecated, and document who can mark an agent Active or Ready. Include an open investigation item for Studio team assignment and discoverability controls.
+/goal Finalize and publish the Agent Fit Intake and lifecycle status policy for ROVO agents. Review docs/confluence-pages/agent-fit-intake.md, confirm the Design Agent can recommend prompt, automation, existing-agent extension, Confluence template, app candidate, new governed agent, or not ready, and publish it under Governance and Safety after a dry-run.
 ```
 
 Acceptance checks:
@@ -86,7 +86,8 @@ Acceptance checks:
 - Intake supports chat-driven requests and Design Agent-guided scaffolding.
 - Intake routes ideas to prompt, automation, existing-agent extension, new governed agent, app candidate, or not ready.
 - Status definitions are clear enough for builders and leadership reporting.
-- Active/Ready approval is limited to a small designated owner group.
+- Active/Ready approval is limited to the space maintainer and Atlassian admins.
+- Experimental agents are intended for a select audience while Studio visibility controls are investigated.
 
 ## 7. Design Monthly Governance Snapshot
 

@@ -37,7 +37,7 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
-| 4.1 | Add Agent Fit Intake to Design Agent flow | P0 | None | Meta-agent owner | Design Agent helps route an idea to prompt, automation, existing-agent extension, new governed agent, app candidate, or not ready. Intake asks about problem, audience, repeatability, existing agents checked, knowledge, tools, owner, backup owner, measurement, and readiness risks. |
+| 4.1 | Add Agent Fit Intake to Design Agent flow | P0 | None | Meta-agent owner | Draft exists at `docs/confluence-pages/agent-fit-intake.md`. Design Agent helps route an idea to prompt, automation, existing-agent extension, Confluence template, new governed agent, app candidate, or not ready. Intake asks about problem, audience, repeatability, existing agents checked, knowledge, tools, owner, backup owner, measurement, and readiness risks. |
 | 4.2 | Add context readiness pre-check to Design Agent | P1 | 2.2 | Meta-agent owner | Output includes readiness summary. Critical gaps can route to `NOT READY`. |
 | 4.3 | Add inventory dedup check to Design Agent | P1 | 1.1 | Meta-agent owner | Output states inventory was checked before recommending `CREATE NEW`. |
 | 4.4 | Add risk tier classification to Design Agent output | P2 | None | Meta-agent owner | Risk tier appears in every design packet. |

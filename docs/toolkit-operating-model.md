@@ -78,7 +78,9 @@ Use these starting statuses for governed ROVO agents and agent ideas:
 - `Needs Remediation`: usable only with tracked fixes, or paused until gaps are addressed.
 - `Deprecated`: replaced, retired, or no longer recommended.
 
-Only a small designated owner group should be able to mark an agent as `Active` or broadly `Ready`. The exact Studio control model still needs investigation, including whether team assignment can reduce discoverability for draft or experimental agents.
+Only the space maintainer and Atlassian admins should be able to mark an agent as `Active` or broadly `Ready` in the first operating model. The exact Studio control model still needs investigation, including whether team assignment can reduce discoverability for draft or experimental agents.
+
+Experimental agents should be visible only to a select audience. If Studio team assignment can limit discoverability, use that for `Draft`, `In Review`, and `Experimental` agents until they are approved.
 
 ## Success Measures
 
@@ -103,7 +105,9 @@ Secondary measures:
 
 Current intake is informal and often chat-driven. The near-term process should support that reality instead of pretending Jira or formal intake already exists.
 
-The first response to a new agent idea should usually be: use the ROVO Design Agent. The Design Agent should guide the builder to the Confluence governance docs, scaffold the documentation, and decide whether the need should be a prompt, automation, existing-agent extension, new governed agent, app candidate, or not ready yet.
+The first response to a new agent idea should usually be: use the ROVO Design Agent. The Design Agent should guide the builder to the Confluence governance docs, scaffold the documentation, and decide whether the need should be a prompt, automation, existing-agent extension, Confluence template, new governed agent, app candidate, or not ready yet.
+
+The Design Agent is allowed to recommend "do not build an agent" when the need is better served by a prompt, automation, existing page/template, existing agent, app, or no durable solution yet.
 
 The toolkit should help turn informal requests into structured governance artifacts:
 
@@ -133,6 +137,21 @@ The intake should ask:
 - What would make the agent unsafe or not ready?
 
 The intake should feed the Design Agent, inventory check, Project Brain scaffold, and future governance reports.
+
+Minimum information before scaffolding a Project Brain:
+
+- Problem statement
+- Intended users or audience
+- Owner
+- Backup owner, or a note that one is needed
+- Proposed status
+- Existing agents or pages checked
+- Knowledge sources needed
+- Tools, skills, or actions needed
+- Measurement idea
+- Readiness risks or unknowns
+
+If these fields are not known, the idea can remain `Idea` status, but it should not be treated as ready for build.
 
 ## Reporting Direction
 
