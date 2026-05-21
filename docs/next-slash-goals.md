@@ -186,3 +186,37 @@ Acceptance checks:
 - Applies were run after approval.
 - Post-apply dry-runs confirmed all four pages at `currentVersion: 2`.
 - Publish history records old version, new version, source file, command, timestamp, and verification result.
+
+## 11. Completed Locally: Governance Reporting Slice
+
+```text
+/goal Execute the next governance backlog slice excluding manual Studio edits. Work dry-run-first and do not write to Studio. First, complete the Agent Inventory cleanup dry-run: treat Agent Inventory as canonical unless evidence contradicts it, treat Rovo Agent Inventory Home as the overview/root, compare references to both, and recommend history-preserving link updates, moves, or legacy/banner steps without copy/recreate. Then run the read-only Studio visibility/team-assignment investigation using the local checklist and document what can and cannot be restricted for Draft, In Review, and Experimental agents. Next, implement local read-only reporting artifacts for the first governance completeness report, duplicate-agent discovery report, and monthly governance snapshot using the existing completeness contract, inventory evidence, publish history, and current repo docs. Update docs/implementation-backlog.md, docs/next-slash-goals.md, docs/roadmap.md, and any needed templates or docs. Do not publish Confluence changes unless a focused dry-run shows exactly one intended page and I approve the apply step. Keep .env and config/confluence-pages.yml out of Git. End by validating JSON/Markdown where applicable and committing safe local changes.
+```
+
+Completed local artifacts:
+
+- `docs/reports/inventory-cleanup-dry-run.md`
+- `docs/reports/studio-visibility-team-assignment-investigation.md`
+- `docs/reports/governance-completeness-dry-run.md`
+- `docs/reports/duplicate-agent-discovery-dry-run.md`
+- `docs/reports/monthly-governance-snapshot-2026-05.md`
+
+Acceptance checks:
+
+- No Studio writes were performed.
+- No Confluence writes were performed.
+- Inventory cleanup remains a dry-run plan with history-preserving recommendations.
+- Studio visibility report clearly states that local exports do not prove team assignment/discoverability controls and require manual Studio/admin confirmation.
+- Completeness, duplicate-agent, and monthly snapshot reports use the existing contract and local evidence.
+
+## 12. Next: Inventory Cleanup Apply Plan
+
+```text
+/goal Prepare focused Confluence update plans from docs/reports/inventory-cleanup-dry-run.md. First, update only the local source draft needed for Agent Inventory to add the completeness contract fields and harvested inventory-home field concepts. Then run a dry-run that targets exactly Agent Inventory. Do not apply until I approve. Do not copy/recreate pages, and do not write to Studio.
+```
+
+Acceptance checks:
+
+- Plan preserves `Agent Inventory` as canonical and `Rovo Agent Inventory Home` as overview/root.
+- Any proposed Confluence write targets exactly one intended page.
+- Legacy/banner actions for duplicate pages remain separate per-page dry-runs.

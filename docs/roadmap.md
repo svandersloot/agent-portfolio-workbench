@@ -14,7 +14,7 @@
 - Define the Agent Fit Intake contract.
 - Done locally: define the non-negotiable governance fields for every governed ROVO agent in `docs/agent-governance-completeness-contract.md` and `schemas/agent-governance-record.schema.json`.
 - Done locally: define lifecycle statuses: Idea, Draft, In Review, Experimental, Active, Needs Remediation, and Deprecated.
-- Started locally: investigate Studio team assignment and discoverability controls for draft and experimental agents with a read-only checklist.
+- Local read-only Studio visibility investigation completed from repo/export evidence; manual Studio/admin confirmation is still required.
 - Lint normalized configs for risky changes.
 - Flag broad knowledge sources.
 - Flag high-risk tools without approval language.
@@ -37,8 +37,8 @@
 ## Phase 4: Inventory And Reporting
 
 - Move toward a hybrid inventory where Confluence remains human-readable and a structured local inventory file supports checks and reports.
-- Generate human-facing reports for new agents, duplicate candidates, governance gaps, stale pages, and recent page updates.
-- Generate a monthly governance snapshot for leadership and interested builders.
+- Started: generate human-facing reports for new agents, duplicate candidates, governance gaps, stale pages, and recent page updates.
+- Started: generate a monthly governance snapshot for leadership and interested builders.
 - Done locally: maintain a monthly governance snapshot template for leadership and builders.
 - Produce builder-facing "what already exists" summaries before new agent work begins.
 
@@ -54,9 +54,9 @@ Do not build write-back to Studio until Atlassian exposes a stable supported API
 
 See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The highest-return items are:
 
-1. Merge inventory pages.
-2. Move CoP notes and create Backlog and Improvement Roadmap.
-3. Dry-run and, after approval, apply the Agent Fit Intake update that operationalizes the Design Agent flow.
-4. Run the read-only Studio team assignment and discoverability investigation.
-5. Build the first governance completeness report from the new contract.
-6. Generate the first monthly governance snapshot from inventory, completeness, publish history, and intake data.
+1. Review and approve focused Confluence updates from the inventory cleanup dry-run.
+2. Manually copy the published Design Agent guidance into ROVO Studio.
+3. Confirm Studio visibility/team assignment controls with manual Studio/admin inspection.
+4. Move CoP notes and create Backlog and Improvement Roadmap.
+5. Make the completeness, duplicate-agent, and monthly snapshot reports repeatable.
+6. Compare duplicate page bodies before any legacy-banner or archive action.

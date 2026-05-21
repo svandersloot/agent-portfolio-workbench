@@ -34,7 +34,7 @@ This contract defines the minimum fields required for every governed ROVO agent.
 
 | Status | Policy |
 |---|---|
-| Idea | The request is being shaped. It may be a prompt, automation, template, app, existing-agent extension, new agent, or not ready. It does not require a complete Project Brain. |
+| Idea | The request is being shaped. It may be a prompt, automation, template, agent candidate, existing-agent extension, new agent, or not ready. It does not require a complete Project Brain. |
 | Draft | The agent design or Project Brain scaffold exists. Required ownership, purpose, audience, source, tool, and readiness fields should be captured before review. |
 | In Review | The agent package is being checked for fit, duplicate risk, ownership, source readiness, measurement, and safety. It should not be promoted to Active without reviewer approval. |
 | Experimental | The agent can be piloted with a select audience, defined guardrails, and active owner monitoring. It should not be represented as broadly approved. |

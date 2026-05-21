@@ -6,7 +6,7 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
-| 1.1 | Merge Agent Inventory pages | P0 | None | Space admin + Michael Holian | Dry-run evidence suggests `Agent Inventory` is the canonical inventory page and `Rovo Agent Inventory Home` is the space overview/root. Preserve page history by updating links and applying any legacy/banner treatment without copy/recreate. |
+| 1.1 | Merge Agent Inventory pages | P0 | None | Space admin + Michael Holian | Dry-run plan exists at `docs/reports/inventory-cleanup-dry-run.md`. Next: approve focused Confluence updates to add harvested fields to `Agent Inventory` and clarify `Rovo Agent Inventory Home` as overview/root without copy/recreate. |
 | 1.2 | Move CoP 5/15/26 under Working Group Notes | P1 | None | Space admin | CoP page is a child of Working Group Notes. |
 | 1.3 | Move Confluence Formatting Standards under Governance and Safety | P1 | None | Space admin | Governance and Safety parent exists. Formatting Standards is a child page. |
 | 1.4 | Promote Pattern Library patterns to child pages | P2 | None | Working group lead | Each core pattern is individually linkable. Parent page is an index. |
@@ -45,7 +45,7 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 | 4.5 | Update Doc Steward to check measurement plans | P1 | None | Meta-agent owner | Missing measurement plan is flagged as P1. |
 | 4.6 | Update Doc Steward to generate completeness score | P2 | None | Meta-agent owner | Doc Health Gate output includes completeness percentage. |
 | 4.7 | Update Evaluation Library with new scenarios | P2 | 4.1-4.5 | Meta-agent owner | At least three new test cases per meta-agent cover new capabilities. |
-| 4.8 | Investigate Studio visibility and team assignment | P1 | None | Atlassian admin + space admin | Read-only checklist exists at `docs/studio-visibility-team-assignment-investigation-checklist.md`. Next: run investigation without Studio writes and document what controls are available. |
+| 4.8 | Investigate Studio visibility and team assignment | P1 | None | Atlassian admin + space admin | Local read-only investigation exists at `docs/reports/studio-visibility-team-assignment-investigation.md`. Next: manually confirm Studio/admin controls because local exports do not expose team assignment or discoverability fields. |
 
 ## Milestone 5: Measurement And Reporting
 
@@ -55,9 +55,9 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 | 5.2 | Add success metrics to Release Health Analyst Project Brain | P1 | 5.1 | Agent owner | Release Health Analyst includes baseline and target metrics. |
 | 5.3 | Create quarterly review template | P2 | 5.1 | Working group lead | Template exists for portfolio review. |
 | 5.4 | Add publish-history records | P1 | 5.1 | Space admin | Started: `docs/publish-history/2026-05-21-agent-fit-intake.md` records page ID, old version, new version, source file, command, timestamp, and verification result. Next: automate or standardize this for every API-assisted apply. |
-| 5.5 | Create governance completeness report | P1 | 1.1, 5.4 | Space admin | Contract and dry-run report shape are defined locally. Next: implement read-only report that identifies missing owner, backup owner, status, purpose, audience, knowledge sources, tools or skills, measurement plan, readiness status, Project Brain link, or last-reviewed date. |
-| 5.6 | Create duplicate-agent discovery report | P1 | 1.1 | Working group lead | Report helps builders find existing agents or patterns before creating new work. |
-| 5.7 | Create monthly governance snapshot | P1 | 5.5, 5.6 | Space admin | Done locally: template exists at `templates/confluence/monthly-governance-snapshot-template.md` for leadership and builders. Next: generate it from inventory, completeness, publish history, and intake data. |
+| 5.5 | Create governance completeness report | P1 | 1.1, 5.4 | Space admin | First read-only dry-run exists at `docs/reports/governance-completeness-dry-run.md`. Next: make it repeatable after inventory cleanup and normalized Studio captures are current. |
+| 5.6 | Create duplicate-agent discovery report | P1 | 1.1 | Working group lead | First read-only dry-run exists at `docs/reports/duplicate-agent-discovery-dry-run.md`. Next: compare duplicate page bodies one page group at a time before any legacy-banner or archive action. |
+| 5.7 | Create monthly governance snapshot | P1 | 5.5, 5.6 | Space admin | First snapshot exists at `docs/reports/monthly-governance-snapshot-2026-05.md`; reusable template exists at `templates/confluence/monthly-governance-snapshot-template.md`. Next: generate future snapshots from inventory, completeness, publish history, and intake data. |
 
 ## Milestone 6: Pilot And Feedback Loop
 

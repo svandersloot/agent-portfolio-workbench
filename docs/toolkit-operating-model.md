@@ -107,7 +107,7 @@ Current intake is informal and often chat-driven. The near-term process should s
 
 The first response to a new agent idea should usually be: use the ROVO Design Agent. The Design Agent should guide the builder to the Confluence governance docs, scaffold the documentation, and decide whether the need should be a prompt, automation, existing-agent extension, Confluence template, agent candidate, new governed agent, or not ready yet.
 
-The Design Agent is allowed to recommend "do not build an agent" when the need is better served by a prompt, automation, existing page/template, existing agent, app, or no durable solution yet.
+The Design Agent is allowed to recommend "do not build an agent" when the need is better served by a prompt, automation, existing page/template, existing agent, agent-candidate discovery path, or no durable solution yet.
 
 The toolkit should help turn informal requests into structured governance artifacts:
 

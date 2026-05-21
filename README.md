@@ -15,6 +15,7 @@ The long-term direction is a lightweight governance operating system: publish co
 - `templates/confluence/`: maintained source templates for governance pages.
 - `docs/confluence-pages/`: page-ready governance drafts for publishing or manual creation in Confluence.
 - `docs/`: operator guidance, roadmap, improvement plan, and implementation backlog.
+- `docs/reports/`: local dry-run reports and governance snapshots.
 - `config/`: reusable governance config such as labels, page publishing targets, and tracked Studio agent list examples.
 - `schemas/agent-governance-record.schema.json`: first structured contract for governed agent completeness.
 - `data/raw/`: local-only raw captures, ignored by Git.
@@ -93,13 +94,21 @@ The current governance front door is defined locally in:
 - `templates/confluence/monthly-governance-snapshot-template.md`
 - `docs/studio-visibility-team-assignment-investigation-checklist.md`
 
+The current read-only reports are:
+
+- `docs/reports/inventory-cleanup-dry-run.md`
+- `docs/reports/studio-visibility-team-assignment-investigation.md`
+- `docs/reports/governance-completeness-dry-run.md`
+- `docs/reports/duplicate-agent-discovery-dry-run.md`
+- `docs/reports/monthly-governance-snapshot-2026-05.md`
+
 The next recommended actions are:
 
-1. Dry-run the `Agent Fit Intake` Confluence update and apply only after approval.
-2. Merge the two inventory pages.
-3. Move CoP notes under Working Group Notes and create the Backlog page.
-4. Run the read-only Studio team assignment and discoverability investigation.
-5. Build the first completeness report and monthly governance snapshot.
+1. Review the inventory cleanup dry-run and approve focused Confluence updates when ready.
+2. Manually update the ROVO Design Agent Studio configuration from the published Confluence guidance.
+3. Run manual Studio/admin confirmation for visibility and team assignment controls.
+4. Move CoP notes under Working Group Notes and create the Backlog page.
+5. Turn the dry-run completeness and duplicate reports into repeatable report generation.
 
 ## Why This Exists
 
