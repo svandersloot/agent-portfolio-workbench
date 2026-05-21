@@ -11,7 +11,10 @@
 
 ## Phase 2: Governance Checks
 
+- Define the Agent Fit Intake contract.
 - Define the non-negotiable governance fields for every governed ROVO agent.
+- Define lifecycle statuses: Idea, Draft, In Review, Experimental, Active, Needs Remediation, and Deprecated.
+- Investigate Studio team assignment and discoverability controls for draft and experimental agents.
 - Lint normalized configs for risky changes.
 - Flag broad knowledge sources.
 - Flag high-risk tools without approval language.
@@ -35,6 +38,7 @@
 
 - Move toward a hybrid inventory where Confluence remains human-readable and a structured local inventory file supports checks and reports.
 - Generate human-facing reports for new agents, duplicate candidates, governance gaps, stale pages, and recent page updates.
+- Generate a monthly governance snapshot for leadership and interested builders.
 - Produce builder-facing "what already exists" summaries before new agent work begins.
 
 ## Phase 5: Optional Capture Automation
@@ -52,5 +56,6 @@ See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The high
 1. Merge inventory pages.
 2. Move CoP notes and create Backlog and Improvement Roadmap.
 3. Add publish-history records for Confluence updates.
-4. Define the first structured agent inventory/completeness contract.
-5. Prepare inventory cleanup dry run.
+4. Define the Agent Fit Intake and lifecycle status contract.
+5. Define the first structured agent inventory/completeness contract.
+6. Prepare inventory cleanup dry run.

@@ -74,3 +74,28 @@ Acceptance checks:
 - Contract is explicit and easy for builders to understand.
 - The model supports leadership reporting and builder reuse.
 - The first version does not require every existing page to be migrated at once.
+
+## 6. Define Agent Fit Intake And Status Policy
+
+```text
+/goal Define the Agent Fit Intake and lifecycle status policy for ROVO agents. Capture the intake questions builders should answer before creating a new agent, define statuses Idea, Draft, In Review, Experimental, Active, Needs Remediation, and Deprecated, and document who can mark an agent Active or Ready. Include an open investigation item for Studio team assignment and discoverability controls.
+```
+
+Acceptance checks:
+
+- Intake supports chat-driven requests and Design Agent-guided scaffolding.
+- Intake routes ideas to prompt, automation, existing-agent extension, new governed agent, app candidate, or not ready.
+- Status definitions are clear enough for builders and leadership reporting.
+- Active/Ready approval is limited to a small designated owner group.
+
+## 7. Design Monthly Governance Snapshot
+
+```text
+/goal Design the monthly ROVO agent governance snapshot. Define the sections, data inputs, and report format for leadership and interested builders, including what changed, what exists, what is ready, what is experimental, what is missing required governance fields, and what duplicate or reuse opportunities were found.
+```
+
+Acceptance checks:
+
+- Report is human-facing and concise.
+- Report can eventually be generated from inventory, publish history, and governance completeness checks.
+- Report helps people find existing agents before creating duplicate work.

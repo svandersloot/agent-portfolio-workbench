@@ -66,6 +66,20 @@ Every governed ROVO agent should have:
 
 These fields are the starting contract for future linting, reporting, and builder guidance.
 
+## Agent Lifecycle Statuses
+
+Use these starting statuses for governed ROVO agents and agent ideas:
+
+- `Idea`: proposed need or use case; not yet shaped.
+- `Draft`: early design or Project Brain scaffold exists.
+- `In Review`: being checked by the working group, Doc Steward, or designated approvers.
+- `Experimental`: available for sandbox or pilot use, not broadly discoverable as an approved agent.
+- `Active`: approved for intended use and discoverable to the right audience.
+- `Needs Remediation`: usable only with tracked fixes, or paused until gaps are addressed.
+- `Deprecated`: replaced, retired, or no longer recommended.
+
+Only a small designated owner group should be able to mark an agent as `Active` or broadly `Ready`. The exact Studio control model still needs investigation, including whether team assignment can reduce discoverability for draft or experimental agents.
+
 ## Success Measures
 
 Success should be measured by whether governance work becomes easier, faster, and more trustworthy.
@@ -89,14 +103,36 @@ Secondary measures:
 
 Current intake is informal and often chat-driven. The near-term process should support that reality instead of pretending Jira or formal intake already exists.
 
+The first response to a new agent idea should usually be: use the ROVO Design Agent. The Design Agent should guide the builder to the Confluence governance docs, scaffold the documentation, and decide whether the need should be a prompt, automation, existing-agent extension, new governed agent, app candidate, or not ready yet.
+
 The toolkit should help turn informal requests into structured governance artifacts:
 
 1. Capture the agent idea.
-2. Check whether it should be a prompt, automation, existing-agent extension, or governed agent.
-3. Search the inventory for duplicates.
-4. Create or update a Project Brain when the idea is durable enough.
-5. Record owner, status, measurement, context readiness, and launch evidence.
-6. Publish or report updates through dry-run-first tooling.
+2. Route the builder through the ROVO Design Agent or Agent Fit Intake.
+3. Check whether it should be a prompt, automation, existing-agent extension, new governed agent, app candidate, or not ready yet.
+4. Search the inventory for duplicates.
+5. Create or update a Project Brain when the idea is durable enough.
+6. Record owner, status, measurement, context readiness, and launch evidence.
+7. Publish or report updates through dry-run-first tooling.
+
+## Agent Fit Intake
+
+Create a lightweight Agent Fit Intake so builders can answer enough questions to avoid duplicate or unnecessary agents before they build.
+
+The intake should ask:
+
+- What problem are you trying to solve?
+- Who is the audience?
+- Is this a repeatable workflow or a one-time need?
+- Could this be a better prompt, automation, existing-agent extension, or Confluence template?
+- What existing agents or pages have you checked?
+- What knowledge sources would the agent need?
+- What actions, tools, or permissions would it need?
+- Who owns the agent and who is the backup?
+- How will success be measured?
+- What would make the agent unsafe or not ready?
+
+The intake should feed the Design Agent, inventory check, Project Brain scaffold, and future governance reports.
 
 ## Reporting Direction
 
@@ -108,3 +144,5 @@ Human-facing reports should eventually answer:
 - Which pages changed this week?
 - Which governance content is stale or unlinked?
 - What should builders reuse before creating something new?
+
+Start with a monthly governance snapshot for leadership and interested builders. The report should summarize what changed, what exists, what is ready, what is experimental, what is missing required fields, and which duplicate candidates or reuse opportunities were found.
