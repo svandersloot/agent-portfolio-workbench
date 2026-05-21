@@ -11,10 +11,12 @@
 
 ## Phase 2: Governance Checks
 
+- Define the non-negotiable governance fields for every governed ROVO agent.
 - Lint normalized configs for risky changes.
 - Flag broad knowledge sources.
 - Flag high-risk tools without approval language.
 - Flag inactive default routing issues.
+- Flag missing owner, status, measurement plan, readiness evidence, Project Brain link, or last-reviewed date.
 - Compare Studio config against Confluence `Rovo Studio Configuration` pages.
 
 ## Phase 3: Confluence Operations
@@ -25,10 +27,17 @@
 - Sync central Agent Inventory from normalized configs.
 - Publish approved templates to Confluence with explicit dry-run and apply modes.
 - Use update-mode support for already-created Confluence pages.
+- Write local publish-history records with page ID, old version, new version, source file, command, and verification result.
 - Generate page creation plans for Measurement, Context Readiness, Decision Log, User Guide, and Backlog pages.
 - Move/reparent legacy inventory pages and apply archive banners through the API while preserving page identity and history.
 
-## Phase 4: Optional Capture Automation
+## Phase 4: Inventory And Reporting
+
+- Move toward a hybrid inventory where Confluence remains human-readable and a structured local inventory file supports checks and reports.
+- Generate human-facing reports for new agents, duplicate candidates, governance gaps, stale pages, and recent page updates.
+- Produce builder-facing "what already exists" summaries before new agent work begins.
+
+## Phase 5: Optional Capture Automation
 
 - Use authenticated Chrome automation to visit configured Studio agent URLs.
 - Capture matching GraphQL responses without storing headers or cookies.
@@ -42,5 +51,6 @@ See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The high
 
 1. Merge inventory pages.
 2. Move CoP notes and create Backlog and Improvement Roadmap.
-3. Use publisher update-mode for future page refreshes.
-4. Prepare inventory cleanup dry run.
+3. Add publish-history records for Confluence updates.
+4. Define the first structured agent inventory/completeness contract.
+5. Prepare inventory cleanup dry run.

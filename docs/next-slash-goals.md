@@ -31,7 +31,19 @@ Acceptance checks:
 - `-Slug <slug> -UpdateExisting` limits the plan to one intended page.
 - `.env` and `config/confluence-pages.yml` remain ignored.
 
-## 3. Inventory Cleanup Dry-Run
+## 3. Add Publish History Records
+
+```text
+/goal Add local publish-history records for Confluence page updates. For every API-assisted apply, record page ID, page title, old version, new version, source file, command, timestamp, and verification result under docs/publish-history/. Keep dry-run-first behavior and do not include tokens or private config values.
+```
+
+Acceptance checks:
+
+- A publish-history file is created for the Space Structure update already applied.
+- Future apply runs can produce a similar record.
+- The record is safe to commit.
+
+## 4. Inventory Cleanup Dry-Run
 
 ```text
 /goal Produce an inventory cleanup plan with no Confluence writes. Treat Agent Inventory as the likely canonical inventory page unless new evidence contradicts it, treat Rovo Agent Inventory Home as the space overview/root, compare references to both, and recommend history-preserving link updates, page moves, or legacy/banner steps without copy/recreate.
@@ -50,3 +62,15 @@ Recommended no-write plan:
 2. Keep `Rovo Agent Inventory Home` as the space overview/root rather than trying to merge it into inventory.
 3. Update pages that refer to old inventory wording so links and labels point users to `Agent Inventory`.
 4. Avoid copy/recreate. If any pages must move, use move/reparent operations so history is preserved.
+
+## 5. Define Agent Governance Completeness Contract
+
+```text
+/goal Define the first structured agent governance completeness contract. Capture the non-negotiable fields for every governed ROVO agent, choose a local structured format for future inventory records, and create a dry-run report shape that identifies missing owner, backup owner, status, purpose, audience, knowledge sources, tools or skills, measurement plan, readiness status, Project Brain link, and last-reviewed date.
+```
+
+Acceptance checks:
+
+- Contract is explicit and easy for builders to understand.
+- The model supports leadership reporting and builder reuse.
+- The first version does not require every existing page to be migrated at once.

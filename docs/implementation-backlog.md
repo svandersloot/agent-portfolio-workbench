@@ -52,6 +52,9 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 | 5.1 | Create Measurement and Value Tracking page | P0 | None | Working group lead | Done: page-ready draft exists at `docs/confluence-pages/measurement-and-value-tracking.md`; Confluence page created under `Governance and Safety`. |
 | 5.2 | Add success metrics to Release Health Analyst Project Brain | P1 | 5.1 | Agent owner | Release Health Analyst includes baseline and target metrics. |
 | 5.3 | Create quarterly review template | P2 | 5.1 | Working group lead | Template exists for portfolio review. |
+| 5.4 | Add publish-history records | P1 | 5.1 | Space admin | Each API-assisted Confluence update records page ID, old version, new version, source file, command, timestamp, and verification result. |
+| 5.5 | Create governance completeness report | P1 | 1.1, 5.4 | Space admin | Report identifies agents missing owner, backup owner, status, purpose, audience, knowledge sources, tools or skills, measurement plan, readiness status, Project Brain link, or last-reviewed date. |
+| 5.6 | Create duplicate-agent discovery report | P1 | 1.1 | Working group lead | Report helps builders find existing agents or patterns before creating new work. |
 
 ## Milestone 6: Pilot And Feedback Loop
 

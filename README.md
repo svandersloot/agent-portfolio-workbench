@@ -6,6 +6,8 @@ The first workflow captures a Studio agent configuration response, normalizes it
 
 The second workflow turns ROVO space improvement plans into maintained Confluence-ready templates and implementation backlog items.
 
+The long-term direction is a lightweight governance operating system: publish core governance pages safely, audit space health, check agent governance completeness, and produce human-facing reports that help builders reuse existing agents instead of creating duplicate work.
+
 ## Project Areas
 
 - `scripts/`: local automation for Studio export normalization and future Confluence operations.
@@ -55,6 +57,7 @@ Some Studio responses include parent instructions and scenario routing but omit 
 The current ROVO audit is captured in:
 
 - `docs/rovo-space-improvement-plan.md`
+- `docs/toolkit-operating-model.md`
 - `docs/implementation-backlog.md`
 - `docs/confluence-pages/`
 - `templates/confluence/`
@@ -98,6 +101,8 @@ This toolkit helps answer:
 - Did a tool get added?
 - Did a subagent become active or inactive?
 - Are instructions drifting from governance standards?
+- Does each governed agent have an owner, status, measurement plan, readiness evidence, and Project Brain?
+- Which existing agent or pattern should a builder reuse before creating something new?
 
 ## Safety Defaults
 
@@ -110,7 +115,9 @@ This toolkit helps answer:
 ## Next Scripts To Add
 
 - Confluence stale-reference cleanup dry run.
+- Publish history records for page updates.
 - Governance linter for normalized agent configs.
+- Agent governance completeness report.
 - Agent inventory sync report.
 - Confluence page/template publisher update mode.
 - API-assisted page move and legacy banner workflow for inventory cleanup.
