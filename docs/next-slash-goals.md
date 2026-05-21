@@ -298,7 +298,7 @@ Acceptance checks:
 - Updates inventory/completeness docs only from proven captured evidence.
 - Commits safe local artifacts only.
 
-## 17. Next: Publish Design Agent Studio Configuration Source
+## 17. Completed: Publish Design Agent Studio Configuration Source
 
 ```text
 /goal Publish the latest Rovo Design Agent vNext Studio Configuration source to the existing Confluence page https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5281349770/Rovo+Design+Agent+vNext+-+Rovo+Studio+Configuration. Use docs/confluence-pages/rovo-design-agent-vnext-rovo-studio-configuration.md and slug rovo-design-agent-vnext-rovo-studio-configuration. First run .\scripts\Publish-ConfluencePages.ps1 -Slug rovo-design-agent-vnext-rovo-studio-configuration -UpdateExisting and confirm it shows exactly one intended page, page ID 5281349770. Apply only after approval. Do not write to Studio.
@@ -306,7 +306,7 @@ Acceptance checks:
 
 Acceptance checks:
 
-- Dry-run targets exactly `Rovo Design Agent vNext - Rovo Studio Configuration`, page ID `5281349770`.
+- Dry-run targeted exactly `Rovo Design Agent vNext - Rovo Studio Configuration`, page ID `5281349770`.
 - Published content replaces app/Forge routing with agent candidate routing.
 - Published content preserves the parent and five-subagent Studio configuration structure.
 - Parent conversation starters are 85 characters or fewer.
@@ -315,3 +315,24 @@ Acceptance checks:
 - Post-copy capture workflow remains repo-only and is not published into this Confluence page.
 - Published content keeps Codex/repo-only pipeline language out of Confluence.
 - Studio update remains manual after the page publish.
+
+Applied result:
+
+- `Rovo Design Agent vNext - Rovo Studio Configuration` updated from version `1` to `2`.
+- Post-apply dry-run confirmed `currentVersion: 2` and `plannedVersion: 3`.
+- Publish history: `docs/publish-history/2026-05-21-design-agent-studio-configuration.md`.
+
+## 18. Next: Manual Studio Copy And Capture
+
+```text
+/goal Use the published Rovo Design Agent vNext - Rovo Studio Configuration page as the source for the manual ROVO Studio update. Do not write to Studio from Codex. Guide me through manually copying the parent fields, parent conversation starters, and subagent trigger/instruction/knowledge/skill blocks into ROVO Studio. After I save Studio manually, capture the current Studio configuration, normalize it, compare it against the published page and docs/handoffs/design-agent-studio-copy-handoff.md, update safe repo docs/reports from proven captured evidence, keep .env, config/confluence-pages.yml, data/raw, HARs, cookies, headers, and tokens out of Git, then commit safe local changes.
+```
+
+Acceptance checks:
+
+- Uses Confluence page `5281349770` as the manual Studio source.
+- Does not attempt an automated Studio write.
+- Verifies parent starters are under 85 characters.
+- Verifies triggers exist only on subagents.
+- Captures and normalizes Studio configuration after the manual save.
+- Commits safe normalized artifacts and docs only.
