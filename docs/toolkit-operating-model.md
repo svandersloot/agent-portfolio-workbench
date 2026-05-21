@@ -119,6 +119,31 @@ The toolkit should help turn informal requests into structured governance artifa
 6. Record owner, status, measurement, context readiness, and launch evidence.
 7. Publish or report updates through dry-run-first tooling.
 
+## Codex-To-Rovo Agent Build Pipeline
+
+Use this repo and Codex as the builder workbench for technical builders who can move faster in Git-backed artifacts than in ROVO Studio.
+
+ROVO remains the Atlassian-facing runtime and shared user experience. Codex should not write to Studio. Instead, Codex prepares the governed agent package, Confluence pages, and Studio copy blocks so the builder can manually configure ROVO Studio.
+
+Use this pattern when:
+
+- A builder wants to brainstorm or shape a personal or team agent quickly.
+- The agent needs governed documentation before broader Atlassian access.
+- The work benefits from local diffs, schema checks, reusable templates, and dry-run publishing.
+- Less-technical users should eventually use the agent through Atlassian rather than this repo.
+
+Pipeline:
+
+1. Brainstorm the idea in Codex.
+2. Route through Agent Fit Intake.
+3. Check Agent Inventory for reuse or extension.
+4. Generate or update the Project Brain, Agent Design Record, Knowledge Source Plan, Evaluation, Measurement Plan, and ROVO Studio Configuration copy blocks.
+5. Dry-run and publish approved Confluence documentation.
+6. Manually copy the configuration into ROVO Studio.
+7. Capture the Studio configuration back into this repo for version control and drift review.
+
+This pattern is especially useful for personal agents and early prototypes. Before broad launch, the agent still needs the normal ownership, backup owner, readiness, measurement, and review evidence.
+
 ## Agent Fit Intake
 
 Create a lightweight Agent Fit Intake so builders can answer enough questions to avoid duplicate or unnecessary agents before they build.

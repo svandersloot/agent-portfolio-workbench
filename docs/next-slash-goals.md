@@ -229,7 +229,7 @@ Status:
 - Dry-run confirmed `pageCount: 1`, `action: update`, `currentVersion: 1`, and `plannedVersion: 2`.
 - No apply has been run.
 
-## 13. Next: Review And Apply Agent Inventory Update
+## 13. Completed: Review And Apply Agent Inventory Update
 
 ```text
 /goal Review docs/confluence-pages/agent-inventory.md and the dry-run evidence in docs/reports/inventory-cleanup-dry-run.md. If approved, run .\scripts\Publish-ConfluencePages.ps1 -Slug agent-inventory -UpdateExisting -Apply, then verify a post-apply dry-run reports currentVersion 2 and plannedVersion 3. Do not update Rovo Agent Inventory Home or duplicate pages in the same operation. Do not write to Studio.
@@ -237,7 +237,44 @@ Status:
 
 Acceptance checks:
 
-- Apply targets exactly `Agent Inventory`, page ID `5280334048`.
-- No duplicate/stale pages are changed.
+- Apply targeted exactly `Agent Inventory`, page ID `5280334048`.
+- No duplicate/stale pages were changed.
 - Publish history records the update.
 - `config/confluence-pages.yml` remains ignored and out of Git.
+
+Applied result:
+
+- `Agent Inventory` updated from version `1` to `2`.
+- Post-apply dry-run confirmed `currentVersion: 2` and `plannedVersion: 3`.
+
+## 14. Completed Locally: Codex-To-Rovo Agent Build Pipeline Pattern
+
+```text
+/goal Document Codex and this repo as the technical-builder workbench for shaping governed ROVO agents faster, while keeping ROVO Studio as the Atlassian-facing runtime configured manually. Keep this pattern in repo-only operating documents, and do not add Studio write-back.
+```
+
+Acceptance checks:
+
+- Operating model names Codex as the builder workbench and ROVO Studio as the runtime.
+- Repo README and operating model explain the technical builder pattern.
+- Studio writes remain manual only.
+- Confluence-facing user guide does not document this internal Codex pipeline.
+
+Result:
+
+- Pattern kept in repo-only docs.
+- `User Guide - Designing Agents` was corrected to remove the accidentally published Codex pipeline and is now version `5`.
+- Publish history: `docs/publish-history/2026-05-21-codex-rovo-pattern-and-inventory.md`.
+
+## 15. Next: Manual Studio Configuration And Capture
+
+```text
+/goal Prepare the manual ROVO Studio copy packet for the Design Agent from the published Agent Fit Intake, User Guide, and Agent Inventory changes. Do not write to Studio. Produce clear parent instructions, scenario/routing guidance, conversation starter suggestions, knowledge source checklist, and a post-copy capture checklist so the Studio configuration can be manually updated and then captured back into this repo.
+```
+
+Acceptance checks:
+
+- Copy packet separates instructions, routing, starters, knowledge sources, and verification checklist.
+- No Studio write is attempted.
+- Packet references the published Confluence pages as the source of truth.
+- Post-copy capture path uses the existing read-only Studio capture workflow.

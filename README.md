@@ -102,6 +102,12 @@ The current read-only reports are:
 - `docs/reports/duplicate-agent-discovery-dry-run.md`
 - `docs/reports/monthly-governance-snapshot-2026-05.md`
 
+Builder pattern:
+
+- Use Codex and this repo as the fast workbench for agent ideas, Project Brain scaffolding, Confluence-ready docs, evaluations, measurement plans, and ROVO Studio configuration copy blocks.
+- Use ROVO Studio as the Atlassian-facing runtime where the final configuration is copied manually.
+- Capture Studio configuration back into this repo for version control and drift review.
+
 The next recommended actions are:
 
 1. Review the inventory cleanup dry-run and approve focused Confluence updates when ready.

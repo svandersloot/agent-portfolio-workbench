@@ -79,3 +79,17 @@ Dry-run result:
 | Source path | `docs/confluence-pages/agent-inventory.md` |
 
 No apply was run.
+
+## Applied Result
+
+After review, the focused `Agent Inventory` update was applied.
+
+| Field | Value |
+|---|---|
+| Apply command | `.\scripts\Publish-ConfluencePages.ps1 -Slug agent-inventory -UpdateExisting -Apply` |
+| Published version | `2` |
+| Post-apply current version | `2` |
+| Post-apply planned version | `3` |
+| Publish history | `docs/publish-history/2026-05-21-codex-rovo-pattern-and-inventory.md` |
+
+No duplicate/stale inventory pages were changed.
