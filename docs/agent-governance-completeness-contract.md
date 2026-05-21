@@ -72,4 +72,4 @@ Future completeness checks should produce a read-only report with this shape.
 - This contract does not require every existing Confluence page to be migrated immediately.
 - Older Green/Yellow/Red measurement language can map into readiness and remediation status during migration.
 - `Active` and `Ready` are separate concepts: `Active` is lifecycle status; `Ready` is readiness evidence.
-- Prompts, automations, templates, and app candidates can be recorded as intake outcomes without becoming governed agents.
+- Prompts, automations, templates, and agent candidates can be recorded as intake outcomes without becoming governed agents.

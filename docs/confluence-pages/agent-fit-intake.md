@@ -12,7 +12,7 @@ The intake can recommend:
 - Use an automation.
 - Extend an existing agent.
 - Use or create a Confluence template.
-- Consider an app or Forge candidate.
+- Mark as an agent candidate for further discovery.
 - Create a new governed agent.
 - Mark the idea as not ready.
 
@@ -29,7 +29,7 @@ The Design Agent should run this sequence before recommending any new governed a
 | 3 | Check whether an automation, scheduled reminder, or workflow rule is the better fit. | Repeatable trigger, deterministic steps, low need for conversational judgment |
 | 4 | Check `Agent Inventory` and related Project Brains for reuse or extension. | Existing agents, overlaps, owner to consult, extension candidate |
 | 5 | Check whether a Confluence template or source cleanup would solve the need. | Missing structure, repeated document pattern, source readiness gaps |
-| 6 | Check whether an app or Forge candidate is needed. | Durable UI, permissions, workflow integration, or system action that should not live only in prompts |
+| 6 | Check whether the idea is an agent candidate that needs further discovery before governed build. | Unclear scope, audience, ownership, workflow boundaries, or governance path |
 | 7 | If a new governed agent still appears justified, collect the completeness contract fields. | Owner, backup owner, status, purpose, audience, sources, tools, measurement, readiness, Project Brain, last-reviewed date |
 | 8 | If required fields or source readiness are missing, keep the idea in `Idea` and recommend discovery or remediation. | Missing fields, unresolved risk, unclear owner, duplicate risk, or unready context |
 
@@ -41,7 +41,7 @@ The Design Agent should run this sequence before recommending any new governed a
 | Automation | The workflow is repeatable, event-based, scheduled, or mostly deterministic. | The work requires exploratory reasoning, judgment, or interactive clarification. |
 | Existing-agent extension | A governed agent already serves the same audience, domain, source set, or workflow family. | The extension would broaden scope beyond the owner, risk model, or intended audience without review. |
 | Confluence template | The real gap is inconsistent source material, meeting notes, Project Brain structure, or review evidence. | Users need a conversational workflow, tool use, or cross-source reasoning. |
-| App candidate | The need requires durable UI, permissions, transaction safety, structured data entry, or supported system integration. | A prompt, automation, template, or governed agent can solve the problem with lower operational cost. |
+| Agent candidate | The need appears agent-shaped but needs more discovery before it can become a governed agent recommendation. | The idea is already ready for a specific route such as prompt, automation, template, extension, new governed agent, or not ready. |
 | New governed agent | The workflow is repeatable, shared, valuable, source-backed, measurable, and has an accountable owner. | Required fields are missing, context is not ready, a duplicate exists, or the risk cannot be controlled. |
 | Not ready | Ownership, sources, permissions, measurement, or problem framing are unclear. | The missing information can be resolved immediately during intake. |
 

@@ -105,7 +105,7 @@ Secondary measures:
 
 Current intake is informal and often chat-driven. The near-term process should support that reality instead of pretending Jira or formal intake already exists.
 
-The first response to a new agent idea should usually be: use the ROVO Design Agent. The Design Agent should guide the builder to the Confluence governance docs, scaffold the documentation, and decide whether the need should be a prompt, automation, existing-agent extension, Confluence template, new governed agent, app candidate, or not ready yet.
+The first response to a new agent idea should usually be: use the ROVO Design Agent. The Design Agent should guide the builder to the Confluence governance docs, scaffold the documentation, and decide whether the need should be a prompt, automation, existing-agent extension, Confluence template, agent candidate, new governed agent, or not ready yet.
 
 The Design Agent is allowed to recommend "do not build an agent" when the need is better served by a prompt, automation, existing page/template, existing agent, app, or no durable solution yet.
 
@@ -113,7 +113,7 @@ The toolkit should help turn informal requests into structured governance artifa
 
 1. Capture the agent idea.
 2. Route the builder through the ROVO Design Agent or Agent Fit Intake.
-3. Check whether it should be a prompt, automation, existing-agent extension, new governed agent, app candidate, or not ready yet.
+3. Check whether it should be a prompt, automation, existing-agent extension, Confluence template, agent candidate, new governed agent, or not ready yet.
 4. Search the inventory for duplicates.
 5. Create or update a Project Brain when the idea is durable enough.
 6. Record owner, status, measurement, context readiness, and launch evidence.

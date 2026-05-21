@@ -30,7 +30,7 @@
 
 | Field | Value |
 |---|---|
-| Decision | PROMPT / AUTOMATION / EXISTING AGENT EXTENSION / CONFLUENCE TEMPLATE / APP CANDIDATE / NEW GOVERNED AGENT / NOT READY |
+| Decision | PROMPT / AUTOMATION / EXISTING AGENT EXTENSION / CONFLUENCE TEMPLATE / AGENT CANDIDATE / NEW GOVERNED AGENT / NOT READY |
 | Reason | [Why this is the right-sized solution] |
 | Why not simpler? | [Why a simpler solution will not work] |
 | Why not broader? | [Why this should not merge into an existing agent] |

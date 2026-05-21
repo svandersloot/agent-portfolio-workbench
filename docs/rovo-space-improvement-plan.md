@@ -6,7 +6,7 @@ Source: ROVO space audit report provided on 2026-05-21.
 
 The ROVO space already has a strong agent governance operating model:
 
-- Fit triage front gate with seven valid outcomes: Prompt Only, Default Rovo, Automation Flow, Extend Existing, Create New, App/Forge Candidate, Not Ready.
+- Fit triage front gate with seven valid outcomes: Prompt, Automation, Existing-agent extension, Confluence template, Agent candidate, New governed agent, Not ready.
 - Project Brain pattern: one root page per durable agent linking Blueprint, Knowledge Source Plan, Subagent Settings, Change Log, Evaluation, and Studio Configuration.
 - Meta-agent collaboration model between the Rovo Design Agent and Agent Doc Steward.
 - Pattern Library with promotion rules.

@@ -24,7 +24,7 @@ The best outcome may be:
 - Automation
 - Existing-agent extension
 - Confluence template
-- App candidate
+- Agent candidate
 - New governed agent
 - Not ready
 

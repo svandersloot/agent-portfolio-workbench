@@ -27,11 +27,11 @@ The best outcome may be:
 - Automation
 - Existing-agent extension
 - Confluence template
-- App candidate
+- Agent candidate
 - New governed agent
 - Not ready
 
-Creating a new agent is only one valid outcome. A prompt, automation, Confluence template, app candidate, or extension of an existing agent may be the better governed solution.
+Creating a new agent is only one valid outcome. A prompt, automation, Confluence template, agent candidate discovery path, or extension of an existing agent may be the better governed solution.
 
 ## Step 2: Check Existing Agents And Patterns
 

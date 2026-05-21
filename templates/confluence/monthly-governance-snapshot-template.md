@@ -48,7 +48,7 @@ Use this snapshot for leadership, agent owners, and builders who need to underst
 | Automation | [#] | [Examples] | [Automation backlog] |
 | Existing-agent extension | [#] | [Examples] | [Owner review] |
 | Confluence template | [#] | [Examples] | [Template or source cleanup] |
-| App candidate | [#] | [Examples] | [Forge/app discovery] |
+| Agent candidate | [#] | [Examples] | [Agent discovery or governance shaping] |
 | New governed agent | [#] | [Examples] | [Project Brain scaffold] |
 | Not ready | [#] | [Examples] | [Discovery/remediation] |
 

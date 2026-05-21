@@ -84,7 +84,7 @@ Completed local artifacts:
 ## 6. Completed: Publish Agent Fit Intake And Status Policy
 
 ```text
-/goal Finalize and publish the Agent Fit Intake and lifecycle status policy for ROVO agents. Review docs/confluence-pages/agent-fit-intake.md, confirm the Design Agent can recommend prompt, automation, existing-agent extension, Confluence template, app candidate, new governed agent, or not ready, and publish it under Governance and Safety after a dry-run.
+/goal Finalize and publish the Agent Fit Intake and lifecycle status policy for ROVO agents. Review docs/confluence-pages/agent-fit-intake.md, confirm the Design Agent can recommend prompt, automation, existing-agent extension, Confluence template, agent candidate, new governed agent, or not ready, and publish it under Governance and Safety after a dry-run.
 ```
 
 Applied result:
@@ -100,7 +100,7 @@ Applied result:
 Acceptance checks:
 
 - Intake supports chat-driven requests and Design Agent-guided scaffolding.
-- Intake routes ideas to prompt, automation, existing-agent extension, new governed agent, app candidate, or not ready.
+- Intake routes ideas to prompt, automation, existing-agent extension, new governed agent, agent candidate, or not ready.
 - Status definitions are clear enough for builders and leadership reporting.
 - Active/Ready approval is limited to the space maintainer and Atlassian admins.
 - Experimental agents are intended for a select audience while Studio visibility controls are investigated.
@@ -108,7 +108,7 @@ Acceptance checks:
 ## 7. Completed Locally: Update Design Agent Intake Flow
 
 ```text
-/goal Update the ROVO Design Agent guidance so new agent ideas start with Agent Fit Intake. The Design Agent should route ideas to prompt, automation, existing-agent extension, Confluence template, app candidate, new governed agent, or not ready; require the minimum Project Brain scaffolding fields before recommending build; and check inventory for duplicates before recommending a new governed agent.
+/goal Update the ROVO Design Agent guidance so new agent ideas start with Agent Fit Intake. The Design Agent should route ideas to prompt, automation, existing-agent extension, Confluence template, agent candidate, new governed agent, or not ready; require the minimum Project Brain scaffolding fields before recommending build; and check inventory for duplicates before recommending a new governed agent.
 ```
 
 Acceptance checks:
