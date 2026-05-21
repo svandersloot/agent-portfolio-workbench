@@ -111,7 +111,7 @@ Builder pattern:
 The next recommended actions are:
 
 1. Review the inventory cleanup dry-run and approve focused Confluence updates when ready.
-2. Manually update the ROVO Design Agent Studio configuration from the published Confluence guidance.
+2. Manually update the ROVO Design Agent Studio configuration from `docs/handoffs/design-agent-studio-copy-handoff.md`, or capture the current Studio config first if you believe it is already live.
 3. Run manual Studio/admin confirmation for visibility and team assignment controls.
 4. Move CoP notes under Working Group Notes and create the Backlog page.
 5. Turn the dry-run completeness and duplicate reports into repeatable report generation.

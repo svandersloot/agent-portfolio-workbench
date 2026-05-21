@@ -266,7 +266,7 @@ Result:
 - `User Guide - Designing Agents` was corrected to remove the accidentally published Codex pipeline and is now version `5`.
 - Publish history: `docs/publish-history/2026-05-21-codex-rovo-pattern-and-inventory.md`.
 
-## 15. Next: Manual Studio Configuration And Capture
+## 15. Ready: Manual Studio Configuration And Capture
 
 ```text
 /goal Prepare the manual ROVO Studio copy packet for the Design Agent from the published Agent Fit Intake, User Guide, and Agent Inventory changes. Do not write to Studio. Produce clear parent instructions, scenario/routing guidance, conversation starter suggestions, knowledge source checklist, and a post-copy capture checklist so the Studio configuration can be manually updated and then captured back into this repo.
@@ -278,3 +278,22 @@ Acceptance checks:
 - No Studio write is attempted.
 - Packet references the published Confluence pages as the source of truth.
 - Post-copy capture path uses the existing read-only Studio capture workflow.
+
+Prepared packet:
+
+- `docs/handoffs/design-agent-studio-copy-handoff.md`
+
+## 16. Next: Execute Design Agent Studio Update And Capture
+
+```text
+/goal Execute the Design Agent manual Studio update and capture loop from docs/handoffs/design-agent-studio-copy-handoff.md. First, inspect the handoff packet, README.md, docs/operator-guide.md, docs/confluence-pages/agent-fit-intake.md, docs/confluence-pages/agent-inventory.md, and current git status. Do not write to Studio directly from Codex. If I have not manually applied the Studio update yet, guide me through copying the parent instructions, scenario/routing guidance, conversation starters, knowledge source checklist, and tool/skill safety stance into ROVO Studio. If I have already applied it, start with capture and verification. After the manual save, capture the Studio response, normalize it, compare the normalized config against the handoff packet, update safe repo docs/reports if needed, keep .env, config/confluence-pages.yml, data/raw, HARs, cookies, headers, and tokens out of Git, then commit safe local changes.
+```
+
+Acceptance checks:
+
+- Confirms whether Studio already matches the packet before recommending another manual edit.
+- Does not attempt an automated Studio write.
+- Captures and normalizes the saved Studio configuration.
+- Verifies parent instructions, routing, starters, knowledge sources, and tools/skills.
+- Updates inventory/completeness docs only from proven captured evidence.
+- Commits safe local artifacts only.
