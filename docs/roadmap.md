@@ -40,8 +40,7 @@ Do not build write-back to Studio until Atlassian exposes a stable supported API
 
 See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The highest-return items are:
 
-1. Apply the reviewed Space Structure and Navigation update.
-2. Merge inventory pages.
-3. Move CoP notes and create Backlog and Improvement Roadmap.
-4. Use publisher update-mode for future page refreshes.
-5. Prepare inventory cleanup dry run.
+1. Merge inventory pages.
+2. Move CoP notes and create Backlog and Improvement Roadmap.
+3. Use publisher update-mode for future page refreshes.
+4. Prepare inventory cleanup dry run.

@@ -10,7 +10,7 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 | 1.2 | Move CoP 5/15/26 under Working Group Notes | P1 | None | Space admin | CoP page is a child of Working Group Notes. |
 | 1.3 | Move Confluence Formatting Standards under Governance and Safety | P1 | None | Space admin | Governance and Safety parent exists. Formatting Standards is a child page. |
 | 1.4 | Promote Pattern Library patterns to child pages | P2 | None | Working group lead | Each core pattern is individually linkable. Parent page is an index. |
-| 1.5 | Update Space Structure and Navigation | P1 | 1.1-1.4 | Space admin | Repo draft exists at `docs/confluence-pages/space-structure-and-navigation.md`; dry-run should update page `5281218620` from version 1 to version 2. |
+| 1.5 | Update Space Structure and Navigation | P1 | 1.1-1.4 | Space admin | Done: page `5281218620` updated from version 1 to version 2 using `docs/confluence-pages/space-structure-and-navigation.md`. |
 | 1.6 | Update Agent Governance Home | P1 | 1.1-1.5 | Space admin | Done: `Governance and Safety` is linked from the recommended structure list. Continue refreshing this page as later structure changes land. |
 
 ## Milestone 2: Template Creation

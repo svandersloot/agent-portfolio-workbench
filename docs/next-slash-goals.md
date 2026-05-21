@@ -2,20 +2,21 @@
 
 These goals are executable from the current local repo state. Confluence writes should still be dry-run-first.
 
-## 1. Apply Space Structure Update
+## 1. Completed: Apply Space Structure Update
 
 ```text
 /goal Review and apply the Space Structure and Navigation update from docs/confluence-pages/space-structure-and-navigation.md to Confluence page 5281218620. Run scripts/Publish-ConfluencePages.ps1 -Slug space-structure-and-navigation -UpdateExisting first and confirm the dry-run shows currentVersion 1 and plannedVersion 2. Apply only after confirmation with -Apply, then verify the live page contains Governance and Safety and its child pages.
 ```
 
-Current dry-run:
+Applied result:
 
 - Page: `Space Structure and Navigation`
 - Page ID: `5281218620`
-- Current version: `1`
-- Planned version: `2`
+- Previous version: `1`
+- Current version: `2`
 - Source: `docs/confluence-pages/space-structure-and-navigation.md`
-- Command: `.\scripts\Publish-ConfluencePages.ps1 -Slug space-structure-and-navigation -UpdateExisting`
+- Apply command: `.\scripts\Publish-ConfluencePages.ps1 -Slug space-structure-and-navigation -UpdateExisting -Apply`
+- Verified body includes `Governance and Safety`, `Measurement and Value Tracking`, `Context Readiness Checklist`, and `User Guide - Designing Agents`.
 
 ## 2. Use Generic Publisher Update-Mode
 
