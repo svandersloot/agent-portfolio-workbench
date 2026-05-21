@@ -27,17 +27,18 @@ Use this page to define how the ROVO agent portfolio measures value, quality, ad
 
 ## Per-Agent Metrics Table
 
-| Agent | Owner | Status | Primary Use Case | Adoption | Time Saved | Quality Signal | Governance Health | Last Review | Next Action |
-|---|---|---|---|---|---|---|---|---|---|
-| Improvements to Design Agent | TBD | Yellow | Route agent ideas to the least complex governed solution | Baseline needed | Baseline needed | Track avoided agent sprawl and design package completeness | Needs measurement baseline | TBD | Define baseline and first review date |
+| Agent | Owner | Lifecycle Status | Readiness | Primary Use Case | Adoption | Time Saved | Quality Signal | Governance Health | Last Review | Next Action |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Improvements to Design Agent | TBD | Draft | Needs Cleanup | Route agent ideas to the least complex governed solution | Baseline needed | Baseline needed | Track avoided agent sprawl and design package completeness | Needs measurement baseline | TBD | Define baseline and first review date |
 
-## Status Definitions
+## Lifecycle And Readiness Signals
 
-| Status | Meaning | Expected Action |
+| Signal | Meaning | Expected Action |
 |---|---|---|
-| Green | The agent has evidence of value, current ownership, scoped knowledge, and recent review | Continue monitoring |
-| Yellow | The agent is useful but has measurement, ownership, source, or evaluation gaps | Add remediation action and review date |
-| Red | The agent is risky, stale, unused, duplicative, or lacks required governance controls | Pause, redesign, consolidate, or retire |
+| Lifecycle status | Idea, Draft, In Review, Experimental, Active, Needs Remediation, or Deprecated | Use the lifecycle policy from `Agent Fit Intake`. |
+| Ready | The agent has evidence of value, current ownership, scoped knowledge, and recent review for its current lifecycle step. | Continue monitoring. |
+| Needs Cleanup | The agent is useful but has measurement, ownership, source, evaluation, or visibility gaps. | Add remediation action and review date. |
+| Not Ready | The agent is risky, stale, unused, duplicative, or lacks required governance controls. | Pause, redesign, consolidate, or retire. |
 
 ## Minimum Measurement Plan For A Durable Agent
 

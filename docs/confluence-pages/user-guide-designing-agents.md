@@ -19,19 +19,19 @@ You should be able to describe:
 
 ## Step 1: Start With Fit Triage
 
-Start with `Start Here - Agent Fit and Governance Front Gate`.
+Start with `Agent Fit Intake`, preferably through the ROVO Design Agent.
 
 The best outcome may be:
 
-- PROMPT ONLY
-- DEFAULT ROVO
-- AUTOMATION FLOW
-- EXTEND EXISTING
-- CREATE NEW
-- APP / FORGE CANDIDATE
-- NOT READY
+- Prompt
+- Automation
+- Existing-agent extension
+- Confluence template
+- App candidate
+- New governed agent
+- Not ready
 
-Creating a new agent is only one valid outcome. A prompt, default ROVO behavior, automation, or extension of an existing agent may be the better governed solution.
+Creating a new agent is only one valid outcome. A prompt, automation, Confluence template, app candidate, or extension of an existing agent may be the better governed solution.
 
 ## Step 2: Check Existing Agents And Patterns
 
@@ -73,6 +73,7 @@ For durable agent work, create or update:
 - ROVO Studio Configuration.
 - Evaluation.
 - Measurement plan.
+- Readiness status.
 - Change Log.
 
 Small experiments may not need the full artifact set, but durable agents need enough documentation for another owner to review, maintain, and retire the agent later.
@@ -84,11 +85,14 @@ Use `Agent Governance Review Template`.
 The review should confirm:
 
 - Owner and backup owner.
+- Purpose and audience.
 - Scoped knowledge sources.
+- Tools or skills with risk notes.
 - Documented permissions.
 - Human-in-the-loop controls for risky actions.
 - Evaluation coverage.
 - Measurement plan.
+- Project Brain link and last-reviewed date.
 - Change and retirement process.
 
 High-risk or write-capable workflows require explicit guardrails and approval language before launch.
@@ -108,7 +112,7 @@ Use `Measurement and Value Tracking` to keep the portfolio reviewable.
 
 ## Common Mistakes
 
-- Starting with `CREATE NEW` before checking inventory.
+- Starting with `New governed agent` before checking inventory.
 - Creating a team-specific agent when a broad agent plus overlay would work.
 - Giving broad knowledge access without justification.
 - Skipping source ownership.

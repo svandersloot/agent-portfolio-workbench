@@ -25,9 +25,9 @@ Define how agent success is measured, reviewed, and improved across the ROVO age
 
 ## Per-Agent Metrics Table
 
-| Agent | Owner | Status | Primary Use Case | Adoption | Time Saved | Quality Signal | Last Review | Next Action |
-|---|---|---|---|---|---|---|---|---|
-| [Agent] | [Owner] | Green / Yellow / Red | [Use case] | [Value] | [Value] | [Signal] | [Date] | [Action] |
+| Agent | Owner | Lifecycle Status | Readiness | Primary Use Case | Adoption | Time Saved | Quality Signal | Last Review | Next Action |
+|---|---|---|---|---|---|---|---|---|---|
+| [Agent] | [Owner] | Idea / Draft / In Review / Experimental / Active / Needs Remediation / Deprecated | Ready / Needs Cleanup / Not Ready | [Use case] | [Value] | [Value] | [Signal] | [Date] | [Action] |
 
 ## Reporting Cadence
 

@@ -45,17 +45,19 @@ Required labels:
 - `agent-adr`
 - `context-readiness`
 - `agent-measurement`
+- `agent-intake`
 
 ## Agent Lifecycle
 
 | Status | Meaning | Required Action |
 |---|---|---|
-| Draft | Idea or early design | Fit triage and context readiness |
-| In Review | Candidate design exists | Governance review and evaluation |
-| Green | Approved and maintained | Regular review and measurement |
-| Yellow | Known issues or stale docs | Remediation plan |
-| Red | Unsafe, stale, or blocked | Pause use and remediate |
-| Retired | No longer active | Archive or mark legacy |
+| Idea | Proposed need or use case, not yet shaped | Run Agent Fit Intake and route to the lightest useful solution |
+| Draft | Early design or Project Brain scaffold exists | Complete ownership, purpose, audience, source, tool, and readiness fields |
+| In Review | Candidate design exists | Governance review, inventory check, context readiness, and evaluation |
+| Experimental | Pilot use only | Limit audience, collect feedback, and monitor risks |
+| Active | Approved and maintained | Regular review, measurement, and source upkeep |
+| Needs Remediation | Known ownership, source, measurement, safety, or duplicate gap | Track remediation or pause use |
+| Deprecated | Replaced, retired, or no longer recommended | Point users to replacement guidance and archive/label legacy pages |
 
 ## Retirement Process
 

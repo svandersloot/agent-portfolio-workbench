@@ -5,6 +5,8 @@
 | Field | Value |
 |---|---|
 | Agent name | [Name] |
+| Lifecycle status | Idea / Draft / In Review / Experimental / Active / Needs Remediation / Deprecated |
+| Readiness status | Ready / Needs Cleanup / Not Ready |
 | Reviewer | [Name] |
 | Review date | [Date] |
 | Review type | Pre-launch / Periodic / Post-incident |
@@ -29,6 +31,8 @@
 | 13 | Review date set for next check | Pass / Fail | [Evidence] | [Notes] |
 | 14 | No duplicate agent exists in inventory | Pass / Fail | [Evidence] | [Notes] |
 | 15 | Context readiness assessment completed | Pass / Fail | [Evidence] | [Notes] |
+| 16 | Project Brain link exists and matches inventory | Pass / Fail | [Evidence] | [Notes] |
+| 17 | Last-reviewed date is current for lifecycle status | Pass / Fail | [Evidence] | [Notes] |
 
 ## Decision
 

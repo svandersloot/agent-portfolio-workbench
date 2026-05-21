@@ -15,3 +15,5 @@ labels:
     purpose: Applied to context readiness assessments and related guidance.
   - name: agent-measurement
     purpose: Applied to value tracking and success metrics pages.
+  - name: agent-intake
+    purpose: Applied to fit intake, routing, and front-door governance pages.

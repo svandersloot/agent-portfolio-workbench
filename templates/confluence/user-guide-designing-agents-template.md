@@ -16,17 +16,17 @@ You should know:
 
 ## Step 1: Start With Fit Triage
 
-Go to `Start Here - Agent Fit and Governance Front Gate`.
+Go to `Agent Fit Intake`, preferably through the ROVO Design Agent.
 
 The best outcome may be:
 
-- PROMPT ONLY
-- DEFAULT ROVO
-- AUTOMATION FLOW
-- EXTEND EXISTING
-- CREATE NEW
-- APP / FORGE CANDIDATE
-- NOT READY
+- Prompt
+- Automation
+- Existing-agent extension
+- Confluence template
+- App candidate
+- New governed agent
+- Not ready
 
 Creating a new agent is only one valid outcome.
 
@@ -57,6 +57,8 @@ For durable agent work, create or update:
 - Subagent Settings.
 - Rovo Studio Configuration.
 - Evaluation.
+- Measurement plan.
+- Readiness status.
 - Change Log.
 
 ## Step 5: Review Governance
@@ -66,11 +68,14 @@ Use `Agent Governance Review Template`.
 The review should confirm:
 
 - Owner and backup owner.
+- Purpose and audience.
 - Scoped knowledge sources.
+- Tools or skills with risk notes.
 - Documented permissions.
 - Risk controls.
 - Evaluation coverage.
 - Measurement plan.
+- Project Brain link and last-reviewed date.
 
 ## Step 6: Launch And Measure
 
@@ -84,7 +89,7 @@ After launch:
 
 ## Common Mistakes
 
-- Starting with `CREATE NEW` before checking inventory.
+- Starting with `New governed agent` before checking inventory.
 - Giving broad knowledge access without justification.
 - Skipping source ownership.
 - Skipping evaluation.

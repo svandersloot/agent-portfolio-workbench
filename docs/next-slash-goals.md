@@ -63,7 +63,7 @@ Recommended no-write plan:
 3. Update pages that refer to old inventory wording so links and labels point users to `Agent Inventory`.
 4. Avoid copy/recreate. If any pages must move, use move/reparent operations so history is preserved.
 
-## 5. Define Agent Governance Completeness Contract
+## 5. Completed Locally: Define Agent Governance Completeness Contract
 
 ```text
 /goal Define the first structured agent governance completeness contract. Capture the non-negotiable fields for every governed ROVO agent, choose a local structured format for future inventory records, and create a dry-run report shape that identifies missing owner, backup owner, status, purpose, audience, knowledge sources, tools or skills, measurement plan, readiness status, Project Brain link, and last-reviewed date.
@@ -74,6 +74,12 @@ Acceptance checks:
 - Contract is explicit and easy for builders to understand.
 - The model supports leadership reporting and builder reuse.
 - The first version does not require every existing page to be migrated at once.
+
+Completed local artifacts:
+
+- `docs/agent-governance-completeness-contract.md`
+- `schemas/agent-governance-record.schema.json`
+- `docs/confluence-pages/agent-fit-intake.md`
 
 ## 6. Completed: Publish Agent Fit Intake And Status Policy
 
@@ -99,7 +105,7 @@ Acceptance checks:
 - Active/Ready approval is limited to the space maintainer and Atlassian admins.
 - Experimental agents are intended for a select audience while Studio visibility controls are investigated.
 
-## 7. Update Design Agent Intake Flow
+## 7. Completed Locally: Update Design Agent Intake Flow
 
 ```text
 /goal Update the ROVO Design Agent guidance so new agent ideas start with Agent Fit Intake. The Design Agent should route ideas to prompt, automation, existing-agent extension, Confluence template, app candidate, new governed agent, or not ready; require the minimum Project Brain scaffolding fields before recommending build; and check inventory for duplicates before recommending a new governed agent.
@@ -110,9 +116,20 @@ Acceptance checks:
 - Design Agent uses `Agent Fit Intake` as the front door.
 - Design Agent can explicitly recommend not building an agent.
 - Design Agent requires owner, backup owner or needed note, status, knowledge sources, tools/actions, measurement idea, and readiness risks before scaffolding a Project Brain.
-- Design Agent checks for existing agents or pages before recommending `CREATE NEW`.
+- Design Agent checks for existing agents or pages before recommending `New governed agent`.
 
-## 8. Investigate Studio Visibility Controls
+Completed local artifacts:
+
+- `docs/confluence-pages/agent-fit-intake.md`
+- `templates/confluence/agent-design-record-template.md`
+- `templates/confluence/agent-governance-review-template.md`
+
+Confluence status:
+
+- Not applied in this goal.
+- Run `.\scripts\Publish-ConfluencePages.ps1 -Slug agent-fit-intake -UpdateExisting` and confirm it shows exactly one intended page before requesting approval to apply.
+
+## 8. Started Locally: Investigate Studio Visibility Controls
 
 ```text
 /goal Investigate ROVO Studio team assignment and discoverability controls for Draft, In Review, and Experimental agents. Determine whether experimental agents can be limited to a select audience, document who can change visibility, and update the governance policy with recommended controls.
@@ -124,7 +141,15 @@ Acceptance checks:
 - Defines a practical control for Experimental agents.
 - Confirms Active/Ready approval remains limited to the space maintainer and Atlassian admins.
 
-## 9. Design Monthly Governance Snapshot
+Completed local artifact:
+
+- `docs/studio-visibility-team-assignment-investigation-checklist.md`
+
+Next action:
+
+- Execute the checklist read-only against relevant Studio views. Do not save or change Studio assignment/visibility.
+
+## 9. Completed Locally: Design Monthly Governance Snapshot
 
 ```text
 /goal Design the monthly ROVO agent governance snapshot. Define the sections, data inputs, and report format for leadership and interested builders, including what changed, what exists, what is ready, what is experimental, what is missing required governance fields, and what duplicate or reuse opportunities were found.
@@ -135,3 +160,19 @@ Acceptance checks:
 - Report is human-facing and concise.
 - Report can eventually be generated from inventory, publish history, and governance completeness checks.
 - Report helps people find existing agents before creating duplicate work.
+
+Completed local artifact:
+
+- `templates/confluence/monthly-governance-snapshot-template.md`
+
+## 10. Apply Agent Fit Intake Update After Approval
+
+```text
+/goal Review the local Agent Fit Intake update, then run .\scripts\Publish-ConfluencePages.ps1 -Slug agent-fit-intake -UpdateExisting as a dry-run. Apply only after confirming the plan shows exactly one intended page: Agent Fit Intake, page ID 5301174273, currentVersion 1, plannedVersion 2. Do not change Studio.
+```
+
+Acceptance checks:
+
+- Dry-run targets only `Agent Fit Intake`.
+- Apply is run only after explicit approval.
+- Publish history is updated with old version, new version, source file, command, timestamp, and verification result.

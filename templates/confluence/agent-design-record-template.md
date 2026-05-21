@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Agent name | [Name] |
-| Status | Draft / In Review / Green / Yellow / Red / Retired |
+| Status | Idea / Draft / In Review / Experimental / Active / Needs Remediation / Deprecated |
 | Owner | [Name] |
 | Backup owner | [Name] |
 | Design version | [v1.0 / YYYY-MM-DD] |
@@ -30,7 +30,7 @@
 
 | Field | Value |
 |---|---|
-| Decision | PROMPT ONLY / DEFAULT ROVO / AUTOMATION FLOW / EXTEND EXISTING / CREATE NEW / APP-FORGE CANDIDATE / NOT READY |
+| Decision | PROMPT / AUTOMATION / EXISTING AGENT EXTENSION / CONFLUENCE TEMPLATE / APP CANDIDATE / NEW GOVERNED AGENT / NOT READY |
 | Reason | [Why this is the right-sized solution] |
 | Why not simpler? | [Why a simpler solution will not work] |
 | Why not broader? | [Why this should not merge into an existing agent] |
@@ -119,6 +119,11 @@
 |---|---|
 | Primary owner | [Name] |
 | Backup owner | [Name] |
+| Purpose | [Why the agent exists] |
+| Audience | [Who should use it] |
+| Readiness status | Ready / Needs Cleanup / Not Ready |
+| Project Brain link | [Link] |
+| Last-reviewed date | [YYYY-MM-DD] |
 | Review cadence | Monthly / Quarterly / Release-based |
 | Next review date | [Date] |
 | Retirement criteria | [When to deprecate] |

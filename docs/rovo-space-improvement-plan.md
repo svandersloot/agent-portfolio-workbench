@@ -34,7 +34,7 @@ The largest current gaps are:
    - Start with lightweight metrics: adoption, time saved, quality, rework, satisfaction, and qualitative owner feedback.
 
 3. Create `Context Readiness Checklist`.
-   - Use this before recommending `CREATE NEW` or `EXTEND EXISTING`.
+   - Use this before recommending `New governed agent` or `Existing-agent extension`.
 
 4. Create `User Guide - Designing Agents`.
    - Give new builders a self-service path from idea to review.
@@ -46,7 +46,7 @@ The largest current gaps are:
 
 ```text
 Agent Governance Home
-|-- Start Here - Agent Fit and Governance Front Gate
+|-- Agent Fit Intake
 |-- Agent Inventory
 |-- Context Readiness Checklist
 |-- Space Structure and Navigation
@@ -128,7 +128,7 @@ Agent Governance Home
 | Page | Recommendation | Notes |
 |---|---|---|
 | Agent Governance Home | Update | Add links to Measurement, Decision Log, User Guide, Governance and Safety, and updated structure. |
-| Start Here - Agent Fit and Governance Front Gate | Keep | Strongest page in the space. |
+| Agent Fit Intake | Keep | Use as the front door for Design Agent-guided governance triage. |
 | Agent Inventory | Update and merge | Canonical inventory. Add compliance tier, environment, runbook, SLO, and data/privacy fields. |
 | Rovo Agent Inventory Home | Archive after harvest | Keep useful fields, then archive as legacy. |
 | Space Structure and Navigation | Update | Match actual hierarchy after moves. |
@@ -179,8 +179,8 @@ Add outputs:
 
 Add governance checks:
 
-- Block `CREATE NEW` if no owner is assigned.
-- Block `CREATE NEW` if context readiness is red.
+- Block `New governed agent` if no owner is assigned.
+- Block `New governed agent` if context readiness is `Not Ready`.
 - Warn if proposed agent overlaps with existing inventory.
 - Require write action justification for Tier 2+ skills.
 
@@ -200,7 +200,7 @@ Add checks:
 |---|---|---|---|
 | Single-person bottleneck | High | High | Assign backup owners and train at least two additional maintainers. |
 | Competing inventory visions | Medium | Medium | Align with Michael before merging inventory pages. |
-| Template overhead | Medium | Medium | Apply full templates only to `CREATE NEW` and `EXTEND EXISTING`. |
+| Template overhead | Medium | Medium | Apply full templates only to `New governed agent` and `Existing-agent extension`. |
 | Meta-agent instruction bloat | Medium | Medium | Test Studio length and split capability into subagents if needed. |
 | Measurement without tooling | High | Medium | Start with self-reported metrics and qualitative owner feedback. |
 | Adoption resistance | Medium | High | Emphasize least-complex governed solution and show cases where governance avoids extra work. |

@@ -16,6 +16,7 @@ The long-term direction is a lightweight governance operating system: publish co
 - `docs/confluence-pages/`: page-ready governance drafts for publishing or manual creation in Confluence.
 - `docs/`: operator guidance, roadmap, improvement plan, and implementation backlog.
 - `config/`: reusable governance config such as labels, page publishing targets, and tracked Studio agent list examples.
+- `schemas/agent-governance-record.schema.json`: first structured contract for governed agent completeness.
 - `data/raw/`: local-only raw captures, ignored by Git.
 
 ## Current Workflow
@@ -84,13 +85,21 @@ Completed Confluence pages:
 4. `User Guide - Designing Agents`
 5. `Agent Fit Intake`
 
+The current governance front door is defined locally in:
+
+- `docs/confluence-pages/agent-fit-intake.md`
+- `docs/agent-governance-completeness-contract.md`
+- `schemas/agent-governance-record.schema.json`
+- `templates/confluence/monthly-governance-snapshot-template.md`
+- `docs/studio-visibility-team-assignment-investigation-checklist.md`
+
 The next recommended actions are:
 
-1. Merge the two inventory pages.
-2. Move CoP notes under Working Group Notes and create the Backlog page.
-3. Update the ROVO Design Agent flow to use Agent Fit Intake.
-4. Investigate Studio team assignment and discoverability controls.
-5. Design the monthly governance snapshot.
+1. Dry-run the `Agent Fit Intake` Confluence update and apply only after approval.
+2. Merge the two inventory pages.
+3. Move CoP notes under Working Group Notes and create the Backlog page.
+4. Run the read-only Studio team assignment and discoverability investigation.
+5. Build the first completeness report and monthly governance snapshot.
 
 ## Why This Exists
 

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/rovo-governance-admin/agent-governance-record.schema.json",
+  "title": "ROVO Agent Governance Record",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "agentName",
+    "status",
+    "purpose",
+    "audience",
+    "owner",
+    "backupOwner",
+    "knowledgeSources",
+    "toolsOrSkills",
+    "measurementPlan",
+    "readinessStatus",
+    "projectBrainLink",
+    "lastReviewedDate"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "agentName": { "type": "string", "minLength": 1 },
+    "status": {
+      "enum": ["Idea", "Draft", "In Review", "Experimental", "Active", "Needs Remediation", "Deprecated"]
+    },
+    "purpose": { "type": "string", "minLength": 1 },
+    "audience": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "owner": { "$ref": "#/$defs/accountableParty" },
+    "backupOwner": { "$ref": "#/$defs/accountableParty" },
+    "knowledgeSources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/knowledgeSource" }
+    },
+    "toolsOrSkills": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/toolOrSkill" }
+    },
+    "measurementPlan": {
+      "type": "object",
+      "required": ["valueSignal", "baselineOrEstimateMethod", "qualityOrRiskSignal", "cadence"],
+      "properties": {
+        "valueSignal": { "type": "string", "minLength": 1 },
+        "baselineOrEstimateMethod": { "type": "string", "minLength": 1 },
+        "qualityOrRiskSignal": { "type": "string", "minLength": 1 },
+        "cadence": { "type": "string", "minLength": 1 },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "readinessStatus": {
+      "enum": ["Ready", "Needs Cleanup", "Not Ready"]
+    },
+    "readinessEvidence": { "type": "string" },
+    "projectBrainLink": { "type": "string", "minLength": 1 },
+    "lastReviewedDate": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "intakeOutcome": {
+      "enum": [
+        "Prompt",
+        "Automation",
+        "Existing Agent Extension",
+        "Confluence Template",
+        "App Candidate",
+        "New Governed Agent",
+        "Not Ready"
+      ]
+    },
+    "duplicateOrReuseSignal": { "type": "string" },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "accountableParty": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "team": { "type": "string" },
+        "gapNote": { "type": "string" },
+        "remediationOwner": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "knowledgeSource": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "minLength": 1 },
+        "link": { "type": "string" },
+        "permissionNotes": { "type": "string" },
+        "freshnessNotes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "toolOrSkill": {
+      "type": "object",
+      "required": ["name", "riskTier"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "riskTier": { "enum": ["low", "medium", "high", "unknown"] },
+        "allowedUse": { "type": "string" },
+        "approvalRequired": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -12,9 +12,9 @@
 ## Phase 2: Governance Checks
 
 - Define the Agent Fit Intake contract.
-- Define the non-negotiable governance fields for every governed ROVO agent.
-- Define lifecycle statuses: Idea, Draft, In Review, Experimental, Active, Needs Remediation, and Deprecated.
-- Investigate Studio team assignment and discoverability controls for draft and experimental agents.
+- Done locally: define the non-negotiable governance fields for every governed ROVO agent in `docs/agent-governance-completeness-contract.md` and `schemas/agent-governance-record.schema.json`.
+- Done locally: define lifecycle statuses: Idea, Draft, In Review, Experimental, Active, Needs Remediation, and Deprecated.
+- Started locally: investigate Studio team assignment and discoverability controls for draft and experimental agents with a read-only checklist.
 - Lint normalized configs for risky changes.
 - Flag broad knowledge sources.
 - Flag high-risk tools without approval language.
@@ -39,6 +39,7 @@
 - Move toward a hybrid inventory where Confluence remains human-readable and a structured local inventory file supports checks and reports.
 - Generate human-facing reports for new agents, duplicate candidates, governance gaps, stale pages, and recent page updates.
 - Generate a monthly governance snapshot for leadership and interested builders.
+- Done locally: maintain a monthly governance snapshot template for leadership and builders.
 - Produce builder-facing "what already exists" summaries before new agent work begins.
 
 ## Phase 5: Optional Capture Automation
@@ -55,7 +56,7 @@ See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The high
 
 1. Merge inventory pages.
 2. Move CoP notes and create Backlog and Improvement Roadmap.
-3. Update the ROVO Design Agent flow to use Agent Fit Intake.
-4. Investigate Studio team assignment and discoverability controls.
-5. Design the monthly governance snapshot.
-6. Define the first structured agent inventory/completeness contract.
+3. Dry-run and, after approval, apply the Agent Fit Intake update that operationalizes the Design Agent flow.
+4. Run the read-only Studio team assignment and discoverability investigation.
+5. Build the first governance completeness report from the new contract.
+6. Generate the first monthly governance snapshot from inventory, completeness, publish history, and intake data.

@@ -17,9 +17,9 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
-| 2.1 | Create Agent Design Record Template | P0 | None | Working group lead | Template exists under Templates and includes sections from `templates/confluence/agent-design-record-template.md`. |
+| 2.1 | Create Agent Design Record Template | P0 | None | Working group lead | Template exists under Templates and includes sections from `templates/confluence/agent-design-record-template.md`; status and fit decision options now match Agent Fit Intake. |
 | 2.2 | Create Context Readiness Checklist | P0 | None | Working group lead | Done: page-ready draft exists at `docs/confluence-pages/context-readiness-checklist.md`; Confluence page created under `Governance and Safety`. |
-| 2.3 | Create Agent Governance Review Template | P1 | None | Working group lead | Template exists under Templates with human-facing checklist. |
+| 2.3 | Create Agent Governance Review Template | P1 | None | Working group lead | Template exists under Templates with human-facing checklist and required completeness fields. |
 | 2.4 | Create Agent ADR Template | P1 | None | Working group lead | Template exists under Templates. |
 | 2.5 | Create Decision Log index page | P1 | 2.4 | Working group lead | Page exists with ADR naming convention. |
 
@@ -32,19 +32,20 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 | 3.3 | Add Context Readiness Assessment to Doc Health Gate | P1 | 2.2 | Meta-agent owner | Doc Health Gate includes context readiness as a P1 audit check. |
 | 3.4 | Add measurement plan check to Doc Health Gate | P1 | 5.1 | Meta-agent owner | Doc Health Gate includes measurement plan as a P1 check. |
 | 3.5 | Create first three ADRs | P2 | 2.4, 2.5 | Working group lead | ADRs exist for Project Brain pattern, fit triage framework, and meta-agent collaboration model. |
+| 3.6 | Define governance completeness contract | P0 | 4.1 | Working group lead | Done locally: `docs/agent-governance-completeness-contract.md` and `schemas/agent-governance-record.schema.json` define required owner, backup owner, status, purpose, audience, knowledge sources, tools or skills, measurement plan, readiness status, Project Brain link, and last-reviewed date. |
 
 ## Milestone 4: Meta-Agent Enhancement
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
-| 4.1 | Add Agent Fit Intake to Design Agent flow | P0 | None | Meta-agent owner | Intake page published to Confluence as `Agent Fit Intake`. Next: update Design Agent behavior so it routes ideas to prompt, automation, existing-agent extension, Confluence template, new governed agent, app candidate, or not ready. |
-| 4.2 | Add context readiness pre-check to Design Agent | P1 | 2.2 | Meta-agent owner | Output includes readiness summary. Critical gaps can route to `NOT READY`. |
-| 4.3 | Add inventory dedup check to Design Agent | P1 | 1.1 | Meta-agent owner | Output states inventory was checked before recommending `CREATE NEW`. |
+| 4.1 | Add Agent Fit Intake to Design Agent flow | P0 | None | Meta-agent owner | Done locally: `docs/confluence-pages/agent-fit-intake.md` defines the Design Agent intake sequence and routing rules for prompt, automation, existing-agent extension, Confluence template, app candidate, new governed agent, or not ready. Confluence update still requires focused dry-run and approval before apply. |
+| 4.2 | Add context readiness pre-check to Design Agent | P1 | 2.2 | Meta-agent owner | Done locally: intake flow requires readiness status before a new governed agent recommendation; critical gaps route to `Not ready`. |
+| 4.3 | Add inventory dedup check to Design Agent | P1 | 1.1 | Meta-agent owner | Done locally: intake flow requires `Agent Inventory` and related Project Brain checks before recommending `New governed agent`. |
 | 4.4 | Add risk tier classification to Design Agent output | P2 | None | Meta-agent owner | Risk tier appears in every design packet. |
 | 4.5 | Update Doc Steward to check measurement plans | P1 | None | Meta-agent owner | Missing measurement plan is flagged as P1. |
 | 4.6 | Update Doc Steward to generate completeness score | P2 | None | Meta-agent owner | Doc Health Gate output includes completeness percentage. |
 | 4.7 | Update Evaluation Library with new scenarios | P2 | 4.1-4.5 | Meta-agent owner | At least three new test cases per meta-agent cover new capabilities. |
-| 4.8 | Investigate Studio visibility and team assignment | P1 | None | Atlassian admin + space admin | Document whether draft or experimental agents can be restricted by team assignment or other Studio controls, and define who can mark agents Active or Ready. |
+| 4.8 | Investigate Studio visibility and team assignment | P1 | None | Atlassian admin + space admin | Read-only checklist exists at `docs/studio-visibility-team-assignment-investigation-checklist.md`. Next: run investigation without Studio writes and document what controls are available. |
 
 ## Milestone 5: Measurement And Reporting
 
@@ -54,9 +55,9 @@ This backlog translates the ROVO space audit into trackable work. It can be copi
 | 5.2 | Add success metrics to Release Health Analyst Project Brain | P1 | 5.1 | Agent owner | Release Health Analyst includes baseline and target metrics. |
 | 5.3 | Create quarterly review template | P2 | 5.1 | Working group lead | Template exists for portfolio review. |
 | 5.4 | Add publish-history records | P1 | 5.1 | Space admin | Started: `docs/publish-history/2026-05-21-agent-fit-intake.md` records page ID, old version, new version, source file, command, timestamp, and verification result. Next: automate or standardize this for every API-assisted apply. |
-| 5.5 | Create governance completeness report | P1 | 1.1, 5.4 | Space admin | Report identifies agents missing owner, backup owner, status, purpose, audience, knowledge sources, tools or skills, measurement plan, readiness status, Project Brain link, or last-reviewed date. |
+| 5.5 | Create governance completeness report | P1 | 1.1, 5.4 | Space admin | Contract and dry-run report shape are defined locally. Next: implement read-only report that identifies missing owner, backup owner, status, purpose, audience, knowledge sources, tools or skills, measurement plan, readiness status, Project Brain link, or last-reviewed date. |
 | 5.6 | Create duplicate-agent discovery report | P1 | 1.1 | Working group lead | Report helps builders find existing agents or patterns before creating new work. |
-| 5.7 | Create monthly governance snapshot | P1 | 5.5, 5.6 | Space admin | Monthly report summarizes what changed, what exists, what is ready, what is experimental, governance gaps, duplicate candidates, and reuse opportunities. |
+| 5.7 | Create monthly governance snapshot | P1 | 5.5, 5.6 | Space admin | Done locally: template exists at `templates/confluence/monthly-governance-snapshot-template.md` for leadership and builders. Next: generate it from inventory, completeness, publish history, and intake data. |
 
 ## Milestone 6: Pilot And Feedback Loop
 
