@@ -5,6 +5,7 @@ Use this page to track changes to the agent design, knowledge sources, Studio co
 | Version | Date | Area | Change Summary | Reason / Outcome | Updated By |
 |---|---|---|---|---|---|
 | v0.1 | 2026-05-21 | Initial governed migration scaffold | Created Project Brain, Agent Design Record, Knowledge Source Plan, Subagent Settings, Studio configuration copy blocks, Evaluation, and Measurement Plan. | Migrate from old release/change evidence into governed in-review status. | Governance migration scaffold |
+| v0.2 | 2026-05-21 | Deployment runbook behavior | Added Mobilitas app repo sources, branch-selection caveats, deployment work package ordering, and technical runbook subagent guidance. | Make Release Notes Manager produce beginner-readable runbooks instead of story-first Jira note dumps. | Governance migration scaffold |
 
 ## Pending Change Gates
 

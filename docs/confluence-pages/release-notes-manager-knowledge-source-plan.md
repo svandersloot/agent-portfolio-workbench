@@ -22,8 +22,25 @@ Release Notes Manager uses approved release-specific sources only. It should pre
 | Release plan, change summary, or release calendar | Confluence / Jira | Process Authority | Confirm release dates, milestones, impacted groups, and release-owner notes. | Per release | Ask for authoritative link or owner confirmation. |
 | Existing release notes page | Confluence | Working Draft / Published Record | Compare, refine, and identify gaps. | Per release | Ask the user to paste content if inaccessible. |
 | Product or business summary | Confluence / supplied text | Process Authority | Translate technical changes into audience-specific summaries. | Per release | Keep business summary out of scope until provided. |
+| ClaimCenter repo | Bitbucket | Source Reference | Locate deployment files referenced by Jira deployment notes. | Per release branch or develop branch | Ask release owner which branch/tag to use before referencing a file. |
+| PolicyCenter repo | Bitbucket | Source Reference | Locate deployment files referenced by Jira deployment notes. | Per release branch or develop branch | Ask release owner which branch/tag to use before referencing a file. |
+| BillingCenter repo | Bitbucket | Source Reference | Locate deployment files referenced by Jira deployment notes. | Per release branch or develop branch | Ask release owner which branch/tag to use before referencing a file. |
+| ContactManager repo | Bitbucket | Source Reference | Locate deployment files referenced by Jira deployment notes. | Per release branch or develop branch | Ask release owner which branch/tag to use before referencing a file. |
 | Release Health Analyst output | Confluence / supplied text | Reference | Reuse health findings, blockers, and data-completeness flags. | Per run | Route health scoring back to Release Health Analyst. |
 | Mobilitas Release Notes Agent materials | Legacy export / archive | Archive Reference | Learn from examples only when relevant. | Static | Do not generalize as default behavior. |
+
+## Mobilitas Application Source Repositories
+
+Use these repositories when a deployment note references files in a Guidewire application repo:
+
+| Application | Repository |
+|---|---|
+| ClaimCenter | `https://bitbucket.insu.dev-1.us-east-1.guidewire.net/projects/STARSYSONE/repos/claimcenter/browse` |
+| PolicyCenter | `https://bitbucket.insu.dev-1.us-east-1.guidewire.net/projects/STARSYSONE/repos/policycenter/browse` |
+| BillingCenter | `https://bitbucket.insu.dev-1.us-east-1.guidewire.net/projects/STARSYSONE/repos/billingcenter/browse` |
+| ContactManager | `https://bitbucket.insu.dev-1.us-east-1.guidewire.net/projects/STARSYSONE/repos/contactmanager/browse` |
+
+Branch selection is release-context dependent. A release branch may look like `release/r-64.0`; other work may still come from `develop`. If the branch or tag is not explicitly provided, do not assume it. Mark the runbook with a data-incomplete flag and ask the release owner or deployment lead which branch/tag should be used.
 
 ## Required Input Check
 
@@ -34,6 +51,8 @@ Before drafting final-seeming content, the agent must confirm:
 - At least one source for release scope.
 - Whether an existing release notes page or template should be followed.
 - Whether blocked, deferred, or partial items should be included.
+- For deployment runbooks, which Bitbucket repo and branch/tag should be used for referenced files.
+- For deployment runbooks, which target environment and admin application URL should be used.
 
 ## Data Incomplete Flags
 
@@ -44,6 +63,9 @@ Before drafting final-seeming content, the agent must confirm:
 | RNM-DI-003 | Release notes draft or template is inaccessible. | Format and prior content cannot be synchronized. | Grant access or paste the draft/template. |
 | RNM-DI-004 | Business audience context is missing. | Business summary may be misleading or incomplete. | Provide audience, product summary, or stakeholder context. |
 | RNM-DI-005 | Source conflict found. | Final notes cannot be trusted. | Release owner resolves authoritative source. |
+| RNM-DI-006 | Bitbucket repo, branch, or tag is unclear for a referenced deployment file. | Deployer may import the wrong file version. | Confirm app repo and branch/tag with the release owner. |
+| RNM-DI-007 | Admin application URL, environment, or role is missing. | A new deployer cannot safely perform import steps. | Provide target environment, URL, and required admin role. |
+| RNM-DI-008 | AWS account or role is missing for a pipeline deployment. | Pipeline could be promoted in the wrong account or role. | Confirm AWS account, role, and pipeline owner. |
 
 ## Source Handling Rules
 
@@ -52,12 +74,29 @@ Before drafting final-seeming content, the agent must confirm:
 - Preserve source traceability in an internal review checklist.
 - Avoid naming private source URLs in broad user-facing output unless the user supplied them for that purpose.
 - Use `None identified` when no source exists, rather than inventing one.
+- For deployment runbooks, treat Jira stories as evidence, not as the final runbook structure.
+- Group deployment work into work packages by system, action type, and dependency.
+- Collapse exact duplicate deployment notes into one work package and list all source stories.
+- Group related actions that use the same system or admin path, but do not collapse them when files, properties, or pipelines differ.
+- Label branch, environment, role, and admin-path assumptions as data incomplete unless the source evidence confirms them.
+
+## Default Deployment Ordering Rules
+
+| Work package type | Default order | Notes |
+|---|---|---|
+| Runtime properties | Pre-deployment | Usually required before application deployment unless the release owner says otherwise. |
+| Guidewire application file imports | Pre-deployment or deployment window | Use admin application import steps and confirm target app, environment, and branch. |
+| AWS CodePipeline promotions | Flexible | Can often run before, during, or after Guidewire deployment unless a dependency is stated. Confirm AWS account and role. |
+| Special timed changes | Explicit source timing wins | Follow story-specific timing such as evening deployment or live-date requirements. |
+| Validation | After each work package | Do not wait until the end if a package has its own validation. |
 
 ## Knowledge Source Review
 
 | Review item | Status | Notes |
 |---|---|---|
-| Jira projects or filters confirmed | Open | Needs owner confirmation. |
+| Jira projects or filters confirmed | Partial | Exact fixVersion JQL is known; broader project/filter ownership still needs confirmation. |
+| Mobilitas Bitbucket app repos confirmed | Done | ClaimCenter, PolicyCenter, BillingCenter, and ContactManager repos are documented. |
+| Branch/tag selection rule confirmed | Partial | Use release branch such as `release/r-64.0` or `develop` depending on release context; ask when unclear. |
 | Confluence source spaces confirmed | Open | Needs source access review. |
 | Release-note templates confirmed | Open | Needs process-owner input. |
 | Archive sources separated from active instructions | Done | Mobilitas is archive/reference only. |

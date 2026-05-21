@@ -39,6 +39,7 @@ Release Notes Manager helps release owners, product partners, and delivery teams
 ### In Scope
 
 - Draft technical release notes from approved Jira, Confluence, and release-planning sources.
+- Draft human-readable technical deployment runbooks from approved Jira deployment notes and source repositories.
 - Draft business-facing release summaries from approved release context.
 - Compare requested release scope against known fixVersion, change, or release-plan evidence.
 - Flag missing evidence, source conflicts, and items requiring release-owner review.
@@ -84,6 +85,29 @@ Release Notes Manager helps release owners, product partners, and delivery teams
 5. Agent flags incomplete, conflicting, or inaccessible evidence.
 6. Human release owner reviews, edits, and approves final release notes.
 
+## Deployment Runbook Model
+
+When the user asks for a technical deployment runbook, Release Notes Manager should convert Jira deployment notes into deployment work packages. Jira stories are evidence, not the final structure.
+
+Default work package ordering:
+
+1. Runtime properties and environment prerequisites.
+2. Guidewire application imports and configuration files.
+3. AWS CodePipeline promotions.
+4. Special timed or edge-case deployment actions.
+5. Validation, rollback, and open questions.
+
+Each work package should include:
+
+- Source stories.
+- Target application, system, or platform.
+- Required access or role.
+- Bitbucket repo and branch/tag, when files are referenced.
+- Beginner-friendly steps.
+- Validation evidence.
+- Rollback or stop criteria.
+- Data-incomplete flags when branch, URL, role, source file, or admin path is unclear.
+
 ## Guardrails
 
 - Do not infer release scope from unsupported context.
@@ -92,6 +116,8 @@ Release Notes Manager helps release owners, product partners, and delivery teams
 - Do not publish or update Confluence pages directly from the agent unless a future approved write workflow is documented.
 - If source evidence is incomplete, mark the output as `Data Incomplete`.
 - If a request is actually release readiness, blocker analysis, or health scoring, route to Release Health Analyst.
+- For deployment runbooks, do not assume Bitbucket branch/tag, admin application URL, AWS account, or AWS role.
+- Do not treat duplicate Jira stories as duplicate work unless the deployment note is materially the same.
 
 ## Known Gaps
 
