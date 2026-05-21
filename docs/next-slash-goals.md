@@ -336,3 +336,57 @@ Acceptance checks:
 - Verifies triggers exist only on subagents.
 - Captures and normalizes Studio configuration after the manual save.
 - Commits safe normalized artifacts and docs only.
+
+## 19. Completed Locally: ROVO Governance Backlog Feasibility Review
+
+```text
+/goal Evaluate the remaining ROVO governance backlog for feasibility and value. Do not write to Studio or Confluence. Review docs/next-slash-goals.md, docs/implementation-backlog.md, docs/roadmap.md, docs/reports, and current Atlassian public API evidence. Classify each backlog item as Now / Later / Drop based on whether it is achievable with supported APIs or safe manual process, whether it improves governance, and whether it creates maintenance burden. Produce a decision table, update the backlog and next slash goals, and commit safe repo-only changes.
+```
+
+Decision source:
+
+- `docs/implementation-backlog.md` now includes the Now / Later / Drop decision table.
+
+API/platform conclusion:
+
+- Supported now: Confluence REST page updates, page reads, page creation, focused page moves/reparents, repo-only reports, and manual ROVO Studio/admin governance checks.
+- Manual only: ROVO Studio-created agent configuration and Studio visibility/user-access changes.
+- Dropped from active backlog: Studio write-back, percentage-based Doc Steward completeness scoring, the standalone quarterly review template, and a duplicate Confluence backlog/roadmap page.
+
+## 20. Next: Confirm Studio Governance Controls Manually
+
+```text
+/goal Confirm ROVO Studio governance controls manually without saving changes. Use docs/studio-visibility-team-assignment-investigation-checklist.md and current Atlassian public guidance to inspect who can create agents, who can edit/manage the Design Agent, whether Open to all users can be disabled, whether specific users can be added, and whether group/team-based user access restriction is unavailable. Do not write to Studio. Capture only safe notes in docs/reports/studio-visibility-team-assignment-investigation.md, then update backlog status if evidence changes.
+```
+
+Acceptance checks:
+
+- Confirms creation controls, edit/manager controls, and user access controls from Studio/admin UI.
+- Does not change Studio settings or agent permissions.
+- States whether Experimental agents can be limited to individual pilot users, groups/teams, or only manual promotion controls.
+- Keeps raw captures, headers, cookies, and tokens out of Git.
+
+## 21. Next: Make Governance Reports Repeatable
+
+```text
+/goal Make the repo-only governance reports repeatable without Confluence or Studio writes. Use the Agent Inventory, publish history, completeness contract, normalized Studio captures if present, and existing docs/reports to define the smallest repeatable process for governance completeness, duplicate-agent discovery, and the monthly governance snapshot. Prefer scripts or checklists only where they reduce manual drift. Do not add Studio write-back or percentage-based completeness scoring.
+```
+
+Acceptance checks:
+
+- Completeness output remains field-level and evidence-based.
+- Duplicate discovery compares one duplicate group at a time before any cleanup recommendation.
+- Monthly snapshot can be regenerated from named source inputs.
+- No new quarterly review template is created.
+
+## 22. Later: Builder Pilot And Retrospective
+
+```text
+/goal After the Design Agent Studio copy/capture is current and Studio governance controls are confirmed, run a small builder pilot through Agent Fit Intake and the Design Agent. Track whether the builder reuses an existing agent, extends an existing agent, creates a candidate, or decides not to build. Capture lessons and update only the smallest necessary repo docs.
+```
+
+Acceptance checks:
+
+- Pilot does not start until Studio manual configuration and governance controls are verified.
+- Feedback is tied to actual builder behavior, not hypothetical template work.
+- Retrospective updates are scoped to the intake, inventory, user guide, or reports that demonstrably need changes.

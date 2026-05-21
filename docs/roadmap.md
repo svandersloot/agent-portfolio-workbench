@@ -15,6 +15,7 @@
 - Done locally: define the non-negotiable governance fields for every governed ROVO agent in `docs/agent-governance-completeness-contract.md` and `schemas/agent-governance-record.schema.json`.
 - Done locally: define lifecycle statuses: Idea, Draft, In Review, Experimental, Active, Needs Remediation, and Deprecated.
 - Local read-only Studio visibility investigation completed from repo/export evidence; manual Studio/admin confirmation is still required.
+- Current public ROVO Studio guidance supports manual/admin creation, edit, manager, and individual user-access controls; group/team-based agent access restriction is not currently supported.
 - Lint normalized configs for risky changes.
 - Flag broad knowledge sources.
 - Flag high-risk tools without approval language.
@@ -40,6 +41,8 @@
 - Started: generate human-facing reports for new agents, duplicate candidates, governance gaps, stale pages, and recent page updates.
 - Started: generate a monthly governance snapshot for leadership and interested builders.
 - Done locally: maintain a monthly governance snapshot template for leadership and builders.
+- Use field-level completeness reporting rather than percentage scores.
+- Do not create a separate quarterly review template unless leadership asks for a distinct quarterly cadence.
 - Produce builder-facing "what already exists" summaries before new agent work begins.
 
 ## Phase 5: Optional Capture Automation
@@ -54,9 +57,9 @@ Do not build write-back to Studio until Atlassian exposes a stable supported API
 
 See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The highest-return items are:
 
-1. Review and approve focused Confluence updates from the inventory cleanup dry-run.
-2. Manually copy the published Design Agent guidance into ROVO Studio.
-3. Confirm Studio visibility/team assignment controls with manual Studio/admin inspection.
-4. Move CoP notes and create Backlog and Improvement Roadmap.
-5. Make the completeness, duplicate-agent, and monthly snapshot reports repeatable.
-6. Compare duplicate page bodies before any legacy-banner or archive action.
+1. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
+2. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.
+3. Make the completeness, duplicate-agent, and monthly snapshot reports repeatable.
+4. Compare duplicate page bodies before any legacy-banner, archive, move, or reparent action.
+5. Move CoP notes and Formatting Standards with supported Confluence move/manual process.
+6. Publish/create Known Risks and Admin and Owner Guide only through focused dry-run and approval.

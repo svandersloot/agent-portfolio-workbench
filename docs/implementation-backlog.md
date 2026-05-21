@@ -2,6 +2,70 @@
 
 This backlog translates the ROVO space audit into trackable work. It can be copied into Jira or used as a local planning artifact until Jira tracking exists.
 
+## Feasibility And Value Review
+
+Reviewed on 2026-05-21 against local reports, roadmap, and current Atlassian public evidence.
+
+Decision rules:
+
+- `Now`: supported by Confluence REST API, safe manual Studio/admin process, or repo-only reporting; improves governance without much ongoing upkeep.
+- `Later`: useful but dependent on more evidence, adoption, or a clearer operating need.
+- `Drop`: not worth carrying in the active backlog because it depends on unsupported Studio write-back, duplicates another control, or adds recurring maintenance without enough governance value.
+
+Current API and platform evidence:
+
+- Confluence Cloud REST API v2 supports page create, read, update, title update, and space page listing. Focused dry-run/apply page updates remain feasible when page IDs and versions are known.
+- Atlassian documents a Confluence move API path and manual move behavior that preserves incoming links, so history-preserving moves/reparents are feasible after focused review.
+- ROVO Studio public guidance supports manual/admin governance controls: admins can manage who can create in Studio, owners can add editors/managers, agents can be restricted to individually added users, and group/team-based agent access restriction is currently not supported.
+- Forge `rovo:agent` supports app-defined Forge agents, and the Forge bridge `rovo` API can open Rovo conversations, but this is not a supported API for writing ROVO Studio-created agent configuration.
+- ROVO agent skills can perform some Confluence/Jira actions on the user's behalf after confirmation, but they are not a replacement for deterministic governance automation or Studio configuration write-back.
+
+## Decision Table
+
+| ID | Decision | Rationale | Next Handling |
+|---|---|---|---|
+| 1.1 | Now | Canonical inventory update has already landed and duplicate cleanup is high governance value. | Continue only focused legacy/banner or move plans after page-body comparison. |
+| 1.2 | Now | Manual Confluence move is supported and low maintenance. | Move CoP notes under Working Group Notes when a space admin can verify target parent. |
+| 1.3 | Now | Manual Confluence move is supported and improves findability. | Move Formatting Standards under Governance and Safety after confirming page identity. |
+| 1.4 | Later | Pattern child pages may help reuse, but the value is lower than inventory, duplicate cleanup, and reporting. | Revisit after builders actively use the Pattern Library. |
+| 1.5 | Now | Completed with supported Confluence update flow. | Keep as done; refresh only when structure changes. |
+| 1.6 | Later | Ongoing home-page refresh is useful but should follow real structure changes. | Do not create standalone work until another structure change lands. |
+| 2.1 | Now | Template exists and supports front-door governance. | Keep as source material; publish/update only through focused dry-run. |
+| 2.2 | Now | Completed and directly supports readiness governance. | Keep as done. |
+| 2.3 | Now | Governance review template is high-value and safe as Confluence/template content. | Keep in active backlog if not already published or linked. |
+| 2.4 | Later | ADR template exists, but ADR overhead should be reserved for material decisions. | Keep template available; do not prioritize publishing. |
+| 2.5 | Later | Decision index is useful only once ADR volume exists. | Revisit after at least one material ADR is written. |
+| 3.1 | Now | Governance and Safety exists and is the right container. | Continue only targeted child-page moves or creates. |
+| 3.2 | Now | Known Risks and Limitations is governance-critical and safe as a Confluence page. | Publish/create after focused dry-run and approval. |
+| 3.3 | Later | Context readiness checking is valuable, but Doc Health Gate implementation depends on current Doc Steward configuration. | Fold into the Doc Steward manual update/capture loop. |
+| 3.4 | Later | Measurement checks are valuable, but should be implemented with Doc Steward changes, not as a separate drift point. | Fold into Doc Steward update/capture work. |
+| 3.5 | Later | First ADRs are useful only when decisions need durable traceability. | Write ADRs opportunistically for real decisions; avoid template theater. |
+| 3.6 | Now | Completed contract is central to inventory and reporting. | Keep as done and use for repeatable reports. |
+| 4.1 | Now | Completed and published front-door flow reduces duplicate agent creation. | Keep as done; align Studio manually. |
+| 4.2 | Now | Readiness pre-check is already in the intake flow. | Keep as done. |
+| 4.3 | Now | Inventory dedup check is already in the intake flow. | Keep as done. |
+| 4.4 | Later | Risk tier is already represented in contract/guidance, but every-output enforcement depends on captured Studio config. | Verify during manual Studio copy/capture before adding more process. |
+| 4.5 | Later | Measurement checks improve governance, but should move with Doc Steward configuration evidence. | Bundle with Doc Steward manual Studio update/capture. |
+| 4.6 | Drop | A percentage score can create false precision and maintenance burden; missing-field reporting is clearer. | Use field-level completeness reports instead of a score. |
+| 4.7 | Later | Evaluation scenarios are useful after agent configs stabilize; maintaining broad scenario sets too early is costly. | Revisit after the Design Agent and Doc Steward captures are current. |
+| 4.8 | Now | Manual Studio/admin confirmation is supported and resolves a key governance uncertainty. | Confirm creation, edit, and user-access controls manually; do not automate Studio writes. |
+| 5.1 | Now | Completed page supports value tracking. | Keep as done. |
+| 5.2 | Now | Per-agent success metrics are governance-critical and safe as Project Brain/inventory updates. | Backfill metrics through focused page updates. |
+| 5.3 | Drop | Monthly snapshots already cover portfolio review at a lighter cadence and lower maintenance cost. | Do not create a separate quarterly template unless leadership requests it. |
+| 5.4 | Now | Publish history is low-cost audit evidence and already started. | Standardize records for every API-assisted apply. |
+| 5.5 | Now | Completeness report directly supports governance and can remain repo-only/read-only. | Make it repeatable from inventory, publish history, and normalized captures. |
+| 5.6 | Now | Duplicate discovery prevents sprawl and supports safe cleanup. | Compare duplicate groups one at a time before any banner/archive/move. |
+| 5.7 | Now | Monthly snapshot is already useful and lower burden than quarterly reviews. | Make future snapshots repeatable from source evidence. |
+| 6.1 | Now | User guide is published and supports builder behavior. | Keep as done; update only through focused dry-run. |
+| 6.2 | Now | Admin and owner guide clarifies ownership, review cadence, and retirement. | Publish/create after Known Risks or as a focused governance page. |
+| 6.3 | Drop | This local backlog already functions as the roadmap; publishing another backlog page risks duplicate planning surfaces. | Keep backlog/roadmap in repo unless there is a clear Confluence audience. |
+| 6.4 | Later | Pilot is valuable, but only after Studio manual config and visibility controls are confirmed. | Schedule after capture verifies current Design Agent behavior. |
+| 6.5 | Later | Retrospective depends on a real pilot. | Revisit after 6.4. |
+
+Dropped boundary:
+
+- Do not build Studio write-back. Keep ROVO Studio configuration manual until Atlassian exposes a stable supported API for Studio-created agent configuration.
+
 ## Milestone 1: Space Cleanup
 
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
