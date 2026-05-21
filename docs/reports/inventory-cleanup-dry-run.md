@@ -50,3 +50,32 @@ Any future Confluence write should be split into focused dry-runs:
 3. Update one duplicate/stale page at a time with a legacy banner or move/reparent operation.
 
 Do not copy/recreate pages. Preserve page identity and history.
+
+## Local Source Draft
+
+The first local source draft for the canonical inventory is `docs/confluence-pages/agent-inventory.md`.
+
+Dry-run target:
+
+- Slug: `agent-inventory`
+- Page: `Agent Inventory`
+- Page ID: `5280334048`
+- Parent: `Agent Governance Home` (`5281480733`)
+
+Do not apply this draft until the inventory table is reviewed by the space admin or working group owner.
+
+Dry-run result:
+
+| Field | Value |
+|---|---|
+| Mode | `dry-run` |
+| Slug | `agent-inventory` |
+| Page count | `1` |
+| Action | `update` |
+| Page ID | `5280334048` |
+| Parent page ID | `5281480733` |
+| Current version | `1` |
+| Planned version | `2` |
+| Source path | `docs/confluence-pages/agent-inventory.md` |
+
+No apply was run.

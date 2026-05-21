@@ -26,6 +26,13 @@ pages:
       - agent-governance
     pageId: null
     parentPageId: null
+  - slug: agent-inventory
+    title: Agent Inventory
+    sourcePath: docs/confluence-pages/agent-inventory.md
+    labels:
+      - agent-governance
+    pageId: null
+    parentPageId: null
   - slug: measurement-and-value-tracking
     title: Measurement and Value Tracking
     sourcePath: docs/confluence-pages/measurement-and-value-tracking.md

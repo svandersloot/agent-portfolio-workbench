@@ -220,3 +220,24 @@ Acceptance checks:
 - Plan preserves `Agent Inventory` as canonical and `Rovo Agent Inventory Home` as overview/root.
 - Any proposed Confluence write targets exactly one intended page.
 - Legacy/banner actions for duplicate pages remain separate per-page dry-runs.
+
+Status:
+
+- Local draft created at `docs/confluence-pages/agent-inventory.md`.
+- Manifest example updated with `agent-inventory`.
+- Local ignored manifest can dry-run against page `5280334048`.
+- Dry-run confirmed `pageCount: 1`, `action: update`, `currentVersion: 1`, and `plannedVersion: 2`.
+- No apply has been run.
+
+## 13. Next: Review And Apply Agent Inventory Update
+
+```text
+/goal Review docs/confluence-pages/agent-inventory.md and the dry-run evidence in docs/reports/inventory-cleanup-dry-run.md. If approved, run .\scripts\Publish-ConfluencePages.ps1 -Slug agent-inventory -UpdateExisting -Apply, then verify a post-apply dry-run reports currentVersion 2 and plannedVersion 3. Do not update Rovo Agent Inventory Home or duplicate pages in the same operation. Do not write to Studio.
+```
+
+Acceptance checks:
+
+- Apply targets exactly `Agent Inventory`, page ID `5280334048`.
+- No duplicate/stale pages are changed.
+- Publish history records the update.
+- `config/confluence-pages.yml` remains ignored and out of Git.
