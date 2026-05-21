@@ -43,3 +43,13 @@ Published after user approval on 2026-05-21.
 | Change Log - Release Notes Manager | `5301534762` | `2` |
 
 The v2 update added technical deployment runbook behavior, Mobilitas app repo sources, branch-selection caveats, deployment work package ordering, and data-incomplete flags for missing admin/AWS details.
+
+## Golden Runbook Evaluation Update
+
+Published after user approval on 2026-05-21.
+
+| Page | Page ID | New Version |
+|---|---|---|
+| Evaluation - Release Notes Manager | `5301403671` | `3` |
+
+The evaluation update added the `Mobilitas 2026.05.31` golden deployment runbook test case and linked the human reference page `Technical Runbook - 26.05.02 May Release` (`5274697857`) as the style and completeness target.
