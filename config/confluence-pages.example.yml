@@ -67,3 +67,74 @@ pages:
       - rovo-studio-configuration
     pageId: null
     parentPageId: null
+  - slug: release-notes-manager-project-brain
+    title: Release Notes Manager Project Brain
+    sourcePath: docs/confluence-pages/release-notes-manager-project-brain.md
+    labels:
+      - agent-governance
+      - project-brain
+    pageId: null
+    parentPageId: null
+  - slug: release-notes-manager-agent-design-record
+    title: Release Notes Manager - Agent Design Record
+    sourcePath: docs/confluence-pages/release-notes-manager-agent-design-record.md
+    parentSlug: release-notes-manager-project-brain
+    labels:
+      - agent-governance
+      - agent-design-record
+    pageId: null
+    parentPageId: null
+  - slug: release-notes-manager-knowledge-source-plan
+    title: Knowledge Source Plan - Release Notes Manager
+    sourcePath: docs/confluence-pages/release-notes-manager-knowledge-source-plan.md
+    parentSlug: release-notes-manager-project-brain
+    labels:
+      - agent-governance
+      - knowledge-source-plan
+    pageId: null
+    parentPageId: null
+  - slug: release-notes-manager-subagent-settings
+    title: Subagent Settings - Release Notes Manager
+    sourcePath: docs/confluence-pages/release-notes-manager-subagent-settings.md
+    parentSlug: release-notes-manager-project-brain
+    labels:
+      - agent-governance
+      - subagent-settings
+    pageId: null
+    parentPageId: null
+  - slug: release-notes-manager-rovo-studio-configuration
+    title: ROVO Studio Configuration - Release Notes Manager
+    sourcePath: docs/confluence-pages/release-notes-manager-rovo-studio-configuration.md
+    parentSlug: release-notes-manager-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+    pageId: null
+    parentPageId: null
+  - slug: release-notes-manager-evaluation
+    title: Evaluation - Release Notes Manager
+    sourcePath: docs/confluence-pages/release-notes-manager-evaluation.md
+    parentSlug: release-notes-manager-project-brain
+    labels:
+      - agent-governance
+      - agent-evaluation
+    pageId: null
+    parentPageId: null
+  - slug: release-notes-manager-measurement-plan
+    title: Measurement Plan - Release Notes Manager
+    sourcePath: docs/confluence-pages/release-notes-manager-measurement-plan.md
+    parentSlug: release-notes-manager-project-brain
+    labels:
+      - agent-governance
+      - agent-measurement
+    pageId: null
+    parentPageId: null
+  - slug: release-notes-manager-change-log
+    title: Change Log - Release Notes Manager
+    sourcePath: docs/confluence-pages/release-notes-manager-change-log.md
+    parentSlug: release-notes-manager-project-brain
+    labels:
+      - agent-governance
+      - agent-change-log
+    pageId: null
+    parentPageId: null

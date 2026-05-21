@@ -390,3 +390,50 @@ Acceptance checks:
 - Pilot does not start until Studio manual configuration and governance controls are verified.
 - Feedback is tied to actual builder behavior, not hypothetical template work.
 - Retrospective updates are scoped to the intake, inventory, user guide, or reports that demonstrably need changes.
+
+## 23. Completed Locally: Release Notes Manager Governed Migration Scaffold
+
+```text
+/goal Migrate Release Notes Manager through the Codex-first governed agent flow. Do not write to Studio. First inspect the old-space export and current repo docs for Release Notes Manager, Release Health Analyst, Release Management Assistant, Mobilitas Release Notes Agent, and release/change patterns. Decide whether Release Notes Manager should be a standalone governed agent, an extension, a reusable pattern, or deprecated/archive reference. Then scaffold safe repo artifacts for the chosen path: Project Brain, Agent Design Record, Knowledge Source Plan, Subagent Settings, ROVO Studio Configuration copy blocks, Evaluation, Measurement Plan, Change Log, and Agent Inventory update. Keep Studio configuration copy-paste blocks user-facing and keep repo-only technical workflow out of Confluence. Run Confluence dry-runs only; do not apply without approval. Keep .env, config/confluence-pages.yml, data/raw, exports, cookies, headers, and tokens out of Git. End by updating docs/next-slash-goals.md and committing safe local changes.
+```
+
+Decision:
+
+- Release Notes Manager is scaffolded as a standalone governed agent in `In Review`.
+- Release Health Analyst remains the release health/readiness agent.
+- Release Management Assistant remains a later overlap-review item.
+- Mobilitas Release Notes Agent remains archive/reference only.
+
+Artifacts:
+
+- `docs/confluence-pages/release-notes-manager-project-brain.md`
+- `docs/confluence-pages/release-notes-manager-agent-design-record.md`
+- `docs/confluence-pages/release-notes-manager-knowledge-source-plan.md`
+- `docs/confluence-pages/release-notes-manager-subagent-settings.md`
+- `docs/confluence-pages/release-notes-manager-rovo-studio-configuration.md`
+- `docs/confluence-pages/release-notes-manager-evaluation.md`
+- `docs/confluence-pages/release-notes-manager-measurement-plan.md`
+- `docs/confluence-pages/release-notes-manager-change-log.md`
+- `docs/reports/release-notes-manager-migration-decision.md`
+
+Acceptance checks:
+
+- No Studio writes were made.
+- ROVO Studio configuration remains manual copy-paste content.
+- Repo-only migration rationale stays in `docs/reports/`, not the Studio copy page.
+- Confluence dry-run planned eight Release Notes Manager pages as creates; no apply flag was used.
+- Ignored local files stay out of Git: `.env`, `config/confluence-pages.yml`, `data/raw`, exports, cookies, headers, and tokens.
+
+## 24. Next: Release Notes Manager Manual Review And Pilot Gate
+
+```text
+/goal Review the Release Notes Manager governed scaffold with the release owner. Confirm primary owner, backup owner, approved Jira and Confluence sources, release-note template, pilot audience, and whether Release Management Assistant owns any overlapping coordination workflows. Do not write to Studio from Codex. If approved, manually copy the Studio configuration blocks from the published ROVO Studio Configuration - Release Notes Manager page into Studio, then run the evaluation prompts and capture safe repo evidence.
+```
+
+Acceptance checks:
+
+- Owner and backup owner are assigned before pilot.
+- Release Health Analyst boundary remains clear.
+- Mobilitas-specific content remains archive/reference only.
+- Evaluation prompts pass before launch or broad visibility.
+- Studio changes, if any, are manual and later captured back into safe repo artifacts.
