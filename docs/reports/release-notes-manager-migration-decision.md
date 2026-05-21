@@ -69,3 +69,22 @@ Command scope: Release Notes Manager page set only.
 | `release-notes-manager-change-log` | create | Release Notes Manager Project Brain after parent exists |
 
 Result: dry-run only, no apply flag used, no Confluence pages created or updated.
+
+## Confluence Apply
+
+Apply date: 2026-05-21
+
+Result: 8 pages created in the `ROVO` space after user approval.
+
+| Slug | Page ID | Parent |
+|---|---|---|
+| `release-notes-manager-project-brain` | `5299994681` | `5281218643` |
+| `release-notes-manager-agent-design-record` | `5300486153` | `5299994681` |
+| `release-notes-manager-knowledge-source-plan` | `5300158474` | `5299994681` |
+| `release-notes-manager-subagent-settings` | `5299994697` | `5299994681` |
+| `release-notes-manager-rovo-studio-configuration` | `5300715546` | `5299994681` |
+| `release-notes-manager-evaluation` | `5301403671` | `5299994681` |
+| `release-notes-manager-measurement-plan` | `5300617249` | `5299994681` |
+| `release-notes-manager-change-log` | `5301534762` | `5299994681` |
+
+Post-apply dry-run confirmed all 8 pages as `exists` at current version `1`.

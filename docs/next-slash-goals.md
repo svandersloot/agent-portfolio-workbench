@@ -422,6 +422,7 @@ Acceptance checks:
 - ROVO Studio configuration remains manual copy-paste content.
 - Repo-only migration rationale stays in `docs/reports/`, not the Studio copy page.
 - Confluence dry-run planned eight Release Notes Manager pages as creates; no apply flag was used.
+- After approval, Confluence apply created eight Release Notes Manager pages under `Release and Change Agents`; post-apply dry-run confirmed each page exists at version `1`.
 - Ignored local files stay out of Git: `.env`, `config/confluence-pages.yml`, `data/raw`, exports, cookies, headers, and tokens.
 
 ## 24. Next: Release Notes Manager Manual Review And Pilot Gate
