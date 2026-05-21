@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/rovo-governance-admin/studio-normalized.schema.json",
+  "title": "Normalized ROVO Studio Agent Export",
+  "type": "object",
+  "required": ["schemaVersion", "name", "slug", "description", "conversationStarters", "parent", "subagents"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "description": { "type": "string" },
+    "isPublished": { "type": ["boolean", "null"] },
+    "responseStrategy": { "type": ["string", "null"] },
+    "conversationStarters": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "parent": {
+      "type": "object",
+      "required": ["knowledgeSources", "tools", "webSearchEnabled"],
+      "properties": {
+        "webSearchEnabled": { "type": ["boolean", "null"] },
+        "deepResearchEnabled": { "type": ["boolean", "null"] },
+        "knowledgeSources": { "$ref": "#/$defs/knowledgeSources" },
+        "tools": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/tool" }
+        }
+      }
+    },
+    "subagents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "slug", "active", "default", "knowledgeSources", "tools"],
+        "properties": {
+          "name": { "type": "string" },
+          "slug": { "type": "string" },
+          "active": { "type": "boolean" },
+          "default": { "type": "boolean" },
+          "webSearchEnabled": { "type": ["boolean", "null"] },
+          "deepResearchEnabled": { "type": ["boolean", "null"] },
+          "knowledgeSources": { "$ref": "#/$defs/knowledgeSources" },
+          "tools": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/tool" }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "knowledgeSources": {
+      "type": "object",
+      "required": ["enabled", "sources"],
+      "properties": {
+        "enabled": { "type": ["boolean", "null"] },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source", "enabled"],
+            "properties": {
+              "source": { "type": "string" },
+              "enabled": { "type": ["boolean", "null"] },
+              "resourceType": { "type": ["string", "null"] },
+              "filters": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "tool": {
+      "type": "object",
+      "required": ["displayName", "definitionSource", "configured", "riskTier"],
+      "properties": {
+        "displayName": { "type": "string" },
+        "definitionSource": { "type": ["string", "null"] },
+        "configured": { "type": ["boolean", "null"] },
+        "riskTier": { "enum": ["low", "medium", "high", "unknown"] },
+        "description": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

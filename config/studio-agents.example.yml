@@ -1,0 +1,9 @@
+# Copy this file to config/studio-agents.yml when you are ready to track
+# multiple Studio agents. Keep real private URLs in the copied local file if
+# your organization treats them as sensitive.
+agents:
+  - slug: improvements-to-design-agent
+    name: Improvements to Design Agent
+    studioUrl: https://csaaig.atlassian.net/...
+    owner: your-name
+    governancePage: ROVO > Rovo Design Agent vNext - Rovo Studio Configuration

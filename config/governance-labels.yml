@@ -1,0 +1,17 @@
+labels:
+  - name: rovo-agent
+    purpose: Applied to pages describing a ROVO agent or agent family.
+  - name: project-brain
+    purpose: Applied to Project Brain root pages.
+  - name: agent-governance
+    purpose: Applied to governance standards, reviews, risks, and operating model pages.
+  - name: agent-template
+    purpose: Applied to reusable templates.
+  - name: agent-evaluation
+    purpose: Applied to evaluation plans, test cases, and result summaries.
+  - name: agent-adr
+    purpose: Applied to agent architecture decision records.
+  - name: context-readiness
+    purpose: Applied to context readiness assessments and related guidance.
+  - name: agent-measurement
+    purpose: Applied to value tracking and success metrics pages.

@@ -1,0 +1,123 @@
+{
+  "data": {
+    "agentStudio_agentById": {
+      "name": "Sample Governance Agent",
+      "description": "A sanitized sample agent used to validate the normalizer.",
+      "instructions": "You are the Sample Governance Agent.\n\nFollow the governance process.",
+      "conversationStarters": [
+        "Can you review this agent idea?",
+        "What changed in this agent?",
+        "What should we evaluate?"
+      ],
+      "isWebSearchEnabled": false,
+      "isDeepResearchEnabled": false,
+      "isPublished": false,
+      "responseStrategy": "MAIN_AGENT_REWRITES",
+      "knowledgeSources": {
+        "enabled": true,
+        "sources": [
+          {
+            "enabled": true,
+            "source": "confluence",
+            "filters": {
+              "__typename": "AgentStudioConfluenceKnowledgeFilter",
+              "spaceFilter": [
+                "ari:cloud:confluence:example-site:space/1234567890"
+              ],
+              "parentFilter": []
+            },
+            "resourceType": null
+          },
+          {
+            "enabled": true,
+            "source": "help_aggregator",
+            "filters": null,
+            "resourceType": null
+          }
+        ]
+      },
+      "tools": [
+        {
+          "displayName": "Find source of truth",
+          "definitionSource": "CONVO_AI",
+          "description": "Find a more recently updated page.",
+          "configured": false
+        },
+        {
+          "displayName": "Get page",
+          "definitionSource": "INTEGRATIONS_SERVICE",
+          "description": "Get a Confluence page.",
+          "configured": false
+        }
+      ]
+    },
+    "agentStudio_scenarioListByContainerId": {
+      "edges": [
+        {
+          "node": {
+            "name": "Default scenario",
+            "instructions": "Use the parent governance instructions.",
+            "invocationDescription": "",
+            "isActive": true,
+            "isDefault": true,
+            "isWebSearchEnabled": false,
+            "isDeepResearchEnabled": false,
+            "knowledgeSources": {
+              "enabled": true,
+              "sources": [
+                {
+                  "enabled": true,
+                  "source": "confluence",
+                  "filters": {
+                    "spaceFilter": [
+                      "ari:cloud:confluence:example-site:space/1234567890"
+                    ],
+                    "parentFilter": []
+                  },
+                  "resourceType": null
+                }
+              ]
+            },
+            "tools": [
+              {
+                "displayName": "Get page",
+                "definitionSource": "INTEGRATIONS_SERVICE",
+                "description": "Get a Confluence page.",
+                "configured": false
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "name": "Risk Reviewer",
+            "instructions": "Review proposed changes for risky tools and broad knowledge access.",
+            "invocationDescription": "Use when a proposed agent change may affect governance risk.",
+            "isActive": true,
+            "isDefault": false,
+            "isWebSearchEnabled": false,
+            "isDeepResearchEnabled": false,
+            "knowledgeSources": {
+              "enabled": true,
+              "sources": [
+                {
+                  "enabled": true,
+                  "source": "confluence",
+                  "filters": {
+                    "spaceFilter": [
+                      "ari:cloud:confluence:example-site:space/1234567890"
+                    ],
+                    "parentFilter": []
+                  },
+                  "resourceType": null
+                }
+              ]
+            },
+            "tools": []
+          }
+        }
+      ],
+      "totalCount": 2
+    }
+  }
+}
