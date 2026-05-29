@@ -18,6 +18,7 @@ Keep three kinds of evidence separate:
 |---|---|---|---|---|
 | Breaking Backlogs | Not verified | Not sampled | Draft placeholder | Use org-wide standard only until source is confirmed. |
 | 404 Errors | Not verified | Not sampled | Draft placeholder | Use org-wide standard only until source is confirmed. |
+| MOBRM | Documented source found in MO page `5266898945`; ROVO migration review pending. | Not sampled in this pass. | Local draft migration page created for review. | Apply only when the user supplies the MOBRM standard or the approved ROVO page is published and mapped to the ticket context. |
 | MR26 / Mobi Rangers | Not verified | Research seed identified for `project = MR26 AND fixVersion = "Mobilitas 2026.06.12"`; local release evidence says the release had 43 Jira issues, but ticket-quality sample details are not verified. | Draft placeholder | Use org-wide standard only unless a team standard is supplied. |
 | Mobilizers | Not verified | Not sampled | Draft placeholder | Use org-wide standard only until source is confirmed. |
 
@@ -71,6 +72,34 @@ Not sampled in this session.
 - For bugs or defects, require reproduction steps, expected behavior, actual behavior, environment, frequency, and severity rationale.
 - For reliability or support work, include affected flow, customer or operational impact, workaround, and validation path.
 - Identify whether the issue is code, config, data, infrastructure, or analysis-only.
+
+## MOBRM Draft Migration Review
+
+### Documented Standards
+
+Verified from the user-supplied live Confluence source:
+
+```text
+MO page 5266898945 - MOBRM Team Jira Standards - version 3
+```
+
+A cleaned migration draft is tracked in:
+
+```text
+docs/confluence-pages/mobrm-team-jira-standards.md
+```
+
+### Observed Patterns
+
+No live Jira ticket sample was reviewed in this pass. The documented standard itself includes work type labels, summary naming conventions, description requirements, acceptance criteria minimums, Definition of Ready, Definition of Done, sub-task standards, ServiceNow cross-reference format, priority calibration, epic selection, and script execution quick reference.
+
+### Proposed Overlay For Review
+
+- Treat `MOBRM` as a documented team standard only after the ROVO migration page is reviewed and approved.
+- Require exact mapping metadata before automatic application: Jira project key, board name or ID, JQL filter, owner, backup owner, status, and review date.
+- Do not let related release keys such as `MR26`, `M26`, or `CLE` trigger this overlay unless the approved page explicitly says they are in scope.
+- Prefer evergreen epic-selection rules in the migrated page, with current monthly epic examples kept as examples or moved to a dated appendix.
+- Keep ServiceNow examples generic unless the team approves including real-person examples.
 
 ## MR26 / Mobi Rangers Draft Placeholder
 
