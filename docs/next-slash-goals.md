@@ -438,3 +438,54 @@ Acceptance checks:
 - Mobilitas-specific content remains archive/reference only.
 - Evaluation prompts pass before launch or broad visibility.
 - Studio changes, if any, are manual and later captured back into safe repo artifacts.
+
+## 25. Completed Locally: Jira Ticket Polisher Governed Migration Scaffold
+
+```text
+/goal Migrate Jira Ticket Polisher through the Codex-first governed agent flow. Do not write to Studio. Do not update Jira tickets directly. Use live Atlassian research when available, with local exports, Jira CSVs, or pasted samples as fallback. First inspect the current repo, the old-space export, the supplied Confluence folder, and existing governance artifacts. Research organization-wide ticket quality standards and team overlays for Breaking Backlogs, 404 Errors, MR26 / Mobi Rangers, Mobilizers, and related team standards. Scaffold Project Brain artifacts, organization-wide standard, team overlay drafts, research report, inventory update, and Confluence dry-runs only. Keep private config and raw captures out of Git.
+```
+
+Decision:
+
+- Jira Ticket Polisher is scaffolded as a governed agent in `In Review`.
+- Studio behavior is draft-only; no Jira update, transition, assign, rank, or comment actions are enabled.
+- Organization-wide ticket quality standard is the fallback for any ticket.
+- Team overlays remain draft/unverified until authenticated Atlassian research confirms source pages and ticket samples.
+- Mobilitas/MR26 is treated as sample evidence only; the migrated source of truth is the ROVO agent inventory and governance space.
+- The first concrete fallback research seed is `project = MR26 AND fixVersion = "Mobilitas 2026.06.12"` or an equivalent MR26-key export for tickets such as `MR26-3082`.
+
+Artifacts:
+
+- `docs/confluence-pages/jira-ticket-polisher-project-brain.md`
+- `docs/confluence-pages/jira-ticket-polisher-agent-design-record.md`
+- `docs/confluence-pages/jira-ticket-polisher-knowledge-source-plan.md`
+- `docs/confluence-pages/jira-ticket-polisher-subagent-settings.md`
+- `docs/confluence-pages/jira-ticket-polisher-rovo-studio-configuration.md`
+- `docs/confluence-pages/jira-ticket-polisher-evaluation.md`
+- `docs/confluence-pages/jira-ticket-polisher-measurement-plan.md`
+- `docs/confluence-pages/jira-ticket-polisher-change-log.md`
+- `docs/confluence-pages/jira-ticket-quality-standard.md`
+- `docs/confluence-pages/jira-ticket-polisher-team-standards-draft-overlays.md`
+- `docs/reports/jira-ticket-polisher-migration-research.md`
+
+Acceptance checks:
+
+- No Studio writes were made.
+- No Jira writes were made.
+- Public web fetch and Chrome automation could not access the supplied Atlassian folder in this session, so the team overlay page clearly marks live research as incomplete.
+- Config examples and local dry-run manifest include the new page slugs.
+- `config/confluence-pages.yml` remains ignored and out of Git.
+
+## 26. Next: Jira Ticket Polisher Live Research And Pilot Gate
+
+```text
+/goal Complete authenticated Jira Ticket Polisher research before pilot. Keep the migrated agent in the ROVO agent inventory and governance space; treat Mobilitas/MR26 only as sample evidence. Start with a safe Jira export or live Jira result for `project = MR26 AND fixVersion = "Mobilitas 2026.06.12"` or the equivalent MR26-key filter for tickets such as `MR26-3082`. Then use the supplied Confluence team standards folder and live Jira boards or safe exports to confirm standards for Breaking Backlogs, 404 Errors, MR26 / Mobi Rangers, Mobilizers, and any related team pages. For each team, resolve exact standard pages, Jira project keys, board names, filters, owners, and a safe 10-15 ticket sample across useful workflow states. Keep documented standards, observed ticket patterns, and proposed standards separate. Update the team overlay page, research report, Knowledge Source Plan, Evaluation, and Measurement Plan from proven evidence only. Do not write to Jira or Studio. Run Confluence dry-runs only and do not apply without approval.
+```
+
+Acceptance checks:
+
+- Each team has documented source status, board/project identity, and sample evidence or a clear unavailable note.
+- MR26 June release sample is recorded as observed evidence, not an official Mobilitas or organization-wide standard.
+- Observed patterns are not promoted to official standards without team-owner approval.
+- Jira Ticket Polisher remains draft-only.
+- Evaluation prompts are updated with at least one documented team-overlay case and one missing-overlay case.

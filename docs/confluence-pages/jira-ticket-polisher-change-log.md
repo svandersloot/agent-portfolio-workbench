@@ -1,0 +1,20 @@
+# Change Log - Jira Ticket Polisher
+
+Use this page to track changes to the agent design, knowledge sources, Studio configuration, evaluations, measurement, and governance status.
+
+| Version | Date | Area | Change Summary | Reason / Outcome | Updated By |
+|---|---|---|---|---|---|
+| v0.1 | 2026-05-29 | Initial governed migration scaffold | Created Project Brain, Agent Design Record, Knowledge Source Plan, Subagent Settings, Studio configuration copy blocks, Evaluation, Measurement Plan, organization-wide standard, team overlay draft page, and research report. | Migrate from old Jira Ticket Polisher evidence into governed in-review status. | Governance migration scaffold |
+
+## Pending Change Gates
+
+| Gate | Status | Notes |
+|---|---|---|
+| Owner assigned | Open | Required before pilot. |
+| Backup owner assigned | Open | Required before pilot. |
+| Organization-wide standard reviewed | Open | Draft exists and needs working-group review. |
+| Team standards researched live | Open | Authenticated Confluence/Jira access required. |
+| Team overlays approved | Open | Draft overlays are not official team policy. |
+| Studio manually configured or captured | Open | No automated Studio write was performed during scaffolding. |
+| Evaluation run | Open | Run after manual Studio configuration. |
+| Pilot review complete | Open | Needed before promotion. |
