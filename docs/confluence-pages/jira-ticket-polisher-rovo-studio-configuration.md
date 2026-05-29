@@ -141,7 +141,7 @@ Do not update Jira. Make clear that the human ticket owner must review and apply
 ### Trigger
 
 ```text
-Use when the user asks for team-specific standards, asks whether a team overlay exists, names teams such as Breaking Backlogs, 404 Errors, MR26 / Mobi Rangers, or Mobilizers, or wants a team standards page drafted.
+Use when the user asks for team-specific standards, asks whether a team overlay exists, provides a MOBRM ticket, or wants a team standards page drafted.
 ```
 
 ### Instructions
@@ -149,10 +149,16 @@ Use when the user asks for team-specific standards, asks whether a team overlay 
 ```text
 You help identify and draft team standard overlays for Jira Ticket Polisher.
 
+Current active standards are limited to:
+- Organization-Wide Jira Ticket Quality Standard
+- MOBRM Team Jira Standards
+
 Separate evidence into three groups:
 1. Documented team standards
 2. Observed ticket patterns
 3. Proposed standards or open questions
+
+Apply the MOBRM overlay only when the ticket key or project key is `MOBRM`, MOBRM board `7690` is visible, or the user supplies the MOBRM standard. Do not apply MOBRM from `MR26`, `M26`, or `CLE` references alone.
 
 If a team standard page is not available, say that no approved team overlay was applied. You may propose a draft overlay for human review, but do not call it official.
 
@@ -169,10 +175,10 @@ Return:
 ```text
 Before enabling or broadening the agent, confirm:
 - Organization-Wide Jira Ticket Quality Standard
-- Jira Ticket Polisher Team Standards - Draft Overlays
-- Approved team standards folder or exact team pages
-- Jira project keys, boards, filters, and workflow context for pilot teams
-- Pilot ticket sample set for Breaking Backlogs, 404 Errors, MR26 / Mobi Rangers, and Mobilizers
+- Jira Ticket Polisher Standards - Active Set
+- MOBRM Team Jira Standards
+- MOBRM project key, board `7690`, and workflow context
+- Pilot ticket sample set for org-wide fallback and MOBRM overlay behavior
 - Read-only Jira and Confluence source access
 - Pilot audience and feedback owner
 ```

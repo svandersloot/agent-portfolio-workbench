@@ -61,6 +61,29 @@ The exact page was not found in the local old-space export by searching for `MOB
 
 ## Recommended Next Step
 
+## Recommended ROVO Placement
+
+Place the standards under the Jira Ticket Polisher Project Brain rather than in a loose global folder.
+
+Recommended tree:
+
+```text
+ROVO
+└── Agent Project Brains
+    └── Jira Hygiene Agents
+        └── Jira Ticket Polisher Project Brain
+            ├── Organization-Wide Jira Ticket Quality Standard
+            ├── Jira Ticket Polisher Standards - Active Set
+            └── MOBRM Team Jira Standards
+```
+
+Rationale:
+
+- The organization-wide standard is reusable, but in this migration it is governed through Jira Ticket Polisher.
+- The active standards page acts as the small index that tells the agent and humans which standards are currently allowed.
+- MOBRM lives next to the active index so the agent has a traceable source, but it remains clearly team-owned.
+- Future team standards can be added as sibling pages only after owner approval and exact project/board/filter mapping.
+
 Publish only after the metadata block is confirmed:
 
 ```text

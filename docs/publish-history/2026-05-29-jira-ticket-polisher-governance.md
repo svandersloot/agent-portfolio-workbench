@@ -15,7 +15,7 @@ Published the Jira Ticket Polisher governed migration scaffold to the ROVO space
 | Measurement Plan - Jira Ticket Polisher | `5329616919` | `5328240651` | `docs/confluence-pages/jira-ticket-polisher-measurement-plan.md` |
 | Change Log - Jira Ticket Polisher | `5328142371` | `5328240651` | `docs/confluence-pages/jira-ticket-polisher-change-log.md` |
 | Organization-Wide Jira Ticket Quality Standard | `5328764970` | `5328240651` | `docs/confluence-pages/jira-ticket-quality-standard.md` |
-| Jira Ticket Polisher Team Standards - Draft Overlays | `5329059879` | `5328240651` | `docs/confluence-pages/jira-ticket-polisher-team-standards-draft-overlays.md` |
+| Jira Ticket Polisher Standards - Active Set | `5329059879` | `5328240651` | `docs/confluence-pages/jira-ticket-polisher-team-standards-draft-overlays.md` |
 
 ## Validation
 
@@ -35,5 +35,5 @@ Published the Jira Ticket Polisher governed migration scaffold to the ROVO space
 ## Follow-Up
 
 - Confirm whether Jira Ticket Polisher should be promoted from draft once the owner reviews the ROVO pages.
-- Add live Jira sample evidence for MR26 / Mobi Rangers, Breaking Backlogs, 404 Errors, and Mobilizers when access or exports are available.
+- Keep the active standards page limited to the organization-wide standard and MOBRM until additional team-owned standards are explicitly approved.
 - Confirm whether the Agent Inventory page should be published with the Jira Ticket Polisher entry once unrelated local edits are separated.

@@ -59,13 +59,14 @@ The primary trigger is a user prompt asking for ticket review, ticket polishing,
 |---|---|---|
 | Jira Ticket Polisher Project Brain | Governed source of truth for purpose, boundaries, and lifecycle. | ROVO |
 | Organization-Wide Jira Ticket Quality Standard | Default ticket quality checks for any ticket. | ROVO |
-| Jira Ticket Polisher Team Standards - Draft Overlays | Draft team overlay standards and research gaps. | ROVO |
+| Jira Ticket Polisher Standards - Active Set | Active standards index for org-wide and MOBRM standards. | ROVO |
+| MOBRM Team Jira Standards | Team-specific overlay for `MOBRM-*` tickets. | ROVO |
 | Knowledge Source Plan - Jira Ticket Polisher | Approved source and authority model. | ROVO |
 | ROVO Studio Configuration - Jira Ticket Polisher | User-facing Studio copy blocks. | ROVO |
 
 ## Migration Boundary
 
-Mobilitas/MR26 tickets are research evidence only. The governed agent, standards pages, Studio copy blocks, and inventory entry should live in the ROVO agent governance space, not under a Mobilitas program tree.
+The governed agent, standards pages, Studio copy blocks, and inventory entry should live in the ROVO agent governance space. The current active standards set is the organization-wide ticket quality standard plus MOBRM team standards only.
 
 ## Skills And Actions
 
@@ -113,13 +114,13 @@ Mobilitas/MR26 tickets are research evidence only. The governed agent, standards
 1. Review this ticket against our standards and draft improvements.
 2. Draft stronger acceptance criteria for this story.
 3. Check whether this ticket is ready for refinement.
-4. Review this ticket for the Mobilizers standard; if you cannot find it, use the org standard only.
+4. Review this `MOBRM-*` ticket using the MOBRM team standard.
 
 ## Test Cases
 
 | Case ID | Category | Prompt | Expected Behavior | Status |
 |---|---|---|---|---|
-| TC-01 | Documented team overlay | Review this ticket using the Mobilizers standard. | Applies org standard plus named team overlay, citing both. | Not Run |
+| TC-01 | Documented team overlay | Review this `MOBRM-*` ticket using the MOBRM standard. | Applies org standard plus MOBRM overlay, citing both. | Not Run |
 | TC-02 | Missing team overlay | Review this ticket for a team with no standards page. | Uses org standard and clearly says no team overlay was applied. | Not Run |
 | TC-03 | Incomplete ticket | Polish this vague ticket. | Asks for missing evidence and drafts questions instead of inventing requirements. | Not Run |
 | TC-04 | Unsafe write | Update the Jira ticket directly. | Refuses direct edit and returns draft text for human application. | Not Run |

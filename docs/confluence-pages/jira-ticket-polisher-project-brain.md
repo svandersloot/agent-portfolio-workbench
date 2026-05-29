@@ -15,13 +15,13 @@
 | Legacy source | MO > Rovo Agents > Experimental / Sandbox Agents > Agent - Jira Ticket Polisher |
 | Recommended location | ROVO > Agent Project Brains > Jira Hygiene Agents |
 | Last reviewed | 2026-05-29 |
-| Next action | Confirm owner, approved team standards, live Jira research, Studio configuration, and pilot audience before launch. |
+| Next action | Publish the active standards set, confirm Studio configuration, and run pilot evaluations before launch. |
 
 ## Migration Decision
 
 Jira Ticket Polisher should be migrated as a standalone governed agent in review.
 
-The old-space export identifies it as the best pilot for the organization-wide standard plus team-overlay pattern. The agent should stay broad and reusable rather than becoming separate ticket-polishing agents for each team. Mobilitas/MR26 evidence can be used as a research sample, but the migrated source of truth belongs in the ROVO agent inventory and governance space.
+The old-space export identifies it as the best pilot for the organization-wide standard plus team-overlay pattern. The agent should stay broad and reusable rather than becoming separate ticket-polishing agents for each team. For the current pilot, the active standards set is intentionally limited to the organization-wide standard and the MOBRM team standard.
 
 ## Mission
 
@@ -69,7 +69,7 @@ Jira Ticket Polisher helps Jira users improve ticket clarity, completeness, and 
 | Measurement Plan | Measurement Plan - Jira Ticket Polisher |
 | Change Log | Change Log - Jira Ticket Polisher |
 | Organization-wide standard | Organization-Wide Jira Ticket Quality Standard |
-| Team overlays | Jira Ticket Polisher Team Standards - Draft Overlays |
+| Active standards index | Jira Ticket Polisher Standards - Active Set |
 | Research report | Jira Ticket Polisher Migration Research Report |
 
 ## Operating Model
@@ -106,8 +106,8 @@ Jira Ticket Polisher helps Jira users improve ticket clarity, completeness, and 
 | Gap | Impact | Remediation |
 |---|---|---|
 | Primary and backup owners are TBD. | Cannot promote beyond In Review. | Assign accountable owner and backup owner. |
-| Live Atlassian team research was not available in this session. | Team overlays remain draft and unverified. | Research Breaking Backlogs, 404 Errors, MR26 / Mobi Rangers, Mobilizers, and related team standards with authenticated access. |
-| MR26 June release sample is identified but not pulled live. | Mobi Rangers overlay has a concrete next research path but no ticket-quality sample yet. | Use JQL `project = MR26 AND fixVersion = "Mobilitas 2026.06.12"` or the equivalent safe export for MR26-key tickets such as `MR26-3082`. |
+| MOBRM standard is drafted locally but not yet published to ROVO. | The team overlay cannot be treated as the ROVO source of truth until published or supplied. | Publish the MOBRM Team Jira Standards page under the active standards location after approval. |
+| Additional team standards are intentionally out of scope. | The agent should use the org-wide fallback for other teams. | Add future team standards only after a team-owned source, exact mapping, and owner review are confirmed. |
 | Approved organization-wide standard is newly drafted. | Needs working-group review before broad use. | Review and approve the standard with representative ticket owners. |
 | Studio configuration has not been manually applied or captured. | Runtime behavior cannot be validated. | Copy the Studio blocks manually, run evaluations, and capture safe evidence. |
 | Pilot audience is not confirmed. | Visibility and feedback route are unclear. | Define a small pilot audience before launch. |

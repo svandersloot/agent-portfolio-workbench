@@ -2,7 +2,7 @@
 
 ## Source Strategy
 
-Jira Ticket Polisher uses a default organization-wide standard plus optional team overlays. It should prefer exact ticket context and approved standards. It must label missing or inaccessible standards rather than pretending a team policy was checked.
+Jira Ticket Polisher uses a default organization-wide standard plus one active team overlay for the current pilot: MOBRM. It should prefer exact ticket context and approved standards. It must label missing or inaccessible standards rather than pretending a team policy was checked.
 
 ## Authority Labels
 
@@ -21,21 +21,18 @@ Jira Ticket Polisher uses a default organization-wide standard plus optional tea
 |---|---|---|---|---|---|
 | Current ticket content | Jira / supplied text | System of Record | Review visible fields and draft improvements. | Runtime | Ask user to paste summary, description, acceptance criteria, and key metadata. |
 | Organization-Wide Jira Ticket Quality Standard | Confluence | Process Authority | Default standard for every review. | Quarterly or after workflow changes | Use labeled fallback guidance and report the missing standard. |
-| Jira Ticket Polisher Team Standards - Draft Overlays | Confluence | Draft Team Overlay | Apply only sections marked approved or supplied by the user. | Per team review | State no approved team overlay was applied. |
-| Team standards folder under supplied MO link | Confluence | Candidate Team Overlay | Research and harvest documented team rules before migrating durable outputs to ROVO. | Per research run | Record as unverified if not accessible. |
+| Jira Ticket Polisher Standards - Active Set | Confluence | Active Standards Index | Identify the organization-wide standard and active MOBRM overlay. | Per team review | State no approved team overlay was applied. |
+| MOBRM Team Jira Standards | Confluence | Team Overlay | Apply to `MOBRM-*` tickets and MOBRM board `7690` context after ROVO publish or when supplied. | Annual or after team workflow changes | Use org-wide standard only and state no team overlay was applied. |
 | Jira project, board, filter, or workflow | Jira | System of Record / Process Authority | Check issue type, status, fields, and workflow expectations. | Runtime or workflow change | Ask for project key, board, filter, or pasted export. |
 | Sample tickets | Jira / export | Observed Pattern | Identify patterns and gaps; never treat as policy alone. | Per research sample | Use only as proposed standard evidence. |
-| MR26 June release sample | Jira / export | Observed Pattern | Research Mobilitas/Mobi Rangers ticket quality using MR26-key tickets from fixVersion `Mobilitas 2026.06.12`. | One research pass | Use JQL `project = MR26 AND fixVersion = "Mobilitas 2026.06.12"` or a safe export; do not treat patterns as official standards. |
 
-## Target Team Research Scope
+## Active Team Scope
 
 | Team or board | Intended evidence | Current status |
 |---|---|---|
-| Breaking Backlogs | Team standard page, board/project identity, 10-15 ticket sample. | Not verified; live access unavailable in this session. |
-| 404 Errors | Team standard page, board/project identity, 10-15 ticket sample. | Not verified; live access unavailable in this session. |
-| MR26 / Mobi Rangers | Team standard page, board/project identity, and 10-15 MR26-key tickets from `fixVersion = "Mobilitas 2026.06.12"`. | Research seed identified; local Release Drift Monitor evidence says this release had 43 Jira issues, but ticket-quality sample details are not verified. |
-| Mobilizers | Team standard page, board/project identity, 10-15 ticket sample. | Not verified; live access unavailable in this session. |
-| Related team standards folder pages | Any discovered team overlay pages under the supplied Confluence folder. | Not verified; browser/auth access required. |
+| MOBRM | Team standard page, project key `MOBRM`, board `7690`, owner Shane Vandersloot, backup Harish. | Draft migrated locally; ROVO publish review pending. |
+
+Other team standards are intentionally out of scope for the current active page. Add them only after a team-owned source, mapping metadata, owner, and application boundaries are confirmed.
 
 ## Required Input Check
 
@@ -51,10 +48,12 @@ Before producing a final-seeming ticket review, the agent should identify:
 ## Source Handling Rules
 
 - Apply the organization-wide standard to every ticket review.
-- Apply team overlay standards only when the relevant source is available or supplied.
+- Apply the MOBRM overlay when the ticket key or project key is `MOBRM`, or when MOBRM board `7690` is visible.
+- Apply other team overlay standards only when the user explicitly supplies an approved standard for that request.
 - Name the standard sources used in the response.
 - Keep documented standards, observed ticket patterns, and proposed standards separate.
 - Use `No team overlay applied` when team standards are unavailable.
+- Do not let related release or epic keys such as `MR26`, `M26`, or `CLE` trigger the MOBRM overlay by themselves.
 - Use `Evidence missing` when ticket fields or source links are inaccessible.
 - Do not search broad Jira or broad Confluence unless the user explicitly provides that scope and it is justified.
 - Do not use private sample ticket details in published reports.
@@ -76,7 +75,7 @@ Before producing a final-seeming ticket review, the agent should identify:
 |---|---|---|
 | Old-space Project Brain evidence reviewed | Done | Export includes Jira Ticket Polisher Project Brain Draft and Jira Hygiene Agents index. |
 | Organization-wide standard drafted | Done | New page created for review. |
-| Team standards folder reviewed live | Open | Public fetch and Chrome automation were unavailable; authenticated research is required. |
-| Jira board and project keys confirmed | Open | Needs live Jira or exported samples. |
-| Sample tickets reviewed | Open | Start with MR26 June release filter: `project = MR26 AND fixVersion = "Mobilitas 2026.06.12"`. |
+| Active MOBRM standard identified | Done | Source page `MO` page `5266898945`, version `3`, migrated locally for ROVO review. |
+| Jira board and project keys confirmed | Done | MOBRM project key and board `7690` confirmed by owner. |
+| Additional team standards | Deferred | Out of scope until a team-owned source and exact mapping are approved. |
 | Permission model reviewed | Open | Needs Studio/admin confirmation before pilot. |

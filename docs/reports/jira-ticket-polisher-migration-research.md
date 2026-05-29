@@ -6,7 +6,7 @@ Date: 2026-05-29
 
 This report captures the research evidence used to scaffold Jira Ticket Polisher as a governed, draft-only ROVO agent.
 
-Live Atlassian research was attempted but not completed in this session. The supplied Confluence folder requires authenticated access, public web fetch did not return page content, and Chrome automation was unavailable with `browser-client is not trusted`. The scaffold therefore uses local repo evidence, old-space export evidence, and the user-provided MR26 June release research seed. Team overlays remain draft/unverified until authenticated research or safe exports can be reviewed.
+Live Atlassian research was limited in the initial scaffold. The current active standards decision is now narrower: keep the ROVO-facing Jira Ticket Polisher standards set to the organization-wide Jira ticket quality standard plus the MOBRM team standard only.
 
 ## Sources Reviewed
 
@@ -17,9 +17,9 @@ Live Atlassian research was attempted but not completed in this session. The sup
 | `docs/reports/governance-completeness-dry-run.md` | Jira Ticket Polisher draft was missing owner, backup owner, sources, tools, measurement, readiness, and review fields. |
 | `docs/confluence-pages/agent-fit-intake.md` | Confirmed governed agent completeness and fit decision requirements. |
 | `docs/confluence-pages/release-drift-monitor-*` | Provided reusable evidence discipline patterns for exact Jira context, team standards, and no false claims from missing sources. |
-| User-provided MR26 June release filter | Added as the first concrete fallback research path: `project = MR26 AND fixVersion = "Mobilitas 2026.06.12"` or equivalent MR26-key export. |
-| Supplied Atlassian folder URL | Not accessible through public fetch in this session. |
-| Authenticated Chrome automation | Not available in this session; connection failed before any live page read. |
+| User-provided MOBRM Team Jira Standards URL | Live page `MO` page `5266898945`, version `3`, identified as the team-owned source for MOBRM. |
+| Supplied Atlassian folder URL | Initial broad folder access was not used for the active standards set. |
+| Authenticated Chrome automation | Not available in this session; Confluence page retrieval used the repo's API publishing/auth path. |
 
 ## Legacy Evidence Summary
 
@@ -52,14 +52,12 @@ The organization-wide standard was derived from the legacy draft, existing gover
 
 This is now documented in `Organization-Wide Jira Ticket Quality Standard`.
 
-## Team Research Status
+## Active Standards Status
 
-| Team or board | Live standards found? | Tickets sampled? | Result |
-|---|---|---|---|
-| Breaking Backlogs | No | No | Draft placeholder only. |
-| 404 Errors | No | No | Draft placeholder only. |
-| MR26 / Mobi Rangers | No | No live board sample; MR26 June release filter identified for next pass. | Draft placeholder only; release evidence patterns are not official ticket standards. |
-| Mobilizers | No | No | Draft placeholder only. |
+| Standard | Status | Result |
+|---|---|---|
+| Organization-Wide Jira Ticket Quality Standard | Drafted locally and published to ROVO in the Jira Ticket Polisher page set. | Default fallback for every ticket review. |
+| MOBRM Team Jira Standards | Source found in `MO` page `5266898945`, version `3`; migrated locally for ROVO review. | Only active team overlay for the current pilot. |
 
 ## Key Design Decisions
 
@@ -70,35 +68,16 @@ This is now documented in `Organization-Wide Jira Ticket Quality Standard`.
 | Keep overlays explicit. | Prevents false claims that a team standard was applied. |
 | Separate documented standards from observed patterns. | Avoids turning ticket samples into policy without team owner approval. |
 | Keep Jira behavior draft-only. | Direct Jira writes need a separate governed workflow, owner, and evaluation. |
-| Keep ROVO as the migrated source of truth. | Mobilitas/MR26 can provide sample tickets, but the agent documentation and inventory entry belong in the ROVO governance space. |
-
-## MR26 June Release Research Seed
-
-Use this as the first concrete fallback research slice when live Jira or a safe export is available:
-
-```text
-project = MR26 AND fixVersion = "Mobilitas 2026.06.12"
-```
-
-If the Jira instance requires filtering by issue key rather than project, use the equivalent MR26-key export for tickets whose keys begin with `MR26-`, including examples such as `MR26-3082` when present in the result set.
-
-Research goals for the sample:
-
-- Pull 10-15 MR26-key tickets across useful workflow states.
-- Record issue type, status, summary shape, description structure, acceptance criteria presence, QA/test notes, deployment/release notes, labels/components, dependencies, and evidence links.
-- Separate documented standards from observed patterns.
-- Treat the sample as Mobilitas/Mobi Rangers evidence only; do not make it the organization-wide default.
-- Publish only safe aggregate observations, not private ticket contents.
+| Keep ROVO as the migrated source of truth. | The agent documentation, standards pages, Studio copy blocks, and inventory entry belong in the ROVO governance space. |
+| Keep the active standards page small. | Current ROVO-facing standards should include only the organization-wide standard and MOBRM team standard. |
+| Do not use related keys as MOBRM triggers. | `MR26`, `M26`, and `CLE` references do not trigger the MOBRM overlay by themselves. |
 
 ## Recommended Next Research Pass
 
-1. Use authenticated Atlassian access to inspect the supplied Confluence folder.
-2. Start with the MR26 June release sample using `project = MR26 AND fixVersion = "Mobilitas 2026.06.12"` or equivalent MR26-key export.
-3. Resolve exact standard pages for Breaking Backlogs, 404 Errors, MR26 / Mobi Rangers, Mobilizers, and any related teams.
-4. Confirm Jira project keys, board names, and filters for each team.
-5. Sample 10-15 safe tickets per team across ready, in progress, done, blocked, reopened, or recently refined states.
-6. Record only non-sensitive patterns in repo docs.
-7. Update team overlays after team-owner review.
+1. Publish the MOBRM Team Jira Standards page in the chosen ROVO location after approval.
+2. Update the active standards index page in ROVO so it names only the organization-wide standard and MOBRM overlay.
+3. Run evaluation cases for an org-wide fallback ticket, a `MOBRM-*` ticket, and a wrong-overlay boundary case.
+4. Add future team standards only after a team-owned source, exact project/board/filter mapping, owner, and application boundaries are confirmed.
 
 ## Current Recommendation
 
