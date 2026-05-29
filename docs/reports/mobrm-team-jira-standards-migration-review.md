@@ -29,7 +29,7 @@ The exact page was not found in the local old-space export by searching for `MOB
 | Missing board/filter metadata | The polisher could apply MOBRM standards to the wrong tickets. | Resolved for initial draft with project key `MOBRM` and board `7690`; confirm whether project key alone is sufficient. |
 | Time-bound epic examples | Current active epics can go stale after 2026. | Keep evergreen epic-selection rules in the main standard; review whether 2026 values should remain in the main table or move to a dated appendix. |
 | Real-person example in ServiceNow section | The migrated ROVO page should avoid unnecessary personal data. | Resolved: keep the ServiceNow example generic. |
-| Uneven work type detail | Some labels have robust templates while others are lighter. | Add templates for vendor coordination and tooling/process improvement. |
+| Uneven work type detail | Some labels have robust templates while others are lighter. | Resolved in draft by adding fuller templates for `vendor-coordination` and `tooling-improvement`. |
 | MR26/M26/CLE ambiguity | Related release or epic keys may be confused with team ownership. | Resolved: these keys do not trigger MOBRM standards; `CLE` is used for epics, not team overlay detection. |
 
 ## Decisions Captured From Owner Review
@@ -44,6 +44,8 @@ The exact page was not found in the local old-space export by searching for `MOB
 | Epic freshness | The listed epics cover 2026 and will eventually go stale; refresh the list when the next year's epics are created. |
 | Script evidence | PR links, generated artifacts, import evidence, and validation evidence are ideal for auditability and traceability, but should not always be treated as blocking requirements. |
 | ServiceNow example | Keep generic. |
+| Vendor coordination | Add a fuller template with vendor ticket link, owner, expected response date, escalation path, closure evidence, and validation expectations. |
+| Tooling improvement | Add a fuller template with user outcome, owner, dependencies, adoption plan, measurement, test plan, and support handoff. |
 
 ## Questions To Grill Before Official Migration
 
@@ -53,11 +55,9 @@ The exact page was not found in the local old-space export by searching for `MOB
 4. Should work type labels be mutually exclusive, or can a story have more than one work type label?
 5. Should script execution evidence be a `should have for auditability` signal, a Definition of Done item, or a blocker only for certain work types?
 6. Should `release-deployment` tickets require `fixVersion`, deployment window, rollback owner, and post-deployment validator?
-7. Should `vendor-coordination` define required vendor ticket link, owner, expected response date, escalation path, and closure evidence?
-8. Should `tooling-improvement` include explicit user outcome, operational owner, adoption plan, measurement, and support handoff?
-9. Should access provisioning require least-privilege rationale, approval evidence, expiration date, or periodic access review notes?
-10. Should priority calibration include SLA or due-date examples?
-11. Should the 2026 epic list remain in the main table, or should it move to a dated release/quarter appendix?
+7. Should access provisioning require least-privilege rationale, approval evidence, expiration date, or periodic access review notes?
+8. Should priority calibration include SLA or due-date examples?
+9. Should the 2026 epic list remain in the main table, or should it move to a dated release/quarter appendix?
 
 ## Recommended Next Step
 

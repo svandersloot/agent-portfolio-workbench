@@ -221,20 +221,72 @@ Minimum acceptance criteria: `3`
 
 Acceptance criteria should confirm the diff was reviewed, only expected changes are present, and the PR was merged.
 
+### Vendor Coordination
+
+Default estimate guidance: `2+ SP`; use a smaller estimate only when the work is a simple routing or status follow-up.
+
+Required label: `vendor-coordination`
+
+Description must include:
+
+- Vendor or partner name.
+- External ticket, case, or request link when available.
+- Internal owner responsible for follow-up.
+- Business or technical reason the vendor action is needed.
+- Impacted system, user group, environment, or release.
+- Expected response date, due date, or next checkpoint.
+- Escalation path or decision owner if the vendor response is delayed.
+- Closure evidence needed before the Jira ticket can be marked done.
+
+Minimum acceptance criteria: `3`
+
+Acceptance criteria should cover:
+
+- Vendor request is opened or updated with the needed context.
+- Response, decision, or deliverable is received and linked back to Jira.
+- Internal validation confirms the vendor action resolved the need or identifies the next action.
+
+Preferred auditability evidence:
+
+- Vendor ticket link or reference number.
+- Relevant email, ServiceNow, Confluence, or Jira link.
+- Decision, response, or deliverable summary.
+- Final owner confirmation or validation note.
+
 ### Tooling Or Process Improvement
 
 Default estimate: `5+ SP`
 
+Required label: `tooling-improvement`
+
 Description must include:
 
 - Objective.
-- Background or context.
+- Background or current pain point.
+- Target users or team workflow affected.
 - Scope, including in-scope and out-of-scope items.
+- Owner and support handoff.
+- Dependencies, data sources, permissions, or environment needs.
+- Adoption or rollout plan.
+- Success measure or expected outcome.
 - Test plan.
 
 Minimum acceptance criteria: `5+`
 
-Acceptance criteria should be verifiable and cover deliverables and edge cases.
+Acceptance criteria should be verifiable and cover:
+
+- Primary deliverable is completed and linked.
+- Expected user or team workflow works end to end.
+- Edge cases, error handling, or fallback behavior are addressed.
+- Documentation, runbook, or support handoff is updated when needed.
+- Measurement, evaluation, demo evidence, or owner sign-off is captured.
+
+Preferred auditability evidence:
+
+- Design, Confluence, repo, pull request, Studio, or automation links.
+- Evaluation results or test notes for agent or automation work.
+- Demo notes, screenshots, or owner review notes when useful.
+- Follow-up backlog items for known gaps that are intentionally out of scope.
 
 ## Definition Of Ready
 
@@ -330,5 +382,4 @@ https://github.com/aaa-ncnu-ie/mobilitas-ccm-development-automation-scripts
 - Confirm the ROVO page status at publish time: `Approved`, `Draft`, or `Team-owned / pending ROVO review`.
 - Confirm whether 2026 epic examples should remain in the main table or move to a dated appendix.
 - Confirm whether script execution evidence should be required before `Done` or treated as preferred auditability guidance.
-- Confirm whether `vendor-coordination` and `tooling-improvement` should have fuller description and acceptance-criteria templates like the script work types do.
 - Should release-bound work require `fixVersion`, deployment window, rollback owner, and post-deployment validator fields?

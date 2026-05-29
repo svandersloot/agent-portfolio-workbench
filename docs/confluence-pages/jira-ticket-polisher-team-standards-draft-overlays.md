@@ -101,6 +101,7 @@ No live Jira ticket sample was reviewed in this pass. The documented standard it
 - Do not let related release or epic keys such as `MR26`, `M26`, or `CLE` trigger this overlay by themselves.
 - Keep the epic-selection rule evergreen and refresh dated epic examples when the next year's epics are created.
 - Treat script execution evidence as preferred auditability and traceability evidence, not automatically blocking unless the work type or owner says it is required.
+- Use fuller templates for `vendor-coordination` and `tooling-improvement` so the agent can check owner, external links, due dates, escalation, adoption, measurement, support handoff, and closure evidence consistently.
 - Keep ServiceNow examples generic.
 
 ## MR26 / Mobi Rangers Draft Placeholder
