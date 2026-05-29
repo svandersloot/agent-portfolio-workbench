@@ -173,6 +173,26 @@ config/confluence-pages.example.yml
 
 Use `templates/confluence/` as reusable template source files. Use `docs/confluence-pages/` as page-ready drafts for the first governance pages. When a Confluence page is created or updated from a draft and the reusable structure changes, update the matching template too.
 
+## Studio Configuration Page Standard
+
+Use `templates/confluence/rovo-studio-configuration-copy-blocks-template.md` when creating or refreshing ROVO Studio configuration pages.
+
+Golden formatting reference:
+
+```text
+ROVO > ROVO Studio Configuration - Release Drift Monitor
+Page ID: 5318770794
+Golden version noted: 3
+```
+
+Formatting rules:
+
+- Keep names, descriptions, and other short Studio fields as inline code.
+- Keep parent instructions, subagent triggers, subagent instructions, knowledge notes, and tool guidance in fenced code blocks.
+- Use Markdown-style headings, numbered lists, and bullets inside instruction and trigger fields because current Studio supports formatted text.
+- Include "Copy into..." guidance before each Studio field so a human can transfer the page into Studio without guessing field boundaries.
+- Do not publish over a manually formatted live Studio configuration page until the local draft has been checked against the live golden format.
+
 ## Future Confluence API Setup
 
 The repository is prepared for API-assisted publishing. Use `scripts/Publish-ConfluencePages.ps1` to dry-run or create configured pages from `config/confluence-pages.yml`.

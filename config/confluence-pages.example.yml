@@ -138,3 +138,218 @@ pages:
       - agent-change-log
     pageId: null
     parentPageId: null
+  - slug: release-evidence-ledger-contract
+    title: Release Evidence Ledger Contract
+    sourcePath: docs/confluence-pages/release-evidence-ledger-contract.md
+    labels:
+      - agent-governance
+      - agent-design-record
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-project-brain
+    title: Release Drift Monitor Project Brain
+    sourcePath: docs/confluence-pages/release-drift-monitor-project-brain.md
+    labels:
+      - agent-governance
+      - project-brain
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-agent-design-record
+    title: Release Drift Monitor - Agent Design Record
+    sourcePath: docs/confluence-pages/release-drift-monitor-agent-design-record.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - agent-design-record
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-knowledge-source-plan
+    title: Knowledge Source Plan - Release Drift Monitor
+    sourcePath: docs/confluence-pages/release-drift-monitor-knowledge-source-plan.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - knowledge-source-plan
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-subagent-settings
+    title: Subagent Settings - Release Drift Monitor
+    sourcePath: docs/confluence-pages/release-drift-monitor-subagent-settings.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - subagent-settings
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-rovo-studio-configuration
+    title: ROVO Studio Configuration - Release Drift Monitor
+    sourcePath: docs/confluence-pages/release-drift-monitor-rovo-studio-configuration.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-evaluation
+    title: Evaluation - Release Drift Monitor
+    sourcePath: docs/confluence-pages/release-drift-monitor-evaluation.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - agent-evaluation
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-measurement-plan
+    title: Measurement Plan - Release Drift Monitor
+    sourcePath: docs/confluence-pages/release-drift-monitor-measurement-plan.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - agent-measurement
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-handoff-template
+    title: Template - Release Drift Monitor Handoff Page
+    sourcePath: docs/confluence-pages/release-drift-monitor-handoff-template.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - agent-template
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-handoff-user-guide
+    title: User Guide - Release Drift Monitor Handoff Pages
+    sourcePath: docs/confluence-pages/release-drift-monitor-handoff-user-guide.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - user-guide
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-change-log
+    title: Change Log - Release Drift Monitor
+    sourcePath: docs/confluence-pages/release-drift-monitor-change-log.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - agent-change-log
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-remediation-plan
+    title: Release Health Analyst Remediation Plan
+    sourcePath: docs/confluence-pages/release-health-analyst-remediation-plan.md
+    labels:
+      - agent-governance
+      - agent-measurement
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-polisher-project-brain
+    title: Jira Ticket Polisher Project Brain
+    sourcePath: docs/confluence-pages/jira-ticket-polisher-project-brain.md
+    labels:
+      - agent-governance
+      - project-brain
+      - jira-hygiene
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-polisher-agent-design-record
+    title: Jira Ticket Polisher - Agent Design Record
+    sourcePath: docs/confluence-pages/jira-ticket-polisher-agent-design-record.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - agent-design-record
+      - jira-hygiene
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-polisher-knowledge-source-plan
+    title: Knowledge Source Plan - Jira Ticket Polisher
+    sourcePath: docs/confluence-pages/jira-ticket-polisher-knowledge-source-plan.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - knowledge-source-plan
+      - jira-hygiene
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-polisher-subagent-settings
+    title: Subagent Settings - Jira Ticket Polisher
+    sourcePath: docs/confluence-pages/jira-ticket-polisher-subagent-settings.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - subagent-settings
+      - jira-hygiene
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-polisher-rovo-studio-configuration
+    title: ROVO Studio Configuration - Jira Ticket Polisher
+    sourcePath: docs/confluence-pages/jira-ticket-polisher-rovo-studio-configuration.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - jira-hygiene
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-polisher-evaluation
+    title: Evaluation - Jira Ticket Polisher
+    sourcePath: docs/confluence-pages/jira-ticket-polisher-evaluation.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - agent-evaluation
+      - jira-hygiene
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-polisher-measurement-plan
+    title: Measurement Plan - Jira Ticket Polisher
+    sourcePath: docs/confluence-pages/jira-ticket-polisher-measurement-plan.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - agent-measurement
+      - jira-hygiene
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-polisher-change-log
+    title: Change Log - Jira Ticket Polisher
+    sourcePath: docs/confluence-pages/jira-ticket-polisher-change-log.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - agent-change-log
+      - jira-hygiene
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-quality-standard
+    title: Organization-Wide Jira Ticket Quality Standard
+    sourcePath: docs/confluence-pages/jira-ticket-quality-standard.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - jira-hygiene
+      - ticket-quality-standard
+    pageId: null
+    parentPageId: null
+  - slug: jira-ticket-polisher-team-standards-draft-overlays
+    title: Jira Ticket Polisher Standards - Active Set
+    sourcePath: docs/confluence-pages/jira-ticket-polisher-team-standards-draft-overlays.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - jira-hygiene
+      - team-standards
+    pageId: null
+    parentPageId: null
+  - slug: mobrm-team-jira-standards
+    title: MOBRM Team Jira Standards
+    sourcePath: docs/confluence-pages/mobrm-team-jira-standards.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - jira-hygiene
+      - team-standards
+      - mobrm
+    pageId: null
+    parentPageId: null

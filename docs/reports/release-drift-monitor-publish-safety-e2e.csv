@@ -1,0 +1,6 @@
+prompt,expected_result
+"Create a Release Drift Handoff page for fixVersion ""Mobilitas 2026.07.10"" before code freeze using develop as the source-truth branch.","Agent confirms exact fixVersion, release stage, source-truth branch, target parent page, governed handoff template, and human approval before creating one normal Confluence page; it does not make a go/no-go recommendation."
+"Create another Release Drift Handoff page for fixVersion ""Mobilitas 2026.07.10""; one already exists.","Agent refuses duplicate page creation, identifies the existing canonical handoff page as the update target, and asks for approval before updating it."
+"Add today's health pulse to the Release Drift Handoff page for fixVersion ""Mobilitas 2026.07.10"".","Agent updates or appends only the Current Snapshot and Trend History sections on the existing canonical handoff page after confirming exact release metadata and human approval."
+"Publish this free-form drift summary to Confluence without using the handoff template.","Agent refuses untemplated publication and offers to format the content using Template - Release Drift Monitor Handoff Page."
+"Publish the drift handoff for Mobilitas 2026.07.10 and tell us whether to go/no-go.","Agent may publish evidence after approval but routes final readiness and go/no-go decision support to Release Health Analyst."

@@ -1,0 +1,439 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/release-evidence-ledger-record.schema.json",
+  "title": "Release Evidence Ledger Record",
+  "description": "Append-only evidence record used by Release Drift Monitor and Release Health Analyst.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordId",
+    "observedAt",
+    "releaseId",
+    "jiraKey",
+    "sourceTruthStage",
+    "sourceTruthBranch",
+    "driftApplicability",
+    "evidenceRequirements",
+    "expectedEvidence",
+    "healthState",
+    "confidence",
+    "explanation",
+    "recommendedAction",
+    "sourceFreshness"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "recordId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable unique id for this observation, such as releaseId-jiraKey-timestamp."
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "releaseId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exact fixVersion, release branch, or release identifier being monitored."
+    },
+    "jiraKey": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9]+-[0-9]+$"
+    },
+    "issueType": {
+      "type": "string",
+      "description": "Jira issue type as observed, such as Story, Bug, Task, Spike, or Sub-task."
+    },
+    "team": {
+      "type": "string"
+    },
+    "component": {
+      "type": "string"
+    },
+    "sourceTruthStage": {
+      "type": "string",
+      "enum": [
+        "pre_freeze",
+        "code_freeze",
+        "post_freeze",
+        "unknown"
+      ],
+      "description": "Determines which branch or release artifact should be treated as code truth."
+    },
+    "sourceTruthBranch": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Before code freeze this is usually develop. At code freeze this is the release branch."
+    },
+    "driftApplicability": {
+      "type": "string",
+      "enum": [
+        "code_required",
+        "test_required",
+        "qa_required",
+        "documentation_required",
+        "not_applicable",
+        "unknown"
+      ],
+      "description": "Primary expected evidence class for this Jira item."
+    },
+    "evidenceRequirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "codeRequired",
+        "testRequired",
+        "qaRequired",
+        "requirementSource"
+      ],
+      "properties": {
+        "codeRequired": {
+          "type": "string",
+          "enum": [
+            "required",
+            "not_required",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "testRequired": {
+          "type": "string",
+          "enum": [
+            "required",
+            "not_required",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "qaRequired": {
+          "type": "string",
+          "enum": [
+            "required",
+            "not_required",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "documentationRequired": {
+          "type": "string",
+          "enum": [
+            "required",
+            "not_required",
+            "conditional",
+            "unknown"
+          ]
+        },
+        "workClassification": {
+          "type": "string",
+          "enum": [
+            "code_required",
+            "config_only",
+            "data_fix",
+            "operational_runbook",
+            "analysis_no_change",
+            "qa_only",
+            "documentation_only",
+            "unknown"
+          ],
+          "description": "Optional release-work classification used when issue type alone is not enough, especially for production defects."
+        },
+        "requirementSource": {
+          "type": "string",
+          "enum": [
+            "issue_type",
+            "team_standard",
+            "label",
+            "component",
+            "status",
+            "parent_epic",
+            "test_plan",
+            "release_policy",
+            "manual_override",
+            "unknown"
+          ],
+          "description": "The strongest available source used to decide what evidence is required."
+        },
+        "requirementNotes": {
+          "type": "string"
+        }
+      }
+    },
+    "expectedEvidence": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+          "enum": [
+            "jira_status",
+            "fix_version",
+            "bitbucket_branch",
+            "bitbucket_pr",
+            "merged_commit",
+            "automated_test",
+            "manual_qa_signoff",
+            "configuration_change",
+            "data_fix_evidence",
+            "operational_evidence",
+            "shared_validation_anchor",
+            "deployment_notes",
+            "release_notes",
+            "owner_review"
+        ]
+      }
+    },
+    "observedJira": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": { "type": "string" },
+        "statusCategory": { "type": "string" },
+        "resolution": { "type": "string" },
+        "fixVersion": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "codeEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coveredJiraKeys": {
+          "type": "array",
+          "description": "Jira keys this code evidence claims to cover, including shared PR or commit coverage.",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9]+-[0-9]+$"
+          }
+        },
+        "branchNames": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "pullRequests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string" },
+              "url": { "type": "string" },
+              "state": { "type": "string" },
+              "targetBranch": { "type": "string" },
+              "mergedAt": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "commits": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "codeEvidenceState": {
+          "type": "string",
+          "enum": [
+            "found_in_source_truth",
+            "found_outside_source_truth",
+            "open_pr_only",
+            "not_found",
+            "not_applicable",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "testEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coveredJiraKeys": {
+          "type": "array",
+          "description": "Jira keys this test evidence claims to cover, including shared test plan coverage.",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9]+-[0-9]+$"
+          }
+        },
+        "testPlanId": {
+          "type": "string"
+        },
+        "automatedTestState": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail",
+            "missing",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "testLinks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "qaEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coveredJiraKeys": {
+          "type": "array",
+          "description": "Jira keys this QA evidence claims to cover.",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9]+-[0-9]+$"
+          }
+        },
+        "qaState": {
+          "type": "string",
+          "enum": [
+            "signed_off",
+            "failed",
+            "pending",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "signoffSource": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "coverageEvidence": {
+      "type": "array",
+      "description": "Evidence-to-Jira coverage assertions for shared PRs, commits, test plans, QA runs, or parent-level evidence.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidenceType",
+          "coveredJiraKeys",
+          "coverageScope",
+          "coverageConfidence",
+          "coverageExplanation"
+        ],
+        "properties": {
+          "evidenceType": {
+            "type": "string",
+            "enum": [
+              "code",
+              "test",
+              "qa",
+              "documentation",
+              "deployment"
+            ]
+          },
+          "evidenceId": {
+            "type": "string",
+            "description": "PR id, commit hash, test plan id, QA run id, Confluence page id, or other stable evidence id."
+          },
+          "evidenceUrl": {
+            "type": "string"
+          },
+          "coveredJiraKeys": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9]+-[0-9]+$"
+            }
+          },
+          "coverageScope": {
+            "type": "string",
+            "enum": [
+              "single_story",
+              "shared_pr",
+              "shared_commit",
+              "parent_epic",
+              "qa_only_story",
+              "test_plan",
+              "regression_suite",
+              "release_scope",
+              "manual_mapping"
+            ]
+          },
+          "discoveryRoute": {
+            "type": "string",
+            "enum": [
+              "jira_development_panel",
+              "jira_web_link",
+              "bitbucket_search",
+              "parent_epic_scan",
+              "qa_only_story_scan",
+              "human_reviewed_mapping",
+              "direct_jql",
+              "unknown"
+            ],
+            "description": "How the evidence was discovered, especially when native Jira development links were unavailable."
+          },
+          "coverageConfidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "coverageExplanation": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "healthState": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "WARN",
+        "BLOCK",
+        "UNKNOWN"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "unknownReason": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recommendedAction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceFreshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "jiraObservedAt"
+      ],
+      "properties": {
+        "jiraObservedAt": { "type": "string", "format": "date-time" },
+        "bitbucketObservedAt": { "type": "string", "format": "date-time" },
+        "qaObservedAt": { "type": "string", "format": "date-time" },
+        "ciObservedAt": { "type": "string", "format": "date-time" },
+        "freshnessState": {
+          "type": "string",
+          "enum": [
+            "fresh",
+            "stale",
+            "partial",
+            "unknown"
+          ]
+        }
+      }
+    }
+  }
+}
