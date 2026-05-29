@@ -4,6 +4,7 @@ Use this page to track changes to the agent design, knowledge sources, Studio co
 
 | Version | Date | Area | Change Summary | Reason / Outcome | Updated By |
 |---|---|---|---|---|---|
+| v0.3 | 2026-05-29 | Standards publishing | Published Team Jira Standards and MOBRM Team Jira Standards under the Jira Ticket Polisher Project Brain; updated active standards status. | Establish the nested team standards structure and make MOBRM the first active team overlay. | Governance migration scaffold |
 | v0.2 | 2026-05-29 | Active standards scope | Limited the ROVO-facing standards set to the organization-wide standard and MOBRM Team Jira Standards; removed future-team placeholders from active docs; added MOBRM placement recommendation. | Keep the pilot focused and avoid applying or displaying unverified team standards. | Governance migration scaffold |
 | v0.1 | 2026-05-29 | Initial governed migration scaffold | Created Project Brain, Agent Design Record, Knowledge Source Plan, Subagent Settings, Studio configuration copy blocks, Evaluation, Measurement Plan, organization-wide standard, team overlay draft page, and research report. | Migrate from old Jira Ticket Polisher evidence into governed in-review status. | Governance migration scaffold |
 

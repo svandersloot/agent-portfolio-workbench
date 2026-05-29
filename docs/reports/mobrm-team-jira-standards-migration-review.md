@@ -9,7 +9,7 @@
 | Source page ID | `5266898945` |
 | Source version reviewed | `3` |
 | Retrieval date | 2026-05-29 |
-| ROVO migration status | Draft only; not published |
+| ROVO migration status | Published under Jira Ticket Polisher > Team Jira Standards |
 
 The exact page was not found in the local old-space export by searching for `MOBRM`, `MOB RM`, or `MOBRM Team Jira Standards`. The user-supplied live Confluence URL was used as the authoritative source for this review.
 
@@ -74,21 +74,23 @@ ROVO
         └── Jira Ticket Polisher Project Brain
             ├── Organization-Wide Jira Ticket Quality Standard
             ├── Jira Ticket Polisher Standards - Active Set
-            └── MOBRM Team Jira Standards
+            └── Team Jira Standards
+                └── MOBRM Team Jira Standards
 ```
 
 Rationale:
 
 - The organization-wide standard is reusable, but in this migration it is governed through Jira Ticket Polisher.
 - The active standards page acts as the small index that tells the agent and humans which standards are currently allowed.
-- MOBRM lives next to the active index so the agent has a traceable source, but it remains clearly team-owned.
-- Future team standards can be added as sibling pages only after owner approval and exact project/board/filter mapping.
+- Team Jira Standards keeps team-owned overlays from crowding the Project Brain page list.
+- MOBRM lives under Team Jira Standards so the agent has a traceable source, but it remains clearly team-owned.
+- Future team standards can be added as sibling pages under Team Jira Standards only after owner approval and exact project/board/filter mapping.
 
 Publish only after the metadata block is confirmed:
 
 ```text
 Team: MOBRM
-Approved status: Team-owned source current in MO; ROVO publish review pending
+Approved status: Published in ROVO as the active MOBRM team overlay for Jira Ticket Polisher
 Jira project keys: MOBRM
 Boards: MOBRM board 7690
 Filters: TBD if a saved filter should be named

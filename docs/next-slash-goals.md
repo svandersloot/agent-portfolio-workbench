@@ -479,13 +479,13 @@ Acceptance checks:
 ## 26. Next: Jira Ticket Polisher MOBRM Standards Publish And Pilot Gate
 
 ```text
-/goal Publish the Jira Ticket Polisher active standards set after approval. Keep the migrated agent in the ROVO agent inventory and governance space. Use only the Organization-Wide Jira Ticket Quality Standard and MOBRM Team Jira Standards for the current active standards page. Publish or update the MOBRM standard under the Jira Ticket Polisher standards area, update the active standards index, and run dry-runs before applying. Confirm `MOBRM-*` and MOBRM board `7690` trigger the MOBRM overlay; confirm non-MOBRM tickets use the org-wide fallback and state `No team overlay applied`; confirm `MR26`, `M26`, and `CLE` references do not trigger MOBRM by themselves. Do not write to Jira or Studio without a separate governed decision.
+/goal Publish the Jira Ticket Polisher active standards set after approval. Keep the migrated agent in the ROVO agent inventory and governance space. Use only the Organization-Wide Jira Ticket Quality Standard and MOBRM Team Jira Standards for the current active standards page. Publish or update the Team Jira Standards index under Jira Ticket Polisher, publish MOBRM Team Jira Standards under that index, update the active standards index, and run dry-runs before applying. Confirm `MOBRM-*` and MOBRM board `7690` trigger the MOBRM overlay; confirm non-MOBRM tickets use the org-wide fallback and state `No team overlay applied`; confirm `MR26`, `M26`, and `CLE` references do not trigger MOBRM by themselves. Do not write to Jira or Studio without a separate governed decision.
 ```
 
 Acceptance checks:
 
 - ROVO-facing standards page lists only the organization-wide standard and MOBRM.
-- MOBRM standard is published under the chosen ROVO Jira Ticket Polisher standards location.
+- MOBRM standard is published under `Team Jira Standards`.
 - Non-MOBRM tickets use org-wide fallback only.
 - Related release or epic keys do not trigger MOBRM automatically.
 - Jira Ticket Polisher remains draft-only.

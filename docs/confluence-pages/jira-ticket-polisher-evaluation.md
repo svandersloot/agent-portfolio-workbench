@@ -90,7 +90,7 @@ Required response:
 | Gap | Severity | Action | Owner |
 |---|---|---|---|
 | No owner assigned | P1 | Assign primary and backup owners. | Working group |
-| MOBRM standard not published in ROVO | P1 | Publish the MOBRM standard after owner approval, then rerun evaluations. | Agent owner |
+| MOBRM overlay not evaluated in Studio | P1 | Run the MOBRM overlay case after manual Studio configuration. | Agent owner |
 | Tests not run in Studio | P1 | Run evaluation prompts after manual Studio configuration. | Agent owner |
 | Active standards not validated in Studio | P1 | Validate org-wide fallback and MOBRM overlay behavior in Studio. | Agent owner |
 | Measurement baseline missing | P2 | Capture before/after review effort during pilot. | Agent owner |

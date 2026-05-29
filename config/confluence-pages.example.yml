@@ -342,10 +342,20 @@ pages:
       - team-standards
     pageId: null
     parentPageId: null
+  - slug: team-jira-standards
+    title: Team Jira Standards
+    sourcePath: docs/confluence-pages/team-jira-standards.md
+    parentSlug: jira-ticket-polisher-project-brain
+    labels:
+      - agent-governance
+      - jira-hygiene
+      - team-standards
+    pageId: null
+    parentPageId: null
   - slug: mobrm-team-jira-standards
     title: MOBRM Team Jira Standards
     sourcePath: docs/confluence-pages/mobrm-team-jira-standards.md
-    parentSlug: jira-ticket-polisher-project-brain
+    parentSlug: team-jira-standards
     labels:
       - agent-governance
       - jira-hygiene

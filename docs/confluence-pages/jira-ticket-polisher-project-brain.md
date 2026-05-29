@@ -70,6 +70,7 @@ Jira Ticket Polisher helps Jira users improve ticket clarity, completeness, and 
 | Change Log | Change Log - Jira Ticket Polisher |
 | Organization-wide standard | Organization-Wide Jira Ticket Quality Standard |
 | Active standards index | Jira Ticket Polisher Standards - Active Set |
+| Team standards index | Team Jira Standards |
 | Research report | Jira Ticket Polisher Migration Research Report |
 
 ## Operating Model
@@ -106,7 +107,7 @@ Jira Ticket Polisher helps Jira users improve ticket clarity, completeness, and 
 | Gap | Impact | Remediation |
 |---|---|---|
 | Primary and backup owners are TBD. | Cannot promote beyond In Review. | Assign accountable owner and backup owner. |
-| MOBRM standard is drafted locally but not yet published to ROVO. | The team overlay cannot be treated as the ROVO source of truth until published or supplied. | Publish the MOBRM Team Jira Standards page under the active standards location after approval. |
+| MOBRM standard is published in ROVO. | The first team overlay is available for pilot use. | Run Studio evaluations against a `MOBRM-*` ticket and a non-MOBRM fallback ticket. |
 | Additional team standards are intentionally out of scope. | The agent should use the org-wide fallback for other teams. | Add future team standards only after a team-owned source, exact mapping, and owner review are confirmed. |
 | Approved organization-wide standard is newly drafted. | Needs working-group review before broad use. | Review and approve the standard with representative ticket owners. |
 | Studio configuration has not been manually applied or captured. | Runtime behavior cannot be validated. | Copy the Studio blocks manually, run evaluations, and capture safe evidence. |

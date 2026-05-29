@@ -176,6 +176,7 @@ Return:
 Before enabling or broadening the agent, confirm:
 - Organization-Wide Jira Ticket Quality Standard
 - Jira Ticket Polisher Standards - Active Set
+- Team Jira Standards
 - MOBRM Team Jira Standards
 - MOBRM project key, board `7690`, and workflow context
 - Pilot ticket sample set for org-wide fallback and MOBRM overlay behavior

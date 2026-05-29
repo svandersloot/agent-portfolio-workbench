@@ -37,3 +37,25 @@ Published the Jira Ticket Polisher governed migration scaffold to the ROVO space
 - Confirm whether Jira Ticket Polisher should be promoted from draft once the owner reviews the ROVO pages.
 - Keep the active standards page limited to the organization-wide standard and MOBRM until additional team-owned standards are explicitly approved.
 - Confirm whether the Agent Inventory page should be published with the Jira Ticket Polisher entry once unrelated local edits are separated.
+
+## Active Standards And MOBRM Publish
+
+Published after user approval on 2026-05-29.
+
+| Page | Page ID | Parent | Version After Publish |
+|---|---|---|---|
+| Jira Ticket Polisher Project Brain | `5328240651` | `5279908067` | `3` |
+| Knowledge Source Plan - Jira Ticket Polisher | `5327945775` | `5328240651` | `3` |
+| Evaluation - Jira Ticket Polisher | `5329551365` | `5328240651` | `3` |
+| Change Log - Jira Ticket Polisher | `5328142371` | `5328240651` | `3` |
+| Jira Ticket Polisher Standards - Active Set | `5329059879` | `5328240651` | `3` |
+| Team Jira Standards | `5327749169` | `5328240651` | `2` |
+| MOBRM Team Jira Standards | `5327847473` | `5327749169` | `2` |
+
+Validation:
+
+- Initial apply created `Team Jira Standards` and `MOBRM Team Jira Standards` and updated the active standards pages.
+- Follow-up apply removed stale publish-pending language after the new pages existed.
+- Post-apply dry-run confirmed the expected page IDs, parents, and current versions.
+- No Studio changes were made.
+- No Jira tickets were read or written during publishing.

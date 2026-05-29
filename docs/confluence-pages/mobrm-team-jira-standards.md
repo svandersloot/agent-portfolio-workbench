@@ -1,6 +1,6 @@
 # MOBRM Team Jira Standards
 
-Status: Draft migration review. Not yet the official ROVO source of truth.
+Status: Published team-owned standard in ROVO for Jira Ticket Polisher.
 
 Source page: `MO` page `5266898945`, `MOBRM Team Jira Standards`, current version `3`.
 
@@ -18,7 +18,7 @@ This page is a cleaned migration draft of the MOBRM team Jira standards for revi
 | Team owner | Shane Vandersloot |
 | Standards owner | Shane Vandersloot |
 | Backup owner | Harish |
-| Approved status | Team-owned source is current in MO; ROVO publish review pending |
+| Approved status | Published in ROVO as the active MOBRM team overlay for Jira Ticket Polisher |
 | Last source version reviewed | Version `3` |
 | Applies automatically when | Jira project key is `MOBRM` or the approved MOBRM board mapping is available. |
 | Does not apply when | Ticket only references `MR26`, `M26`, or `CLE`; those keys do not trigger MOBRM standards by themselves. |

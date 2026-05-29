@@ -7,12 +7,13 @@ Use this page to identify the active standards Jira Ticket Polisher may apply du
 | Standard | Status | Applies when | Source |
 |---|---|---|---|
 | Organization-Wide Jira Ticket Quality Standard | Active draft / default fallback | Every ticket review | `docs/confluence-pages/jira-ticket-quality-standard.md` |
-| MOBRM Team Jira Standards | Team-owned draft migration / ROVO publish review pending | Jira project key is `MOBRM`, or approved MOBRM board `7690` is visible | `docs/confluence-pages/mobrm-team-jira-standards.md` |
+| Team Jira Standards | Active index | Approved team overlays in the active set | `docs/confluence-pages/team-jira-standards.md` |
+| MOBRM Team Jira Standards | Published active overlay | Jira project key is `MOBRM`, or approved MOBRM board `7690` is visible | `docs/confluence-pages/team-jira-standards.md` > `docs/confluence-pages/mobrm-team-jira-standards.md` |
 
 ## Current Scope
 
 - Apply the organization-wide standard to every ticket review.
-- Apply the MOBRM overlay automatically for `MOBRM-*` tickets once the ROVO page is published or the standard is supplied.
+- Apply the MOBRM overlay automatically for `MOBRM-*` tickets.
 - Use MOBRM board `7690` as confirming evidence when board context is visible.
 - Do not apply any other team overlay unless the user explicitly supplies an approved team standard for that request.
 - Do not use related release or epic keys such as `MR26`, `M26`, or `CLE` to trigger the MOBRM overlay.
@@ -40,7 +41,7 @@ MOBRM is the only team-specific overlay in the current active set.
 | Owner | Shane Vandersloot |
 | Backup owner | Harish |
 | Source page | `MO` page `5266898945`, `MOBRM Team Jira Standards`, version `3` |
-| ROVO draft | `docs/confluence-pages/mobrm-team-jira-standards.md` |
+| ROVO draft | `docs/confluence-pages/team-jira-standards.md` > `docs/confluence-pages/mobrm-team-jira-standards.md` |
 
 ## Detection Rules
 
@@ -64,3 +65,5 @@ Additional team standards should be added only after they have:
 - Explicit `does not apply when` boundaries to prevent false matches.
 
 Until then, keep future teams out of this active standards page.
+
+Future approved team standards should be children of `Team Jira Standards`, not direct children of the Jira Ticket Polisher Project Brain.

@@ -22,7 +22,8 @@ Jira Ticket Polisher uses a default organization-wide standard plus one active t
 | Current ticket content | Jira / supplied text | System of Record | Review visible fields and draft improvements. | Runtime | Ask user to paste summary, description, acceptance criteria, and key metadata. |
 | Organization-Wide Jira Ticket Quality Standard | Confluence | Process Authority | Default standard for every review. | Quarterly or after workflow changes | Use labeled fallback guidance and report the missing standard. |
 | Jira Ticket Polisher Standards - Active Set | Confluence | Active Standards Index | Identify the organization-wide standard and active MOBRM overlay. | Per team review | State no approved team overlay was applied. |
-| MOBRM Team Jira Standards | Confluence | Team Overlay | Apply to `MOBRM-*` tickets and MOBRM board `7690` context after ROVO publish or when supplied. | Annual or after team workflow changes | Use org-wide standard only and state no team overlay was applied. |
+| Team Jira Standards | Confluence | Team Standards Index | Parent page for team-owned overlays that are allowed to support Jira Ticket Polisher. | Per team review | Use org-wide standard only and state no team overlay was applied. |
+| MOBRM Team Jira Standards | Confluence | Team Overlay | Apply to `MOBRM-*` tickets and MOBRM board `7690` context. | Annual or after team workflow changes | Use org-wide standard only and state no team overlay was applied. |
 | Jira project, board, filter, or workflow | Jira | System of Record / Process Authority | Check issue type, status, fields, and workflow expectations. | Runtime or workflow change | Ask for project key, board, filter, or pasted export. |
 | Sample tickets | Jira / export | Observed Pattern | Identify patterns and gaps; never treat as policy alone. | Per research sample | Use only as proposed standard evidence. |
 
@@ -30,7 +31,7 @@ Jira Ticket Polisher uses a default organization-wide standard plus one active t
 
 | Team or board | Intended evidence | Current status |
 |---|---|---|
-| MOBRM | Team standard page, project key `MOBRM`, board `7690`, owner Shane Vandersloot, backup Harish. | Draft migrated locally; ROVO publish review pending. |
+| MOBRM | Team standard page, project key `MOBRM`, board `7690`, owner Shane Vandersloot, backup Harish. | Published in ROVO as the first active team overlay. |
 
 Other team standards are intentionally out of scope for the current active page. Add them only after a team-owned source, mapping metadata, owner, and application boundaries are confirmed.
 
