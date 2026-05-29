@@ -14,11 +14,14 @@ This page is a cleaned migration draft of the MOBRM team Jira standards for revi
 |---|---|
 | Team | MOBRM |
 | Jira project key | `MOBRM` |
-| Board or filter | Needs confirmation |
-| Team owner | Needs confirmation |
-| Standards owner | Needs confirmation |
-| Approved status | Source page is current in MO; ROVO approval pending |
+| Board or filter | MOBRM board `7690`: `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM/boards/7690?issueType=10001` |
+| Team owner | Shane Vandersloot |
+| Standards owner | Shane Vandersloot |
+| Backup owner | Harish |
+| Approved status | Team-owned source is current in MO; ROVO publish review pending |
 | Last source version reviewed | Version `3` |
+| Applies automatically when | Jira project key is `MOBRM` or the approved MOBRM board mapping is available. |
+| Does not apply when | Ticket only references `MR26`, `M26`, or `CLE`; those keys do not trigger MOBRM standards by themselves. |
 
 ## Overview
 
@@ -292,6 +295,8 @@ Every story must be linked to the appropriate epic based on work type and the cu
 
 Source filter: `https://csaaig.atlassian.net/issues/?filter=57805`
 
+The epics listed here are 2026 planning values. Keep the selection rule evergreen, but review and refresh the epic list when the next year's epics are created.
+
 | Work type | Current active epic from source page | Future or quarterly epics |
 |---|---|---|
 | Release / Deployment | `CLE-176 - Release Management 2026.05.01` | `CLE-205`, `CLE-177` |
@@ -321,12 +326,9 @@ https://github.com/aaa-ncnu-ie/mobilitas-ccm-development-automation-scripts
 
 ## Review Questions Before Official ROVO Migration
 
-- Should `MOBRM` be the only Jira project key for this standard, or should related keys such as `MR26`, `M26`, or `CLE` ever trigger this overlay?
-- What exact board name, board ID, or JQL filter should Jira Ticket Polisher use to detect that this standard applies?
-- Who owns approval of this page in ROVO, and who is the backup owner?
-- Are the current epic examples intentionally time-bound, or should the ROVO version describe an evergreen epic-selection rule instead?
-- Should script execution tickets require PR evidence, attachment evidence, import evidence, or all three before `Done`?
-- Should the ServiceNow example remain generic in the migrated page to avoid naming a real person?
-- Should `vendor-coordination` and `tooling-improvement` have fuller description and acceptance-criteria templates like the script work types do?
+- Confirm whether `project = MOBRM` is sufficient for automatic overlay detection, or whether the approved board mapping should also be required.
+- Confirm the ROVO page status at publish time: `Approved`, `Draft`, or `Team-owned / pending ROVO review`.
+- Confirm whether 2026 epic examples should remain in the main table or move to a dated appendix.
+- Confirm whether script execution evidence should be required before `Done` or treated as preferred auditability guidance.
+- Confirm whether `vendor-coordination` and `tooling-improvement` should have fuller description and acceptance-criteria templates like the script work types do.
 - Should release-bound work require `fixVersion`, deployment window, rollback owner, and post-deployment validator fields?
-- Should this be marked as `Approved`, `Draft`, or `Team-owned / pending ROVO review` when first published?

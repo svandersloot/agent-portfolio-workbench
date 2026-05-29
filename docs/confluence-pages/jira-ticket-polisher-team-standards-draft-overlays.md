@@ -18,7 +18,7 @@ Keep three kinds of evidence separate:
 |---|---|---|---|---|
 | Breaking Backlogs | Not verified | Not sampled | Draft placeholder | Use org-wide standard only until source is confirmed. |
 | 404 Errors | Not verified | Not sampled | Draft placeholder | Use org-wide standard only until source is confirmed. |
-| MOBRM | Documented source found in MO page `5266898945`; ROVO migration review pending. | Not sampled in this pass. | Local draft migration page created for review. | Apply only when the user supplies the MOBRM standard or the approved ROVO page is published and mapped to the ticket context. |
+| MOBRM | Documented source found in MO page `5266898945`; owner confirmed project key `MOBRM`, board `7690`, owner Shane Vandersloot, backup Harish; ROVO migration review pending. | Not sampled in this pass. | Local draft migration page created for review. | Apply automatically to `MOBRM-*` tickets once the ROVO page is published or supplied; do not trigger from `MR26`, `M26`, or `CLE` alone. |
 | MR26 / Mobi Rangers | Not verified | Research seed identified for `project = MR26 AND fixVersion = "Mobilitas 2026.06.12"`; local release evidence says the release had 43 Jira issues, but ticket-quality sample details are not verified. | Draft placeholder | Use org-wide standard only unless a team standard is supplied. |
 | Mobilizers | Not verified | Not sampled | Draft placeholder | Use org-wide standard only until source is confirmed. |
 
@@ -95,11 +95,13 @@ No live Jira ticket sample was reviewed in this pass. The documented standard it
 
 ### Proposed Overlay For Review
 
-- Treat `MOBRM` as a documented team standard only after the ROVO migration page is reviewed and approved.
-- Require exact mapping metadata before automatic application: Jira project key, board name or ID, JQL filter, owner, backup owner, status, and review date.
-- Do not let related release keys such as `MR26`, `M26`, or `CLE` trigger this overlay unless the approved page explicitly says they are in scope.
-- Prefer evergreen epic-selection rules in the migrated page, with current monthly epic examples kept as examples or moved to a dated appendix.
-- Keep ServiceNow examples generic unless the team approves including real-person examples.
+- Treat `MOBRM` as a documented team standard from the MO source, with ROVO publish review still pending.
+- Apply automatically to `MOBRM-*` tickets once the ROVO page is published or the standard is supplied in the request.
+- Use board `7690` as confirming board evidence when visible.
+- Do not let related release or epic keys such as `MR26`, `M26`, or `CLE` trigger this overlay by themselves.
+- Keep the epic-selection rule evergreen and refresh dated epic examples when the next year's epics are created.
+- Treat script execution evidence as preferred auditability and traceability evidence, not automatically blocking unless the work type or owner says it is required.
+- Keep ServiceNow examples generic.
 
 ## MR26 / Mobi Rangers Draft Placeholder
 

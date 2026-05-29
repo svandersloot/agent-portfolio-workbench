@@ -26,29 +26,38 @@ The exact page was not found in the local old-space export by searching for `MOB
 
 | Risk | Why it matters | Proposed handling |
 |---|---|---|
-| Missing board/filter metadata | The polisher could apply MOBRM standards to the wrong tickets. | Add exact Jira project keys, board name or ID, and JQL filter before approving automatic overlay use. |
-| Time-bound epic examples | Current active epics can go stale quickly. | Keep evergreen epic-selection rules in the main standard and move dated examples to a reviewed appendix. |
-| Real-person example in ServiceNow section | The migrated ROVO page should avoid unnecessary personal data. | Use a generic example unless the team approves otherwise. |
+| Missing board/filter metadata | The polisher could apply MOBRM standards to the wrong tickets. | Resolved for initial draft with project key `MOBRM` and board `7690`; confirm whether project key alone is sufficient. |
+| Time-bound epic examples | Current active epics can go stale after 2026. | Keep evergreen epic-selection rules in the main standard; review whether 2026 values should remain in the main table or move to a dated appendix. |
+| Real-person example in ServiceNow section | The migrated ROVO page should avoid unnecessary personal data. | Resolved: keep the ServiceNow example generic. |
 | Uneven work type detail | Some labels have robust templates while others are lighter. | Add templates for vendor coordination and tooling/process improvement. |
-| MR26/M26/CLE ambiguity | Related release or epic keys may be confused with team ownership. | Explicitly list which keys trigger the MOBRM overlay and which keys are references only. |
+| MR26/M26/CLE ambiguity | Related release or epic keys may be confused with team ownership. | Resolved: these keys do not trigger MOBRM standards; `CLE` is used for epics, not team overlay detection. |
+
+## Decisions Captured From Owner Review
+
+| Question | Decision |
+|---|---|
+| Automatic application | MOBRM standards should theoretically apply to every `MOBRM-*` ticket. |
+| Board mapping | MOBRM board URL confirmed: `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM/boards/7690?issueType=10001`. |
+| Related keys | `MR26`, `M26`, and `CLE` should not trigger MOBRM standards. `CLE` may appear as the selected epic for monthly release cards, environment maintenance, or quarterly planning. |
+| ROVO owner | Shane Vandersloot. |
+| ROVO backup owner | Harish. |
+| Epic freshness | The listed epics cover 2026 and will eventually go stale; refresh the list when the next year's epics are created. |
+| Script evidence | PR links, generated artifacts, import evidence, and validation evidence are ideal for auditability and traceability, but should not always be treated as blocking requirements. |
+| ServiceNow example | Keep generic. |
 
 ## Questions To Grill Before Official Migration
 
-1. Should this page be the official source for all `MOBRM-*` tickets, or only for a specific MOBRM board?
-2. What exact Jira board name, board ID, or saved filter should be written into the metadata block?
-3. Should Jira Ticket Polisher apply this overlay automatically for `project = MOBRM`, or should it require explicit user confirmation at first?
-4. Are `MR26`, `M26`, and `CLE` only referenced release/epic keys, or should any of them also trigger MOBRM standards?
-5. Who is the page owner and backup owner for ROVO?
-6. What review cadence should the page have: monthly, quarterly, or release-cycle based?
-7. Should each work type require a specific Jira issue type, such as Story, Task, Bug, or Sub-task?
-8. Should work type labels be mutually exclusive, or can a story have more than one work type label?
-9. Should script execution tickets require attached generated XMLs, PR links, import evidence, and validation screenshots before Done?
-10. Should `release-deployment` tickets require `fixVersion`, deployment window, rollback owner, and post-deployment validator?
-11. Should `vendor-coordination` define required vendor ticket link, owner, expected response date, escalation path, and closure evidence?
-12. Should `tooling-improvement` include explicit user outcome, operational owner, adoption plan, measurement, and support handoff?
-13. Should access provisioning require least-privilege rationale, approval evidence, expiration date, or periodic access review notes?
-14. Should priority calibration include SLA or due-date examples?
-15. Should the migrated page keep current active epics in the main table, or should those move to a dated release/quarter appendix?
+1. What review cadence should the page have: annual, quarterly, or release-cycle based?
+2. Should `project = MOBRM` alone trigger automatic overlay use, or should the agent also verify board `7690` when board context is visible?
+3. Should each work type require a specific Jira issue type, such as Story, Task, Bug, or Sub-task?
+4. Should work type labels be mutually exclusive, or can a story have more than one work type label?
+5. Should script execution evidence be a `should have for auditability` signal, a Definition of Done item, or a blocker only for certain work types?
+6. Should `release-deployment` tickets require `fixVersion`, deployment window, rollback owner, and post-deployment validator?
+7. Should `vendor-coordination` define required vendor ticket link, owner, expected response date, escalation path, and closure evidence?
+8. Should `tooling-improvement` include explicit user outcome, operational owner, adoption plan, measurement, and support handoff?
+9. Should access provisioning require least-privilege rationale, approval evidence, expiration date, or periodic access review notes?
+10. Should priority calibration include SLA or due-date examples?
+11. Should the 2026 epic list remain in the main table, or should it move to a dated release/quarter appendix?
 
 ## Recommended Next Step
 
@@ -56,13 +65,13 @@ Publish only after the metadata block is confirmed:
 
 ```text
 Team: MOBRM
-Approved status:
-Jira project keys:
-Boards:
-Filters:
-Owner:
-Backup owner:
+Approved status: Team-owned source current in MO; ROVO publish review pending
+Jira project keys: MOBRM
+Boards: MOBRM board 7690
+Filters: TBD if a saved filter should be named
+Owner: Shane Vandersloot
+Backup owner: Harish
 Last reviewed:
-Applies automatically when:
-Does not apply when:
+Applies automatically when: Jira project key is MOBRM, or approved MOBRM board mapping is available.
+Does not apply when: Ticket only references MR26, M26, or CLE.
 ```
