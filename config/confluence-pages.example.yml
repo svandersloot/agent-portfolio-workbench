@@ -217,6 +217,16 @@ pages:
       - agent-template
     pageId: null
     parentPageId: null
+  - slug: release-drift-monitor-prompt-library
+    title: Prompt Library - Release Drift Monitor Handoff Pages
+    sourcePath: docs/confluence-pages/release-drift-monitor-prompt-library.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - prompt-library
+      - release-drift
+    pageId: null
+    parentPageId: null
   - slug: release-drift-monitor-handoff-user-guide
     title: User Guide - Release Drift Monitor Handoff Pages
     sourcePath: docs/confluence-pages/release-drift-monitor-handoff-user-guide.md
@@ -241,6 +251,33 @@ pages:
     labels:
       - agent-governance
       - agent-measurement
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-rovo-studio-configuration
+    title: Rovo Studio Configuration - Release Health Analyst
+    sourcePath: docs/confluence-pages/release-health-analyst-rovo-studio-configuration.md
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - release-health
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-assessment-template
+    title: Template - Release Health Analyst Assessment Page
+    sourcePath: docs/confluence-pages/release-health-analyst-assessment-template.md
+    labels:
+      - agent-governance
+      - agent-template
+      - release-health
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-assessment-prompts
+    title: Prompt Library - Release Health Analyst Assessment Pages
+    sourcePath: docs/confluence-pages/release-health-analyst-assessment-prompts.md
+    labels:
+      - agent-governance
+      - prompt-library
+      - release-health
     pageId: null
     parentPageId: null
   - slug: jira-ticket-polisher-project-brain

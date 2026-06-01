@@ -59,3 +59,23 @@ Validation:
 - Post-apply dry-run confirmed the expected page IDs, parents, and current versions.
 - No Studio changes were made.
 - No Jira tickets were read or written during publishing.
+
+## MOBRM Acceptance Language Cleanup
+
+Published after focused dry-run on 2026-05-29.
+
+| Page | Page ID | Parent | Version After Publish |
+|---|---|---|---|
+| Change Log - Jira Ticket Polisher | `5328142371` | `5328240651` | `4` |
+| Jira Ticket Polisher Standards - Active Set | `5329059879` | `5328240651` | `4` |
+| MOBRM Team Jira Standards | `5327847473` | `5327749169` | `4` |
+
+Validation:
+
+- Dry-run targeted exactly the three intended pages.
+- Pre-apply dry-run showed all three pages at current version `3` and planned version `4`.
+- Apply updated all three pages to version `4`.
+- Post-apply dry-run confirmed all three pages at current version `4`.
+- Removed stale migration-draft language from the MOBRM standard and replaced open migration questions with resolved decisions.
+- No Studio changes were made.
+- No Jira tickets were read or written during publishing.

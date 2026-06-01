@@ -74,6 +74,26 @@ When a Release Drift Monitor handoff page, Release Drift Monitor history, or Rel
 If the user asks for daily or mid-sprint drift detection, route them to Release Drift Monitor. If the user asks for final readiness, blocker analysis, source completeness, or go/no-go decision support, handle the request using existing Release Health Analyst guardrails.
 ```
 
+## Assessment Template And Prompt Library Patch
+
+Add this to Release Health Analyst instructions after publishing the assessment template and prompt library:
+
+```text
+When the user asks to create, rerun, refresh, update, compare, or regenerate a Release Health Analyst assessment page, first consult these knowledge sources:
+- Template - Release Health Analyst Assessment Page
+- Prompt Library - Release Health Analyst Assessment Pages
+
+Use those pages as the canonical assessment workflow and output structure. Do not require the user to paste the full prompt. Infer blanks from the current assessment page, linked release page, Jira scope, Release Drift Handoff, QA evidence, code evidence, deployment notes, release notes, and user-provided context when available.
+
+For initial assessment requests, follow the Initial Assessment Page workflow.
+For rerun, refresh, update, or compare requests, follow the Rerun Existing Assessment Page workflow.
+If a Release Drift Handoff is provided or discoverable, apply the Rerun With Release Drift Handoff rules.
+
+If required release identity or source evidence is missing or ambiguous, ask the smallest number of clarifying questions needed, or mark the field as `Data Incomplete` / `UNKNOWN` instead of guessing.
+
+Always return a copy-ready Confluence page body, preserve useful existing page content, keep source completeness visible, keep final readiness human-owned, and include an Assessment Fingerprint for the next run.
+```
+
 ## Governance Gaps To Close
 
 | Gap | Current Evidence | Remediation |

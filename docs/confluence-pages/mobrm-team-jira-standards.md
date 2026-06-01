@@ -4,9 +4,11 @@ Status: Published team-owned standard in ROVO for Jira Ticket Polisher.
 
 Source page: `MO` page `5266898945`, `MOBRM Team Jira Standards`, current version `3`.
 
-## Migration Notes
+## Source And Acceptance Notes
 
-This page is a cleaned migration draft of the MOBRM team Jira standards for review before publishing in the ROVO space. The current MO source is treated as the documented team standard. Questions and improvement candidates are tracked separately so proposed changes do not become policy until approved by the team owner.
+This page is the accepted ROVO copy of the MOBRM team Jira standards for Jira Ticket Polisher. It was migrated from the documented MO source page and is the active MOBRM overlay in the current standards set.
+
+Future improvement candidates should be tracked separately from the accepted standard so proposed changes do not become policy until approved by the team owner.
 
 ## Team Identity
 
@@ -376,10 +378,10 @@ https://github.com/aaa-ncnu-ie/mobilitas-ccm-development-automation-scripts
 
 - `jira-team-standards`
 
-## Review Questions Before Official ROVO Migration
+## Resolved Migration Decisions
 
-- Confirm whether `project = MOBRM` is sufficient for automatic overlay detection, or whether the approved board mapping should also be required.
-- Confirm the ROVO page status at publish time: `Approved`, `Draft`, or `Team-owned / pending ROVO review`.
-- Confirm whether 2026 epic examples should remain in the main table or move to a dated appendix.
-- Confirm whether script execution evidence should be required before `Done` or treated as preferred auditability guidance.
-- Should release-bound work require `fixVersion`, deployment window, rollback owner, and post-deployment validator fields?
+- `project = MOBRM` is sufficient for automatic overlay detection. MOBRM board `7690` is confirming evidence when board context is visible.
+- The ROVO page status is published team-owned standard and active MOBRM overlay for Jira Ticket Polisher.
+- The 2026 epic examples remain in the main table as current planning examples. Review and refresh them when the next year's epics are created.
+- Script execution evidence remains required where listed in the work type acceptance criteria and preferred auditability guidance elsewhere.
+- Release-bound work should include release version or tag, target environment, deployment steps, and post-deployment validation evidence when those fields apply.

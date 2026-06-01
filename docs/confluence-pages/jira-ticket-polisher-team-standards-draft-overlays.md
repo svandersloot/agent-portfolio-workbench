@@ -41,7 +41,7 @@ MOBRM is the only team-specific overlay in the current active set.
 | Owner | Shane Vandersloot |
 | Backup owner | Harish |
 | Source page | `MO` page `5266898945`, `MOBRM Team Jira Standards`, version `3` |
-| ROVO draft | `docs/confluence-pages/team-jira-standards.md` > `docs/confluence-pages/mobrm-team-jira-standards.md` |
+| ROVO page | `docs/confluence-pages/team-jira-standards.md` > `docs/confluence-pages/mobrm-team-jira-standards.md` |
 
 ## Detection Rules
 
