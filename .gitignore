@@ -12,6 +12,7 @@ rovo-export/
 rovo-iqs-reference-report.csv
 rovo-page-inventory.csv
 Confluence-export-*.zip
+automation-rule-*.json
 
 # Local multi-agent tracking config can contain private Studio URLs.
 config/studio-agents.yml

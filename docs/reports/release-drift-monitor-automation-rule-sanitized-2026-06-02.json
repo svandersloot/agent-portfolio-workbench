@@ -1,0 +1,70 @@
+{
+  "captureType": "sanitized-confluence-automation-rule",
+  "captureDate": "2026-06-02",
+  "sourceExport": "raw Confluence Automation JSON export captured 2026-06-02 17:55",
+  "redactionNote": "Live Atlassian account IDs, cloud IDs, connection IDs, rule UUIDs, component UUIDs, checksums, ARIs, and page/space numeric IDs were replaced with placeholders. This file documents the governed automation shape; it is not intended to be imported as-is.",
+  "rule": {
+    "name": "July '26 Release Drift",
+    "state": "ENABLED",
+    "scope": {
+      "product": "Confluence",
+      "spaceKey": "MO",
+      "spaceName": "Mobilitas Program",
+      "spaceId": "<redacted-space-id>"
+    },
+    "trigger": {
+      "type": "scheduled",
+      "schedule": {
+        "method": "CRON",
+        "cronExpression": "0 0 9 ? * MON-FRI *",
+        "timezoneNote": "The exported cron expression is UTC-oriented in the Confluence UI. The exported RRULE also retains an America/Phoenix DTSTART. Verify the UI-displayed run time after every schedule edit.",
+        "executionMode": "nosearch"
+      }
+    },
+    "actions": [
+      {
+        "component": "ACTION",
+        "type": "rovo.invoke-agent.action",
+        "name": "Use agent",
+        "agentName": "Release Drift Monitor",
+        "agentId": "<redacted-agent-id>",
+        "invocationMode": "USER",
+        "allowAgentToExecuteActions": false,
+        "agentInstruction": "Run the Release Drift Monitor daily pulse for fixVersion \"Mobilitas 2026.07.10\".\n\nRelease stage: Before code freeze\nCode freeze target: 2026-06-23\nSource-truth branch: develop\n\nUse this existing Confluence page only as prior pulse/history context:\n<canonical-release-drift-page-url>\n\nDo not edit, append, create, or update any Confluence page.\nDo not plan Confluence actions.\nReturn only copy-ready pulse content for a draft child page.\n\nInclude:\n- Release metadata\n- Source freshness\n- PASS/WARN/BLOCK/UNKNOWN counts\n- New or worsened drift\n- Resolved drift\n- Data incomplete flags\n- Recommended human follow-up\n- Copy-ready Current Snapshot block\n- Copy-ready Trend History row\n\nDo not make a final go/no-go recommendation.\nDo not transition Jira issues.\nDo not approve or merge PRs."
+      },
+      {
+        "component": "ACTION",
+        "type": "confluence.create-page.action",
+        "name": "Publish new page",
+        "destinationSpace": {
+          "key": "MO",
+          "label": "Mobilitas Program",
+          "id": "<redacted-space-id>"
+        },
+        "destinationParentPage": {
+          "id": "<redacted-parent-page-id>",
+          "type": "page",
+          "title": "Mobilitas 2026.07.10 Release Drift Daily Pulse and Actionable Findings"
+        },
+        "destinationPageTitle": "Release Drift Pulse Draft - Mobilitas 2026.07.10 - {{now.format(\"yyyy-MM-dd HH:mm\")}} UTC",
+        "pageBodySmartValue": "{{agentResponse}}",
+        "isPageBodyAdf": true
+      }
+    ],
+    "errorHandling": {
+      "notifyOnError": "EVERYERROR",
+      "canOtherRuleTrigger": false
+    }
+  },
+  "operatingDecision": {
+    "canonicalPageHandling": "Do not let the agent edit or append the canonical page during the pilot.",
+    "draftHandling": "Automation publishes one draft child page per scheduled run under the canonical Mobilitas 2026.07.10 drift page.",
+    "humanReview": "A human reviews the draft child page and manually promotes useful content into the canonical page, preserving normal Confluence page version history.",
+    "writeBoundary": "The Rovo agent remains action-disabled. The deterministic Confluence automation action creates the draft page from {{agentResponse}}."
+  },
+  "knownFollowUps": [
+    "Consider changing the draft page title to include both America/Phoenix and UTC time once Confluence smart-value formatting is confirmed. Candidate: Release Drift Pulse Draft - Mobilitas 2026.07.10 - {{now.convertToTimeZone(\"America/Phoenix\").format(\"yyyy-MM-dd HH:mm\")}} MST UTC-07 - {{now.format(\"HH:mm\")}} UTC.",
+    "Verify whether the scheduled trigger displays Monday-Friday in the UI despite the exported RRULE retaining BYDAY=MO.",
+    "Archive reviewed draft child pages when the canonical page has been manually updated."
+  ]
+}
