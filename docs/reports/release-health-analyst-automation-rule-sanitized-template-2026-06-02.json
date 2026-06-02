@@ -1,0 +1,125 @@
+{
+  "captureType": "sanitized-confluence-automation-rule-template",
+  "captureDate": "2026-06-02",
+  "sourceExport": "No raw export committed. Use this as the commit-safe target shape after a live Confluence Automation export is sanitized.",
+  "redactionNote": "Live Atlassian account IDs, cloud IDs, connection IDs, rule UUIDs, component UUIDs, checksums, ARIs, page IDs, space IDs, and private page URLs must be replaced with placeholders before commit. This file documents the governed automation shape and is not intended to be imported as-is.",
+  "ruleTemplates": {
+    "juneManualFirstRun": {
+      "name": "Release Health Analyst - June 2026 Assessment Draft",
+      "state": "DISABLED_UNTIL_REVIEWED",
+      "scope": {
+        "product": "Confluence",
+        "spaceKey": "<target-space-key>",
+        "spaceName": "<target-space-name>",
+        "spaceId": "<redacted-space-id>"
+      },
+      "trigger": {
+        "type": "manual-from-page",
+        "pageContext": {
+          "releaseIdentity": "Mobilitas 2026.06.12",
+          "currentAssessmentPage": "<current-june-assessment-page-url-redacted>",
+          "currentAssessmentPageId": "<redacted-parent-page-id>"
+        }
+      },
+      "actions": [
+        {
+          "component": "ACTION",
+          "type": "rovo.invoke-agent.action",
+          "name": "Use agent",
+          "agentName": "Release Health Analyst",
+          "agentId": "<redacted-agent-id>",
+          "invocationMode": "USER",
+          "allowAgentToExecuteActions": false,
+          "agentInstruction": "Rerun the Release Health Analyst assessment for the existing June Mobilitas release assessment page.\n\nCurrent assessment page:\n<current-june-assessment-page-url-redacted>\n\nRelease identity:\nMobilitas 2026.06.12\n\nRelease stage:\n<confirmed-from-current-page>\n\nCode freeze date:\n<confirmed-from-current-page-or-release-plan>\n\nSource-truth branch:\n<confirmed-from-current-page-or-release-plan>\n\nUse the current assessment page as prior state and use current accessible evidence from Jira, Confluence, QA/testing, deployment/change, release notes, and any release drift handoff/history if present.\n\nDo not edit, append, create, or update any Confluence page.\nDo not plan Confluence actions.\nReturn only copy-ready content for a draft child page.\n\nFollow:\n- Template - Release Health Analyst Assessment Page\n- Prompt Library - Release Health Analyst Assessment Pages\n- Rerun Existing Assessment Page workflow\n\nPreserve useful existing blockers, risks, accepted exceptions, source gaps, questions, and follow-up items unless new evidence supersedes them.\nMove cleared items to Resolved Or Superseded Items with evidence.\nKeep final readiness human-owned.\n\nInclude:\n- Assessment Fingerprint\n- Previous State From Current Page\n- New Evidence Reviewed\n- What Changed Since The Current Page\n- Updated Readiness Summary\n- P1 Blockers\n- P2/P3 Risks And Cleanup Items\n- Accepted Exceptions And Caveats\n- Resolved Or Superseded Items\n- Source Completeness\n- Questions For Release Owner\n- Fully Updated Page Body\n- Next Assessment Instructions\n\nDo not make the final human go/no-go decision.\nDo not transition Jira issues.\nDo not approve or merge PRs.\nDo not change release status."
+        },
+        {
+          "component": "ACTION",
+          "type": "confluence.create-page.action",
+          "name": "Publish new page",
+          "destinationSpace": {
+            "key": "<target-space-key>",
+            "label": "<target-space-name>",
+            "id": "<redacted-space-id>"
+          },
+          "destinationParentPage": {
+            "id": "<redacted-parent-page-id>",
+            "type": "page",
+            "title": "<current-june-assessment-page-title>"
+          },
+          "destinationPageTitle": "Release Health Assessment Draft - Mobilitas 2026.06.12 - {{now.convertToTimeZone(\"America/Phoenix\").format(\"yyyy-MM-dd HH:mm\")}} MST UTC-07 - {{now.format(\"HH:mm\")}} UTC",
+          "pageBodySmartValue": "{{agentResponse}}",
+          "isPageBodyAdf": true
+        }
+      ],
+      "validationRequired": [
+        "The agent action has allowAgentToExecuteActions=false.",
+        "The agent prompt prohibits Confluence edits, appends, creates, and updates.",
+        "The publish action uses {{agentResponse}} as the page body.",
+        "The publish action parent is the current June assessment page.",
+        "The first run creates a child page and does not change the parent page version."
+      ]
+    },
+    "julyManualWithDriftEvidence": {
+      "name": "Release Health Analyst - July 2026 Assessment Draft",
+      "state": "DISABLED_UNTIL_REVIEWED",
+      "scope": {
+        "product": "Confluence",
+        "spaceKey": "<target-space-key>",
+        "spaceName": "<target-space-name>",
+        "spaceId": "<redacted-space-id>"
+      },
+      "trigger": {
+        "type": "manual-from-page",
+        "pageContext": {
+          "releaseIdentity": "Mobilitas 2026.07.10",
+          "currentAssessmentPage": "<july-assessment-page-url-redacted-or-not-yet-created>",
+          "releaseDriftEvidence": "<canonical-july-release-drift-page-or-latest-draft-url-redacted>"
+        }
+      },
+      "actions": [
+        {
+          "component": "ACTION",
+          "type": "rovo.invoke-agent.action",
+          "name": "Use agent",
+          "agentName": "Release Health Analyst",
+          "agentId": "<redacted-agent-id>",
+          "invocationMode": "USER",
+          "allowAgentToExecuteActions": false,
+          "agentInstruction": "Create or rerun the Release Health Analyst assessment for Mobilitas 2026.07.10.\n\nCurrent assessment page:\n<july-assessment-page-url-redacted-or-not-yet-created>\n\nRelease identity:\nMobilitas 2026.07.10\n\nRelease stage:\n<before-code-freeze-at-code-freeze-or-after-code-freeze>\n\nCode freeze date:\n2026-06-23\n\nSource-truth branch:\n<develop-before-freeze-or-release-branch-after-freeze-once-confirmed>\n\nRelease Drift evidence:\n<canonical-july-release-drift-page-or-latest-draft-url-redacted>\n\nUse Release Drift Monitor output as source evidence only after verifying exact release identity, source-truth branch, unresolved WARN/BLOCK/UNKNOWN findings, accepted exceptions, and source freshness.\n\nDo not treat Release Drift Monitor findings as automatic go/no-go decisions.\nDo not edit, append, create, or update any Confluence page.\nDo not plan Confluence actions.\nReturn only copy-ready content for a draft child page.\n\nFollow:\n- Template - Release Health Analyst Assessment Page\n- Prompt Library - Release Health Analyst Assessment Pages\n- Rerun With Release Drift Handoff rules when drift evidence is provided\n\nKeep final readiness human-owned and keep source completeness visible."
+        },
+        {
+          "component": "ACTION",
+          "type": "confluence.create-page.action",
+          "name": "Publish new page",
+          "destinationSpace": {
+            "key": "<target-space-key>",
+            "label": "<target-space-name>",
+            "id": "<redacted-space-id>"
+          },
+          "destinationParentPage": {
+            "id": "<redacted-parent-page-id>",
+            "type": "page",
+            "title": "<current-july-assessment-page-title>"
+          },
+          "destinationPageTitle": "Release Health Assessment Draft - Mobilitas 2026.07.10 - {{now.convertToTimeZone(\"America/Phoenix\").format(\"yyyy-MM-dd HH:mm\")}} MST UTC-07 - {{now.format(\"HH:mm\")}} UTC",
+          "pageBodySmartValue": "{{agentResponse}}",
+          "isPageBodyAdf": true
+        }
+      ],
+      "driftEvidenceGate": [
+        "Exact release identity must be Mobilitas 2026.07.10.",
+        "Source-truth branch must match the release stage or documented override.",
+        "Source freshness must be acceptable for the assessment run date.",
+        "Unresolved BLOCK, WARN, and UNKNOWN findings must be identified and carried as evidence.",
+        "Accepted exceptions must be documented as human-owned caveats.",
+        "Release Drift Monitor findings must not become automatic readiness decisions."
+      ]
+    }
+  },
+  "operatingDecision": {
+    "canonicalPageHandling": "Do not let the agent edit or append the canonical Release Health Analyst assessment page during the pilot.",
+    "draftHandling": "Automation publishes one draft child page under the release assessment page per manual run.",
+    "humanReview": "A human reviews the draft child page and manually promotes useful content into the canonical page, preserving normal Confluence page version history.",
+    "writeBoundary": "The Rovo agent remains action-disabled. The deterministic Confluence automation action creates the draft page from {{agentResponse}}."
+  }
+}

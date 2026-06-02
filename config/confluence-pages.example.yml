@@ -236,6 +236,28 @@ pages:
       - user-guide
     pageId: null
     parentPageId: null
+  - slug: release-drift-monitor-pilot-value-model
+    title: Release Drift Monitor Pilot Value Model
+    sourcePath: docs/confluence-pages/release-drift-monitor-pilot-value-model.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - user-guide
+      - release-drift
+      - pilot
+    pageId: null
+    parentPageId: null
+  - slug: release-drift-monitor-pilot-tracking-plan
+    title: Release Drift Monitor Pilot Tracking Plan
+    sourcePath: docs/confluence-pages/release-drift-monitor-pilot-tracking-plan.md
+    parentSlug: release-drift-monitor-project-brain
+    labels:
+      - agent-governance
+      - agent-measurement
+      - release-drift
+      - pilot
+    pageId: null
+    parentPageId: null
   - slug: release-drift-monitor-change-log
     title: Change Log - Release Drift Monitor
     sourcePath: docs/confluence-pages/release-drift-monitor-change-log.md

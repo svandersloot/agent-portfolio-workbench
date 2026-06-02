@@ -1,0 +1,83 @@
+{
+  "captureType": "sanitized-confluence-automation-rule",
+  "captureDate": "2026-06-02",
+  "sourceExport": "raw Confluence Automation JSON export: Release_Health_Analyst_June_Automation.json, captured from Downloads on 2026-06-02 11:35 America/Phoenix",
+  "redactionNote": "Live Atlassian account IDs, cloud IDs, connection IDs, rule/component UUIDs, checksums, ARIs, page IDs, space IDs, agent IDs, and private page URLs were replaced with placeholders. This file documents the governed automation shape; it is not intended to be imported as-is.",
+  "rule": {
+    "name": "June '26 Release Health",
+    "state": "ENABLED",
+    "scope": {
+      "product": "Confluence",
+      "spaceKey": "MO",
+      "spaceName": "Mobilitas Program",
+      "spaceId": "<redacted-space-id>"
+    },
+    "trigger": {
+      "type": "scheduled",
+      "schedule": {
+        "method": "BASIC",
+        "cronExpression": "0 0 9 ? * MON-FRI *",
+        "rRule": "BEGIN:VEVENT\nDTSTART;TZID=America/Phoenix:20260601T090000\nRRULE:FREQ=DAILY;BYHOUR=11;BYMINUTE=0;BYSECOND=0;INTERVAL=1;UNTIL=20260623T070000Z\nEND:VEVENT\n",
+        "executionMode": "nosearch",
+        "onlyUpdatedIssues": false,
+        "timezoneNote": "The export contains both a cron expression and an America/Phoenix RRULE. Verify the UI-displayed run time after every schedule edit; treat the Confluence UI as authoritative."
+      }
+    },
+    "actions": [
+      {
+        "component": "ACTION",
+        "type": "rovo.invoke-agent.action",
+        "name": "Use agent",
+        "agentName": "Release Health Analyst v2",
+        "agentId": "<redacted-agent-id>",
+        "invocationMode": "USER",
+        "allowAgentToExecuteActions": false,
+        "isVerified": false,
+        "agentInstruction": "Run the Release Health Analyst scheduled refresh for the June Mobilitas release assessment.\n\nCurrent canonical assessment page:\n<redacted-url>\n\nPrevious draft/history source:\nUse the most recent child page under the canonical assessment page with title pattern \"Release Health Assessment Draft - Mobilitas 2026.06.12\" if available.\n\nRelease identity:\nMobilitas 2026.06.12\n\nRelease stage:\n[confirm from current page: after code freeze / release readiness / post-freeze]\n\nCode freeze date:\n[confirm from current page or release plan]\n\nSource-truth branch:\n[confirm from current page or release plan]\n\nUse the current canonical assessment page as the source of truth for prior release state, release identity, existing blockers, risks, accepted exceptions, source gaps, questions, and follow-up items.\n\nUse the latest prior draft child page, if available, as the previous automation snapshot.\n\nIf no prior draft child page exists, treat this as the first automation-generated draft. Use the canonical assessment page as the only prior assessment baseline, set previous automation snapshot to Baseline / Not available, and continue with the refresh.\n\nUse Template - Release Health Analyst Assessment Page only as the structural contract for required sections and table shapes. Do not treat the template as release evidence. Do not reset, replace, or simplify the current page back to generic template language.\n\nUse Prompt Library - Release Health Analyst Assessment Pages for the rerun workflow.\n\nUse current accessible evidence from Jira, Confluence, QA/testing, deployment/change, release notes, and any Release Drift Monitor history if present.\n\nDo not edit, append, create, or update any Confluence page.\nDo not plan Confluence actions.\nReturn only copy-ready content for a draft child page. The automation will publish your response as a new child page.\n\nCompare previous state to current evidence and preserve useful existing blockers, risks, accepted exceptions, source gaps, questions, and follow-up items unless new evidence supersedes them.\n\nClassify every open item as one of:\n- Carryover: existed in the canonical page or previous draft and is still unresolved.\n- New scope: newly discovered, newly added to release scope, newly reopened, or not present in prior assessment evidence.\n- Changed severity: existed previously but priority/readiness impact changed.\n- Resolved or superseded: previously open but no longer active based on current evidence.\n\nInclude an Open Items table with these columns:\n| Classification | Priority | Item / Jira key | Current state | Prior state / first seen | Evidence | Owner / needed owner | Required action | Release impact |\n\nRules for the Open Items table:\n- Include P1 blockers, P2/P3 risks, source gaps, accepted-exception follow-ups, and unresolved UNKNOWN/Data Incomplete items.\n- Do not silently remove prior open items. If an item is no longer open, move it to Resolved Or Superseded Items with evidence.\n- If an item cannot be matched to prior history, classify it as New scope unless evidence shows it is a carryover.\n- If evidence is missing or ambiguous, mark the relevant fields UNKNOWN or Data Incomplete.\n- Keep accepted exceptions visible as human-owned caveats, not automatic passes.\n\nReturn these sections:\n- Assessment Fingerprint\n- Previous State From Current Page And Prior Draft\n- New Evidence Reviewed\n- What Changed Since The Previous Assessment\n- Updated Readiness Summary\n- Open Items - Carryover Versus New Scope\n- P1 Blockers\n- P2/P3 Risks And Cleanup Items\n- Accepted Exceptions And Caveats\n- Resolved Or Superseded Items\n- Source Completeness\n- Questions For Release Owner\n- Fully Updated Page Body\n- Next Assessment Instructions\n\nIn the Fully Updated Page Body, provide a complete replacement-ready assessment body that preserves useful current-page history, incorporates new evidence, and keeps all required sections visible even when empty.\n\nKeep final readiness human-owned.\nDo not make the final human go/no-go decision.\nDo not transition Jira issues.\nDo not approve or merge PRs.\nDo not change release status."
+      },
+      {
+        "component": "ACTION",
+        "type": "confluence.create-page.action",
+        "name": "Publish new page",
+        "destinationSpace": {
+          "key": "MO",
+          "label": "Mobilitas Program",
+          "id": "<redacted-space-id>"
+        },
+        "destinationParentPage": {
+          "id": "<redacted-parent-page-id>",
+          "type": "page",
+          "title": "Release Health Analyst Assessment: Mobilitas 2026.06.12 v2"
+        },
+        "destinationPageTitle": "Release Health Assessment Draft - Mobilitas 2026.06.12 - {{now.convertToTimeZone(\"America/Phoenix\").format(\"yyyy-MM-dd HH:mm\")}} MST UTC-07 - {{now.format(\"HH:mm\")}} UTC",
+        "pageBodySmartValue": "{{agentResponse}}",
+        "exportedPageBodyShape": "ADF pageBody containing {{agentResponse}} in the body payload; raw ADF omitted from sanitized capture.",
+        "isPageBodyAdf": true
+      }
+    ],
+    "errorHandling": {
+      "notifyOnError": "EVERYERROR",
+      "canOtherRuleTrigger": false
+    }
+  },
+  "validationEvidence": {
+    "releaseHealthAgentWriteDisabled": true,
+    "publishActionUsesAgentResponse": true,
+    "parentPageTitle": "Release Health Analyst Assessment: Mobilitas 2026.06.12 v2",
+    "promptProhibitsConfluenceWrites": true,
+    "promptKeepsFinalReadinessHumanOwned": true,
+    "promptIncludesCarryoverNewScopeTable": true
+  },
+  "operatingDecision": {
+    "canonicalPageHandling": "Do not let the agent edit or append the canonical Release Health Analyst assessment page during the pilot.",
+    "draftHandling": "Automation publishes a new child page under the canonical June assessment page from {{agentResponse}}.",
+    "humanReview": "A human reviews the child draft page and manually promotes useful content into the canonical page, preserving normal Confluence page version history.",
+    "writeBoundary": "The Rovo agent remains action-disabled. The deterministic Confluence automation action creates the draft page from {{agentResponse}}."
+  },
+  "knownFollowUps": [
+    "Run the automation once and confirm it creates a child page under the June assessment page.",
+    "Confirm the parent page version does not change during the automation run.",
+    "Verify the UI-displayed schedule because the export contains both cron and RRULE schedule representations.",
+    "If Confluence renders the timezone smart values incorrectly, switch the title to the UTC-only fallback."
+  ]
+}

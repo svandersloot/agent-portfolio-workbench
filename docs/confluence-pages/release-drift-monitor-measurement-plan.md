@@ -14,6 +14,12 @@
 
 Release Drift Monitor should reduce late release surprises by detecting Jira, code, test, and QA evidence mismatches before code freeze.
 
+## Operating Tracker
+
+Use `Release Drift Monitor Pilot Tracking Plan` for the daily pulse review workflow, finding dispositions, coaching log, source-hygiene improvements, rule tuning backlog, and Release Health Analyst handoff boundary.
+
+This page remains the metric source of truth. The tracking plan defines how the pilot records enough operating evidence to keep these measures usable over time.
+
 ## Metrics
 
 | Metric | Baseline | Target | Measurement Method | Cadence |

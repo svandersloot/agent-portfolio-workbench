@@ -129,6 +129,8 @@ Suggested digest limits:
 | Evaluation | Evaluation - Release Drift Monitor |
 | Measurement Plan | Measurement Plan - Release Drift Monitor |
 | Handoff Template | Template - Release Drift Monitor Handoff Page |
+| Pilot Value Model | Release Drift Monitor Pilot Value Model |
+| Pilot Tracking Plan | Release Drift Monitor Pilot Tracking Plan |
 | Change Log | Change Log - Release Drift Monitor |
 
 ## Known Gaps
