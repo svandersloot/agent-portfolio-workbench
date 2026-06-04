@@ -20,6 +20,7 @@ Jira Ticket Polisher uses a default organization-wide standard plus one active t
 | Source | Type | Authority | Allowed Use | Freshness | Fallback |
 |---|---|---|---|---|---|
 | Current ticket content | Jira / supplied text | System of Record | Review visible fields and draft improvements. | Runtime | Ask user to paste summary, description, acceptance criteria, and key metadata. |
+| Jira Work Item Draft Bundle | Structured handoff / supplied text | Draft Input | Review proposed Jira work item fields before Jira creation. | Runtime | Ask for the bundle or use normal pasted ticket context. |
 | Organization-Wide Jira Ticket Quality Standard | Confluence | Process Authority | Default standard for every review. | Quarterly or after workflow changes | Use labeled fallback guidance and report the missing standard. |
 | Jira Ticket Polisher Standards - Active Set | Confluence | Active Standards Index | Identify the organization-wide standard and active MOBRM overlay. | Per team review | State no approved team overlay was applied. |
 | Team Jira Standards | Confluence | Team Standards Index | Parent page for team-owned overlays that are allowed to support Jira Ticket Polisher. | Per team review | Use org-wide standard only and state no team overlay was applied. |
@@ -43,6 +44,7 @@ Before producing a final-seeming ticket review, the agent should identify:
 - Summary, description, acceptance criteria, and any test or QA notes.
 - Team or board name if a team overlay is requested.
 - Whether an approved team standard was found or supplied.
+- Whether the input is an existing Jira ticket or a pre-create draft bundle.
 - Any missing fields that prevent a confident review.
 - Whether the user wants review-only feedback or draft replacement text.
 
@@ -56,6 +58,7 @@ Before producing a final-seeming ticket review, the agent should identify:
 - Use `No team overlay applied` when team standards are unavailable.
 - Do not let related release or epic keys such as `MR26`, `M26`, or `CLE` trigger the MOBRM overlay by themselves.
 - Use `Evidence missing` when ticket fields or source links are inaccessible.
+- For Jira Work Item Assistant handoffs, treat the bundle as draft input only. Do not treat it as an existing Jira ticket unless a Jira key is present and verified.
 - Do not search broad Jira or broad Confluence unless the user explicitly provides that scope and it is justified.
 - Do not use private sample ticket details in published reports.
 

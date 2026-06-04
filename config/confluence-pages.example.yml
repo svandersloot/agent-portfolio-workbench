@@ -138,6 +138,85 @@ pages:
       - agent-change-log
     pageId: null
     parentPageId: null
+  - slug: jira-work-item-assistant-project-brain
+    title: Jira Work Item Assistant Project Brain
+    sourcePath: docs/confluence-pages/jira-work-item-assistant-project-brain.md
+    labels:
+      - agent-governance
+      - project-brain
+      - jira-work-item
+    pageId: null
+    parentPageId: null
+  - slug: jira-work-item-assistant-agent-design-record
+    title: Jira Work Item Assistant - Agent Design Record
+    sourcePath: docs/confluence-pages/jira-work-item-assistant-agent-design-record.md
+    parentSlug: jira-work-item-assistant-project-brain
+    labels:
+      - agent-governance
+      - agent-design-record
+      - jira-work-item
+    pageId: null
+    parentPageId: null
+  - slug: jira-work-item-assistant-knowledge-source-plan
+    title: Knowledge Source Plan - Jira Work Item Assistant
+    sourcePath: docs/confluence-pages/jira-work-item-assistant-knowledge-source-plan.md
+    parentSlug: jira-work-item-assistant-project-brain
+    labels:
+      - agent-governance
+      - knowledge-source-plan
+      - jira-work-item
+    pageId: null
+    parentPageId: null
+  - slug: jira-work-item-assistant-subagent-settings
+    title: Subagent Settings - Jira Work Item Assistant
+    sourcePath: docs/confluence-pages/jira-work-item-assistant-subagent-settings.md
+    parentSlug: jira-work-item-assistant-project-brain
+    labels:
+      - agent-governance
+      - subagent-settings
+      - jira-work-item
+    pageId: null
+    parentPageId: null
+  - slug: jira-work-item-assistant-rovo-studio-configuration
+    title: ROVO Studio Configuration - Jira Work Item Assistant
+    sourcePath: docs/confluence-pages/jira-work-item-assistant-rovo-studio-configuration.md
+    parentSlug: jira-work-item-assistant-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - jira-work-item
+    pageId: null
+    parentPageId: null
+  - slug: jira-work-item-assistant-evaluation
+    title: Evaluation - Jira Work Item Assistant
+    sourcePath: docs/confluence-pages/jira-work-item-assistant-evaluation.md
+    parentSlug: jira-work-item-assistant-project-brain
+    labels:
+      - agent-governance
+      - agent-evaluation
+      - jira-work-item
+    pageId: null
+    parentPageId: null
+  - slug: jira-work-item-assistant-measurement-plan
+    title: Measurement Plan - Jira Work Item Assistant
+    sourcePath: docs/confluence-pages/jira-work-item-assistant-measurement-plan.md
+    parentSlug: jira-work-item-assistant-project-brain
+    labels:
+      - agent-governance
+      - agent-measurement
+      - jira-work-item
+    pageId: null
+    parentPageId: null
+  - slug: jira-work-item-assistant-change-log
+    title: Change Log - Jira Work Item Assistant
+    sourcePath: docs/confluence-pages/jira-work-item-assistant-change-log.md
+    parentSlug: jira-work-item-assistant-project-brain
+    labels:
+      - agent-governance
+      - agent-change-log
+      - jira-work-item
+    pageId: null
+    parentPageId: null
   - slug: release-evidence-ledger-contract
     title: Release Evidence Ledger Contract
     sourcePath: docs/confluence-pages/release-evidence-ledger-contract.md
@@ -381,10 +460,19 @@ pages:
       - jira-hygiene
     pageId: null
     parentPageId: null
+  - slug: jira-ticket-standards
+    title: Jira Ticket Standards
+    sourcePath: docs/confluence-pages/jira-ticket-standards.md
+    labels:
+      - agent-governance
+      - jira-hygiene
+      - ticket-quality-standard
+    pageId: null
+    parentPageId: null
   - slug: jira-ticket-quality-standard
     title: Organization-Wide Jira Ticket Quality Standard
     sourcePath: docs/confluence-pages/jira-ticket-quality-standard.md
-    parentSlug: jira-ticket-polisher-project-brain
+    parentSlug: jira-ticket-standards
     labels:
       - agent-governance
       - jira-hygiene
@@ -404,11 +492,22 @@ pages:
   - slug: team-jira-standards
     title: Team Jira Standards
     sourcePath: docs/confluence-pages/team-jira-standards.md
-    parentSlug: jira-ticket-polisher-project-brain
+    parentSlug: jira-ticket-standards
     labels:
       - agent-governance
       - jira-hygiene
       - team-standards
+    pageId: null
+    parentPageId: null
+  - slug: team-jira-standards-discovery-prompt-library
+    title: Prompt Library - Team Jira Standards Discovery
+    sourcePath: docs/confluence-pages/team-jira-standards-discovery-prompt-library.md
+    parentSlug: jira-ticket-standards
+    labels:
+      - agent-governance
+      - jira-hygiene
+      - team-standards
+      - prompt-library
     pageId: null
     parentPageId: null
   - slug: mobrm-team-jira-standards

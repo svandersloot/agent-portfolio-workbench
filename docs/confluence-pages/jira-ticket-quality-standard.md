@@ -9,7 +9,7 @@ Use this standard as the default review baseline for any Jira ticket when no tea
 | Status | Draft |
 | Owner | TBD |
 | Last reviewed | 2026-05-29 |
-| Intended use | Default standard for Jira Ticket Polisher and human ticket review. |
+| Intended use | Default shared baseline for Jira Work Item Assistant, Jira Ticket Polisher, other Jira hygiene agents, and human ticket review. |
 | Review cadence | Quarterly or after major workflow changes. |
 
 ## Universal Ticket Checks
@@ -63,7 +63,7 @@ Use this standard as the default review baseline for any Jira ticket when no tea
 
 ## Recommended Review Output
 
-Jira Ticket Polisher should return:
+Jira hygiene agents should return:
 
 - Standards used.
 - Ticket context reviewed.
@@ -71,7 +71,7 @@ Jira Ticket Polisher should return:
 - P2 improvements second.
 - Draft replacement text by Jira field.
 - Missing evidence or questions for the ticket owner.
-- A reminder that the human owner must apply Jira changes manually.
+- A reminder that the human owner must approve any Jira write path before changes are applied.
 
 ## Fallback Rule
 

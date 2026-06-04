@@ -14,6 +14,7 @@
 | User need | Route |
 |---|---|
 | Review a ticket against standards. | Ticket Quality Reviewer |
+| Review a Jira Work Item Draft Bundle from Jira Work Item Assistant before Jira creation. | Work Item Draft Handoff Reviewer |
 | Draft improved summary, description, acceptance criteria, testing notes, or handoff text. | Draft Improvement Writer |
 | Determine whether a team standard exists or should be drafted. | Team Standard Overlay Helper |
 | User asks to update Jira directly. | Parent refuses mutation and offers draft text. |
@@ -28,6 +29,16 @@
 | Allowed sources | Current ticket content, org-wide standard, approved team overlay, project workflow context. |
 | Output | Gap table, severity, evidence used, missing evidence, and recommended owner questions. |
 | Guardrail | Do not certify readiness or invent missing requirements. |
+
+## Subagent: Work Item Draft Handoff Reviewer
+
+| Field | Value |
+|---|---|
+| Trigger | User or Jira Work Item Assistant provides a Jira Work Item Draft Bundle, asks for review before Jira creation, or wants work/Kanban context polished into Jira field drafts. |
+| Purpose | Review proposed Jira work item drafts before creation and return approval-ready field text. |
+| Allowed sources | Jira Work Item Draft Bundle, work context, Kanban context, source evidence, org-wide standard, approved team overlay. |
+| Output | Bundle completeness check, P0/P1 creation blockers, P2 improvements, polished field drafts, open questions, and approval summary for Jira Work Item Assistant. |
+| Guardrail | Treat the bundle as draft input only; do not create Jira work or imply Jira creation is approved. |
 
 ## Subagent: Draft Improvement Writer
 
@@ -53,6 +64,7 @@
 
 - Apply organization-wide standards first.
 - Apply team overlays only when available or supplied.
+- Treat Jira Work Item Assistant handoff bundles as pre-create drafts, not existing Jira issues.
 - Name the standards and sources used.
 - Label `No team overlay applied` when team standards are missing.
 - Keep observed ticket patterns separate from documented standards.
@@ -64,4 +76,5 @@
 
 | Version | Date | Change |
 |---|---|---|
+| v0.2 | 2026-06-03 | Added Work Item Draft Handoff Reviewer for Jira Work Item Assistant draft-bundle handoffs. |
 | v0.1 | 2026-05-29 | Initial subagent routing scaffold from legacy Jira Ticket Polisher evidence. |

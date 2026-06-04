@@ -1,12 +1,12 @@
 # MOBRM Team Jira Standards
 
-Status: Published team-owned standard in ROVO for Jira Ticket Polisher.
+Status: Published team-owned standard in ROVO for Jira hygiene agents.
 
 Source page: `MO` page `5266898945`, `MOBRM Team Jira Standards`, current version `3`.
 
 ## Source And Acceptance Notes
 
-This page is the accepted ROVO copy of the MOBRM team Jira standards for Jira Ticket Polisher. It was migrated from the documented MO source page and is the active MOBRM overlay in the current standards set.
+This page is the accepted ROVO copy of the MOBRM team Jira standards for Jira Work Item Assistant, Jira Ticket Polisher, and other Jira hygiene agents. It was migrated from the documented MO source page and is the active MOBRM overlay in the current standards set.
 
 Future improvement candidates should be tracked separately from the accepted standard so proposed changes do not become policy until approved by the team owner.
 
@@ -20,7 +20,7 @@ Future improvement candidates should be tracked separately from the accepted sta
 | Team owner | Shane Vandersloot |
 | Standards owner | Shane Vandersloot |
 | Backup owner | Harish |
-| Approved status | Published in ROVO as the active MOBRM team overlay for Jira Ticket Polisher |
+| Approved status | Published in ROVO as the active MOBRM team overlay for Jira hygiene agents |
 | Last source version reviewed | Version `3` |
 | Applies automatically when | Jira project key is `MOBRM` or the approved MOBRM board mapping is available. |
 | Does not apply when | Ticket only references `MR26`, `M26`, or `CLE`; those keys do not trigger MOBRM standards by themselves. |
@@ -381,7 +381,7 @@ https://github.com/aaa-ncnu-ie/mobilitas-ccm-development-automation-scripts
 ## Resolved Migration Decisions
 
 - `project = MOBRM` is sufficient for automatic overlay detection. MOBRM board `7690` is confirming evidence when board context is visible.
-- The ROVO page status is published team-owned standard and active MOBRM overlay for Jira Ticket Polisher.
+- The ROVO page status is published team-owned standard and active MOBRM overlay for Jira hygiene agents.
 - The 2026 epic examples remain in the main table as current planning examples. Review and refresh them when the next year's epics are created.
 - Script execution evidence remains required where listed in the work type acceptance criteria and preferred auditability guidance elsewhere.
 - Release-bound work should include release version or tag, target environment, deployment steps, and post-deployment validation evidence when those fields apply.

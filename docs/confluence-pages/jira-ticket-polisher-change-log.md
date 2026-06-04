@@ -4,6 +4,7 @@ Use this page to track changes to the agent design, knowledge sources, Studio co
 
 | Version | Date | Area | Change Summary | Reason / Outcome | Updated By |
 |---|---|---|---|---|---|
+| v0.5 | 2026-06-03 | Jira Work Item Assistant handoff | Added a Jira Work Item Draft Bundle contract and documented Jira Ticket Polisher review behavior for release/Kanban ticket drafts before Jira creation. | Start a conversation-first workflow where Jira Work Item Assistant orchestrates and Jira Ticket Polisher quality-checks drafts before human approval. | Workflow setup |
 | v0.4 | 2026-05-29 | MOBRM standard acceptance | Cleared stale migration-draft language from the MOBRM team standard and recorded the resolved migration decisions. | Make the published ROVO page read as an accepted active overlay instead of a pre-publish draft. | Governance migration scaffold |
 | v0.3 | 2026-05-29 | Standards publishing | Published Team Jira Standards and MOBRM Team Jira Standards under the Jira Ticket Polisher Project Brain; updated active standards status. | Establish the nested team standards structure and make MOBRM the first active team overlay. | Governance migration scaffold |
 | v0.2 | 2026-05-29 | Active standards scope | Limited the ROVO-facing standards set to the organization-wide standard and MOBRM Team Jira Standards; removed future-team placeholders from active docs; added MOBRM placement recommendation. | Keep the pilot focused and avoid applying or displaying unverified team standards. | Governance migration scaffold |

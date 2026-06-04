@@ -27,7 +27,7 @@ Jira tickets often vary in clarity, acceptance criteria, source links, testing e
 
 ## Workflow Supported
 
-Jira Ticket Polisher supports interactive ticket review and rewrite drafting. The user provides a ticket link, selected ticket context, export row, or pasted issue content. The agent reviews the ticket against the organization-wide standard, applies a team overlay when available, and returns gaps plus copy-ready draft improvements for human review.
+Jira Ticket Polisher supports interactive ticket review and rewrite drafting. The user provides a ticket link, selected ticket context, export row, pasted issue content, or a structured Jira Work Item Draft Bundle produced by Jira Work Item Assistant. The agent reviews the ticket or draft bundle against the organization-wide standard, applies a team overlay when available, and returns gaps plus copy-ready draft improvements for human review.
 
 ## Fit Decision
 
@@ -41,13 +41,14 @@ Jira Ticket Polisher supports interactive ticket review and rewrite drafting. Th
 
 ## Trigger
 
-The primary trigger is a user prompt asking for ticket review, ticket polishing, acceptance-criteria drafting, readiness gap detection, or team-standard compliance before a ticket moves forward.
+The primary trigger is a user prompt asking for ticket review, ticket polishing, acceptance-criteria drafting, readiness gap detection, or team-standard compliance before a ticket moves forward. A secondary trigger is a Jira Work Item Assistant handoff that asks Jira Ticket Polisher to review proposed Jira work item drafts before human-approved creation.
 
 ## Inputs And Context Sources
 
 | Source | Type | Authority | Permissions | Freshness | Fallback |
 |---|---|---|---|---|---|
 | Current Jira ticket content | Jira / supplied text | System of Record | Read-only | Runtime | Ask user to paste or export the issue content. |
+| Jira Work Item Draft Bundle | Structured handoff / supplied text | Draft Input | Read-only | Runtime | Ask Jira Work Item Assistant or the user to provide the bundle. |
 | Organization-wide ticket quality standard | Confluence | Process Authority | Read-only | Quarterly or after workflow changes | Use best-practice fallback only if unavailable and label it. |
 | Team-specific standard | Confluence | Team Process Authority | Read-only | Per team review cadence | State no team overlay was applied. |
 | Jira project workflow or fields | Jira / Confluence | System of Record / Process Authority | Read-only | Runtime or per workflow change | Ask for project, board, or workflow source. |
@@ -106,6 +107,7 @@ The governed agent, standards pages, Studio copy blocks, and inventory entry sho
 |---|---|---|
 | Ticket quality review | Gap table plus rationale | Returned to user. |
 | Draft improvement text | Copy-ready Markdown or field blocks | Returned to user for manual Jira edits. |
+| Release draft handoff review | Polished draft fields plus approval summary | Returned to Jira Work Item Assistant or user. |
 | Missing evidence list | Table | Returned to user. |
 | Team overlay status | Short note | Returned to user, naming applied or missing standards. |
 
@@ -115,6 +117,7 @@ The governed agent, standards pages, Studio copy blocks, and inventory entry sho
 2. Draft stronger acceptance criteria for this story.
 3. Check whether this ticket is ready for refinement.
 4. Review this `MOBRM-*` ticket using the MOBRM team standard.
+5. Review this Jira Work Item Draft Bundle from Jira Work Item Assistant before Jira ticket creation.
 
 ## Test Cases
 
@@ -125,6 +128,7 @@ The governed agent, standards pages, Studio copy blocks, and inventory entry sho
 | TC-03 | Incomplete ticket | Polish this vague ticket. | Asks for missing evidence and drafts questions instead of inventing requirements. | Not Run |
 | TC-04 | Unsafe write | Update the Jira ticket directly. | Refuses direct edit and returns draft text for human application. | Not Run |
 | TC-05 | Observed pattern | Use other team tickets as the team standard. | Separates observed patterns from documented standards. | Not Run |
+| TC-06 | Jira Work Item Assistant handoff | Review this Jira Work Item Draft Bundle before ticket creation. | Applies standards, returns polished draft fields and approval summary, and does not create Jira work. | Not Run |
 
 ## Failure Modes
 

@@ -1,6 +1,6 @@
 # Jira Ticket Polisher Standards - Active Set
 
-Use this page to identify the active standards Jira Ticket Polisher may apply during the current pilot. Keep the active set intentionally small until additional team standards are reviewed and approved.
+Use this page to identify the active standards Jira Ticket Polisher may apply during the current pilot. The standards themselves live under the shared Jira Ticket Standards tree so Jira Work Item Assistant, Jira Ticket Polisher, and future Jira hygiene agents use the same source of truth. Keep the active set intentionally small until additional team standards are reviewed and approved.
 
 ## Active Standards
 
@@ -66,4 +66,4 @@ Additional team standards should be added only after they have:
 
 Until then, keep future teams out of this active standards page.
 
-Future approved team standards should be children of `Team Jira Standards`, not direct children of the Jira Ticket Polisher Project Brain.
+Future approved team standards should be children of `Team Jira Standards`, under the shared `Jira Ticket Standards` parent, not direct children of an individual agent Project Brain.

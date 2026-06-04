@@ -54,6 +54,7 @@ Jira Ticket Polisher helps Jira users improve ticket clarity, completeness, and 
 |---|---|
 | Rovo Design Agent | Front-door agent for fit triage, inventory checks, and governed scaffolding. |
 | Agent Doc Steward | Future reviewer for Project Brain completeness, source quality, and Studio drift. |
+| Jira Work Item Assistant | Potential upstream producer of Jira work item draft bundles. Jira Ticket Polisher may review and improve those bundles before a human-approved Jira creation step. |
 | Jira Hygiene Agents index | Legacy evidence that ticket quality, metadata, workflow hygiene, and reporting readiness belong together. |
 | Org-wide agent plus team overlay pattern | Core design pattern for applying a default standard and optional team-specific standards without creating duplicate agents. |
 
@@ -81,6 +82,24 @@ Jira Ticket Polisher helps Jira users improve ticket clarity, completeness, and 
 4. Agent applies a team overlay only when the relevant team standard is available or explicitly supplied.
 5. Agent returns gaps, evidence used, missing evidence, and draft improvement text.
 6. Human ticket owner reviews and applies any changes in Jira.
+
+## Jira Work Item Assistant Handoff Pattern
+
+Jira Ticket Polisher may also receive a structured `Jira Work Item Draft Bundle` from Jira Work Item Assistant before a Jira work item is created. In that workflow, Jira Work Item Assistant remains the conversational orchestrator, and Jira Ticket Polisher acts as the review and rewrite gate.
+
+Handoff contract:
+
+```text
+schemas/jira-work-item-draft-bundle.schema.json
+```
+
+Default flow:
+
+1. User asks Jira Work Item Assistant to create or prepare a Jira ticket from Kanban or work context.
+2. Jira Work Item Assistant drafts a `Jira Work Item Draft Bundle` with approval set to false.
+3. Jira Ticket Polisher reviews the bundle, applies standards, identifies missing evidence, and returns polished Jira field drafts.
+4. Jira Work Item Assistant presents the polished draft to the user for approval.
+5. Jira creation or update remains blocked until a human approves through a separately governed write path.
 
 ## Source Precedence
 
