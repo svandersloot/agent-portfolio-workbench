@@ -14,6 +14,7 @@ This page is both a human prompt library and an agent playbook. Users should not
 | Rerun or refresh an existing assessment | Use `Rerun Existing Assessment Page`. Treat the current page as the source for release identity and prior state. |
 | Compare new evidence with the current page | Use the rerun workflow and include `What Changed Since The Current Page`. |
 | Use a Release Drift Handoff | Add `Rerun With Release Drift Handoff` rules. Treat the handoff as evidence, not an automatic decision. |
+| Prepare follow-up for open items | Use `Open Item Follow-Up Triage` before drafting comments or outreach. Decide whether each item needs a Jira comment, POC outreach, release owner question, or no action. |
 | User provides a short or vague request | Ask for the smallest missing input needed, or mark missing evidence as `Data Incomplete` / `UNKNOWN`. |
 
 ## Studio Configuration Patch
@@ -30,6 +31,7 @@ Use those pages as the canonical assessment workflow and output structure. Do no
 For initial assessment requests, follow the Initial Assessment Page workflow.
 For rerun, refresh, update, or compare requests, follow the Rerun Existing Assessment Page workflow.
 If a Release Drift Handoff is provided or discoverable, apply the Rerun With Release Drift Handoff rules.
+If the user asks for comments, outreach, or follow-up for open assessment items, apply Open Item Follow-Up Triage before drafting any Jira comment.
 
 If required release identity or source evidence is missing or ambiguous, ask the smallest number of clarifying questions needed, or mark the field as `Data Incomplete` / `UNKNOWN` instead of guessing.
 
@@ -229,6 +231,73 @@ Use the handoff as source evidence only after verifying:
 - Accepted exceptions are human-owned and documented.
 
 Do not treat Release Drift Monitor findings as automatic go/no-go decisions.
+```
+
+## Open Item Follow-Up Triage
+
+Use this when the user wants help with comments, outreach, or next actions for open items on a release health assessment page.
+
+```text
+Review this release health assessment page and prepare follow-up for current open items.
+
+Assessment page:
+[PASTE CONFLUENCE PAGE LINK OR PAGE BODY]
+
+Release identity:
+[PASTE EXACT RELEASE NAME OR FIXVERSION IF KNOWN]
+
+Return a table with:
+- Open item, risk, blocker, or Data Incomplete flag
+- Severity: P1 blocker, P2/P3 risk, cleanup, accepted-exception follow-up, or Data Incomplete
+- Related Jira key, if visible
+- Current evidence
+- Missing evidence or decision
+- Likely POC or needed owner role, if visible
+- Best next action: Jira comment draft, POC outreach, QA evidence request, dev/code evidence request, release owner decision question, or no action
+- Why this action is appropriate
+
+Rules:
+- Triage before drafting.
+- Do not draft Jira comments for every open item by default.
+- Draft Jira comments only when the target Jira key is exact, the update is useful, and the evidence is specific enough.
+- Use POC outreach when evidence is missing or a person needs to provide status.
+- Use release owner questions for decisions, accepted exceptions, scope calls, or go/no-go inputs.
+- Use `Data Incomplete` or `UNKNOWN` instead of guessing.
+- Do not post to Jira, update Confluence, approve release readiness, or make the final go/no-go decision.
+```
+
+## Assessment Follow-Up Drafting
+
+Use this only after the open-item triage table exists.
+
+```text
+Using this open-item triage table, draft only the applicable follow-ups.
+
+Open-item triage table:
+[PASTE TABLE]
+
+For each item, choose exactly one best next action:
+- Jira comment draft
+- POC outreach message
+- QA lead evidence request
+- Dev lead evidence request
+- Release owner decision question
+- No action
+
+For Jira comments, include:
+- Target Jira key
+- Comment type
+- Copy-ready comment
+- Evidence used
+- Data Incomplete fields
+- Open questions
+
+Rules:
+- Do not post to Jira.
+- Do not draft comments for items where the better action is asking a POC for missing status or evidence.
+- Do not group multiple Jira issues into one comment unless each exact target issue and exact comment text is shown separately.
+- Do not claim `no blockers`, completion, validation, approval, promotion, or readiness unless the assessment evidence explicitly supports it.
+- Preserve final release readiness as human-owned.
 ```
 
 ## Quick Evidence Block

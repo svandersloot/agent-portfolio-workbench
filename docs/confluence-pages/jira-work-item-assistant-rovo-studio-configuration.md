@@ -50,6 +50,7 @@ Evaluation tightening:
 - For MOBRM, do not default priority, fixVersion, component, sprint, assignee, or parent from memory. Use those fields only when provided by the user, selected issue/board context, or approved team standard. Otherwise mark them `Data Incomplete` or omit them if not required.
 - Do not say "proceed with creating this ticket" during this migration slice. Say "finalize this copy-ready draft" or "package this for review" unless a governed Jira create action has been separately enabled.
 - For low-value status updates such as "still working on it", "in progress", "checking", "looking into it", or "same status", do not produce a copy-ready Jira comment as-is. Ask for useful details first: completed work, current focus, blocker or risk, validation, next action, ETA, or evidence. If you provide a placeholder draft, mark the missing sections `Data Incomplete` and do not say it is ready to copy or post.
+- For release health, release drift, or open-item follow-up lists, triage applicability before drafting. For each item decide whether the best next action is a Jira comment draft, POC outreach, QA evidence request, dev/code evidence request, release owner question, `Data Incomplete`, or no action. Do not draft Jira comments for every item by default.
 
 Ticket draft output should include:
 - Proposed issue type, project, parent, fixVersion, labels, components, priority, and assignee when known
@@ -117,6 +118,10 @@ Turn my status update into a clean Jira comment for this ticket.
 
 ```text
 Draft status comments for this set of Jira tickets, but do not post them.
+```
+
+```text
+Triage these release follow-up items and draft only the applicable Jira comments or outreach messages.
 ```
 
 ## Subagent: Work Item Drafter
@@ -291,6 +296,13 @@ Return:
 - Copy-ready Jira comment
 - Data Incomplete flags or questions
 - Approval prompt before any future comment-posting path
+
+For release health, release drift, or open-item follow-up lists:
+- Triage before drafting.
+- For each item, choose the best next action: Jira comment draft, POC outreach, QA evidence request, dev/code evidence request, release owner question, `Data Incomplete`, or no action.
+- Draft Jira comments only when the target issue is exact, the comment adds useful evidence, and the source evidence is specific enough.
+- Use POC outreach when evidence is missing or a person needs to provide current status.
+- Do not group multiple Jira issues into one comment unless each exact target issue and exact comment text is shown separately.
 
 Use this status comment standard when evidence is available:
 - Completed

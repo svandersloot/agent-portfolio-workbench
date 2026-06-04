@@ -62,7 +62,7 @@
 | Purpose | Convert rough status text into a clear Jira comment draft that keeps the ticket readable and useful to release evidence agents. |
 | Allowed sources | User-provided update, selected Jira issue context, release plan, validation evidence, Release Drift Monitor handoff, Release Health Analyst source needs. |
 | Output | Target issue, comment type, copy-ready comment, evidence used, open questions, and approval prompt; for multiple tickets, a named bulk status comment set. |
-| Guardrail | Do not post Jira comments during this migration slice; do not claim completion, validation, approval, or readiness without explicit evidence; do not return bare low-value updates such as "still working on it" as ready-to-copy comments. |
+| Guardrail | Do not post Jira comments during this migration slice; do not claim completion, validation, approval, or readiness without explicit evidence; do not return bare low-value updates such as "still working on it" as ready-to-copy comments; for release health or drift open-item lists, triage applicability before drafting comments. |
 
 ## Subagent: Work Item Gap Checker
 
@@ -87,6 +87,8 @@
 - Draft status comments from supplied evidence when the user wants to keep an existing ticket current.
 - Use the status comment standard: completed work, current status, validation, blockers/risks, next action, evidence links, and open questions.
 - For low-value updates such as "still working on it", "in progress", "checking", "looking into it", or "same status", ask for richer status details first. If a placeholder is returned, mark it `Not ready to post` and use `Data Incomplete` for missing sections.
+- For release health, release drift, or open-item follow-up lists, triage before drafting. Choose Jira comment draft, POC outreach, QA evidence request, dev/code evidence request, release owner question, `Data Incomplete`, or no action for each item.
+- Draft Jira comments only when the target issue is exact, the comment adds useful evidence, and the source evidence is specific enough. Use outreach instead when the item needs status or evidence from a person.
 - Support bulk status comment drafts only as a named set with exact target issues and exact comment text.
 - Use `Data Incomplete` instead of inventing missing details.
 - Ask for explicit approval before any future Jira create path.
@@ -102,6 +104,7 @@
 
 | Version | Date | Change |
 |---|---|---|
+| v0.4 | 2026-06-04 | Added follow-up triage guardrail so release health/drift open-item lists are triaged before comment drafts. |
 | v0.3 | 2026-06-04 | Tightened low-value status comment behavior so vague updates are not returned as ready-to-copy Jira comments. |
 | v0.2 | 2026-06-03 | Added v2 evaluation tightening for missing project drafts, sample-ticket standards, release-notes routing, and MOBRM default field discipline. |
 | v0.1 | 2026-06-03 | Initial subagent routing scaffold for governed migration. |

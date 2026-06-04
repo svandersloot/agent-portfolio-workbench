@@ -4,6 +4,7 @@ Use this page to track changes to the agent design, knowledge sources, Studio co
 
 | Version | Date | Area | Change Summary | Reason / Outcome | Updated By |
 |---|---|---|---|---|---|
+| v0.12 | 2026-06-04 | Post-draft follow-up prompts | Added post-draft follow-up triage and applicable follow-up drafting prompts to the Release Drift Monitor prompt library. | Manual July post-draft testing showed a useful pattern: triage WARN/UNKNOWN findings before drafting comments, use outreach when evidence is missing, and avoid final readiness decisions. | User decision capture |
 | v0.1 | 2026-05-27 | Initial candidate scaffold | Created Project Brain, Agent Design Record, Knowledge Source Plan, Subagent Settings, Studio configuration copy blocks, Evaluation, Measurement Plan, and Evidence Ledger contract. | Move drift idea into governed candidate discovery. | Codex governance scaffold |
 | v0.2 | 2026-05-27 | Real data sample | Added Mobilitas 2026.07.10 JQL sample observations to evaluation and measurement notes. | Ground the pilot in actual Jira result shape and known evidence gaps. | Codex governance scaffold |
 | v0.3 | 2026-05-28 | Evaluation remediation | Added exact release identity fail-closed instructions and expanded the ROVO E2E CSV to 14 documented cases. | Prevent "latest release" inference and cover documented evaluation scope. | Codex governance scaffold |

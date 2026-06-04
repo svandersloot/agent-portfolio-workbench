@@ -20,6 +20,8 @@ Use this page as both a human prompt library and an agent playbook for Release D
 | Update an existing handoff | Use `Update Existing Handoff`. Preserve accepted exceptions and Release Health Analyst notes. |
 | Low-risk daily update | Use `Append Trend History Only`. Update snapshot and trend rows without rewriting the whole page. |
 | Stakeholder review | Use `Stakeholder Review` from the requested role perspective. |
+| Post-draft follow-up triage | Use `Post-Draft Follow-Up Triage` after a pulse draft or handoff draft to decide what needs owner follow-up, Jira evidence comments, QA evidence, PR or branch evidence, false-positive review, or no action. |
+| Draft applicable follow-ups | Use `Applicable Follow-Up Drafting` only after triage. Draft Jira comments only when the target issue is exact and the evidence is specific enough; otherwise draft POC outreach or evidence requests. |
 | Pasted PR, QA, test, or owner evidence | Use `Evidence Intake Helper` to convert raw evidence into structured drift evidence. |
 | Workflow quality check | Use `Workflow Audit` to verify the agent followed the Drift Monitor rules. |
 
@@ -42,6 +44,8 @@ For new handoff pages, use Create Handoff Page Draft.
 For existing handoff pages, use Update Existing Handoff.
 For daily low-risk updates, use Append Trend History Only.
 For stakeholder review, use Stakeholder Review.
+For post-draft follow-up requests, use Post-Draft Follow-Up Triage before drafting any Jira comment or outreach.
+For requested follow-up drafts, use Applicable Follow-Up Drafting and draft only the applicable action for each item.
 For pasted PR, test, QA, deployment, or owner evidence, use Evidence Intake Helper.
 
 Never make final readiness or go/no-go recommendations. Route final readiness decision support to Release Health Analyst.
@@ -206,6 +210,85 @@ Return:
 - Missing evidence
 - Questions for the stakeholder
 - Suggested handoff updates, if any
+```
+
+## Post-Draft Follow-Up Triage
+
+Use this after a Release Drift pulse draft or handoff draft exists and the user wants to prepare follow-up actions.
+
+```text
+Review this Release Drift post-draft and help me prepare follow-up actions.
+
+Draft or handoff page:
+[PASTE CONFLUENCE PAGE LINK OR PAGE BODY]
+
+Release identity:
+[PASTE EXACT FIXVERSION OR RELEASE NAME]
+
+Release stage:
+[Before code freeze / At code freeze / After code freeze / Unknown]
+
+Source-truth branch:
+[develop / release branch / documented override / unknown]
+
+Return:
+- Items ready to keep as-is
+- Findings that need owner follow-up
+- Findings that need a Jira release-evidence comment
+- Findings that need QA or test evidence
+- Findings that need PR, branch, or code evidence
+- Findings that look stale, duplicated, or possibly false positive
+- Data Incomplete flags that must be cleared before Release Health Analyst consumes this handoff
+
+For each recommended follow-up, include:
+- Jira key or finding ID
+- Likely owner or owner role, if visible
+- Current evidence
+- Missing evidence
+- Best next action
+- Why this action is appropriate
+
+Rules:
+- Do not make a final release readiness or go/no-go recommendation.
+- Do not mark PASS from Jira status alone.
+- Do not treat open PRs as complete code evidence.
+- Preserve accepted exceptions.
+- If evidence is missing, use `UNKNOWN` or `Data Incomplete`.
+- Do not update Confluence or Jira.
+```
+
+## Applicable Follow-Up Drafting
+
+Use this only after a triage table exists. The goal is to draft the right follow-up, not to draft a Jira comment for every WARN or UNKNOWN item.
+
+```text
+Using the follow-up table from the Release Drift review, draft only the follow-ups that are applicable.
+
+Follow-up table:
+[PASTE TRIAGE TABLE]
+
+For each item, choose exactly one best next action:
+- Jira release-evidence comment draft
+- POC outreach message
+- QA lead evidence request
+- Dev lead PR or branch evidence request
+- Release owner decision question
+- No action
+
+For Jira comment drafts, include:
+- Target Jira key
+- Comment type
+- Copy-ready comment
+- Evidence used
+- Data Incomplete fields
+- Open questions
+
+Rules:
+- Do not post to Jira.
+- Do not draft comments where the better action is asking a POC for status or evidence.
+- Do not draft a Jira comment unless the target Jira key is exact and the comment adds useful release evidence.
+- Do not claim completion, validation, merge, approval, or readiness unless the triage table or source evidence explicitly supports it.
+- Keep broad visibility gaps as program or lead outreach unless individual issue evidence is specific enough.
 ```
 
 ## Evidence Intake Helper

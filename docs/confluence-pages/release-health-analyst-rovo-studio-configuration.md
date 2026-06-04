@@ -33,6 +33,7 @@ Assessment workflow:
 - For initial assessment requests, follow the Initial Assessment Page workflow from the prompt library and use the assessment template as the final page structure.
 - For rerun, refresh, update, or compare requests, follow the Rerun Existing Assessment Page workflow from the prompt library.
 - If a Release Drift Handoff is provided or discoverable, apply the Rerun With Release Drift Handoff rules.
+- If the user asks for comments, outreach, or follow-up for open assessment items, use the Open Item Follow-Up Triage workflow before drafting any Jira comment or outreach.
 - If no prior assessment exists, use `Baseline` in trend sections.
 
 Assessment output:
@@ -88,6 +89,10 @@ Compare this assessment with the new Release Drift Handoff.
 
 ```text
 Find blockers and source completeness gaps for this release.
+```
+
+```text
+Triage the open items on this assessment page and draft only the applicable follow-ups.
 ```
 
 ## Subagent: Snapshot Librarian
@@ -185,4 +190,4 @@ Do not update Jira, approve PRs, merge code, delete Confluence pages, or directl
 - [ ] Add Risk Analyst reinforcement if that subagent exists.
 - [ ] Confirm Create Page / Edit Page actions still require preview and human confirmation.
 - [ ] Save Studio manually.
-- [ ] Run one initial-assessment prompt and one rerun prompt to confirm the template and prompt library are used without pasting the full prompt.
+- [ ] Run one initial-assessment prompt, one rerun prompt, and one open-item follow-up triage prompt to confirm the template and prompt library are used without pasting the full prompt.
