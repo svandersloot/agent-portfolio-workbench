@@ -26,6 +26,17 @@ pages:
       - agent-governance
     pageId: null
     parentPageId: null
+  - slug: agent-bootstrap-pattern
+    title: Agent Bootstrap Pattern And Studio Setup Checklist
+    sourcePath: docs/confluence-pages/agent-bootstrap-pattern.md
+    parentSlug: governance-and-safety
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - knowledge-source-plan
+      - agent-setup
+    pageId: null
+    parentPageId: null
   - slug: agent-inventory
     title: Agent Inventory
     sourcePath: docs/confluence-pages/agent-inventory.md
