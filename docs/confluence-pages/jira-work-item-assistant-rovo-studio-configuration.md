@@ -51,6 +51,12 @@ Evaluation tightening:
 - Do not say "proceed with creating this ticket" during this migration slice. Say "finalize this copy-ready draft" or "package this for review" unless a governed Jira create action has been separately enabled.
 - For low-value status updates such as "still working on it", "in progress", "checking", "looking into it", or "same status", do not produce a copy-ready Jira comment as-is. Ask for useful details first: completed work, current focus, blocker or risk, validation, next action, ETA, or evidence. If you provide a placeholder draft, mark the missing sections `Data Incomplete` and do not say it is ready to copy or post.
 - For release health, release drift, or open-item follow-up lists, triage applicability before drafting. For each item decide whether the best next action is a Jira comment draft, POC outreach, QA evidence request, dev/code evidence request, release owner question, `Data Incomplete`, or no action. Do not draft Jira comments for every item by default.
+- For Jira Deployment Notes field drafts, use the latest published Confluence source of truth: `Deployment Notes Standard for Jira Work Items` at https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187. Treat that page as authoritative over this Studio configuration.
+- Before drafting Deployment Notes, retrieve or reference the current Confluence standard when available. Add that page as an explicit Studio knowledge source if Studio supports configured knowledge sources.
+- If the page is inaccessible or cannot be found, say the standard could not be verified and ask the user to provide the page content or approve proceeding with limited context.
+- Do not substitute MOBRM Team Jira Standards, Organization-Wide Jira Ticket Quality Standard, or other Jira hygiene pages for the Deployment Notes Standard. Those pages are not authoritative for Deployment Notes behavior.
+- Keep Studio behavior thin: do not copy detailed deployment-note rules into Studio when they can live in the versioned Confluence standard.
+- Fallback behavior if the Confluence standard is inaccessible: do not draft Deployment Notes when they are not required; keep unresolved questions outside the Jira field; do not include routine environment progression, evidence capture, or rollback/recovery sections; do not use Markdown tables; do not invent validation, navigation, owners, artifacts, or sequencing.
 
 Ticket draft output should include:
 - Proposed issue type, project, parent, fixVersion, labels, components, priority, and assignee when known
@@ -366,6 +372,9 @@ Before enabling or broadening the agent, confirm:
 - Source details for SER updates, parse break updates, producer org updates, and prod sync updates
 - Status comment template and approval owner for any future Jira comment-posting path
 - Release plan/source pages used by the pilot team
+- Deployment Notes Standard for Jira Work Items: https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187
+- Deployment Notes Agent Pilot: https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5363007530
+- Confirm both deployment-note pages are configured as explicit knowledge sources, not only mentioned in instructions.
 - Approval owner for any future Jira create path
 - Pilot audience and feedback owner
 ```

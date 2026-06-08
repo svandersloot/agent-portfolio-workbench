@@ -197,6 +197,28 @@ pages:
       - jira-work-item
     pageId: null
     parentPageId: null
+  - slug: deployment-notes-standard
+    title: Deployment Notes Standard for Jira Work Items
+    sourcePath: docs/confluence-pages/deployment-notes-standard.md
+    parentSlug: jira-work-item-assistant-project-brain
+    labels:
+      - agent-governance
+      - jira-work-item
+      - deployment-notes
+      - team-standards
+    pageId: null
+    parentPageId: null
+  - slug: deployment-notes-agent-pilot
+    title: Deployment Notes Agent Pilot
+    sourcePath: docs/confluence-pages/deployment-notes-agent-pilot.md
+    parentSlug: deployment-notes-standard
+    labels:
+      - agent-governance
+      - jira-work-item
+      - deployment-notes
+      - pilot
+    pageId: null
+    parentPageId: null
   - slug: jira-work-item-assistant-measurement-plan
     title: Measurement Plan - Jira Work Item Assistant
     sourcePath: docs/confluence-pages/jira-work-item-assistant-measurement-plan.md

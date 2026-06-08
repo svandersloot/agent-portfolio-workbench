@@ -32,6 +32,8 @@ The standards model is global-plus-overlay: one organization-wide Jira ticket st
 | Organization-Wide Jira Ticket Quality Standard | Confluence | Process Authority | Default drafting baseline for all candidate Jira tickets. | Quarterly or after workflow change | Route draft through Jira Ticket Polisher or ask user to provide standard. |
 | Team Jira Standards | Confluence | Team Standards Index | Identify available team overlays. | Per team review | State no approved team overlay was applied. |
 | MOBRM Team Jira Standards | Confluence | Team Overlay | Apply to `MOBRM-*` work or MOBRM board `7690` context. | Annual or after workflow change | Use org-wide standard only and state no team overlay applied. |
+| Deployment Notes Standard for Jira Work Items | Confluence | Process Authority / Versioned Source of Truth | Decide when Deployment Notes are needed and draft the Jira Deployment Notes field for human review. This Confluence page is authoritative over copied Studio examples. | Pilot review, then quarterly or after release process change | Mark Deployment Notes guidance `Data Incomplete` and ask for the standard or release-owner guidance. |
+| Deployment Notes Agent Pilot | Confluence | Evaluation / Pilot Evidence | Backtest historical deployment-note behavior and score Jira Work Item Assistant output. | During pilot | Use the standard page only and ask the user for historical card context. |
 | Proposed team standards page | Draft Markdown / Confluence draft | Proposed Team Standard | Help teams document required fields, important fields, non-required defaults, issue type expectations, labels, parent rules, and common task patterns. | Per team setup | Keep as proposed and do not apply as official until approved. |
 | Jira Work Item Draft Bundle schema | Repo contract | Draft Contract | Package candidate release tickets for review. | Per contract change | Use field blocks instead. |
 | Jira Ticket Polisher output | ROVO agent response | Quality Review | Use as optional strict review before creation. | Runtime | Present draft for manual review without Polisher. |
@@ -53,10 +55,13 @@ Before producing a final-seeming ticket draft, identify:
 - Applicable organization-wide and team standards.
 - Missing details that prevent confident ticket creation.
 - Whether the user wants copy-ready draft only, Jira Ticket Polisher review, or future approved create path.
+- Whether Deployment Notes are needed when the work item includes manual deployment steps, imports, runtime properties, AWS pipelines, user/role/permission changes, external coordination, timing constraints, preconditions, or shared deployment artifacts.
 
 ## Source Handling Rules
 
 - Apply the Organization-Wide Jira Ticket Quality Standard to every candidate ticket.
+- For Deployment Notes, retrieve or reference the current Deployment Notes Standard for Jira Work Items when available; treat that Confluence page as authoritative over stale Studio instructions.
+- Do not substitute MOBRM Team Jira Standards, Organization-Wide Jira Ticket Quality Standard, or other Jira hygiene pages for the Deployment Notes Standard.
 - Apply the MOBRM overlay only when the ticket project key is `MOBRM`, MOBRM board `7690` is visible, or the user supplies the MOBRM standard for the current request.
 - Apply other team overlays only when a documented standard and project/board mapping are supplied or approved.
 - If a team overlay is missing, draft a proposed team standards page only after asking about required fields, important fields, fields not required by default, issue types, board/project mapping, labels, parent expectations, and workflow conventions.
@@ -71,6 +76,17 @@ Before producing a final-seeming ticket draft, identify:
 - Do not treat old tickets as policy unless a team owner confirms they are examples of current practice.
 - Do not broaden to all Jira or all Confluence.
 - Do not copy sensitive details into generated tickets unless they are required and approved for the target Jira project.
+- When drafting Deployment Notes, do not include routine environment progression, evidence capture, or rollback/recovery sections in the Jira field.
+- Put pre-deployment notes, ordering, and timing before deployment steps so Release Management sees them before taking action.
+- Use bullets instead of Markdown tables in Jira Deployment Notes field drafts.
+- Keep unresolved questions outside the Jira Deployment Notes field under `Questions To Resolve Before Finalizing`.
+- Use controlled deployment type labels from the standard.
+- Do not ask routine environment-sequence questions unless the story has an environment-specific exception or file.
+- Put repo paths, attachments, pipeline names, and linked pages under source/artifact location, not as application navigation steps.
+- Treat `modules\...`, `modules/...`, `cc/modules/...`, `pc/modules/...`, and similar Guidewire configuration paths as artifact locations, not target-environment navigation steps.
+- Do not add adjacent process questions such as prod-sync scripts, IAM, evidence screenshots, or specific validation navigation unless the source mentions them.
+- Keep validation source-backed; do not add payment processing, policy update, screen-editing, or other functional validation unless the source mentions it.
+- Do not invent Deployment Notes fields such as file names, paths, xCenters, branch/tag, AWS account, validation criteria, sequencing, or owner details. Mark missing details as `Data Incomplete`.
 
 ## Data Incomplete Flags
 
@@ -87,6 +103,8 @@ Before producing a final-seeming ticket draft, identify:
 | JWA-DI-009 | Proposed team standard lacks owner approval. | Draft overlay could be mistaken for official policy. | Capture team owner approval before applying it as a standard. |
 | JWA-DI-010 | Status comment lacks target issue, evidence, or approval. | Comment may update the wrong ticket or imply unsupported progress. | Provide target issue, factual update, validation/blocker details, and approve exact comment text before any future posting path. |
 | JWA-DI-011 | Bulk status comment set is unnamed or has ambiguous targets. | Comments could be posted to the wrong issues or approved too broadly. | Name the comment set and list exact target issue plus exact comment text for each item. |
+| JWA-DI-012 | Deployment Notes need file, path, xCenter, branch/tag, pipeline, AWS account, validation, sequencing, or artifact-location details that are not supplied. | The deployment note could be unsafe or impossible to execute confidently. | Provide the missing deployment source details or link the relevant runbook/source artifact. |
+| JWA-DI-013 | Critical preconditions, timing, or ordering are unclear. | Release Management may run steps too early or in the wrong sequence. | Provide required preconditions, timing, ordering, or escalation team. |
 
 ## Knowledge Source Review
 
@@ -96,6 +114,8 @@ Before producing a final-seeming ticket draft, identify:
 | Shared Jira standards parent available | Done | Published under Jira Hygiene Agents in ROVO. |
 | Org-wide ticket standard available | Done | Published under the shared Jira Ticket Standards tree in ROVO. |
 | MOBRM team standard available | Done | Published under Team Jira Standards as the first active overlay. |
+| Deployment Notes Standard available | Draft | Published for pilot use with Jira Work Item Assistant and Release Notes Manager. |
+| Deployment Notes Agent Pilot available | Draft | Use historical cards to validate the template before active promotion. |
 | First pilot board/project confirmed | Done | MOBRM project board supplied: `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM`. |
 | MOBRM field expectations captured | Partial | Parent and labels are first required/important fields; issue type and exact create mapping still need confirmation. |
 | Jira create field mapping confirmed | Open | Required before any write-capable creation workflow, especially bulk creation. |

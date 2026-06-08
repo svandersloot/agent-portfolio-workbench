@@ -21,6 +21,8 @@ Release Notes Manager uses approved release-specific sources only. It should pre
 | Jira fixVersion, release filter, or supplied issue list | Jira | System of Record | Identify release scope and candidate note items. | Per release | Ask for exact release identifier or mark `Data Incomplete`. |
 | Release plan, change summary, or release calendar | Confluence / Jira | Process Authority | Confirm release dates, milestones, impacted groups, and release-owner notes. | Per release | Ask for authoritative link or owner confirmation. |
 | Existing release notes page | Confluence | Working Draft / Published Record | Compare, refine, and identify gaps. | Per release | Ask the user to paste content if inaccessible. |
+| Deployment Notes Standard for Jira Work Items | Confluence | Process Authority / Versioned Source of Truth | Interpret story-level Deployment Notes and group them into release-level deployment work packages. This Confluence page is authoritative over copied Studio examples. | Pilot review, then quarterly or after release process change | Mark deployment-note standard unavailable and ask for release-owner guidance. |
+| Deployment Notes Agent Pilot | Confluence | Evaluation / Pilot Evidence | Test release-level grouping, duplicate-action detection, shared artifacts, and data-incomplete flags. | During pilot | Use the standard page only and ask the user for the historical card set. |
 | Product or business summary | Confluence / supplied text | Process Authority | Translate technical changes into audience-specific summaries. | Per release | Keep business summary out of scope until provided. |
 | ClaimCenter repo | Bitbucket | Source Reference | Locate deployment files referenced by Jira deployment notes. | Per release branch or develop branch | Ask release owner which branch/tag to use before referencing a file. |
 | PolicyCenter repo | Bitbucket | Source Reference | Locate deployment files referenced by Jira deployment notes. | Per release branch or develop branch | Ask release owner which branch/tag to use before referencing a file. |
@@ -52,7 +54,9 @@ Before drafting final-seeming content, the agent must confirm:
 - Whether an existing release notes page or template should be followed.
 - Whether blocked, deferred, or partial items should be included.
 - For deployment runbooks, which Bitbucket repo and branch/tag should be used for referenced files.
-- For deployment runbooks, which target environment and admin application URL should be used.
+- For deployment runbooks, which admin application URL should be used when it is not already standard for the Release Management environment sequence.
+- For deployment work packages, whether Deployment Notes should be interpreted under the current Deployment Notes Standard and whether shared artifacts or duplicate deployment actions should be collapsed.
+- Whether any story-specific environment exception exists outside the normal Release Management sequence of SIT, TRN1, UAT, dry run/pre-prod, and production.
 
 ## Data Incomplete Flags
 
@@ -64,12 +68,16 @@ Before drafting final-seeming content, the agent must confirm:
 | RNM-DI-004 | Business audience context is missing. | Business summary may be misleading or incomplete. | Provide audience, product summary, or stakeholder context. |
 | RNM-DI-005 | Source conflict found. | Final notes cannot be trusted. | Release owner resolves authoritative source. |
 | RNM-DI-006 | Bitbucket repo, branch, or tag is unclear for a referenced deployment file. | Deployer may import the wrong file version. | Confirm app repo and branch/tag with the release owner. |
-| RNM-DI-007 | Admin application URL, environment, or role is missing. | A new deployer cannot safely perform import steps. | Provide target environment, URL, and required admin role. |
+| RNM-DI-007 | Admin application URL, non-standard environment target, or role is missing. | A new deployer cannot safely perform non-standard import steps. | Provide URL, required admin role, or the story-specific environment exception. |
 | RNM-DI-008 | AWS account or role is missing for a pipeline deployment. | Pipeline could be promoted in the wrong account or role. | Confirm AWS account, role, and pipeline owner. |
+| RNM-DI-009 | Story-level Deployment Notes do not include validation expectations. | Release Management may not know how to confirm success. | Use the Deployment Notes Standard or ask the developer/release owner for validation details. |
+| RNM-DI-010 | Shared artifact or duplicate deployment action lacks a coordinator story. | Duplicate execution or missed final artifact ownership is possible. | Identify a master/coordinator story or ask Release Management to assign one. |
 
 ## Source Handling Rules
 
 - Use exact release metadata when available.
+- For Deployment Notes, retrieve or reference the current Deployment Notes Standard for Jira Work Items when available; treat that Confluence page as authoritative over stale Studio instructions.
+- Do not substitute MOBRM Team Jira Standards, Organization-Wide Jira Ticket Quality Standard, or other Jira hygiene pages for the Deployment Notes Standard.
 - Keep unsupported assumptions out of the release notes draft.
 - Preserve source traceability in an internal review checklist.
 - Avoid naming private source URLs in broad user-facing output unless the user supplied them for that purpose.
@@ -78,7 +86,14 @@ Before drafting final-seeming content, the agent must confirm:
 - Group deployment work into work packages by system, action type, and dependency.
 - Collapse exact duplicate deployment notes into one work package and list all source stories.
 - Group related actions that use the same system or admin path, but do not collapse them when files, properties, or pipelines differ.
-- Label branch, environment, role, and admin-path assumptions as data incomplete unless the source evidence confirms them.
+- Label branch, role, admin-path, AWS account, and story-specific environment exceptions as data incomplete unless the source evidence confirms them.
+- Do not add rollback/recovery sections to Jira Deployment Notes. Release Management owns rollback execution outside the story-level Deployment Notes field.
+- Flag missing validation expectations when story-level Deployment Notes do not provide them.
+- Use bullets instead of Markdown tables when producing Jira Deployment Notes field drafts.
+- Keep unresolved questions outside the Jira Deployment Notes field under `Questions To Resolve Before Finalizing`.
+- Do not infer implementation platforms such as AWS Parameter Store unless the source explicitly says so.
+- Exclude `NA` or no-manual-action stories from deployment work packages; list them separately as no-action items when useful.
+- Do not invent release metadata, release names, source JQL, IAM systems, screenshot-capture requirements, rollback/recovery gaps, or adjacent process questions unless the source or user asks for them.
 
 ## Default Deployment Ordering Rules
 
@@ -99,5 +114,7 @@ Before drafting final-seeming content, the agent must confirm:
 | Branch/tag selection rule confirmed | Partial | Use release branch such as `release/r-64.0` or `develop` depending on release context; ask when unclear. |
 | Confluence source spaces confirmed | Open | Needs source access review. |
 | Release-note templates confirmed | Open | Needs process-owner input. |
+| Deployment Notes Standard available | Draft | Published for pilot use with Jira Work Item Assistant and Release Notes Manager. |
+| Deployment Notes Agent Pilot available | Draft | Use historical cards to validate release-level grouping before active promotion. |
 | Archive sources separated from active instructions | Done | Mobilitas is archive/reference only. |
 | Permission model reviewed | Open | Needs Studio/admin confirmation. |
