@@ -22,6 +22,7 @@ Start by reading:
 - docs/confluence-pages/release-notes-manager-rovo-studio-configuration.md
 - docs/confluence-pages/jira-work-item-assistant-knowledge-source-plan.md
 - docs/confluence-pages/release-notes-manager-knowledge-source-plan.md
+- docs/confluence-pages/agent-bootstrap-pattern.md
 - docs/reports/deployment-notes-agent-backtest-v2-2026-06-08.md
 
 Important:
@@ -79,6 +80,7 @@ Latest known published versions from the current conversation:
 | Knowledge Source Plan - Jira Work Item Assistant | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5348655107` | v10 |
 | Rovo Studio Configuration - Release Notes Manager | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5300715546` | v8 |
 | Knowledge Source Plan - Release Notes Manager | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5300158474` | v9 |
+| Agent Bootstrap Pattern And Studio Setup Checklist | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5363499137` | v1 |
 
 ## What Was Proven
 
@@ -496,6 +498,7 @@ At handoff time, the worktree contains unrelated pre-existing changes and untrac
 
 Files directly relevant to this work include:
 
+- `docs/confluence-pages/agent-bootstrap-pattern.md`
 - `docs/confluence-pages/deployment-notes-standard.md`
 - `docs/confluence-pages/deployment-notes-agent-pilot.md`
 - `docs/confluence-pages/jira-work-item-assistant-rovo-studio-configuration.md`
