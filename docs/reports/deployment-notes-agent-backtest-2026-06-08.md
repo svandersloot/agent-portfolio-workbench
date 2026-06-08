@@ -441,5 +441,5 @@ Before the next Confluence publish:
 1. Pull 8 to 12 samples through Jira REST.
 2. Generate local Jira Work Item Assistant sample notes.
 3. Generate a Release Notes Manager rollup.
-4. Review with Shane Vandersloot, Hareesh, and Release Management.
+4. Review with Shayne Vandersloot, Hareesh, and Release Management.
 5. Publish only after the local report is accepted.

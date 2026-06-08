@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Status | Draft for pilot |
-| Primary owner | Shane Vandersloot |
+| Primary owner | Shayne Vandersloot |
 | Co-owner | Hareesh |
 | Required stakeholder group | Release Management |
 | Related standard | Deployment Notes Standard for Jira Work Items |
@@ -273,4 +273,4 @@ Promote the standard from draft to active only after:
 - Jira Work Item Assistant passes or partially passes with no invented critical details.
 - Release Notes Manager produces useful release-level grouping from at least one batch.
 - Release Management reviews at least one generated set.
-- Shane Vandersloot and Hareesh agree the template is usable for the next pilot release.
+- Shayne Vandersloot and Hareesh agree the template is usable for the next pilot release.

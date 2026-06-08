@@ -39,7 +39,7 @@ The exact page was not found in the local old-space export by searching for `MOB
 | Automatic application | MOBRM standards should theoretically apply to every `MOBRM-*` ticket. |
 | Board mapping | MOBRM board URL confirmed: `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM/boards/7690?issueType=10001`. |
 | Related keys | `MR26`, `M26`, and `CLE` should not trigger MOBRM standards. `CLE` may appear as the selected epic for monthly release cards, environment maintenance, or quarterly planning. |
-| ROVO owner | Shane Vandersloot. |
+| ROVO owner | Shayne Vandersloot. |
 | ROVO backup owner | Harish. |
 | Epic freshness | The listed epics cover 2026 and will eventually go stale; refresh the list when the next year's epics are created. |
 | Script evidence | PR links, generated artifacts, import evidence, and validation evidence are ideal for auditability and traceability, but should not always be treated as blocking requirements. |
@@ -94,7 +94,7 @@ Approved status: Published in ROVO as the active MOBRM team overlay for Jira Tic
 Jira project keys: MOBRM
 Boards: MOBRM board 7690
 Filters: TBD if a saved filter should be named
-Owner: Shane Vandersloot
+Owner: Shayne Vandersloot
 Backup owner: Harish
 Last reviewed:
 Applies automatically when: Jira project key is MOBRM, or approved MOBRM board mapping is available.

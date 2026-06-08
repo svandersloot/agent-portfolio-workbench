@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Status | Draft for pilot |
-| Primary owner | Shane Vandersloot |
+| Primary owner | Shayne Vandersloot |
 | Co-owner | Hareesh |
 | Required stakeholder group | Release Management |
 | Primary test agents | Jira Work Item Assistant, Release Notes Manager |

@@ -32,7 +32,7 @@ Jira Ticket Polisher uses a default organization-wide standard plus one active t
 
 | Team or board | Intended evidence | Current status |
 |---|---|---|
-| MOBRM | Team standard page, project key `MOBRM`, board `7690`, owner Shane Vandersloot, backup Harish. | Published in ROVO as the first active team overlay. |
+| MOBRM | Team standard page, project key `MOBRM`, board `7690`, owner Shayne Vandersloot, backup Harish. | Published in ROVO as the first active team overlay. |
 
 Other team standards are intentionally out of scope for the current active page. Add them only after a team-owned source, mapping metadata, owner, and application boundaries are confirmed.
 

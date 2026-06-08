@@ -17,8 +17,8 @@ Future improvement candidates should be tracked separately from the accepted sta
 | Team | MOBRM |
 | Jira project key | `MOBRM` |
 | Board or filter | MOBRM board `7690`: `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM/boards/7690?issueType=10001` |
-| Team owner | Shane Vandersloot |
-| Standards owner | Shane Vandersloot |
+| Team owner | Shayne Vandersloot |
+| Standards owner | Shayne Vandersloot |
 | Backup owner | Harish |
 | Approved status | Published in ROVO as the active MOBRM team overlay for Jira hygiene agents |
 | Last source version reviewed | Version `3` |

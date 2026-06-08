@@ -8,7 +8,7 @@ Team standards supplement the Organization-Wide Jira Ticket Quality Standard. Th
 
 | Team | Status | Applies when | Owner | Backup |
 |---|---|---|---|---|
-| MOBRM | Published active overlay | Jira project key is `MOBRM`, or MOBRM board `7690` is visible | Shane Vandersloot | Harish |
+| MOBRM | Published active overlay | Jira project key is `MOBRM`, or MOBRM board `7690` is visible | Shayne Vandersloot | Harish |
 
 ## Add A Future Team Standard
 

@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Status | Draft for Deployment Notes pilot |
-| Primary owner | Shane Vandersloot |
+| Primary owner | Shayne Vandersloot |
 | Applies to | Governed ROVO agents that should use Confluence as the versioned source of truth |
 | First pilot agents | Jira Work Item Assistant, Release Notes Manager |
 | Last reviewed | 2026-06-08 |
