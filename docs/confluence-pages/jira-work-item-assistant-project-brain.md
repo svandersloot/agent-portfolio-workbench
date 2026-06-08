@@ -90,6 +90,7 @@ Jira Work Item Assistant helps requesters, release owners, and delivery leads tu
 | Agent Design Record | Jira Work Item Assistant - Agent Design Record |
 | Knowledge Source Plan | Knowledge Source Plan - Jira Work Item Assistant |
 | Subagent Settings | Subagent Settings - Jira Work Item Assistant |
+| Studio Setup | Studio Setup - Jira Work Item Assistant |
 | ROVO Studio Configuration | ROVO Studio Configuration - Jira Work Item Assistant |
 | Evaluation | Evaluation - Jira Work Item Assistant |
 | Measurement Plan | Measurement Plan - Jira Work Item Assistant |

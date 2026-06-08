@@ -71,6 +71,7 @@ Release Notes Manager helps release owners, product partners, and delivery teams
 | Agent Design Record | Release Notes Manager - Agent Design Record |
 | Knowledge Source Plan | Knowledge Source Plan - Release Notes Manager |
 | Subagent Settings | Subagent Settings - Release Notes Manager |
+| Studio Setup | Studio Setup - Release Notes Manager |
 | ROVO Studio Configuration | ROVO Studio Configuration - Release Notes Manager |
 | Evaluation | Evaluation - Release Notes Manager |
 | Measurement Plan | Measurement Plan - Release Notes Manager |

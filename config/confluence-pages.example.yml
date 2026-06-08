@@ -113,6 +113,17 @@ pages:
       - subagent-settings
     pageId: null
     parentPageId: null
+  - slug: release-notes-manager-studio-setup
+    title: Studio Setup - Release Notes Manager
+    sourcePath: docs/confluence-pages/release-notes-manager-studio-setup.md
+    parentSlug: release-notes-manager-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - agent-setup
+      - release-notes
+    pageId: null
+    parentPageId: null
   - slug: release-notes-manager-rovo-studio-configuration
     title: ROVO Studio Configuration - Release Notes Manager
     sourcePath: docs/confluence-pages/release-notes-manager-rovo-studio-configuration.md
@@ -185,6 +196,17 @@ pages:
     labels:
       - agent-governance
       - subagent-settings
+      - jira-work-item
+    pageId: null
+    parentPageId: null
+  - slug: jira-work-item-assistant-studio-setup
+    title: Studio Setup - Jira Work Item Assistant
+    sourcePath: docs/confluence-pages/jira-work-item-assistant-studio-setup.md
+    parentSlug: jira-work-item-assistant-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - agent-setup
       - jira-work-item
     pageId: null
     parentPageId: null

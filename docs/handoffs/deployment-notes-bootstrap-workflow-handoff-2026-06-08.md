@@ -20,6 +20,8 @@ Start by reading:
 - docs/confluence-pages/deployment-notes-agent-pilot.md
 - docs/confluence-pages/jira-work-item-assistant-rovo-studio-configuration.md
 - docs/confluence-pages/release-notes-manager-rovo-studio-configuration.md
+- docs/confluence-pages/jira-work-item-assistant-studio-setup.md
+- docs/confluence-pages/release-notes-manager-studio-setup.md
 - docs/confluence-pages/jira-work-item-assistant-knowledge-source-plan.md
 - docs/confluence-pages/release-notes-manager-knowledge-source-plan.md
 - docs/confluence-pages/agent-bootstrap-pattern.md
@@ -74,11 +76,13 @@ Latest known published versions from the current conversation:
 
 | Page | URL | Version |
 |---|---|---:|
-| Deployment Notes Standard for Jira Work Items | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187` | v11 |
+| Deployment Notes Standard for Jira Work Items | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187` | v13 |
 | Deployment Notes Agent Pilot | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5363007530` | v9 |
 | ROVO Studio Configuration - Jira Work Item Assistant | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5349113857` | v12 |
+| Studio Setup - Jira Work Item Assistant | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362614357` | v5 |
 | Knowledge Source Plan - Jira Work Item Assistant | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5348655107` | v10 |
 | Rovo Studio Configuration - Release Notes Manager | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5300715546` | v8 |
+| Studio Setup - Release Notes Manager | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5363597417` | v1 |
 | Knowledge Source Plan - Release Notes Manager | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5300158474` | v9 |
 | Agent Bootstrap Pattern And Studio Setup Checklist | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5363499137` | v1 |
 
@@ -501,6 +505,8 @@ Files directly relevant to this work include:
 - `docs/confluence-pages/agent-bootstrap-pattern.md`
 - `docs/confluence-pages/deployment-notes-standard.md`
 - `docs/confluence-pages/deployment-notes-agent-pilot.md`
+- `docs/confluence-pages/jira-work-item-assistant-studio-setup.md`
+- `docs/confluence-pages/release-notes-manager-studio-setup.md`
 - `docs/confluence-pages/jira-work-item-assistant-rovo-studio-configuration.md`
 - `docs/confluence-pages/release-notes-manager-rovo-studio-configuration.md`
 - `docs/confluence-pages/jira-work-item-assistant-knowledge-source-plan.md`

@@ -108,6 +108,8 @@ Inference limits:
 
 Agents must not add adjacent operational questions or inferred validation paths unless the source evidence mentions them. For example, do not ask about prod-sync scripts, IAM, AWS Parameter Store, screenshots as evidence, or specific admin-page validation paths unless the Jira story, linked runbook, or user-provided context mentions those details.
 
+Data Incomplete means the needed detail is missing, inaccessible, or conflicting in the source evidence. Do not replace explicit Jira story evidence with `Data Incomplete`. If the Jira Deployment Notes field, linked runbook, acceptance criteria, attachments, or user-provided context gives a file name, target system, path, admin page, related story range, or validation record list, preserve that detail in the draft.
+
 Validation steps must stay source-backed. Do not add payment processing, policy update, screen-editing, or other functional validation unless that validation is present in the story, linked source, or user-provided context.
 
 If explicit validation is not present in the Deployment Notes field, linked runbook, Jira acceptance criteria, or user-provided context, do not derive validation from the story title or summary. Use:
@@ -116,6 +118,10 @@ If explicit validation is not present in the Deployment Notes field, linked runb
 Validation Steps
 Data Incomplete - source deployment notes do not provide explicit validation steps.
 ```
+
+Rollback note:
+
+The Jira Deployment Notes field does not require a rollback plan. Do not add rollback/recovery sections or ask for rollback steps in story-level Deployment Notes unless the Jira issue, linked runbook, Release Management, or user-provided context explicitly asks for rollback content.
 
 ## Standard Jira Deployment Notes Template
 
