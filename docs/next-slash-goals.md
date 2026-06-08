@@ -490,3 +490,20 @@ Acceptance checks:
 - Related release or epic keys do not trigger MOBRM automatically.
 - Jira Ticket Polisher remains draft-only.
 - Evaluation prompts include one MOBRM overlay case, one org-wide fallback case, and one wrong-overlay boundary case.
+
+## 27. Next: Stage 5 Agent Factory Pilot Readiness
+
+```text
+/goal Build the Stage 5 agent factory pilot-readiness slice. Reframe the governance project as the behind-the-scenes source of truth and control plane for approved ROVO agents, while normal pilot users consume agents through Jira, Confluence, and ROVO/Studio workflows. Create the smallest useful repo-backed artifacts: a Stage 5 start-here page, audience map, agent lifecycle and promotion stages, approved/prohibited/escalate catalog, duplicate-prevention workflow, pilot metrics and feedback tracker, contributor/helper guide, and first pilot promotion packet outline. Do not publish Confluence changes, write to Studio, write to Jira, or begin org-wide rollout. Keep Cloud Code migration as a future tracked lane, not a blocker for the initial pilot.
+```
+
+Acceptance checks:
+
+- Start-here page clearly separates governance builders from normal ROVO agent users.
+- Lifecycle covers pain point, intake, duplicate check, spec, context review, prototype, dry-run, review, pilot approval, team promotion, metrics, improvement, deprecation, and retirement.
+- Promotion stages define entry criteria, approver, required evidence, allowed audience, ROVO/Studio use, and expansion review.
+- Approved/prohibited/escalate catalog names the initial pilot boundaries and escalation triggers.
+- Duplicate-prevention workflow requires inventory search and reuse/improve/merge/reject/new decision before new-agent work.
+- Metrics and feedback loop measure whether agents reduce pain points, save time, improve quality, and preserve human decision-making.
+- Contributor/helper guidance defines what helpers can do with Codex and what requires approval.
+- Cloud Code migration is listed as a future lane and does not expand the pilot scope.

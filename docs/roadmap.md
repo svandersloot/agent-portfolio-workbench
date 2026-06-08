@@ -45,6 +45,20 @@
 - Do not create a separate quarterly review template unless leadership asks for a distinct quarterly cadence.
 - Produce builder-facing "what already exists" summaries before new agent work begins.
 
+## Stage 5 Operating Model Track
+
+Before expanding beyond one initial team, reframe the project as a lightweight ROVO agent factory and governance control plane:
+
+- Separate the behind-the-scenes builder audience from normal ROVO agent users.
+- Document the path from team pain point to approved ROVO agent.
+- Define promotion stages from idea through pilot-approved, team-approved, deprecated, and retired.
+- Publish a small approved/prohibited/escalate catalog for the first pilot.
+- Strengthen duplicate prevention through intake, inventory search, similar-agent comparison, and explicit reuse/improve/merge/reject/new decisions.
+- Track pilot usage, time saved, output quality, review issues, unsafe outputs, and user feedback.
+- Define helper/contributor boundaries so one or two people can use Codex to draft specs, tests, templates, and promotion packets without changing live Studio, Jira, or Confluence state without approval.
+
+The Stage 5 track should prove that a small builder group can create useful, approved, non-duplicative agents for a team while normal users only need the approved ROVO agents and lightweight feedback/escalation paths.
+
 ## Phase 5: Optional Capture Automation
 
 - Use authenticated Chrome automation to visit configured Studio agent URLs.
@@ -53,13 +67,19 @@
 
 Do not build write-back to Studio until Atlassian exposes a stable supported API or the governance need clearly outweighs the risk.
 
+## Future Cloud Code Migration Lane
+
+Track Cloud Code migration as a separate future lane after the initial Stage 5 pilot model is stable. The migration plan should identify which repo-backed specs, checks, tests, and promotion records belong in Cloud Code, what remains Confluence/Studio-facing, and what approval gate is required before any migration changes the operating model.
+
 ## Near-Term Backlog
 
 See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The highest-return items are:
 
-1. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
-2. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.
-3. Make the completeness, duplicate-agent, and monthly snapshot reports repeatable.
-4. Compare duplicate page bodies before any legacy-banner, archive, move, or reparent action.
-5. Move CoP notes and Formatting Standards with supported Confluence move/manual process.
-6. Publish/create Known Risks and Admin and Owner Guide only through focused dry-run and approval.
+1. Create the Stage 5 agent factory start-here page.
+2. Document audience separation, lifecycle, and promotion stages for one initial team pilot.
+3. Create the pilot approved/prohibited/escalate catalog.
+4. Strengthen duplicate prevention in the Agent Inventory guidance.
+5. Define the pilot metrics and feedback tracker.
+6. Create helper/contributor instructions for Codex-assisted builder work.
+7. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
+8. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.

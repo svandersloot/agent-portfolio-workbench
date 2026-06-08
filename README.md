@@ -17,6 +17,7 @@ The long-term direction is a lightweight governance operating system: publish co
 - `docs/`: operator guidance, roadmap, improvement plan, and implementation backlog.
 - `docs/reports/`: local dry-run reports and governance snapshots.
 - `config/`: reusable governance config such as labels, page publishing targets, and tracked Studio agent list examples.
+- `agent-portfolio-lab/`: local-only reusable-core, team-overlay, handoff, fixture, export, and manual evaluation workspace for coordinated release/Jira agent portfolio testing.
 - `schemas/agent-governance-record.schema.json`: first structured contract for governed agent completeness.
 - `data/raw/`: local-only raw captures, ignored by Git.
 
