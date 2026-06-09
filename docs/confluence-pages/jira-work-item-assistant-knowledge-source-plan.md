@@ -25,7 +25,7 @@ The standards model is global-plus-overlay: one organization-wide Jira ticket st
 | Source | Type | Authority | Allowed Use | Freshness | Fallback |
 |---|---|---|---|---|---|
 | User's current Kanban or release context | Jira / prompt | System of Record / Request Context | Draft candidate work from visible current context. | Runtime | Ask user to paste board item, ticket, or context summary. |
-| Jira project, board, selected issue, or issue list | Jira / supplied export | System of Record | Identify issue type, parent, status, labels, dependencies, and required fields. | Runtime | Ask for project key, board, filter, or pasted export. |
+| Jira project, board, selected issue, or issue list | Jira / supplied export | System of Record | Identify issue type, parent, status, labels, dependencies, and required fields. Studio must configure Jira as a knowledge source for the parent or relevant subagent; user browser visibility is not enough. | Runtime | Ask for project key, board, filter, pasted export, or configured Jira knowledge access. |
 | MOBRM board/project | Jira | Pilot System of Record | First pilot board and team context. | Runtime | Use pasted context if live access is unavailable. |
 | Release plan, release calendar, or release page | Confluence / Jira | Process Authority | Confirm release identity, timing, scope, owners, and coordination needs. | Per release | Mark `Data Incomplete`. |
 | Jira Ticket Standards | Confluence | Standards Index | Shared standards parent for Jira hygiene agents. | Quarterly or after governance restructure | Use directly linked standard pages if the parent is unavailable. |
@@ -60,6 +60,7 @@ Before producing a final-seeming ticket draft, identify:
 ## Source Handling Rules
 
 - Apply the Organization-Wide Jira Ticket Quality Standard to every candidate ticket.
+- Do not assume the agent can read a Jira issue because the user can open it in their browser. Jira issue visibility requires configured Studio Jira knowledge access, such as Jira `All spaces` for the generic pilot or an explicitly tested narrower project scope.
 - For Deployment Notes, retrieve or reference the current Deployment Notes Standard for Jira Work Items when available; treat that Confluence page as authoritative over stale Studio instructions.
 - Do not substitute MOBRM Team Jira Standards, Organization-Wide Jira Ticket Quality Standard, or other Jira hygiene pages for the Deployment Notes Standard.
 - Apply the MOBRM overlay only when the ticket project key is `MOBRM`, MOBRM board `7690` is visible, or the user supplies the MOBRM standard for the current request.
