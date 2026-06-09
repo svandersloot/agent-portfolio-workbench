@@ -2,6 +2,8 @@
 
 Use this repo as the source-of-truth workbench for ROVO governance artifacts. ROVO Studio, Confluence, and Jira remain live systems with explicit approval gates; this repo keeps the drafts, evidence, checks, and handoffs reviewable.
 
+For Codex or other AI-assisted work, read `AGENTS.md` first. It owns the repo operating contract, source-of-truth order, live-system boundaries, human-owned decisions, branch posture, and validation expectations.
+
 ## Safety Boundaries
 
 - Do not write to ROVO Studio from automation.
