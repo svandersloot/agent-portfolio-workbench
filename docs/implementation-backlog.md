@@ -67,7 +67,15 @@ Current API and platform evidence:
 | 7.4 | Now | Duplicate prevention is a primary value of the control plane and must be operational before team promotion. | Add a practical duplicate-check workflow and required comparison fields to the inventory guidance. |
 | 7.5 | Now | A Stage 5 pilot needs evidence that agents reduce pain points, not just evidence that docs exist. | Create a lightweight pilot metrics and feedback tracker for ROVO agent usage. |
 | 7.6 | Now | One or two helpers can accelerate the project if their safe contribution boundary is explicit. | Create contributor/helper guidance for Codex-assisted spec, template, test, and promotion-packet work. |
-| 7.7 | Later | Cloud Code migration should be tracked, but it should not distract from proving the Stage 5 operating model with one team. | Add a separate future migration lane after the pilot control-plane artifacts are stable. |
+| 7.7 | Later | Claude Code migration should be tracked, but it should not distract from proving the Stage 5 operating model with one team. | Add a separate future migration lane after the pilot control-plane artifacts are stable. |
+| 8.1 | Now | The repo is strong but hard to enter cold; a small start-here guide reduces live handoff burden. | Create a repo start-here guide for builders and maintainers. |
+| 8.2 | Now | Project Brain page families, setup pages, runtime pages, and manifest entries are now numerous enough to drift. | Add a page-family and source-link consistency check before publishing or committing. |
+| 8.3 | Now | Owner, backup owner, status, and last-reviewed gaps block transferability and pilot promotion. | Add a lightweight owner/readiness gap report over Project Brain and setup pages. |
+| 8.4 | Now | Publish history is valuable but still too manual. | Generate local publish-history records from Confluence publisher output after approved applies. |
+| 8.5 | Now | Regression prompts are high-value but scattered across evaluations, reports, and handoffs. | Generate or maintain small regression prompt packs per governed agent. |
+| 8.6 | Now | Handoff packets can age quickly when live page versions or source pages change. | Add stale-handoff detection based on dates, referenced files, and known live versions. |
+| 8.7 | Now | Local ignore rules are good, but work-backed migration needs a second guardrail. | Add a no-secret/private-data scan for tracked and candidate commit files. |
+| 8.8 | Later | Claude Code/work-backed migration is important after the operating model is stable. | Track migration readiness checks separately from the first automation slice. |
 
 Dropped boundary:
 
@@ -155,4 +163,29 @@ This milestone reframes the governance project as a behind-the-scenes ROVO agent
 | 7.7 | Create contributor/helper guide | P1 | 7.1 | Governance steward | Guide explains what helpers can draft with Codex, what requires approval, how to update specs/templates/tests, and how to prepare ROVO/Studio promotion packets without changing live systems. |
 | 7.8 | Build first pilot promotion packet | P1 | 7.3, 7.4, 7.6 | Agent owner + helper | Packet identifies 1-2 initial ROVO agents, target pilot audience, approved workflows, review gates, test evidence, metrics plan, feedback channel, and go/no-go criteria. |
 | 7.9 | Run Stage 5 pilot readiness review | P1 | 7.1-7.8 | Governance steward + reviewer/manager | Review confirms the pilot can start without live explanation from the maintainer and that ROVO users do not need the repo to use approved agents safely. |
-| 7.10 | Track future Cloud Code migration lane | P2 | 7.9 | Governance steward | Separate backlog lane exists for eventual Cloud Code migration scope, dependencies, risks, and decision gate; it does not block the initial Stage 5 pilot. |
+| 7.10 | Track future Claude Code migration lane | P2 | 7.9 | Governance steward | Separate backlog lane exists for eventual Claude Code migration scope, dependencies, risks, and decision gate; it does not block the initial Stage 5 pilot. |
+
+## Milestone 8: Maintainability, Auditability, And Migration Readiness
+
+This milestone turns the governance workflow assessment into implementable slices. The aim is to make the repo easier to maintain, audit, automate, transfer to another teammate, and eventually migrate into a work-backed Claude Code or repo environment without weakening the current manual approval boundaries.
+
+Keep these boundaries:
+
+- Do not publish to Confluence without a focused dry-run and explicit approval.
+- Do not write to Jira.
+- Do not write to ROVO Studio.
+- Do not add Studio write-back.
+- Keep private config, raw captures, HARs, cookies, headers, tokens, and unsanitized exports out of Git.
+
+| ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
+|---|---|---|---|---|---|
+| 8.1 | Create repo start-here guide | P0 | None | Governance steward | `START-HERE.md` or equivalent tells a teammate where to begin for new agent intake, existing agent update, Confluence publishing, Studio setup, regression testing, handoff creation, and safe commit slices. |
+| 8.2 | Add page-family and source-link consistency check | P0 | Existing Confluence page family pattern | Governance steward | Check identifies missing Project Brain linked artifacts, missing manifest entries, missing setup/runtime/knowledge/evaluation links, duplicate source links, and forbidden-substitute gaps before publish or commit. |
+| 8.3 | Add owner/readiness gap report | P0 | Completeness contract | Governance steward + agent owners | Report lists governed agents with missing primary owner, backup owner, status, readiness, measurement, Project Brain link, or last-reviewed date; output remains field-level and does not use percentage scoring. |
+| 8.4 | Standardize publish-history generation | P1 | Confluence publisher output | Space admin | After an approved apply, maintainer can create a safe local record with page ID, title, old version, new version, source file, command, timestamp, and verification result without tokens or private config. |
+| 8.5 | Create regression prompt pack workflow | P1 | Evaluation pages and live regression packets | Agent owners | Each pilot agent has a small prompt pack with source verification, fallback trap, unsafe write, and 2-3 behavior regressions plus pass/partial/fail criteria. |
+| 8.6 | Add stale handoff detection | P1 | Handoff packets and source pages | Governance steward | Report flags handoffs whose referenced files, live versions, or reviewed dates are older than current repo evidence and recommends update, supersede, or keep. |
+| 8.7 | Add no-secret/private-data scan | P1 | `.gitignore` and safe fixture rules | Governance steward | Scan flags tokens, cookies, auth headers, raw exports, private config, suspicious page manifests, and unsanitized local-private material before commit. |
+| 8.8 | Refresh merge-readiness report before commits | P1 | Current git state | Governance steward | Commit-slice plan is regenerated from current `git status` and does not rely on stale branch or HEAD evidence. |
+| 8.9 | Track Claude Code/work-backed repo readiness | P2 | Stage 5 readiness review | Governance steward | Repo has a checklist for branch strategy, PR review, CI checks, secrets handling, publish workflow, evidence capture, and stakeholder communication before migration. |
+| 8.10 | Align completeness contract wording with field-level reporting | P2 | Completeness contract and backlog decision table | Governance steward | Contract and report templates no longer recommend percentage completeness where field-level missing-data reporting is the chosen policy. |

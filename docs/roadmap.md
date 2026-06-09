@@ -45,6 +45,17 @@
 - Do not create a separate quarterly review template unless leadership asks for a distinct quarterly cadence.
 - Produce builder-facing "what already exists" summaries before new agent work begins.
 
+## Maintainability And Auditability Track
+
+Before adding broader automation, make the repo easier for another builder to maintain and audit:
+
+- Add a start-here guide for common workflows and safe commit slices.
+- Add page-family, source-link, and manifest consistency checks for governed agent artifacts.
+- Add owner, backup owner, readiness, measurement, and last-reviewed gap reporting.
+- Add stale-handoff detection so old packets do not silently become the operating source.
+- Add no-secret/private-data scanning before commits or future CI.
+- Keep completeness reporting field-level and evidence-based rather than percentage-based.
+
 ## Stage 5 Operating Model Track
 
 Before expanding beyond one initial team, reframe the project as a lightweight ROVO agent factory and governance control plane:
@@ -67,9 +78,9 @@ The Stage 5 track should prove that a small builder group can create useful, app
 
 Do not build write-back to Studio until Atlassian exposes a stable supported API or the governance need clearly outweighs the risk.
 
-## Future Cloud Code Migration Lane
+## Future Claude Code Migration Lane
 
-Track Cloud Code migration as a separate future lane after the initial Stage 5 pilot model is stable. The migration plan should identify which repo-backed specs, checks, tests, and promotion records belong in Cloud Code, what remains Confluence/Studio-facing, and what approval gate is required before any migration changes the operating model.
+Track Claude Code migration as a separate future lane after the initial Stage 5 pilot model is stable. The migration plan should identify which repo-backed specs, checks, tests, and promotion records belong in Claude Code, what remains Confluence/Studio-facing, and what approval gate is required before any migration changes the operating model.
 
 ## Near-Term Backlog
 
@@ -81,5 +92,7 @@ See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The high
 4. Strengthen duplicate prevention in the Agent Inventory guidance.
 5. Define the pilot metrics and feedback tracker.
 6. Create helper/contributor instructions for Codex-assisted builder work.
-7. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
-8. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.
+7. Create the governance maintainability start-here and first drift-check slice.
+8. Add owner/readiness gap reporting and stale-handoff detection.
+9. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
+10. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.

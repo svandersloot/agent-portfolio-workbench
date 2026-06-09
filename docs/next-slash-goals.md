@@ -494,7 +494,7 @@ Acceptance checks:
 ## 27. Next: Stage 5 Agent Factory Pilot Readiness
 
 ```text
-/goal Build the Stage 5 agent factory pilot-readiness slice. Reframe the governance project as the behind-the-scenes source of truth and control plane for approved ROVO agents, while normal pilot users consume agents through Jira, Confluence, and ROVO/Studio workflows. Create the smallest useful repo-backed artifacts: a Stage 5 start-here page, audience map, agent lifecycle and promotion stages, approved/prohibited/escalate catalog, duplicate-prevention workflow, pilot metrics and feedback tracker, contributor/helper guide, and first pilot promotion packet outline. Do not publish Confluence changes, write to Studio, write to Jira, or begin org-wide rollout. Keep Cloud Code migration as a future tracked lane, not a blocker for the initial pilot.
+/goal Build the Stage 5 agent factory pilot-readiness slice. Reframe the governance project as the behind-the-scenes source of truth and control plane for approved ROVO agents, while normal pilot users consume agents through Jira, Confluence, and ROVO/Studio workflows. Create the smallest useful repo-backed artifacts: a Stage 5 start-here page, audience map, agent lifecycle and promotion stages, approved/prohibited/escalate catalog, duplicate-prevention workflow, pilot metrics and feedback tracker, contributor/helper guide, and first pilot promotion packet outline. Do not publish Confluence changes, write to Studio, write to Jira, or begin org-wide rollout. Keep Claude Code migration as a future tracked lane, not a blocker for the initial pilot.
 ```
 
 Acceptance checks:
@@ -506,4 +506,19 @@ Acceptance checks:
 - Duplicate-prevention workflow requires inventory search and reuse/improve/merge/reject/new decision before new-agent work.
 - Metrics and feedback loop measure whether agents reduce pain points, save time, improve quality, and preserve human decision-making.
 - Contributor/helper guidance defines what helpers can do with Codex and what requires approval.
-- Cloud Code migration is listed as a future lane and does not expand the pilot scope.
+- Claude Code migration is listed as a future lane and does not expand the pilot scope.
+
+## 28. Next: Governance Maintainability Backlog Slice
+
+```text
+/goal Implement the first governance maintainability slice from docs/implementation-backlog.md Milestone 8. Do not publish Confluence changes, write to Studio, write to Jira, or push. First inspect README.md, docs/roadmap.md, docs/implementation-backlog.md, docs/next-slash-goals.md, docs/confluence-pages/, config/confluence-pages.example.yml, docs/handoffs/, docs/reports/, and current git status. Then create the smallest repo-only implementation that helps a teammate start and helps maintainers catch drift: a start-here guide or equivalent, a page-family/source-link consistency checklist or script, and an owner/readiness gap report shape. Keep outputs field-level and evidence-based, do not use percentage completeness scoring, and preserve private config and raw captures. End by validating Markdown/JSON/YAML where practical and propose clean commit slices.
+```
+
+Acceptance checks:
+
+- A teammate can identify the correct next workflow without live explanation.
+- The first check catches missing Project Brain linked artifacts, missing setup/runtime/knowledge/evaluation links, missing manifest entries, or source-link drift.
+- Owner/readiness output lists missing fields rather than percentage scores.
+- No Confluence, Jira, or Studio writes are performed.
+- `.env`, `config/confluence-pages.yml`, `data/raw`, HARs, cookies, headers, tokens, and unsanitized exports remain out of Git.
+- The implementation can be committed independently from unrelated Studio setup or infographic work.
