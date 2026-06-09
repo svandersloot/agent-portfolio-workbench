@@ -10,6 +10,7 @@ The long-term direction is a lightweight governance operating system: publish co
 
 ## Project Areas
 
+- `AGENTS.md`: operating contract for Codex and other AI-assisted repo work.
 - `START-HERE.md`: entry point for common governance workflows, safety boundaries, checks, and commit slices.
 - `scripts/`: local automation for Studio export normalization and future Confluence operations.
 - `schemas/`: contracts for normalized config output.
@@ -24,6 +25,8 @@ The long-term direction is a lightweight governance operating system: publish co
 - `data/raw/`: local-only raw captures, ignored by Git.
 
 ## Current Workflow
+
+For AI-assisted planning or implementation, start with `AGENTS.md`, then use `START-HERE.md` and the task-specific source docs. Keep ROVO Studio and Jira manual-only, and use Confluence dry-runs before any approved publish or update.
 
 ### Studio Config Versioning
 
