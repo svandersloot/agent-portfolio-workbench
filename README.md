@@ -19,6 +19,7 @@ The long-term direction is a lightweight governance operating system: publish co
 - `docs/reports/`: local dry-run reports and governance snapshots.
 - `config/`: reusable governance config such as labels, page publishing targets, and tracked Studio agent list examples.
 - `agent-portfolio-lab/`: local-only reusable-core, team-overlay, handoff, fixture, export, and manual evaluation workspace for coordinated release/Jira agent portfolio testing.
+- `docs/stage-5-agent-factory-start-here.md`: repo-backed start-here for the first team pilot of the ROVO agent factory/control-plane model.
 - `schemas/agent-governance-record.schema.json`: first structured contract for governed agent completeness.
 - `data/raw/`: local-only raw captures, ignored by Git.
 
@@ -93,6 +94,11 @@ The current governance front door is defined locally in:
 - `docs/confluence-pages/agent-fit-intake.md`
 - `docs/agent-governance-completeness-contract.md`
 - `schemas/agent-governance-record.schema.json`
+- `docs/stage-5-agent-factory-start-here.md`
+- `docs/stage-5-pilot-boundaries.md`
+- `docs/stage-5-contributor-helper-guide.md`
+- `templates/stage-5-pilot-feedback-tracker-template.md`
+- `templates/stage-5-pilot-promotion-packet-template.md`
 - `templates/confluence/monthly-governance-snapshot-template.md`
 - `docs/studio-visibility-team-assignment-investigation-checklist.md`
 
@@ -111,13 +117,14 @@ Builder pattern:
 - Use Codex and this repo as the fast workbench for agent ideas, Project Brain scaffolding, Confluence-ready docs, evaluations, measurement plans, and ROVO Studio configuration copy blocks.
 - Use ROVO Studio as the Atlassian-facing runtime where the final configuration is copied manually.
 - Capture Studio configuration back into this repo for version control and drift review.
+- For Stage 5, use this repo as the behind-the-scenes control plane while normal pilot users consume approved agents through Jira, Confluence, and ROVO/Studio workflows.
 
 The next recommended actions are:
 
-1. Review the inventory cleanup dry-run and approve focused Confluence updates when ready.
-2. Manually update the ROVO Design Agent Studio configuration from `docs/handoffs/design-agent-studio-copy-handoff.md`, or capture the current Studio config first if you believe it is already live.
-3. Run manual Studio/admin confirmation for visibility and team assignment controls.
-4. Move CoP notes under Working Group Notes and create the Backlog page.
+1. Review the Stage 5 start-here, pilot boundaries, feedback tracker, contributor guide, and promotion packet before choosing the first 1-2 pilot agents.
+2. Review the inventory cleanup dry-run and approve focused Confluence updates when ready.
+3. Manually update the ROVO Design Agent Studio configuration from `docs/handoffs/design-agent-studio-copy-handoff.md`, or capture the current Studio config first if you believe it is already live.
+4. Run manual Studio/admin confirmation for visibility and team assignment controls.
 5. Turn the dry-run completeness and duplicate reports into repeatable report generation.
 6. Run `.\scripts\Test-ConfluencePageFamilyConsistency.ps1` before committing governed-agent page families or Confluence publish plans.
 

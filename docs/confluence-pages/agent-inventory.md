@@ -71,6 +71,25 @@ Before creating a new governed agent, check:
 - Performance Test Report Agent (Extension) for performance report analysis.
 - Jira Ticket Polisher before starting new Jira issue-quality or ticket-polishing work.
 
+## Duplicate Prevention Workflow
+
+Before starting new-agent work, record a duplicate decision in the intake notes, Project Brain scaffold, or promotion packet.
+
+| Field | Required content |
+|---|---|
+| Submitted idea | Plain-language request or pain point. |
+| Target pain point | Workflow friction the agent would reduce. |
+| Inventory matches reviewed | Existing agents, candidates, extensions, or Project Brains checked. |
+| Similar-agent comparison | Overlap in audience, sources, workflow, tools, and expected output. |
+| Decision | Reuse / Improve / Merge / Reject / New. |
+| Rationale | Why the decision is safest and least duplicative. |
+| Proposed owner | Accountable owner or owning team. |
+| Backup owner | Backup owner, delegate, or gap/remediation owner. |
+| Naming check | Whether the proposed name conflicts with an existing agent or page. |
+| Next review date | ISO date for follow-up, pilot review, or remediation review. |
+
+Use `New` only when reuse, improvement, merge, or rejection are not sufficient.
+
 ## Review Notes
 
 - This draft is based on local export evidence and repo reports, not a live Studio write.

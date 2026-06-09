@@ -491,11 +491,20 @@ Acceptance checks:
 - Jira Ticket Polisher remains draft-only.
 - Evaluation prompts include one MOBRM overlay case, one org-wide fallback case, and one wrong-overlay boundary case.
 
-## 27. Next: Stage 5 Agent Factory Pilot Readiness
+## 27. Completed Locally: Stage 5 Agent Factory Pilot Readiness
 
 ```text
 /goal Build the Stage 5 agent factory pilot-readiness slice. Reframe the governance project as the behind-the-scenes source of truth and control plane for approved ROVO agents, while normal pilot users consume agents through Jira, Confluence, and ROVO/Studio workflows. Create the smallest useful repo-backed artifacts: a Stage 5 start-here page, audience map, agent lifecycle and promotion stages, approved/prohibited/escalate catalog, duplicate-prevention workflow, pilot metrics and feedback tracker, contributor/helper guide, and first pilot promotion packet outline. Do not publish Confluence changes, write to Studio, write to Jira, or begin org-wide rollout. Keep Claude Code migration as a future tracked lane, not a blocker for the initial pilot.
 ```
+
+Completed local artifacts:
+
+- `docs/stage-5-agent-factory-start-here.md`
+- `docs/stage-5-pilot-boundaries.md`
+- `docs/stage-5-contributor-helper-guide.md`
+- `templates/stage-5-pilot-feedback-tracker-template.md`
+- `templates/stage-5-pilot-promotion-packet-template.md`
+- `docs/confluence-pages/agent-inventory.md` duplicate-prevention workflow update
 
 Acceptance checks:
 
@@ -507,6 +516,10 @@ Acceptance checks:
 - Metrics and feedback loop measure whether agents reduce pain points, save time, improve quality, and preserve human decision-making.
 - Contributor/helper guidance defines what helpers can do with Codex and what requires approval.
 - Claude Code migration is listed as a future lane and does not expand the pilot scope.
+
+Next action:
+
+- Select the first 1-2 pilot agents and run the Stage 5 readiness review from `docs/stage-5-agent-factory-start-here.md`.
 
 ## 28. Completed Locally: Governance Maintainability Backlog Slice
 

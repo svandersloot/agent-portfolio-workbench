@@ -60,13 +60,12 @@ Before adding broader automation, make the repo easier for another builder to ma
 
 Before expanding beyond one initial team, reframe the project as a lightweight ROVO agent factory and governance control plane:
 
-- Separate the behind-the-scenes builder audience from normal ROVO agent users.
-- Document the path from team pain point to approved ROVO agent.
-- Define promotion stages from idea through pilot-approved, team-approved, deprecated, and retired.
-- Publish a small approved/prohibited/escalate catalog for the first pilot.
-- Strengthen duplicate prevention through intake, inventory search, similar-agent comparison, and explicit reuse/improve/merge/reject/new decisions.
-- Track pilot usage, time saved, output quality, review issues, unsafe outputs, and user feedback.
-- Define helper/contributor boundaries so one or two people can use Codex to draft specs, tests, templates, and promotion packets without changing live Studio, Jira, or Confluence state without approval.
+- Done locally: separate the behind-the-scenes builder audience from normal ROVO agent users in `docs/stage-5-agent-factory-start-here.md`.
+- Done locally: document the path from team pain point to approved ROVO agent, including lifecycle and promotion stages.
+- Done locally: define a first-pilot approved/prohibited/escalate catalog in `docs/stage-5-pilot-boundaries.md`.
+- Done locally: strengthen duplicate prevention through intake, inventory search, similar-agent comparison, and explicit reuse/improve/merge/reject/new decisions.
+- Done locally: create manual pilot usage and feedback tracking in `templates/stage-5-pilot-feedback-tracker-template.md`.
+- Done locally: define helper/contributor boundaries so one or two people can use Codex to draft specs, tests, templates, and promotion packets without changing live Studio, Jira, or Confluence state without approval.
 
 The Stage 5 track should prove that a small builder group can create useful, approved, non-duplicative agents for a team while normal users only need the approved ROVO agents and lightweight feedback/escalation paths.
 
@@ -86,13 +85,9 @@ Track Claude Code migration as a separate future lane after the initial Stage 5 
 
 See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The highest-return items are:
 
-1. Create the Stage 5 agent factory start-here page.
-2. Document audience separation, lifecycle, and promotion stages for one initial team pilot.
-3. Create the pilot approved/prohibited/escalate catalog.
-4. Strengthen duplicate prevention in the Agent Inventory guidance.
-5. Define the pilot metrics and feedback tracker.
-6. Create helper/contributor instructions for Codex-assisted builder work.
-7. Extend governance maintainability checks with stale-handoff detection.
-8. Add no-secret/private-data scanning and merge-readiness refresh checks.
-9. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
-10. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.
+1. Review the Stage 5 pilot promotion packet and select the first 1-2 pilot agents.
+2. Run the Stage 5 pilot readiness review before any team promotion.
+3. Extend governance maintainability checks with stale-handoff detection.
+4. Add no-secret/private-data scanning and merge-readiness refresh checks.
+5. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
+6. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.
