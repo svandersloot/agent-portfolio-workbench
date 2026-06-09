@@ -1,14 +1,18 @@
 # Jira Ticket Polisher - Agent Design Record
 
+> **Archived / Superseded - 2026-06-09**
+>
+> Jira Ticket Polisher is retained for governance history only. Use Jira Work Item Assistant for active Jira ticket drafting, review, polishing, standards alignment, gap checking, and comment drafting. Do not configure or promote Jira Ticket Polisher as a separate user-facing agent unless a new governed decision reopens it.
+
 ## Design Metadata
 
 | Field | Value |
 |---|---|
 | Agent name | Jira Ticket Polisher |
-| Status | In Review |
+| Status | Archived / Superseded |
 | Owner | TBD |
 | Backup owner | TBD |
-| Design version | v0.1 / 2026-05-29 |
+| Design version | v0.2 / 2026-06-09 |
 | Related request | Migrate Jira Ticket Polisher through the governed agent flow. |
 | Related pattern | Organization-wide standard plus team overlay |
 
@@ -27,21 +31,21 @@ Jira tickets often vary in clarity, acceptance criteria, source links, testing e
 
 ## Workflow Supported
 
-Jira Ticket Polisher supports interactive ticket review and rewrite drafting. The user provides a ticket link, selected ticket context, export row, pasted issue content, or a structured Jira Work Item Draft Bundle produced by Jira Work Item Assistant. The agent reviews the ticket or draft bundle against the organization-wide standard, applies a team overlay when available, and returns gaps plus copy-ready draft improvements for human review.
+Jira Ticket Polisher historically supported interactive ticket review and rewrite drafting. Active ticket review and rewrite drafting now belongs to Jira Work Item Assistant's Ticket Review / Polish workflow. The useful review behavior remains: review a ticket or draft against the organization-wide standard, apply a team overlay when available, and return gaps plus copy-ready draft improvements for human review.
 
 ## Fit Decision
 
 | Field | Value |
 |---|---|
-| Decision | NEW GOVERNED AGENT |
-| Reason | Ticket polishing is repeatable, cross-team, source-backed, measurable, and distinct from release or agent-design workflows. |
+| Decision | ARCHIVED / SUPERSEDED |
+| Reason | Jira Work Item Assistant now covers ticket drafting, existing-card review, polishing, standards alignment, gap checking, common-task guidance, and draft-only status comments without adding a sixth subagent. |
 | Why not prompt only? | A prompt can help one ticket, but the reusable standard, team overlay model, source traceability, and evaluations need durable governance. |
 | Why not separate team agents? | Team-specific standards should be overlays to avoid duplicate agents and inconsistent default behavior. |
 | Why not automation? | Review requires judgment, clarification, and source interpretation rather than deterministic field updates. |
 
 ## Trigger
 
-The primary trigger is a user prompt asking for ticket review, ticket polishing, acceptance-criteria drafting, readiness gap detection, or team-standard compliance before a ticket moves forward. A secondary trigger is a Jira Work Item Assistant handoff that asks Jira Ticket Polisher to review proposed Jira work item drafts before human-approved creation.
+Historical triggers were user prompts asking for ticket review, ticket polishing, acceptance-criteria drafting, readiness gap detection, or team-standard compliance before a ticket moved forward. These prompts should now be handled by Jira Work Item Assistant.
 
 ## Inputs And Context Sources
 
@@ -159,4 +163,5 @@ The governed agent, standards pages, Studio copy blocks, and inventory entry sho
 
 | Version | Date | Change Summary | Updated By |
 |---|---|---|---|
+| v0.2 | 2026-06-09 | Archived / superseded by Jira Work Item Assistant and preserved as historical reference. | Codex review |
 | v0.1 | 2026-05-29 | Initial governed migration scaffold. | Governance migration scaffold |

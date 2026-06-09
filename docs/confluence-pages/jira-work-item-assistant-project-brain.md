@@ -14,26 +14,27 @@
 | Current source space | MO |
 | Legacy source | MO folder `5090410548` supplied by user |
 | Recommended location | ROVO > Agent Project Brains > Jira Hygiene Agents |
-| Last reviewed | 2026-06-03 |
-| Next action | Capture legacy source content, confirm MOBRM pilot details, define approved Jira create path, and run evaluation before launch. |
+| Last reviewed | 2026-06-09 |
+| Next action | Run the refreshed Ticket Review / Polish evaluation coverage, confirm MOBRM pilot details, define approved Jira create path, and keep Jira Ticket Polisher archived/superseded. |
 
 ## Migration Decision
 
 Jira Work Item Assistant should be migrated as a governed agent in review.
 
-The agent has a distinct coordination workflow: it starts from release and Kanban context, helps users shape common work into clear Jira tickets and repeatable task guidance, and asks for human approval before any Jira creation. This is different from release notes drafting, release health assessment, drift monitoring, and ticket polishing.
+The agent has a distinct coordination workflow: it starts from release, Kanban, existing Jira card, or user-provided task context; helps users shape and improve clear Jira tickets and repeatable task guidance; and asks for human approval before any Jira creation. It now owns the practical ticket-review and ticket-polishing workflow that previously sat under Jira Ticket Polisher.
 
 This should remain a generic release-work assistant with team standards overlays, not a MOBRM-only agent. MOBRM is the first proof point because the team board and team standard are known. Creating one separate assistant per team would increase standards drift and governance overhead unless a team has a materially different workflow that cannot be represented as an overlay.
 
 ## Mission
 
-Jira Work Item Assistant helps requesters, release owners, and delivery leads turn Kanban, release, and common-task context into clear, source-backed Jira work items and task guidance that humans and AI can understand, assess, and execute consistently.
+Jira Work Item Assistant helps requesters, release owners, and delivery leads turn Kanban, release, existing-card, and common-task context into clear, source-backed Jira work items, ticket improvements, status comment drafts, and task guidance that humans and AI can understand, assess, and execute consistently.
 
 ## Scope
 
 ### In Scope
 
 - Draft richer Jira tickets from release or Kanban context.
+- Review and polish existing Jira cards using the Ticket Review / Polish workflow.
 - Draft one ticket or multiple known candidate tickets in bulk.
 - Apply the organization-wide Jira ticket quality standard when drafting work.
 - Apply a documented team standard or overlay when the project, board, or user-provided context clearly identifies one.
@@ -41,7 +42,7 @@ Jira Work Item Assistant helps requesters, release owners, and delivery leads tu
 - Create beginner-readable common-task guidance inside or alongside candidate Jira tickets when the task is repeatable, script-driven, or explicitly meant to teach a common task.
 - Identify missing context, source evidence, dependencies, validation needs, and owner decisions before work is created.
 - Draft structured Jira status comments from user-provided progress, blockers, validation evidence, or recent changes so tickets stay readable for humans and downstream release agents.
-- Prepare a structured Jira Work Item Draft Bundle for optional Jira Ticket Polisher review.
+- Prepare a structured Jira Work Item Draft Bundle only when the user explicitly asks for machine-readable JSON, a Draft Bundle, or packaging; do not use it as the default response for normal ticket drafting or polishing.
 - Ask for explicit human approval before any Jira creation path; after approval, future Jira creation may be allowed through a separately governed write workflow.
 
 ### Out Of Scope
@@ -60,11 +61,11 @@ Jira Work Item Assistant helps requesters, release owners, and delivery leads tu
 
 | Related item | Relationship |
 |---|---|
-| Jira Ticket Polisher | Standards-heavy review and polish gate for candidate Jira tickets. Jira Work Item Assistant may draft first, then escalate complex or risky drafts to Jira Ticket Polisher. |
+| Jira Ticket Polisher | Archived / superseded historical record. Jira Work Item Assistant now owns active ticket review, polish, standards alignment, gap checking, and improved copy drafts. |
 | Release Notes Manager | Owns release notes, business summaries, deployment runbooks, and source synchronization for release-note artifacts. |
 | Release Health Analyst | Owns release readiness assessment, blockers, risks, and source completeness. |
 | Release Drift Monitor | Owns pre-freeze evidence drift detection and handoff history. |
-| Jira Work Item Draft Bundle | Contract for handing candidate release tickets to Jira Ticket Polisher before Jira creation. |
+| Jira Work Item Draft Bundle | Contract for explicit machine-readable packaging of candidate Jira work items before human-approved creation. |
 | Team Jira Standards | Team overlay structure this assistant can help draft but not approve. |
 
 ## Pilot Scope
@@ -107,7 +108,7 @@ Jira Work Item Assistant helps requesters, release owners, and delivery leads tu
 6. Agent flags missing evidence and asks clarifying questions instead of inventing details.
 7. If the user provides a status update for an existing ticket, the agent drafts a concise source-backed Jira comment with status, completed work, blockers, validation evidence, and next action.
 8. If the user provides updates for multiple tickets, the agent drafts a named bulk status comment set with target issue, comment type, evidence, and approval state for each item.
-9. Agent optionally creates a Jira Work Item Draft Bundle for Jira Ticket Polisher review.
+9. Agent runs Ticket Review / Polish internally for complex, risky, standards-sensitive, or existing-card requests using the existing five subagents.
 10. Agent presents the final candidate draft, comment draft, bulk-create summary, or named bulk comment set to the user for explicit approval.
 11. Approved Jira creation can run only through a governed write workflow.
 12. If a team standard is missing, the agent may draft a proposed team standards page for owner review instead of applying it as official policy.
@@ -134,7 +135,7 @@ Status comment drafts should use this lightweight structure when the available e
 | 2 | Organization-Wide Jira Ticket Quality Standard | Default ticket drafting baseline. |
 | 3 | Approved team Jira standard | Team-specific overlay when project, board, or supplied standard clearly matches. |
 | 4 | Jira Work Item Assistant legacy source content | Existing workflow behavior after authenticated capture and review. |
-| 5 | Jira Ticket Polisher output | Optional quality gate for ticket field polish and standards compliance. |
+| 5 | Ticket Review / Polish workflow output | Internal Work Item Assistant review that combines gap checking, standards resolution, field drafting, task guidance, and status comment drafting. |
 | 6 | Observed sample tickets | Pattern evidence only; not official policy. |
 
 ## Guardrails

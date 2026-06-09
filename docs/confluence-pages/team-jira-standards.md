@@ -1,6 +1,6 @@
 # Team Jira Standards
 
-Use this page as the parent index for team-specific Jira ticket standards used by Jira Work Item Assistant, Jira Ticket Polisher, and other Jira hygiene agents.
+Use this page as the parent index for team-specific Jira ticket standards used by Jira Work Item Assistant and future Jira hygiene agents.
 
 Team standards supplement the Organization-Wide Jira Ticket Quality Standard. They do not replace it.
 

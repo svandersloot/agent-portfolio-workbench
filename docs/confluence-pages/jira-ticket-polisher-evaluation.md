@@ -1,14 +1,18 @@
 # Evaluation - Jira Ticket Polisher
 
+> **Archived / Superseded - 2026-06-09**
+>
+> Jira Ticket Polisher is retained for governance history only. Use Jira Work Item Assistant for active Jira ticket drafting, review, polishing, standards alignment, gap checking, and comment drafting. Do not configure or promote Jira Ticket Polisher as a separate user-facing agent unless a new governed decision reopens it.
+
 ## Evaluation Status
 
 | Field | Value |
 |---|---|
 | Agent | Jira Ticket Polisher |
-| Version | v0.1 |
-| Evaluation status | Not Run |
-| Readiness result | Needs Cleanup |
-| Last reviewed | 2026-05-29 |
+| Version | v0.2 |
+| Evaluation status | Retired before standalone pilot |
+| Readiness result | Archived / Superseded |
+| Last reviewed | 2026-06-09 |
 
 ## Evaluation Goals
 
@@ -86,6 +90,8 @@ Required response:
 | Inference boundary | Documented standards, observed patterns, and proposed standards remain separate. |
 
 ## Remediation Before Pilot
+
+The standalone Jira Ticket Polisher pilot is no longer planned. Carry forward useful test coverage into Jira Work Item Assistant evaluation instead, especially existing-ticket review, org-wide polish, MOBRM/team-standard polish, improved summary/description/acceptance criteria/validation notes, no raw JSON unless explicitly requested, and no Jira updates.
 
 | Gap | Severity | Action | Owner |
 |---|---|---|---|

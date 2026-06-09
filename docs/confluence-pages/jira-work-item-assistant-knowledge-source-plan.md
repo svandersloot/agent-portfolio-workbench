@@ -29,14 +29,14 @@ The standards model is global-plus-overlay: one organization-wide Jira ticket st
 | MOBRM board/project | Jira | Pilot System of Record | First pilot board and team context. | Runtime | Use pasted context if live access is unavailable. |
 | Release plan, release calendar, or release page | Confluence / Jira | Process Authority | Confirm release identity, timing, scope, owners, and coordination needs. | Per release | Mark `Data Incomplete`. |
 | Jira Ticket Standards | Confluence | Standards Index | Shared standards parent for Jira hygiene agents. | Quarterly or after governance restructure | Use directly linked standard pages if the parent is unavailable. |
-| Organization-Wide Jira Ticket Quality Standard | Confluence | Process Authority | Default drafting baseline for all candidate Jira tickets. | Quarterly or after workflow change | Route draft through Jira Ticket Polisher or ask user to provide standard. |
+| Organization-Wide Jira Ticket Quality Standard | Confluence | Process Authority | Default drafting and review baseline for all candidate or existing Jira tickets. | Quarterly or after workflow change | Mark standard coverage `Data Incomplete` and ask the user to provide the standard. |
 | Team Jira Standards | Confluence | Team Standards Index | Identify available team overlays. | Per team review | State no approved team overlay was applied. |
 | MOBRM Team Jira Standards | Confluence | Team Overlay | Apply to `MOBRM-*` work or MOBRM board `7690` context. | Annual or after workflow change | Use org-wide standard only and state no team overlay applied. |
 | Deployment Notes Standard for Jira Work Items | Confluence | Process Authority / Versioned Source of Truth | Decide when Deployment Notes are needed and draft the Jira Deployment Notes field for human review. This Confluence page is authoritative over copied Studio examples. | Pilot review, then quarterly or after release process change | Mark Deployment Notes guidance `Data Incomplete` and ask for the standard or release-owner guidance. |
 | Deployment Notes Agent Pilot | Confluence | Evaluation / Pilot Evidence | Backtest historical deployment-note behavior and score Jira Work Item Assistant output. | During pilot | Use the standard page only and ask the user for historical card context. |
 | Proposed team standards page | Draft Markdown / Confluence draft | Proposed Team Standard | Help teams document required fields, important fields, non-required defaults, issue type expectations, labels, parent rules, and common task patterns. | Per team setup | Keep as proposed and do not apply as official until approved. |
-| Jira Work Item Draft Bundle schema | Repo contract | Draft Contract | Package candidate release tickets for review. | Per contract change | Use field blocks instead. |
-| Jira Ticket Polisher output | ROVO agent response | Quality Review | Use as optional strict review before creation. | Runtime | Present draft for manual review without Polisher. |
+| Jira Work Item Draft Bundle schema | Repo contract | Draft Contract | Package candidate release tickets only when the user explicitly asks for machine-readable JSON, packaging, or a Draft Bundle. | Per contract change | Use human-readable field blocks instead. |
+| Jira Ticket Polisher historical pages | Archived reference | Historical Reference | Preserve prior review criteria and standards provenance only. Do not route active work to Jira Ticket Polisher. | Migration-time | Use Jira Work Item Assistant Ticket Review / Polish. |
 | Legacy MO source folder | Confluence | Legacy Reference | Migrate historical instructions, templates, and behavior after capture. | Migration-time | Treat as source gap until accessible. |
 
 ## Required Input Check
@@ -54,7 +54,7 @@ Before producing a final-seeming ticket draft, identify:
 - Source evidence used.
 - Applicable organization-wide and team standards.
 - Missing details that prevent confident ticket creation.
-- Whether the user wants copy-ready draft only, Jira Ticket Polisher review, or future approved create path.
+- Whether the user wants copy-ready draft only, Ticket Review / Polish, explicit Draft Bundle packaging, or a future approved create path.
 - Whether Deployment Notes are needed when the work item includes manual deployment steps, imports, runtime properties, AWS pipelines, user/role/permission changes, external coordination, timing constraints, preconditions, or shared deployment artifacts.
 
 ## Source Handling Rules

@@ -18,7 +18,8 @@
 | Make a ticket teach a common task to a new team member. | Common Task Guide Builder |
 | Find, apply, or draft a proposed team Jira standards page or team overlay. | Team Standards Resolver/Drafter |
 | Turn a user status update into a clean Jira comment draft. | Status Comment Drafter |
-| Package one or more candidate tickets for Jira Ticket Polisher review. | Parent agent creates the Jira Work Item Draft Bundle directly. |
+| Review or polish an existing Jira card or candidate ticket. | Ticket Review / Polish workflow using Work Item Gap Checker, Team Standards Resolver/Drafter, Work Item Drafter, Common Task Guide Builder, or Status Comment Drafter as needed. |
+| Package one or more candidate tickets as machine-readable draft input. | Parent agent creates the Jira Work Item Draft Bundle directly only when the user explicitly asks for machine-readable JSON, packaging, or a Draft Bundle. |
 | Identify missing owners, dependencies, validation, or source evidence. | Work Item Gap Checker |
 | Draft release notes or business release summaries. | Route to Release Notes Manager. |
 | Score release health, blockers, readiness, or go/no-go. | Route to Release Health Analyst. |
@@ -93,8 +94,8 @@
 - Use `Data Incomplete` instead of inventing missing details.
 - Ask for explicit approval before any future Jira create path.
 - Ask for explicit approval of the exact target issue and comment text before any future Jira comment-posting path.
-- Route ticket quality review to Jira Ticket Polisher when strict standards validation is needed.
-- When routing to Jira Ticket Polisher, the parent agent creates the Jira Work Item Draft Bundle directly instead of using a dedicated subagent.
+- Handle ticket quality review and polishing inside Jira Work Item Assistant. Jira Ticket Polisher is archived/superseded and should not be routed to as a separate active agent.
+- Create a Jira Work Item Draft Bundle only for explicit machine-readable JSON, packaging, or Draft Bundle requests; do not lead with raw JSON for ordinary ticket review or polish requests.
 - Route release health to Release Health Analyst.
 - Route release notes to Release Notes Manager.
 - Do not draft final release notes, business release summaries, or release communications in this agent.
@@ -104,6 +105,7 @@
 
 | Version | Date | Change |
 |---|---|---|
+| v0.5 | 2026-06-09 | Added Ticket Review / Polish as an internal workflow and removed active routing to archived/superseded Jira Ticket Polisher while keeping the five-subagent model unchanged. |
 | v0.4 | 2026-06-04 | Added follow-up triage guardrail so release health/drift open-item lists are triaged before comment drafts. |
 | v0.3 | 2026-06-04 | Tightened low-value status comment behavior so vague updates are not returned as ready-to-copy Jira comments. |
 | v0.2 | 2026-06-03 | Added v2 evaluation tightening for missing project drafts, sample-ticket standards, release-notes routing, and MOBRM default field discipline. |

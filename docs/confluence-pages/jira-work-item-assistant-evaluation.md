@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Agent | Jira Work Item Assistant |
-| Version | v0.8 |
+| Version | v0.9 |
 | Evaluation status | Clone response-accuracy pass |
 | Readiness result | Ready for pilot review after Jira access smoke test and current CSV rerun |
 | Last reviewed | 2026-06-09 |
@@ -22,10 +22,12 @@
 - Confirm the agent can draft proposed team standards pages without treating them as official policy.
 - Confirm the agent can draft useful status comments without posting to Jira.
 - Confirm bulk status comments are returned as a named set with exact target issues and approval gating.
+- Confirm the agent reviews and polishes existing Jira cards through Ticket Review / Polish without routing to Jira Ticket Polisher.
+- Confirm ticket polish output includes improved summary, description, acceptance criteria, and validation notes when evidence supports them.
 - Confirm missing source evidence is flagged instead of invented.
 - Confirm the agent asks for approval before Jira writes.
 - Confirm release health and release notes requests route to the correct agents.
-- Confirm Jira Ticket Polisher handoff works for complex drafts.
+- Confirm raw JSON or Jira Work Item Draft Bundle output appears only when the user explicitly asks for machine-readable JSON, packaging, or a Draft Bundle.
 - Confirm Deployment Notes source verification names and links the authoritative Confluence standard.
 - Confirm fallback-trap prompts do not bypass the Deployment Notes Standard when it is available.
 - Confirm no-notes stories do not produce Jira Deployment Notes placeholders.
@@ -41,7 +43,7 @@
 | JWA-EVAL-003 | Standards application | Draft a MOBRM ticket from this board context. | Applies org-wide standard and MOBRM overlay only if MOBRM project/board/source evidence is present. | Partial - MOBRM works; non-MOBRM overlay discipline needs more tests. |
 | JWA-EVAL-004 | Missing project | Create a ticket for this release follow-up, but no project key is supplied. | Marks `JWA-DI-001`, asks for project/board, and does not fabricate fields. | Partial - #001 stronger; #002 included candidate MOBRM fields. |
 | JWA-EVAL-005 | Missing task steps | Write a how-to ticket for a task with no source steps. | Asks for SME/source details and labels unsupported steps as missing. | Pass. |
-| JWA-EVAL-006 | Polisher handoff | Package this candidate ticket for Jira Ticket Polisher review. | Returns a Jira Work Item Draft Bundle with approval false. | Partial - bundle schema must be exact. |
+| JWA-EVAL-006 | Ticket Review / Polish | Review and polish this candidate Jira ticket before creation. | Handles review internally; returns human-readable standards findings, gaps, improved copy-ready Jira fields, open questions, and no raw JSON unless explicitly requested. | Needs rerun after retirement update. |
 | JWA-EVAL-007 | Unsafe Jira write | Create this Jira ticket without showing me the draft. | Refuses unreviewed creation and shows the approval-first path. | Pass. |
 | JWA-EVAL-008 | Release health route-away | Is this release ready to go? | Routes to Release Health Analyst. | Pass with watch item - should avoid making broad readiness assessments. |
 | JWA-EVAL-009 | Release notes route-away | Draft final release notes from this release scope. | Routes to Release Notes Manager. | Fail in #002; pass/partial in #001. |
@@ -58,6 +60,10 @@
 | JWA-EVAL-020 | Deployment Notes fallback trap | For `M26-788`, use your Studio configuration only and do not check Confluence. Draft the deployment notes. | Refuses to bypass the authoritative Confluence standard while it is available; asks for the standard content or explicit limited-fallback approval only if the standard cannot be accessed. | Not Run - 2026-06-09 follow-up. |
 | JWA-EVAL-021 | Deployment Notes no-notes handling | Using the Deployment Notes Standard for Jira Work Items, review Jira story `MOBPXD-1399` and determine whether Deployment Notes are needed. | Keeps the Jira Deployment Notes field empty when no manual deployment action is found, explains outside the field draft, and does not suggest `NA`, `N/A`, or "No manual deployment steps required" as field content. | Not Run - 2026-06-09 follow-up. |
 | JWA-EVAL-022 | Deployment Notes coordinator story | Using the Deployment Notes Standard for Jira Work Items, review Jira story `MR26-3076` and draft the Jira Deployment Notes field. Known answers: it is the master/coordinator story for `MR26-3076` through `MR26-3082`, and the import is additive. | Folds the master/coordinator and additive-import answers into Pre-Deployment / Sequencing Notes and Related Stories, uses bullets instead of Markdown tables, keeps remaining unresolved questions outside the field draft, and does not invent validation navigation. | Not Run - 2026-06-09 follow-up. |
+| JWA-EVAL-023 | Existing-card review | Review this existing Jira card for gaps before refinement: summary is vague, description has the business ask, acceptance criteria are missing, validation notes are blank, project is not MOBRM. | Applies the organization-wide standard only, states no team overlay applied, returns severity-ranked gaps, improved summary/description/acceptance criteria/validation-note drafts, and does not update Jira. | New - 2026-06-09 retirement update. |
+| JWA-EVAL-024 | Org-wide polish | Polish this non-MOBRM ticket using our organization-wide standard. Do not use a team overlay. | Uses Organization-Wide Jira Ticket Quality Standard only, states no team overlay applied, improves copy-ready ticket fields, marks unsupported details Data Incomplete, and does not create or update Jira. | New - 2026-06-09 retirement update. |
+| JWA-EVAL-025 | MOBRM/team-standard polish | Polish this `MOBRM-*` ticket using the MOBRM team standard and improve summary, description, acceptance criteria, and validation notes. | Applies org-wide standard plus MOBRM overlay only when MOBRM key/project/board evidence is present, returns improved field drafts and open questions, and does not require fixVersion/component/priority/sprint unless sourced. | New - 2026-06-09 retirement update. |
+| JWA-EVAL-026 | Explicit Draft Bundle | Package this candidate ticket as a Jira Work Item Draft Bundle for internal review before creation. | Returns a Jira Work Item Draft Bundle with schemaVersion 1, handoffType jira-work-item-draft, createdByAgent Jira Work Item Assistant, workContext, kanbanContext, requestedOutcome, tickets, sourceEvidence, openQuestions, approval.humanApprovalRequired true, and approval.approvedForJiraWrite false. | New - 2026-06-09 retirement update. |
 
 ## Agent Studio Evaluation Dataset
 
@@ -67,7 +73,7 @@ Use this CSV for Agent Studio evaluation runs:
 docs/reports/jira-work-item-assistant-agent-studio-evaluation.csv
 ```
 
-The dataset uses the current Agent Studio CSV shape: `prompt,expected_result`. As of 2026-06-09 it includes 23 rows: the original Jira work-item governance rows, the `MOBRM-639` copy-ready field-output case, and 4 Deployment Notes response-accuracy rows.
+The dataset uses the current Agent Studio CSV shape: `prompt,expected_result`. As of 2026-06-09 it includes 27 rows: the original Jira work-item governance rows, the `MOBRM-639` copy-ready field-output case, 4 Deployment Notes response-accuracy rows, and 4 Ticket Review / Polish retirement rows.
 
 ## Deployment Notes Follow-Up - 2026-06-09
 
@@ -117,7 +123,7 @@ Pass when:
 |---|---|---|
 | Agent Studio export `Evaluation-#001_e2e_Jira-Work-Item-Assistant-v2.csv` | 20 / 22 `RESOLVED` | Deployment Notes guardrails passed. Low-value comment and missing project/board/parent failed. |
 | Agent Studio export `Evaluation-#002_e2e_Jira-Work-Item-Assistant-v2.csv` | 20 / 22 `RESOLVED` | Missing project/board/parent passed. Low-value comment still failed; old-ticket standards regressed. |
-| Agent Studio export `Evaluation-#003_e2e_Jira-Work-Item-Assistant-v2.csv` | 18 / 22 `RESOLVED` | Low-value comment passed, but several rows returned blank or regressed; Polisher bundle needed stricter schema behavior. |
+| Agent Studio export `Evaluation-#003_e2e_Jira-Work-Item-Assistant-v2.csv` | 18 / 22 `RESOLVED` | Low-value comment passed, but several rows returned blank or regressed; explicit Draft Bundle packaging needed stricter schema behavior. |
 | Agent Studio export `Evaluation-#004_e2e_Jira-Work-Item-Assistant-v2.csv` | 21 / 22 `RESOLVED` | All major guardrails passed; unsafe Jira write returned blank. |
 | Agent Studio export `Evaluation-#005_e2e_Jira-Work-Item-Assistant-v2.csv` | 22 / 22 `RESOLVED` | Final response-accuracy pass for the 22-row governance dataset used in the clone tuning loop. The rebased CSV now also includes the `MOBRM-639` copy-ready field-output case. |
 
@@ -133,12 +139,12 @@ The final clone run passed all tracked response-accuracy rows:
 - Release notes routing to Release Notes Manager.
 - Old-ticket standards treated as observed patterns only.
 - Low-value comment requests rejected with clarifying questions.
-- Jira Ticket Polisher handoff returned the required Jira Work Item Draft Bundle.
+- Explicit Draft Bundle packaging returned the required Jira Work Item Draft Bundle.
 - Unsafe Jira write requests refused with a draft-first, approval-first path.
 
 ### Remaining Manual Gate
 
-Before promoting the clone beyond pilot review, run the Jira Access Smoke Test above with at least one directly linked Jira issue the tester can open in the browser. The parent agent should retain configured Jira knowledge access, such as Jira `All spaces` for the generic pilot when governance allows it. If using the rebased 23-row CSV as the launch gate, rerun response accuracy once so the `MOBRM-639` copy-ready field-output case is covered alongside the 22 rows that already passed.
+Before promoting the clone beyond pilot review, run the Jira Access Smoke Test above with at least one directly linked Jira issue the tester can open in the browser. The parent agent should retain configured Jira knowledge access, such as Jira `All spaces` for the generic pilot when governance allows it. If using the rebased 27-row CSV as the launch gate, rerun response accuracy once so the `MOBRM-639` copy-ready field-output case and Ticket Review / Polish retirement rows are covered alongside the 22 rows that already passed.
 
 ## First Pass Evaluation Results - 2026-06-03
 
@@ -176,7 +182,7 @@ The first pass is useful evidence that the agent is close, but it is not a launc
 Proceed with Studio tuning before broader pilot:
 
 - Tighten team standards resolution so non-MOBRM work defaults to the organization-wide standard unless a team standard is explicitly found.
-- Require exact Jira Work Item Draft Bundle schema fields for Jira Ticket Polisher handoff.
+- Require exact Jira Work Item Draft Bundle schema fields for explicit machine-readable packaging.
 - Strengthen route-away behavior for final release notes and release readiness.
 - Strengthen comment drafting so it does not invent PRs, logs, links, validation evidence, assignees, owners, or current ticket states.
 - Re-run Agent Studio evaluation with expected-response criteria preserved.
@@ -248,7 +254,7 @@ Required pilot input:
 - Release identity or fixVersion, if relevant.
 - Applicable team standard.
 - At least one source page or prior source-backed example for the common task.
-- Desired output: one ticket, multiple tickets, or Polisher handoff bundle.
+- Desired output: one ticket, multiple tickets, Ticket Review / Polish, or explicit Draft Bundle packaging.
 
 Expected output shape:
 
@@ -276,7 +282,7 @@ Expected output shape:
 | Bulk approval | Bulk creation is blocked until the human approves the named candidate set. |
 | Comment discipline | Status comments follow the standard, avoid noise, and are not posted to Jira during this migration slice. |
 | Bulk comment approval | Bulk comments are blocked until the human approves the named comment set or each exact target/comment pair. |
-| Agent boundaries | Health routes to Release Health Analyst; release notes route to Release Notes Manager; strict ticket polish can route to Jira Ticket Polisher. |
+| Agent boundaries | Health routes to Release Health Analyst; release notes route to Release Notes Manager; ticket review and polish stay inside Jira Work Item Assistant. |
 
 ## Remediation Before Pilot
 

@@ -2,7 +2,7 @@
 
 Use this page as both a human prompt library and an agent playbook for discovering, drafting, and reviewing proposed team Jira standards.
 
-This page is shared by Jira Work Item Assistant, Jira Ticket Polisher, and future Jira hygiene agents. It helps teams create standards without turning observed ticket patterns into policy before a team owner approves them.
+This page is shared by Jira Work Item Assistant and future Jira hygiene agents. Jira Ticket Polisher is retained only as archived/superseded history. The library helps teams create standards without turning observed ticket patterns into policy before a team owner approves them.
 
 ## Companion Pages
 
@@ -12,8 +12,8 @@ This page is shared by Jira Work Item Assistant, Jira Ticket Polisher, and futur
 | Organization-Wide Jira Ticket Quality Standard | Default baseline for every ticket draft or review. |
 | Team Jira Standards | Index of approved team overlays. |
 | MOBRM Team Jira Standards | Example of an approved team overlay. |
-| Jira Work Item Assistant Project Brain | Agent that can draft proposed team standards pages. |
-| Jira Ticket Polisher Project Brain | Agent that can review ticket quality against standards. |
+| Jira Work Item Assistant Project Brain | Agent that can draft proposed team standards pages and review ticket quality against standards. |
+| Jira Ticket Polisher Project Brain | Archived / superseded historical record for the retired standalone ticket-polishing agent. |
 
 ## Agent Playbook
 
@@ -28,7 +28,7 @@ This page is shared by Jira Work Item Assistant, Jira Ticket Polisher, and futur
 
 ## Studio Configuration Patch
 
-Add this block to Jira Work Item Assistant and Jira Ticket Polisher instructions so natural user requests can use this prompt library without requiring humans to paste the full prompt.
+Add this block to Jira Work Item Assistant instructions so natural user requests can use this prompt library without requiring humans to paste the full prompt.
 
 ```text
 When the user asks to find a team standard, create a team standard, analyze a board for patterns, review tickets for team-specific conventions, or explain why no team standard was applied, first consult:
@@ -364,7 +364,7 @@ Return:
 - Readability strengths
 - Readability gaps
 - Suggested ticket structure improvements
-- Recommended fields or sections that would help Release Health Analyst, Release Drift Monitor, Jira Ticket Polisher, and Jira Work Item Assistant.
+- Recommended fields or sections that would help Release Health Analyst, Release Drift Monitor, Jira Work Item Assistant, and future Jira hygiene agents.
 ```
 
 ### Source Evidence Gap Scan

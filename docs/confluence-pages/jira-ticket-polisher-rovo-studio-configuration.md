@@ -1,6 +1,10 @@
 # ROVO Studio Configuration - Jira Ticket Polisher
 
-This page provides user-facing copy blocks for manually configuring Jira Ticket Polisher in ROVO Studio. It does not change Studio by itself.
+> **Archived / Superseded - 2026-06-09**
+>
+> Jira Ticket Polisher is retained for governance history only. Use Jira Work Item Assistant for active Jira ticket drafting, review, polishing, standards alignment, gap checking, and comment drafting. Do not configure or promote Jira Ticket Polisher as a separate user-facing agent unless a new governed decision reopens it.
+
+This page is historical. Do not use these copy blocks to configure a separate active Jira Ticket Polisher in ROVO Studio. Active Studio configuration belongs to Jira Work Item Assistant.
 
 ## Parent Agent
 

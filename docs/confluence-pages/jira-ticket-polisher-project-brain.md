@@ -1,31 +1,35 @@
 # Jira Ticket Polisher Project Brain
 
+> **Archived / Superseded - 2026-06-09**
+>
+> Jira Ticket Polisher is retained for governance history only. Use Jira Work Item Assistant for active Jira ticket drafting, review, polishing, standards alignment, gap checking, and comment drafting. Do not configure or promote Jira Ticket Polisher as a separate user-facing agent unless a new governed decision reopens it.
+
 ## Project Brain Status
 
 | Field | Value |
 |---|---|
 | Agent name | Jira Ticket Polisher |
 | Domain | Jira Hygiene |
-| Lifecycle status | In Review |
-| Readiness status | Needs Cleanup |
-| Fit decision | New governed agent |
+| Lifecycle status | Archived / Superseded |
+| Readiness status | Historical Reference |
+| Fit decision | Superseded by Jira Work Item Assistant |
 | Primary owner | TBD |
 | Backup owner | TBD |
 | Current source space | ROVO |
 | Legacy source | MO > Rovo Agents > Experimental / Sandbox Agents > Agent - Jira Ticket Polisher |
 | Recommended location | ROVO > Agent Project Brains > Jira Hygiene Agents |
-| Last reviewed | 2026-05-29 |
-| Next action | Publish the active standards set, confirm Studio configuration, and run pilot evaluations before launch. |
+| Last reviewed | 2026-06-09 |
+| Next action | Preserve this page as historical reference and route active ticket review/polish work to Jira Work Item Assistant. |
 
 ## Migration Decision
 
-Jira Ticket Polisher should be migrated as a standalone governed agent in review.
+Jira Ticket Polisher should not continue as a standalone governed user-facing agent.
 
-The old-space export identifies it as the best pilot for the organization-wide standard plus team-overlay pattern. The agent should stay broad and reusable rather than becoming separate ticket-polishing agents for each team. For the current pilot, the active standards set is intentionally limited to the organization-wide standard and the MOBRM team standard.
+The old-space export identified it as the best early pilot for the organization-wide standard plus team-overlay pattern. Jira Work Item Assistant now covers the same practical service area: existing-card review, ticket polishing, standards alignment, gap checking, improved copy drafts, common-task guidance, and draft-only Jira comments. The useful Polisher review criteria should live inside Jira Work Item Assistant's five-subagent model rather than as a separate active agent.
 
 ## Mission
 
-Jira Ticket Polisher helps Jira users improve ticket clarity, completeness, and handoff readiness. It reviews a ticket against the organization-wide Jira ticket quality standard first, then applies a team-specific overlay only when a relevant team standard is available or supplied by the user.
+Jira Ticket Polisher historically helped Jira users improve ticket clarity, completeness, and handoff readiness. Active use now belongs to Jira Work Item Assistant, which reviews tickets against the organization-wide Jira ticket quality standard first, then applies a team-specific overlay only when a relevant team standard is available or supplied by the user.
 
 ## Scope
 
@@ -54,7 +58,7 @@ Jira Ticket Polisher helps Jira users improve ticket clarity, completeness, and 
 |---|---|
 | Rovo Design Agent | Front-door agent for fit triage, inventory checks, and governed scaffolding. |
 | Agent Doc Steward | Future reviewer for Project Brain completeness, source quality, and Studio drift. |
-| Jira Work Item Assistant | Potential upstream producer of Jira work item draft bundles. Jira Ticket Polisher may review and improve those bundles before a human-approved Jira creation step. |
+| Jira Work Item Assistant | Replacement active agent for Jira ticket drafting, existing-card review, polishing, standards alignment, gap checking, common-task guidance, and draft-only status comments. |
 | Jira Hygiene Agents index | Legacy evidence that ticket quality, metadata, workflow hygiene, and reporting readiness belong together. |
 | Org-wide agent plus team overlay pattern | Core design pattern for applying a default standard and optional team-specific standards without creating duplicate agents. |
 
@@ -83,9 +87,9 @@ Jira Ticket Polisher helps Jira users improve ticket clarity, completeness, and 
 5. Agent returns gaps, evidence used, missing evidence, and draft improvement text.
 6. Human ticket owner reviews and applies any changes in Jira.
 
-## Jira Work Item Assistant Handoff Pattern
+## Historical Jira Work Item Assistant Handoff Pattern
 
-Jira Ticket Polisher may also receive a structured `Jira Work Item Draft Bundle` from Jira Work Item Assistant before a Jira work item is created. In that workflow, Jira Work Item Assistant remains the conversational orchestrator, and Jira Ticket Polisher acts as the review and rewrite gate.
+Jira Ticket Polisher previously could receive a structured `Jira Work Item Draft Bundle` from Jira Work Item Assistant before a Jira work item was created. This is now a historical pattern. Jira Work Item Assistant should handle Ticket Review / Polish internally without adding a sixth subagent.
 
 Handoff contract:
 
@@ -96,9 +100,9 @@ schemas/jira-work-item-draft-bundle.schema.json
 Default flow:
 
 1. User asks Jira Work Item Assistant to create or prepare a Jira ticket from Kanban or work context.
-2. Jira Work Item Assistant drafts a `Jira Work Item Draft Bundle` with approval set to false.
-3. Jira Ticket Polisher reviews the bundle, applies standards, identifies missing evidence, and returns polished Jira field drafts.
-4. Jira Work Item Assistant presents the polished draft to the user for approval.
+2. Jira Work Item Assistant drafts copy-ready fields first.
+3. If the user explicitly asks for machine-readable packaging or a Draft Bundle, Jira Work Item Assistant creates a `Jira Work Item Draft Bundle` with approval set to false.
+4. Jira Work Item Assistant applies standards, identifies missing evidence, and returns polished Jira field drafts through its existing subagents.
 5. Jira creation or update remains blocked until a human approves through a separately governed write path.
 
 ## Source Precedence
@@ -134,6 +138,6 @@ Default flow:
 
 ## Launch Decision
 
-Current decision: keep in review.
+Current decision: archived / superseded.
 
-Jira Ticket Polisher is ready for governed documentation review and dry-run publishing. It is not ready for broad Studio launch until owner, backup owner, live source research, pilot audience, and evaluation evidence are complete.
+Jira Ticket Polisher should not be promoted, configured in Studio, or presented as a separate active service area. Keep the page family visible for governance history, source provenance, rollback context, and comparison only.

@@ -1,6 +1,10 @@
 # Jira Ticket Polisher Standards - Active Set
 
-Use this page to identify the active standards Jira Ticket Polisher may apply during the current pilot. The standards themselves live under the shared Jira Ticket Standards tree so Jira Work Item Assistant, Jira Ticket Polisher, and future Jira hygiene agents use the same source of truth. Keep the active set intentionally small until additional team standards are reviewed and approved.
+> **Archived / Superseded - 2026-06-09**
+>
+> Jira Ticket Polisher is retained for governance history only. Use Jira Work Item Assistant for active Jira ticket drafting, review, polishing, standards alignment, gap checking, and comment drafting. Do not configure or promote Jira Ticket Polisher as a separate user-facing agent unless a new governed decision reopens it.
+
+Use this historical page to understand the active standards Jira Ticket Polisher would have applied during its pilot. The standards themselves live under the shared Jira Ticket Standards tree so Jira Work Item Assistant and future Jira hygiene agents use the same source of truth. Keep active standards work in the shared standards tree.
 
 ## Active Standards
 

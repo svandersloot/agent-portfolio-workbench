@@ -1,18 +1,22 @@
 # Measurement Plan - Jira Ticket Polisher
 
+> **Archived / Superseded - 2026-06-09**
+>
+> Jira Ticket Polisher is retained for governance history only. Use Jira Work Item Assistant for active Jira ticket drafting, review, polishing, standards alignment, gap checking, and comment drafting. Do not configure or promote Jira Ticket Polisher as a separate user-facing agent unless a new governed decision reopens it.
+
 ## Measurement Status
 
 | Field | Value |
 |---|---|
 | Agent | Jira Ticket Polisher |
-| Lifecycle status | In Review |
-| Readiness status | Needs Cleanup |
-| Measurement maturity | Draft |
+| Lifecycle status | Archived / Superseded |
+| Readiness status | Historical Reference |
+| Measurement maturity | Historical Draft |
 | Review cadence | Monthly during pilot, quarterly after launch |
 
 ## Value Hypothesis
 
-Jira Ticket Polisher should reduce time spent clarifying tickets and improve ticket readiness, acceptance criteria quality, QA handoff clarity, and team-standard consistency.
+Jira Ticket Polisher was expected to reduce time spent clarifying tickets and improve ticket readiness, acceptance criteria quality, QA handoff clarity, and team-standard consistency. Measure active value through Jira Work Item Assistant instead.
 
 ## Metrics
 

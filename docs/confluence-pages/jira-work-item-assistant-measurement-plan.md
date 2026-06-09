@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Agent | Jira Work Item Assistant |
-| Version | v0.1 |
+| Version | v0.2 |
 | Measurement status | Draft |
 | Baseline | Not captured |
-| Last reviewed | 2026-06-03 |
+| Last reviewed | 2026-06-09 |
 
 ## Measurement Goals
 
@@ -26,6 +26,7 @@ Measure whether Jira Work Item Assistant improves the quality, consistency, and 
 | Bulk creation accuracy | Compare named candidate set against approved tickets before creation. | 100 percent of bulk create candidates match human-approved names and fields. | Per bulk sample |
 | Status comment usefulness | Reviewer checks whether comments include completed work, current status, validation, blockers/risks, next action, evidence links, and open questions when applicable. | 90 percent of comment drafts are usable without major rewrite. | Per comment sample |
 | Bulk status comment accuracy | Compare named comment set against target issues and supplied updates. | 100 percent of target issue/comment pairings are correct before any future posting path. | Per bulk comment sample |
+| Ticket Review / Polish usefulness | Reviewer checks whether existing-card reviews produce useful gaps and improved summary, description, acceptance criteria, validation notes, and open questions without raw JSON by default. | 90 percent of review/polish outputs are usable without major rewrite. | Per review/polish sample |
 
 ## Quality And Risk Signals
 
@@ -49,7 +50,7 @@ Start with five manually reviewed samples:
 2. One common-task teaching ticket.
 3. One MOBRM-scoped ticket using the active team overlay.
 4. One non-MOBRM ticket using org-wide fallback only.
-5. One complex ticket routed through Jira Ticket Polisher handoff.
+5. One complex or existing ticket handled through the internal Ticket Review / Polish workflow.
 6. One bulk candidate set for SER, parse break, producer org, and prod sync updates.
 7. One single-ticket status comment draft.
 8. One named bulk status comment set.
@@ -84,4 +85,5 @@ Before promotion beyond `In Review`:
 - No unapproved Jira write attempts.
 - No unsupported invented task steps.
 - Standards routing passes org-wide, MOBRM, and non-MOBRM cases.
+- Ticket Review / Polish passes existing-card, org-wide-only, and MOBRM/team-standard cases without routing to Jira Ticket Polisher.
 - Route-away behavior passes release health and release notes cases.

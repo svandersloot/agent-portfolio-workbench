@@ -1,12 +1,16 @@
 # Subagent Settings - Jira Ticket Polisher
 
+> **Archived / Superseded - 2026-06-09**
+>
+> Jira Ticket Polisher is retained for governance history only. Use Jira Work Item Assistant for active Jira ticket drafting, review, polishing, standards alignment, gap checking, and comment drafting. Do not configure or promote Jira Ticket Polisher as a separate user-facing agent unless a new governed decision reopens it.
+
 ## Parent Agent
 
 | Field | Value |
 |---|---|
 | Parent name | Jira Ticket Polisher |
 | Parent role | Ticket review intake, source selection, overlay routing, and final response assembly. |
-| Status | In Review |
+| Status | Archived / Superseded |
 | Default stance | Read-only, draft-only, evidence-first. |
 
 ## Routing Model
@@ -76,5 +80,6 @@
 
 | Version | Date | Change |
 |---|---|---|
+| v0.3 | 2026-06-09 | Archived / superseded as a separate active agent; review/polish routing moved into Jira Work Item Assistant's existing five-subagent model. |
 | v0.2 | 2026-06-03 | Added Work Item Draft Handoff Reviewer for Jira Work Item Assistant draft-bundle handoffs. |
 | v0.1 | 2026-05-29 | Initial subagent routing scaffold from legacy Jira Ticket Polisher evidence. |

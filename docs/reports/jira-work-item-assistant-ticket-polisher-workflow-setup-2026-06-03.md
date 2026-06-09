@@ -1,10 +1,14 @@
 # Jira Work Item Assistant To Jira Ticket Polisher Workflow Setup - 2026-06-03
 
+> **Superseded note - 2026-06-09**
+>
+> This setup report is historical. Jira Ticket Polisher is now archived/superseded, and Jira Work Item Assistant owns active Ticket Review / Polish behavior internally. Do not implement this cross-agent handoff unless a new governed decision reopens Jira Ticket Polisher.
+
 ## Purpose
 
-Start a governed handoff workflow where a user begins in a Jira Work Item Assistant conversation with Kanban board context, asks for a Jira ticket, and receives a Jira Ticket Polisher-reviewed draft before any Jira work item is created.
+This report originally proposed a governed handoff workflow where a user begins in a Jira Work Item Assistant conversation with Kanban board context, asks for a Jira ticket, and receives a Jira Ticket Polisher-reviewed draft before any Jira work item is created. That cross-agent path is superseded by Jira Work Item Assistant's internal Ticket Review / Polish workflow.
 
-This setup intentionally keeps Jira writes human-approved. Jira Ticket Polisher remains the quality gate and draft improver, not the autonomous creator.
+The draft-only and human-approved Jira write stance remains valid. Jira Work Item Assistant is now the quality gate and draft improver for active work.
 
 ## Platform Findings
 
@@ -15,7 +19,7 @@ Relevant constraints:
 - `Use Rovo agent` invokes a selected agent in an automation flow and exposes the response through `{{agentResponse}}`.
 - Rovo agent automation responses can be referenced as markdown, ADF, plain string, object, or list variants such as `{{agentResponse.asObject}}`.
 - Atlassian's Rovo agent skills documentation says an agent triggered in an automation flow cannot use its own skills and only provides a text response for the automation to use.
-- `Use Rovo` is different from `Use Rovo agent`; use the agent action for Jira Ticket Polisher because the workflow needs the governed agent's standards and behavior.
+- Historical finding: `Use Rovo` is different from `Use Rovo agent`. Do not use this finding to configure a Jira Ticket Polisher handoff unless a new governed decision reopens that agent.
 
 Sources reviewed:
 
@@ -24,14 +28,14 @@ Sources reviewed:
 - https://support.atlassian.com/rovo/docs/agent-actions/
 - https://support.atlassian.com/studio/docs/what-is-the-use-rovo-action/
 
-## Operating Decision
+## Historical Operating Decision
 
 Use a staged handoff, not a hidden cross-agent write:
 
 ```text
 User conversation with Jira Work Item Assistant in Kanban context
 -> Jira Work Item Assistant produces a Jira Work Item Draft Bundle
--> Jira Ticket Polisher reviews and rewrites the draft bundle
+-> Jira Ticket Polisher reviews and rewrites the draft bundle [superseded]
 -> Jira Work Item Assistant presents the polished draft and asks for approval
 -> Human approves or asks for changes
 -> A separate governed Jira create step may run only after approval
@@ -43,7 +47,7 @@ Contract:
 schemas/jira-work-item-draft-bundle.schema.json
 ```
 
-## MVP: Conversation-First Handoff
+## Historical MVP: Conversation-First Handoff
 
 Use this first because it matches the current user behavior: the work starts as a live conversation with Jira Work Item Assistant while viewing or discussing the Kanban board.
 
@@ -58,14 +62,14 @@ First produce a Jira Work Item Draft Bundle that follows the Jira Work Item Draf
 
 Set approval.humanApprovalRequired to true and approval.approvedForJiraWrite to false.
 
-Then ask the user whether to send the bundle to Jira Ticket Polisher for quality review before Jira creation.
+Then run Ticket Review / Polish internally before Jira creation. Create or show a Draft Bundle only when the user explicitly asks for machine-readable JSON, packaging, or a Draft Bundle.
 
-If the user agrees, provide a copy-ready handoff prompt for Jira Ticket Polisher and include the full draft bundle.
+Do not provide a copy-ready handoff prompt for Jira Ticket Polisher in the active workflow. Use Jira Work Item Assistant Ticket Review / Polish instead.
 ```
 
-### Jira Ticket Polisher Handoff Prompt
+### Historical Jira Ticket Polisher Handoff Prompt
 
-Use this prompt in Jira Ticket Polisher for the manual MVP:
+This prompt is retained only as historical reference:
 
 ```text
 Review this Jira Work Item Draft Bundle from Jira Work Item Assistant before Jira ticket creation.
@@ -87,7 +91,7 @@ Jira Work Item Draft Bundle:
 [PASTE BUNDLE HERE]
 ```
 
-### Jira Work Item Assistant Approval Prompt
+### Historical Jira Work Item Assistant Approval Prompt
 
 After Jira Ticket Polisher returns the reviewed draft, Jira Work Item Assistant should ask:
 
@@ -106,7 +110,7 @@ Do you approve creating the Jira ticket from this polished draft, or should I re
 
 If the user approves, Jira Work Item Assistant may proceed only if a separate governed Jira write path exists and the required Jira fields are known. If not, it should provide copy-ready fields for manual Jira creation.
 
-## Semi-Automated Handoff
+## Historical Semi-Automated Handoff
 
 Use this after the manual MVP produces one or two good examples.
 
@@ -204,10 +208,9 @@ Human-approved polished draft
 
 ## Recommended Next Step
 
-Run one manual MVP test from an existing Jira Work Item Assistant conversation:
+Do not run the historical cross-agent MVP. For active validation, run one manual Ticket Review / Polish test from an existing Jira Work Item Assistant conversation:
 
-1. Ask Jira Work Item Assistant for a ticket draft from Kanban context.
-2. Tell it to output the Jira Work Item Draft Bundle.
-3. Paste the bundle into Jira Ticket Polisher with the handoff prompt above.
-4. Bring the polished result back to Jira Work Item Assistant.
-5. Confirm whether the approval prompt and final draft feel natural.
+1. Ask Jira Work Item Assistant to review or polish an existing Jira card or candidate ticket.
+2. Confirm it returns human-readable standards findings, gaps, and copy-ready field improvements without raw JSON by default.
+3. Ask explicitly for a Jira Work Item Draft Bundle and confirm the approval fields remain false.
+4. Confirm no Jira issue is created, updated, transitioned, assigned, ranked, moved, or commented on.

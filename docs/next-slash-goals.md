@@ -447,7 +447,7 @@ Acceptance checks:
 
 Decision:
 
-- Jira Ticket Polisher is scaffolded as a governed agent in `In Review`.
+- Jira Ticket Polisher was scaffolded as a governed agent in `In Review`, then archived/superseded on 2026-06-09 after Jira Work Item Assistant absorbed the active review/polish workflow.
 - Studio behavior is draft-only; no Jira update, transition, assign, rank, or comment actions are enabled.
 - Organization-wide ticket quality standard is the fallback for any ticket.
 - Active standards are limited to the organization-wide standard and MOBRM team standard.
@@ -478,6 +478,8 @@ Acceptance checks:
 
 ## 26. Next: Jira Ticket Polisher MOBRM Standards Publish And Pilot Gate
 
+Superseded on 2026-06-09. Do not run this goal as written. Active ticket review, polishing, standards alignment, gap checking, improved field drafting, and comment drafting now belong to Jira Work Item Assistant's Ticket Review / Polish workflow. Keep Jira Ticket Polisher pages visible as archived/superseded historical reference only.
+
 ```text
 /goal Publish the Jira Ticket Polisher active standards set after approval. Keep the migrated agent in the ROVO agent inventory and governance space. Use only the Organization-Wide Jira Ticket Quality Standard and MOBRM Team Jira Standards for the current active standards page. Publish or update the Team Jira Standards index under Jira Ticket Polisher, publish MOBRM Team Jira Standards under that index, update the active standards index, and run dry-runs before applying. Confirm `MOBRM-*` and MOBRM board `7690` trigger the MOBRM overlay; confirm non-MOBRM tickets use the org-wide fallback and state `No team overlay applied`; confirm `MR26`, `M26`, and `CLE` references do not trigger MOBRM by themselves. Do not write to Jira or Studio without a separate governed decision.
 ```
@@ -488,7 +490,7 @@ Acceptance checks:
 - MOBRM standard is published under `Team Jira Standards`.
 - Non-MOBRM tickets use org-wide fallback only.
 - Related release or epic keys do not trigger MOBRM automatically.
-- Jira Ticket Polisher remains draft-only.
+- Jira Ticket Polisher remains archived/superseded and is not configured as a separate active Studio agent.
 - Evaluation prompts include one MOBRM overlay case, one org-wide fallback case, and one wrong-overlay boundary case.
 
 ## 27. Completed Locally: Stage 5 Agent Factory Pilot Readiness

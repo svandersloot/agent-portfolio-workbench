@@ -1,8 +1,12 @@
 # Knowledge Source Plan - Jira Ticket Polisher
 
+> **Archived / Superseded - 2026-06-09**
+>
+> Jira Ticket Polisher is retained for governance history only. Use Jira Work Item Assistant for active Jira ticket drafting, review, polishing, standards alignment, gap checking, and comment drafting. Do not configure or promote Jira Ticket Polisher as a separate user-facing agent unless a new governed decision reopens it.
+
 ## Source Strategy
 
-Jira Ticket Polisher uses a default organization-wide standard plus one active team overlay for the current pilot: MOBRM. It should prefer exact ticket context and approved standards. It must label missing or inaccessible standards rather than pretending a team policy was checked.
+This historical plan shows how Jira Ticket Polisher used a default organization-wide standard plus one active team overlay for the current pilot: MOBRM. Active use now belongs to Jira Work Item Assistant. It should prefer exact ticket context and approved standards, and must label missing or inaccessible standards rather than pretending a team policy was checked.
 
 ## Authority Labels
 
