@@ -49,9 +49,9 @@
 
 Before adding broader automation, make the repo easier for another builder to maintain and audit:
 
-- Add a start-here guide for common workflows and safe commit slices.
-- Add page-family, source-link, and manifest consistency checks for governed agent artifacts.
-- Add owner, backup owner, readiness, measurement, and last-reviewed gap reporting.
+- Done locally: add `START-HERE.md` for common workflows and safe commit slices.
+- Done locally: add page-family, source-link, and manifest consistency checks for governed agent artifacts.
+- Done locally: add an owner, backup owner, readiness, measurement, and last-reviewed gap report template.
 - Add stale-handoff detection so old packets do not silently become the operating source.
 - Add no-secret/private-data scanning before commits or future CI.
 - Keep completeness reporting field-level and evidence-based rather than percentage-based.
@@ -92,7 +92,7 @@ See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The high
 4. Strengthen duplicate prevention in the Agent Inventory guidance.
 5. Define the pilot metrics and feedback tracker.
 6. Create helper/contributor instructions for Codex-assisted builder work.
-7. Create the governance maintainability start-here and first drift-check slice.
-8. Add owner/readiness gap reporting and stale-handoff detection.
+7. Extend governance maintainability checks with stale-handoff detection.
+8. Add no-secret/private-data scanning and merge-readiness refresh checks.
 9. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
 10. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.

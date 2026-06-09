@@ -10,6 +10,7 @@ The long-term direction is a lightweight governance operating system: publish co
 
 ## Project Areas
 
+- `START-HERE.md`: entry point for common governance workflows, safety boundaries, checks, and commit slices.
 - `scripts/`: local automation for Studio export normalization and future Confluence operations.
 - `schemas/`: contracts for normalized config output.
 - `templates/confluence/`: maintained source templates for governance pages.
@@ -102,6 +103,8 @@ The current read-only reports are:
 - `docs/reports/governance-completeness-dry-run.md`
 - `docs/reports/duplicate-agent-discovery-dry-run.md`
 - `docs/reports/monthly-governance-snapshot-2026-05.md`
+- `docs/reports/page-family-source-link-consistency-checklist.md`
+- `docs/reports/owner-readiness-gap-report-template.md`
 
 Builder pattern:
 
@@ -116,6 +119,7 @@ The next recommended actions are:
 3. Run manual Studio/admin confirmation for visibility and team assignment controls.
 4. Move CoP notes under Working Group Notes and create the Backlog page.
 5. Turn the dry-run completeness and duplicate reports into repeatable report generation.
+6. Run `.\scripts\Test-ConfluencePageFamilyConsistency.ps1` before committing governed-agent page families or Confluence publish plans.
 
 ## Why This Exists
 
@@ -144,7 +148,6 @@ This toolkit helps answer:
 - Confluence stale-reference cleanup dry run.
 - Publish history records for page updates.
 - Governance linter for normalized agent configs.
-- Agent governance completeness report.
 - Agent inventory sync report.
 - Confluence page/template publisher update mode.
 - API-assisted page move and legacy banner workflow for inventory cleanup.

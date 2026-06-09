@@ -508,7 +508,7 @@ Acceptance checks:
 - Contributor/helper guidance defines what helpers can do with Codex and what requires approval.
 - Claude Code migration is listed as a future lane and does not expand the pilot scope.
 
-## 28. Next: Governance Maintainability Backlog Slice
+## 28. Completed Locally: Governance Maintainability Backlog Slice
 
 ```text
 /goal Implement the first governance maintainability slice from docs/implementation-backlog.md Milestone 8. Do not publish Confluence changes, write to Studio, write to Jira, or push. First inspect README.md, docs/roadmap.md, docs/implementation-backlog.md, docs/next-slash-goals.md, docs/confluence-pages/, config/confluence-pages.example.yml, docs/handoffs/, docs/reports/, and current git status. Then create the smallest repo-only implementation that helps a teammate start and helps maintainers catch drift: a start-here guide or equivalent, a page-family/source-link consistency checklist or script, and an owner/readiness gap report shape. Keep outputs field-level and evidence-based, do not use percentage completeness scoring, and preserve private config and raw captures. End by validating Markdown/JSON/YAML where practical and propose clean commit slices.
@@ -522,3 +522,28 @@ Acceptance checks:
 - No Confluence, Jira, or Studio writes are performed.
 - `.env`, `config/confluence-pages.yml`, `data/raw`, HARs, cookies, headers, tokens, and unsanitized exports remain out of Git.
 - The implementation can be committed independently from unrelated Studio setup or infographic work.
+
+Completed local artifacts:
+
+- `START-HERE.md`
+- `scripts/Test-ConfluencePageFamilyConsistency.ps1`
+- `docs/reports/page-family-source-link-consistency-checklist.md`
+- `docs/reports/owner-readiness-gap-report-template.md`
+- Manifest example entry for `docs/confluence-pages/rovo-studio-configuration-field-guide.md`
+
+Validation:
+
+- `.\scripts\Test-ConfluencePageFamilyConsistency.ps1` reports zero issues against `config/confluence-pages.example.yml`.
+
+## 29. Next: Governance Maintainability Guardrails Slice
+
+```text
+/goal Extend the governance maintainability track without touching live systems. Add stale-handoff detection and no-secret/private-data scanning for candidate commit slices. Keep checks repo-only and read-only by default, preserve `.env`, `config/confluence-pages.yml`, `data/raw`, HARs, cookies, headers, tokens, and unsanitized exports, and update only the smallest companion docs needed to make the checks discoverable.
+```
+
+Acceptance checks:
+
+- Stale-handoff output flags referenced files, dates, and superseded packets without deleting handoffs.
+- Private-data scan flags risky tracked or candidate files before commit.
+- Checks are read-only by default and safe to run locally.
+- No Confluence, Jira, or Studio writes are performed.

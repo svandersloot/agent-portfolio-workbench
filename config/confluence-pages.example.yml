@@ -37,6 +37,16 @@ pages:
       - agent-setup
     pageId: null
     parentPageId: null
+  - slug: rovo-studio-configuration-field-guide
+    title: ROVO Studio Configuration Field Guide
+    sourcePath: docs/confluence-pages/rovo-studio-configuration-field-guide.md
+    parentSlug: governance-and-safety
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - agent-setup
+    pageId: null
+    parentPageId: null
   - slug: agent-inventory
     title: Agent Inventory
     sourcePath: docs/confluence-pages/agent-inventory.md
