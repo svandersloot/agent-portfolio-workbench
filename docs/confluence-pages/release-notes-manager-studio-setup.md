@@ -9,7 +9,7 @@
 | Parent agent | Release Notes Manager |
 | Project Brain | Release Notes Manager Project Brain |
 | Setup pattern | Agent Bootstrap Pattern And Studio Setup Checklist |
-| Last reviewed | 2026-06-08 |
+| Last reviewed | 2026-06-09 |
 
 ## Purpose
 
@@ -48,11 +48,19 @@ Forbidden substitutes for Deployment Notes behavior:
 
 ## Parent Agent Studio Fields
 
+### Studio Text Field Save Behavior
+
+Studio text fields do not expose an explicit save button. After editing a parent instruction, subagent trigger, or subagent instruction field, click static blank space near the field label, such as beside `Instructions` or `Trigger`. Do not click a dropdown, section expander, or other functional control for this save step.
+
+Wait for the small saving spinner in the card header to finish and briefly show a green checkmark before reloading or moving to evaluation.
+
 ### Name
 
 ```text
 Release Notes Manager
 ```
+
+Studio may enforce shorter title fields than the canonical Confluence setup names. If needed, use a concise Studio-safe variant such as `Release Notes Manager v2`; audit by role, trigger, and instructions rather than exact title only.
 
 ### Description
 
@@ -84,6 +92,28 @@ Do not publish release notes, update Confluence, update Jira, or approve release
 Route release health scoring, blocker analysis, go/no-go readiness, and data-completeness assessment requests to Release Health Analyst.
 ```
 
+### Temporary Deployment Notes Batch Guardrail
+
+Add this small guardrail to the parent instructions while the Deployment Notes pilot is being tested. Remove or shorten it only after Release Notes Manager passes the ten-story batch regression consistently.
+
+```text
+Deployment Notes batch guardrail:
+- In source verification, provide both the Confluence page title and the full page URL for the Deployment Notes Standard.
+- Preserve explicit Jira story evidence in release work packages. Do not replace a file name, target system, repo path, attachment, pipeline name, secret name, property name, related story range, prerequisite action, or validation record list with `Data Incomplete` when it appears in Jira, linked source evidence, or user-provided context.
+- Mark `Data Incomplete` only for the specific detail that is missing, inaccessible, or conflicting.
+- Do not collapse separate work packages when files, pipelines, properties, prerequisites, or validation outcomes differ, even when the target platform is the same.
+- For MR26-3076, preserve the source evidence: PolicyCenter producer org XML import; attached file `ProducerOrg_2026.06.01_Org_AdminData.xml`; related stories `MR26-3076` through `MR26-3082`; master/coordinator story; additive import; explicit producer org validation list when available.
+- For MR26-2831, preserve the source evidence as a producer code import with its own attached XML and validation reference; do not collapse it into MR26-3076 unless the source shows the exact same file and action.
+- For M26-788, preserve both the ClaimCenter permission prerequisite and the XML import of `M26-788_Supervisor_Manager_Roles.xml` from `modules\configuration\etc\surepath\cc\configuration\data\default`.
+- For M26-231, preserve `CASFormPatterns_Ext.xml` and source-backed validation for added and retired form IDs when available.
+- For SRNGR-4539, preserve runtime properties / IG properties actions and source-backed screenshot validation when available; do not infer AWS Parameter Store.
+- For MR26-810, preserve `mobilitas-ccm-pipeline-payments-api` and secret `mobilitas-ccm-csaa-entra`.
+- For MR26-2708, preserve the three distinct AWS document/webhook/process pipelines; do not collapse them with MR26-810.
+- For SMOBL-4073, preserve the prerequisite to delete the existing rule before importing the replacement `.gwrules` file.
+- For SRNGR-3815, treat the linked Confluence release instructions as the source artifact and mark inline execution details incomplete only if the linked page is inaccessible.
+- For MOBPXD-1399, keep it outside deployment work packages when no manual deployment action is found.
+```
+
 ## Subagent Setup
 
 Keep subagent instructions short. Do not copy detailed Deployment Notes or release runbook rules into subagents when the runtime/source pages cover them.
@@ -109,6 +139,14 @@ Before testing, confirm these are configured or intentionally excluded.
 | Release Health Analyst output | Optional/reference only |  |
 | Mobilitas legacy release notes materials | Archive/reference only when explicitly relevant |  |
 
+Studio knowledge audit rule:
+
+- Parent agent currently uses custom knowledge with `Deployment Notes Standard for Jira Work Items` selected.
+- Confluence custom knowledge can be configured as all content, selected spaces, or selected content under a selected page.
+- When a required Confluence page is a child of a selected parent page, mark it `Covered by selected parent`, not missing.
+- Jira knowledge may appear as project/space coverage such as `All spaces`; do not audit Jira as page-level content unless Studio exposes that granularity.
+- Audit parent knowledge and each subagent's knowledge separately.
+
 ## Tool And Skill Scope
 
 Enable:
@@ -123,6 +161,10 @@ Do not enable during this pilot:
 - Jira update or comment actions.
 - Release approval, go/no-go, or deployment execution actions.
 - Unattended approval, publication, or mutation actions.
+
+Read-only Studio inspection on 2026-06-09 found parent skills set to `0`, but subagents had their own skills. Some subagent skill sets included Confluence write-capable skills such as `Create page`, `Create label`, and `Edit page (append content)`. Treat those as approval-sensitive or disable them unless a governed write workflow is explicitly approved.
+
+Read-only Jira skills observed in Studio include `Get work item`, `Get changelog`, `Get versions`, `Search fields`, `Search Jira projects`, `Search project components`, and `Search with JQL`. Read-only Confluence skills observed include `Get page`, `Find source of truth`, and `Find owner of topic`. Confirm exact behavior with Atlassian documentation or admin policy before broad enablement.
 
 ## Smoke Test Order
 

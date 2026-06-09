@@ -63,7 +63,7 @@ key, summary, status, fixVersions, customfield_13450
 | Fallback trap | Jira Work Item Assistant | Pass | Live test refused to use Studio configuration alone while the Confluence standard was available. |
 | MOBPXD-1399 no-notes test | Jira Work Item Assistant | Pass | Live test produced no Jira Deployment Notes field draft and did not suggest `NA` or no-action placeholder text. |
 | MR26-3076 coordinator test | Jira Work Item Assistant | Pass with minor polish note | Latest v2 / Studio Setup v5 retest used correct deployment type, coordinator/additive answers, target system, attachment location, related stories, and no prod-sync/rollback/environment questions. Validation should preserve the explicit producer org list when available. |
-| Release batch work-package grouping | Release Notes Manager | Not run live; repo-side expected behavior is pass-shaped | Live Jira evidence supports distinct packages for runtime properties, producer org imports, M26-788 permissions/import, AWS pipelines, business rules, external dependency, CASFormPatterns, and no-action item. |
+| Release batch work-package grouping | Release Notes Manager | Fail for evidence preservation; pass-shaped grouping | 2026-06-09 Studio test produced work packages and excluded MOBPXD-1399, but replaced known file, pipeline, prerequisite, and validation evidence with `Data Incomplete`, collapsed or blurred distinct producer-org work, omitted M26-788 XML import evidence, and did not provide the page title plus full URL in source verification. |
 
 ## Pass / Partial / Fail Rules
 
@@ -278,6 +278,64 @@ Result notes:
 - Used `Data Incomplete - source deployment notes do not provide explicit validation steps`.
 - Questions were limited to source-backed validation and related-story confirmation.
 - Remaining issue: source verification still did not include the full Confluence URL.
+
+### 2026-06-09 - Release Notes Manager - Batch Regression
+
+```text
+Test Run
+- Date: 2026-06-09
+- Agent: Release Notes Manager v2
+- Studio config version/page: Studio test panel launched from Release Notes Manager v2 details page; setup source is Studio Setup - Release Notes Manager v1
+- Runtime/source page version: Deployment Notes Standard for Jira Work Items v13
+- Prompt: Ten-story batch regression prompt from Deployment Notes Bootstrap Workflow handoff, including source verification, known answers, and expected behavior checks.
+- Result: Fail for evidence preservation; pass-shaped grouping
+- Source verification: Agent said it used the latest Deployment Notes Standard and linked https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187, but put the URL under `Page Title` instead of providing both the page title and full URL.
+- Follow-up doc/config change needed: Yes. Add a Release Notes Manager-specific evidence-preservation rule to the runtime standard and a temporary batch guardrail to Studio Setup - Release Notes Manager before retest.
+```
+
+Result notes:
+
+- Pass-shaped: produced deployment work packages instead of a flat story list.
+- Pass-shaped: kept MR26-810 and MR26-2708 as separate AWS packages.
+- Pass-shaped: identified M26-231 as `CASFormPatterns_Ext.xml`.
+- Pass-shaped: treated SRNGR-4539 as Guidewire Runtime Properties / IG properties, not AWS Parameter Store.
+- Pass-shaped: excluded MOBPXD-1399 from deployment work packages and listed it separately as no manual deployment action identified.
+- Fail: replaced explicit Jira validation evidence with `Data Incomplete` across the batch, including MR26-3076 producer org validation, MR26-2831 producer code validation, M26-231 added/retired form ID validation, and SRNGR-4539 screenshot validation.
+- Fail: omitted exact artifact evidence for multiple stories, including MR26-3076 attached file `ProducerOrg_2026.06.01_Org_AdminData.xml`, M26-788 file `M26-788_Supervisor_Manager_Roles.xml` and repo path, MR26-810 pipeline `mobilitas-ccm-pipeline-payments-api`, MR26-810 secret `mobilitas-ccm-csaa-entra`, and MR26-2708's three distinct pipelines.
+- Fail: collapsed or blurred distinct producer organization work by grouping MR26-3076 and MR26-2831 under one shared producer-org package without preserving MR26-2831's separate producer code import evidence.
+- Fail: M26-788 package captured the permission work but omitted the related XML import package/action.
+- Fail: added an inferred generic Guidewire admin import path in some packages and asked for specific UI paths for SIT/UAT sign-off, even though validation paths should stay source-backed.
+- Fail: asked for AWS pipeline names and account/role context even though some pipeline names were explicit in the source evidence; only account/role should remain data incomplete when not supplied.
+
+### 2026-06-09 - Release Notes Manager - Studio Configuration Audit
+
+```text
+Audit Run
+- Date: 2026-06-09
+- Agent: Release Notes Manager v2
+- Studio page: https://studio.atlassian.com/s/aaf3ee41-766b-44b8-8b12-92b0e035861f/agents/ari%3Acloud%3Arovo%3A%3Aagent%2Factivation%2F7aad9351-998c-4cb1-bfd3-89213086573c%2Fe78b2be7-605d-417b-8f2d-eb5a8134424a/details
+- Compared against: Studio Setup - Release Notes Manager v2
+- Result: Not aligned
+```
+
+Findings:
+
+- Parent instructions match the thin bootstrap shape but do not yet include the newly published temporary Deployment Notes batch guardrail.
+- Parent skills show `0`; this may be acceptable if Studio provides default read access, but it needs smoke-test confirmation for read-only Jira issue retrieval, Confluence page retrieval, and approved source search.
+- Parent knowledge is scoped to custom knowledge with only `Deployment Notes Standard for Jira Work Items`. Missing required pilot sources: `Deployment Notes Agent Pilot` and `Knowledge Source Plan - Release Notes Manager`.
+- Release Notes Drafter appears disabled. Its trigger/instructions are close to the setup page, but its skills include write-capable or overly broad actions: `Create page`, `Create label`, `Edit page (append content)`, and editable-field tooling. Its knowledge includes `Release Notes Manager Project Brain`, `Deployment Notes Standard for Jira Work Items`, and broad `All spaces`.
+- Business Communicator appears disabled. Its trigger/instructions are close to the setup page, but its skills include write-capable Confluence actions: `Create page`, `Create label`, and `Edit page (append content)`. Its knowledge includes `Release Notes Manager Project Brain` plus broad `All spaces`.
+- Deployment Runbook Drafter appears enabled. Its trigger/instructions are close to the setup page. The visible configuration shows four skills; hidden remove controls identify at least `Create page`, `Search fields`, `Search with JQL`, and `Search Jira projects`, so it still includes a write-capable Confluence skill and lacks the required pilot knowledge-source confirmation.
+- Sync Manager appears disabled. The browser session timed out before its full expanded skills/knowledge could be captured, but the collapsed state is already inconsistent unless intentionally disabled and recorded.
+
+Recommended Studio alignment before retest:
+
+- Add parent knowledge sources for `Deployment Notes Agent Pilot` and `Knowledge Source Plan - Release Notes Manager`.
+- Add the temporary Deployment Notes batch guardrail from Studio Setup - Release Notes Manager v2 to parent instructions.
+- Decide whether the three disabled subagents should be enabled for the pilot; if not, record the intentional exclusion in the setup record.
+- Remove Confluence write skills (`Create page`, `Edit page (append content)`, `Create label`) from all pilot surfaces.
+- Replace broad `All spaces` knowledge with explicit configured sources where possible.
+- Keep or confirm read-only Jira and Confluence skills needed for issue retrieval, JQL/source search, and page retrieval.
 
 Capture each result with:
 

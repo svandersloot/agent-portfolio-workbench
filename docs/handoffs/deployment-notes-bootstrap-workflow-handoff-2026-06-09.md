@@ -37,10 +37,11 @@ Important:
 - The Deployment Notes Standard must be configured as an explicit Studio knowledge source for both Jira Work Item Assistant and Release Notes Manager.
 - Do not let agents substitute MOBRM Team Jira Standards, Organization-Wide Jira Ticket Quality Standard, or other Jira hygiene pages as deployment-note standards.
 
-First task tomorrow:
-- Test Release Notes Manager with the batch regression prompt in this handoff.
-- Score pass/partial/fail.
-- Update the live regression report and only refine Confluence source/setup pages if the miss is repeated or material.
+Current next task:
+- Review and publish the targeted Deployment Notes Standard and Release Notes Manager Studio Setup updates drafted after the 2026-06-09 RNM batch failure.
+- Manually add the temporary RNM batch guardrail to Studio.
+- Rerun Release Notes Manager with the batch regression prompt in this handoff.
+- Score pass/partial/fail and update the live regression report.
 ```
 
 ## Current State
@@ -101,9 +102,12 @@ Release Notes Manager has been updated in Studio by Shayne using `Studio Setup -
 
 Current assessment:
 
-- Batch regression has not yet been run after the Studio update.
-- The next action is the release-level batch prompt below.
-- The expected output is grouped deployment work packages, not a flat list of stories.
+- Batch regression was run on 2026-06-09 from the Studio test panel for `Release Notes Manager v2`.
+- Result: Fail for evidence preservation, with pass-shaped grouping.
+- The agent produced deployment work packages and excluded `MOBPXD-1399`, but replaced known Jira evidence with `Data Incomplete`, omitted exact artifacts and pipelines, blurred distinct producer-org work, and did not provide both the Confluence page title and full URL in source verification.
+- Targeted Confluence updates were published on 2026-06-09: Deployment Notes Standard v14 and Studio Setup - Release Notes Manager v2.
+- Studio audit after publish found Release Notes Manager Studio is not yet aligned to the setup page: parent knowledge has only the Deployment Notes Standard; the Deployment Notes Agent Pilot and Knowledge Source Plan - Release Notes Manager are missing at the parent level; only Deployment Runbook Drafter appears enabled; other subagents appear disabled; several subagents have write-capable Confluence skills such as create page, edit page append, and create label; some subagent knowledge includes broad `All spaces`.
+- Next action is to manually align Studio with `Studio Setup - Release Notes Manager` v2, including the temporary RNM batch guardrail, then rerun the batch prompt below.
 
 ## Release Notes Manager Batch Prompt
 
@@ -174,14 +178,19 @@ Fail when:
 
 ## Next Steps
 
-1. Run the Release Notes Manager batch prompt.
-2. Score pass/partial/fail in `docs/reports/deployment-notes-agent-live-regression-2026-06-08.md`.
-3. If Release Notes Manager misses are material, update Confluence in this order:
+1. Manually align Release Notes Manager Studio with `Studio Setup - Release Notes Manager` v2:
+   - Add the missing required parent knowledge sources.
+   - Add the temporary Release Notes Manager batch guardrail.
+   - Enable intended subagents or intentionally record why they are disabled.
+   - Remove write-capable Confluence skills and broad knowledge scopes from pilot surfaces.
+2. Rerun the Release Notes Manager batch prompt.
+3. Score pass/partial/fail in `docs/reports/deployment-notes-agent-live-regression-2026-06-08.md`.
+4. If Release Notes Manager misses are still material, update Confluence in this order:
    - Deployment Notes Standard only if the behavior rule is generally true.
    - Release Notes Manager Studio Setup only if Studio wiring, skills/tools, or temporary pilot guardrails need changing.
    - Deployment Notes Agent Pilot only if the test prompt or scoring rubric needs tightening.
-4. If Release Notes Manager passes or is only minor-partial, treat the bootstrap pattern as provisionally proven for the two pilot agents.
-5. Start rollout one agent at a time:
+5. If Release Notes Manager passes or is only minor-partial, treat the bootstrap pattern as provisionally proven for the two pilot agents.
+6. Start rollout one agent at a time:
    - Release Drift Monitor.
    - Release Health Analyst.
    - Jira Ticket Polisher.

@@ -37,11 +37,15 @@ Use this workflow for each governed agent.
 3. Paste only the thin parent-agent bootstrap into Studio.
 4. Configure subagents with short identity, trigger, routing, and source-reference instructions.
 5. Add the required Confluence pages as explicit Studio knowledge sources.
-6. Enable only the read tools and skills needed for the workflow.
-7. Disable or leave unconfigured write tools unless a governed write workflow exists.
-8. Run the source-verification smoke test.
-9. Run two or three behavior regressions.
-10. Record pass, partial, or fail before broadening the agent.
+6. Audit parent skills and each subagent's skills separately; parent skills can be zero while subagents still have write-capable skills.
+7. Enable only the read tools and skills needed for the workflow.
+8. Disable or leave unconfigured write tools unless a governed write workflow exists.
+9. Confirm knowledge source coverage by source type: Confluence can use all content, selected spaces, or selected content under a parent; Jira may be project/space-level rather than page-level.
+10. Run the source-verification smoke test.
+11. Run two or three behavior regressions.
+12. Record pass, partial, or fail before broadening the agent.
+
+For field-level details, use `ROVO Studio Configuration Field Guide`.
 
 ## Thin Bootstrap Rules
 
@@ -190,6 +194,8 @@ Configure these explicitly in Studio where supported:
 - Approved release-plan or release-note page family.
 - Release Health Analyst outputs only as reference evidence, not as a replacement for release-owner approval.
 
+When auditing Confluence knowledge, do not mark a required child page missing if Studio selected a parent page through `Select content under` and the child is under that parent. Mark the page `Covered by selected parent` instead. Mark it missing only when it is neither directly selected nor covered by a selected parent.
+
 ### Tools And Skills
 
 Enable:
@@ -204,6 +210,8 @@ Do not enable during this pilot:
 - Jira update or comment actions.
 - Release approval or go/no-go actions.
 - Unattended write actions.
+
+Audit these at both parent and subagent level. A parent with no skills can still have subagents that can create or edit Confluence pages, change labels, append content, or modify Jira records.
 
 ### Smoke Tests
 

@@ -8,6 +8,7 @@ data/raw/
 # Local export payloads and generated reports.
 data/exports/
 data/reports/
+docs/infographics/
 rovo-export/
 rovo-iqs-reference-report.csv
 rovo-page-inventory.csv

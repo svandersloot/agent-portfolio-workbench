@@ -10,7 +10,7 @@
 | Required stakeholder group | Release Management |
 | Primary test agents | Jira Work Item Assistant, Release Notes Manager |
 | Applies to | Jira work items where manual deployment context is needed |
-| Last reviewed | 2026-06-08 |
+| Last reviewed | 2026-06-09 |
 
 ## Purpose
 
@@ -227,6 +227,7 @@ Expected behavior:
 - Query exact fixVersions or supplied issue lists for populated Deployment Notes.
 - Group Deployment Notes into work packages by system, action type, source artifact, and dependency.
 - Collapse exact duplicate deployment actions and list all source stories.
+- Preserve exact story evidence in each work package, including file names, attachment locations, pipeline names, property names, validation records, related story ranges, and prerequisite actions. Use `Data Incomplete` only for the specific detail that is missing, inaccessible, or conflicting.
 - Identify shared artifacts, duplicate pipelines, preconditions, ordering gaps, timing constraints, and missing role details.
 - Preserve story evidence without turning the release runbook into a flat story list.
 - Flag missing validation, branch/tag, admin URL, AWS account, source artifact location, or required sequencing as `Data Incomplete`.
