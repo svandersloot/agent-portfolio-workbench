@@ -52,8 +52,8 @@ Before adding broader automation, make the repo easier for another builder to ma
 - Done locally: add `START-HERE.md` for common workflows and safe commit slices.
 - Done locally: add page-family, source-link, and manifest consistency checks for governed agent artifacts.
 - Done locally: add an owner, backup owner, readiness, measurement, and last-reviewed gap report template.
-- Add stale-handoff detection so old packets do not silently become the operating source.
-- Add no-secret/private-data scanning before commits or future CI.
+- Done locally: add stale-handoff detection so old packets do not silently become the operating source.
+- Done locally: add no-secret/private-data scanning before commits or future CI.
 - Keep completeness reporting field-level and evidence-based rather than percentage-based.
 
 ## Stage 5 Operating Model Track
@@ -81,13 +81,15 @@ Do not build write-back to Studio until Atlassian exposes a stable supported API
 
 Track Claude Code migration as a separate future lane after the initial Stage 5 pilot model is stable. The migration plan should identify which repo-backed specs, checks, tests, and promotion records belong in Claude Code, what remains Confluence/Studio-facing, and what approval gate is required before any migration changes the operating model.
 
+Do not resurrect the deleted stale branch `codex/agentic-operating-contract` or merge its old `CLAUDE.md` contract as-is. A future Claude Code migration slice should start from current `AGENTS.md`, `START-HERE.md`, the maintainability guardrail scripts, and the Stage 5 control-plane boundary, then create any Claude-specific settings or SOPs as derived companion artifacts.
+
 ## Near-Term Backlog
 
 See `docs/implementation-backlog.md` for the ROVO audit task breakdown. The highest-return items are:
 
 1. Review the Stage 5 pilot promotion packet and select the first 1-2 pilot agents.
 2. Run the Stage 5 pilot readiness review before any team promotion.
-3. Extend governance maintainability checks with stale-handoff detection.
-4. Add no-secret/private-data scanning and merge-readiness refresh checks.
-5. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
-6. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.
+3. Refresh merge-readiness evidence before the next commit-ready slice.
+4. Manually copy the published Design Agent guidance into ROVO Studio and capture normalized evidence.
+5. Confirm Studio creation, edit/manager, and user-access controls with manual Studio/admin inspection.
+6. Keep Claude Code migration as a future readiness slice until the work-backed environment and approval path are confirmed.

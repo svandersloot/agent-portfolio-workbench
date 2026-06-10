@@ -67,7 +67,7 @@ Current API and platform evidence:
 | 7.4 | Now | Duplicate prevention is a primary value of the control plane and must be operational before team promotion. | Done locally: duplicate-check fields are captured in Stage 5 guidance and `docs/confluence-pages/agent-inventory.md`. |
 | 7.5 | Now | A Stage 5 pilot needs evidence that agents reduce pain points, not just evidence that docs exist. | Done locally: `templates/stage-5-pilot-feedback-tracker-template.md` captures manual ROVO agent usage and feedback. |
 | 7.6 | Now | One or two helpers can accelerate the project if their safe contribution boundary is explicit. | Done locally: `docs/stage-5-contributor-helper-guide.md` defines Codex-assisted drafting and approval boundaries. |
-| 7.7 | Later | Claude Code migration should be tracked, but it should not distract from proving the Stage 5 operating model with one team. | Add a separate future migration lane after the pilot control-plane artifacts are stable. |
+| 7.7 | Later | Claude Code migration should be tracked, but it should not distract from proving the Stage 5 operating model with one team. | Keep as a separate future lane after the pilot control-plane artifacts are stable; do not revive the deleted stale `codex/agentic-operating-contract` branch as the source. |
 | 8.1 | Now | The repo is strong but hard to enter cold; a small start-here guide reduces live handoff burden. | Create a repo start-here guide for builders and maintainers. |
 | 8.2 | Now | Project Brain page families, setup pages, runtime pages, and manifest entries are now numerous enough to drift. | Add a page-family and source-link consistency check before publishing or committing. |
 | 8.3 | Now | Owner, backup owner, status, and last-reviewed gaps block transferability and pilot promotion. | Add a lightweight owner/readiness gap report over Project Brain and setup pages. |
@@ -75,7 +75,7 @@ Current API and platform evidence:
 | 8.5 | Now | Regression prompts are high-value but scattered across evaluations, reports, and handoffs. | Generate or maintain small regression prompt packs per governed agent. |
 | 8.6 | Now | Handoff packets can age quickly when live page versions or source pages change. | Done locally: `scripts/Test-StaleHandoffs.ps1` flags superseded packets, missing dates, missing referenced repo files, and referenced files with newer repo evidence. |
 | 8.7 | Now | Local ignore rules are good, but work-backed migration needs a second guardrail. | Done locally: `scripts/Test-PrivateDataScan.ps1` scans candidate commit files by default and can audit all tracked files with `-Scope AllTracked`. |
-| 8.8 | Later | Claude Code/work-backed migration is important after the operating model is stable. | Track migration readiness checks separately from the first automation slice. |
+| 8.8 | Later | Claude Code/work-backed migration is important after the operating model is stable. | Track migration readiness checks separately from maintainability automation; future Claude-specific files must be derived from current `AGENTS.md`, `START-HERE.md`, and guardrail scripts. |
 
 Dropped boundary:
 
@@ -163,7 +163,7 @@ This milestone reframes the governance project as a behind-the-scenes ROVO agent
 | 7.7 | Create contributor/helper guide | P1 | 7.1 | Governance steward | Done locally: `docs/stage-5-contributor-helper-guide.md` explains what helpers can draft with Codex, what requires approval, how to update specs/templates/tests, and how to prepare ROVO/Studio promotion packets without changing live systems. |
 | 7.8 | Build first pilot promotion packet | P1 | 7.3, 7.4, 7.6 | Agent owner + helper | Done locally: `templates/stage-5-pilot-promotion-packet-template.md` identifies the fields needed for 1-2 initial ROVO agents, target pilot audience, approved workflows, review gates, test evidence, metrics plan, feedback channel, and go/no-go criteria. |
 | 7.9 | Run Stage 5 pilot readiness review | P1 | 7.1-7.8 | Governance steward + reviewer/manager | Next: complete the readiness review with the selected pilot agents and reviewer/manager; confirm the pilot can start without live explanation from the maintainer and that ROVO users do not need the repo to use approved agents safely. |
-| 7.10 | Track future Claude Code migration lane | P2 | 7.9 | Governance steward | Separate backlog lane exists for eventual Claude Code migration scope, dependencies, risks, and decision gate; it does not block the initial Stage 5 pilot. |
+| 7.10 | Track future Claude Code migration lane | P2 | 7.9 | Governance steward | Separate backlog lane exists for eventual Claude Code migration scope, dependencies, risks, and decision gate; it does not block the initial Stage 5 pilot and should not reuse the deleted stale `codex/agentic-operating-contract` branch as-is. |
 
 ## Milestone 8: Maintainability, Auditability, And Migration Readiness
 
@@ -187,5 +187,5 @@ Keep these boundaries:
 | 8.6 | Add stale handoff detection | P1 | Handoff packets and source pages | Governance steward | Done locally: `scripts/Test-StaleHandoffs.ps1` reports stale/superseded signals without deleting handoffs. |
 | 8.7 | Add no-secret/private-data scan | P1 | `.gitignore` and safe fixture rules | Governance steward | Done locally: `scripts/Test-PrivateDataScan.ps1` scans candidate commit files by default and flags tokens, cookies, auth headers, raw exports, private config, HARs, and unsanitized local-private material. |
 | 8.8 | Refresh merge-readiness report before commits | P1 | Current git state | Governance steward | Commit-slice plan is regenerated from current `git status` and does not rely on stale branch or HEAD evidence. |
-| 8.9 | Track Claude Code/work-backed repo readiness | P2 | Stage 5 readiness review | Governance steward | Repo has a checklist for branch strategy, PR review, CI checks, secrets handling, publish workflow, evidence capture, and stakeholder communication before migration. |
+| 8.9 | Track Claude Code/work-backed repo readiness | P2 | Stage 5 readiness review | Governance steward | Future slice creates a migration readiness checklist for branch strategy, PR review, CI checks, secrets handling, publish workflow, evidence capture, stakeholder communication, and Claude-specific settings derived from current repo truth. |
 | 8.10 | Align completeness contract wording with field-level reporting | P2 | Completeness contract and backlog decision table | Governance steward | Contract and report templates no longer recommend percentage completeness where field-level missing-data reporting is the chosen policy. |
