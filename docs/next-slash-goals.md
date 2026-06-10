@@ -587,3 +587,16 @@ Acceptance checks:
 - Commit-slice guidance is generated from current branch and working-tree evidence.
 - Private-data and stale-handoff guardrails are included in the validation evidence.
 - Unrelated local files remain out of the proposed commit.
+
+## 31. Later: Claude Code Migration Readiness Slice
+
+```text
+/goal Prepare the future Claude Code/work-backed migration readiness slice. Start from current AGENTS.md, START-HERE.md, docs/roadmap.md, docs/implementation-backlog.md, the maintainability guardrail scripts, and Stage 5 pilot boundaries. Do not resurrect or merge the deleted stale codex/agentic-operating-contract branch as-is. Define what belongs in Claude Code, what remains Confluence/ROVO Studio-facing, what approval gate is required before migration, and what Claude-specific settings or SOPs are safe companion artifacts.
+```
+
+Acceptance checks:
+
+- Migration remains future-only until the work-backed Claude Code environment and approval path are confirmed.
+- Any Claude-specific operating file is derived from current `AGENTS.md` and `START-HERE.md`, not the deleted stale branch.
+- The plan preserves no Studio write-back, no Jira writes, Confluence dry-run-first publishing, and private-data guardrails.
+- Readiness checklist covers branch strategy, PR review, CI/checks, secrets handling, publish workflow, evidence capture, and stakeholder communication.
