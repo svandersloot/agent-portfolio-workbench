@@ -550,7 +550,7 @@ Validation:
 
 - `.\scripts\Test-ConfluencePageFamilyConsistency.ps1` reports zero issues against `config/confluence-pages.example.yml`.
 
-## 29. Next: Governance Maintainability Guardrails Slice
+## 29. Completed Locally: Governance Maintainability Guardrails Slice
 
 ```text
 /goal Extend the governance maintainability track without touching live systems. Add stale-handoff detection and no-secret/private-data scanning for candidate commit slices. Keep checks repo-only and read-only by default, preserve `.env`, `config/confluence-pages.yml`, `data/raw`, HARs, cookies, headers, tokens, and unsanitized exports, and update only the smallest companion docs needed to make the checks discoverable.
@@ -562,3 +562,28 @@ Acceptance checks:
 - Private-data scan flags risky tracked or candidate files before commit.
 - Checks are read-only by default and safe to run locally.
 - No Confluence, Jira, or Studio writes are performed.
+
+Completed local artifacts:
+
+- `scripts/Test-StaleHandoffs.ps1`
+- `scripts/Test-PrivateDataScan.ps1`
+- `START-HERE.md` maintainability check guidance
+- `docs/implementation-backlog.md` status updates for backlog items 8.6 and 8.7
+
+Validation:
+
+- `.\scripts\Test-StaleHandoffs.ps1 -WarnOnly` flags the older 2026-06-08 deployment-notes handoff, referenced files newer than that handoff, the undated Design Agent handoff, and the Jira Ticket Polisher supersession marker.
+- `.\scripts\Test-PrivateDataScan.ps1` passes the current candidate commit slice with one warning for an existing Atlassian URL in `docs/next-slash-goals.md` and no blocking secret findings.
+- `.\scripts\Test-PrivateDataScan.ps1 -Scope AllTracked -WarnOnly` reports existing Atlassian URL warnings for tracked repo-backed docs and no blocking secret findings.
+
+## 30. Next: Refresh Merge-Readiness Guardrail Before Commits
+
+```text
+/goal Refresh the merge-readiness report before the next commit-ready slice. Use current git status, stale-handoff output, private-data scan output, and the changed-file list to produce a concise commit-slice recommendation. Keep the report repo-only, do not publish Confluence, do not write to Studio, do not write to Jira, and do not push unless explicitly asked.
+```
+
+Acceptance checks:
+
+- Commit-slice guidance is generated from current branch and working-tree evidence.
+- Private-data and stale-handoff guardrails are included in the validation evidence.
+- Unrelated local files remain out of the proposed commit.

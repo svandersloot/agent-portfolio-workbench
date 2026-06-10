@@ -36,6 +36,22 @@ The check is read-only. It uses `config/confluence-pages.example.yml`, verifies 
 
 Use `docs/reports/owner-readiness-gap-report-template.md` when reviewing transferability or pilot readiness. The report lists missing fields and evidence paths; it does not use percentage completeness scoring.
 
+Run the stale-handoff check before executing an older handoff packet or resuming work from `docs/handoffs/`:
+
+```powershell
+.\scripts\Test-StaleHandoffs.ps1
+```
+
+The check is read-only. It flags superseded packets, handoffs without a clear date, missing referenced repo files, and referenced files with newer repo evidence than the handoff date. It does not delete or archive handoffs.
+
+Run the private-data scan before staging or committing a slice:
+
+```powershell
+.\scripts\Test-PrivateDataScan.ps1
+```
+
+By default, it scans candidate commit files only: staged, unstaged, and untracked non-ignored files. Use `-Scope AllTracked -WarnOnly` for a broader audit of tracked files. Keep `.env`, `config/confluence-pages.yml`, `data/raw/`, HARs, cookies, headers, tokens, private URLs, and unsanitized exports out of commits.
+
 ## Commit Slice Pattern
 
 Keep slices small enough for another maintainer to review without live explanation:
@@ -46,4 +62,4 @@ Keep slices small enough for another maintainer to review without live explanati
 4. Studio capture normalization after manual Studio saves.
 5. Backlog, roadmap, or next-goal status updates.
 
-Before handoff, run the practical checks that match the diff: `git status --short`, `git diff --check`, JSON validation for touched schemas or fixtures, YAML validation when a parser is available, and any new script's help or dry-run mode.
+Before handoff, run the practical checks that match the diff: `git status --short`, `git diff --check`, `.\scripts\Test-PrivateDataScan.ps1`, `.\scripts\Test-StaleHandoffs.ps1` when handoffs are involved, JSON validation for touched schemas or fixtures, YAML validation when a parser is available, and any new script's help or dry-run mode.
