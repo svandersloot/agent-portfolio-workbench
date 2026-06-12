@@ -189,6 +189,8 @@ Use this compact checklist in Studio after configuring each surface.
 
 Before testing, confirm these are configured or intentionally excluded.
 
+Use the Runtime Context Map in `Knowledge Source Plan - Jira Work Item Assistant` as the review guide for source routing. The map is not live by itself; after manual Studio setup, run its smoke prompts to verify the agent retrieves the mapped source and refuses the mapped forbidden substitutes.
+
 | Item | Required? | Status |
 |---|---|---|
 | Deployment Notes Standard for Jira Work Items | Yes |  |

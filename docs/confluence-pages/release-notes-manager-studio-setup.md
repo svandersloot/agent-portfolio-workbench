@@ -135,6 +135,8 @@ Keep subagent instructions short. Do not copy detailed Deployment Notes or relea
 
 Before testing, confirm these are configured or intentionally excluded.
 
+Use the Runtime Context Map in `Knowledge Source Plan - Release Notes Manager` as the review guide for source routing. The map is not live by itself; after manual Studio setup, run its smoke prompts to verify the agent retrieves the mapped source and refuses the mapped forbidden substitutes.
+
 | Item | Required? | Status |
 |---|---|---|
 | Deployment Notes Standard for Jira Work Items | Yes for deployment-note work |  |

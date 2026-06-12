@@ -301,7 +301,7 @@ Acceptance checks:
 ## 17. Completed: Publish Design Agent Studio Configuration Source
 
 ```text
-/goal Publish the latest Rovo Design Agent vNext Studio Configuration source to the existing Confluence page https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5281349770/Rovo+Design+Agent+vNext+-+Rovo+Studio+Configuration. Use docs/confluence-pages/rovo-design-agent-vnext-rovo-studio-configuration.md and slug rovo-design-agent-vnext-rovo-studio-configuration. First run .\scripts\Publish-ConfluencePages.ps1 -Slug rovo-design-agent-vnext-rovo-studio-configuration -UpdateExisting and confirm it shows exactly one intended page, page ID 5281349770. Apply only after approval. Do not write to Studio.
+/goal Publish the latest Rovo Design Agent vNext Studio Configuration source to the existing Confluence page `Rovo Design Agent vNext - Rovo Studio Configuration` (page ID `5281349770`). Use docs/confluence-pages/rovo-design-agent-vnext-rovo-studio-configuration.md and slug rovo-design-agent-vnext-rovo-studio-configuration. First run .\scripts\Publish-ConfluencePages.ps1 -Slug rovo-design-agent-vnext-rovo-studio-configuration -UpdateExisting and confirm it shows exactly one intended page, page ID 5281349770. Apply only after approval. Do not write to Studio.
 ```
 
 Acceptance checks:
@@ -600,3 +600,63 @@ Acceptance checks:
 - Any Claude-specific operating file is derived from current `AGENTS.md` and `START-HERE.md`, not the deleted stale branch.
 - The plan preserves no Studio write-back, no Jira writes, Confluence dry-run-first publishing, and private-data guardrails.
 - Readiness checklist covers branch strategy, PR review, CI/checks, secrets handling, publish workflow, evidence capture, and stakeholder communication.
+
+## 32. Completed Locally: Pilot Runtime Context Maps For Source Routing
+
+```text
+/goal Pilot Runtime Context Maps for governed ROVO agent source routing. Start with docs/handoffs/runtime-context-map-demo-handoff-2026-06-11.md, AGENTS.md, README.md, START-HERE.md, docs/toolkit-operating-model.md, docs/confluence-pages/agent-bootstrap-pattern.md, and the selected pilot agents' Knowledge Source Plans and Studio setup/configuration pages. Do not write to Studio, Jira, or Confluence. Do not claim Runtime Context Maps are live. Add a compact Runtime Context Map section to one or two pilot Knowledge Source Plans that names user/task intent, source to use first, forbidden substitutes, fallback behavior, and smoke test prompt. Update Studio setup pages only if the map changes the human knowledge-source checklist. Validate with git diff --check, private-data scan, and manual cross-read.
+```
+
+Acceptance checks:
+
+- Runtime Context Map is small enough to support routing instead of becoming a giant governance page.
+- Each row names task intent, source to use first, forbidden substitute, fallback behavior, and smoke test prompt.
+- The pilot starts with 1-2 agents, not all documented agents.
+- No Studio, Jira, or Confluence writes are performed.
+- Final handoff states that the map is repo-only until manually configured and verified in Studio.
+
+Completed local artifacts:
+
+- `agent-portfolio-lab/test-runs/003-runtime-context-map-pilot/`
+- `docs/confluence-pages/jira-work-item-assistant-knowledge-source-plan.md`
+- `docs/confluence-pages/jira-work-item-assistant-studio-setup.md`
+- `docs/confluence-pages/jira-work-item-assistant-change-log.md`
+- `docs/confluence-pages/release-notes-manager-knowledge-source-plan.md`
+- `docs/confluence-pages/release-notes-manager-studio-setup.md`
+- `docs/confluence-pages/release-notes-manager-change-log.md`
+- `docs/reports/runtime-context-map-agent-lab-evaluation-2026-06-11.md`
+
+Result:
+
+- Added compact Runtime Context Map sections for Jira Work Item Assistant and Release Notes Manager only.
+- Added Studio setup review notes so manual configurators can verify mapped sources and forbidden substitutes after Studio setup.
+- Ran a local Agent Lab artifact-level evaluation and recorded both agents as improved for source-routing clarity, with live-output score not run.
+
+## 33. Next: Team-Facing Agent Full Pattern
+
+```text
+/goal Define the fuller agentic development pattern as the default for team-facing ROVO, Copilot, or similar agents. Start from AGENTS.md, START-HERE.md, docs/toolkit-operating-model.md, docs/stage-5-agent-factory-start-here.md, docs/confluence-pages/agent-bootstrap-pattern.md, docs/confluence-pages/rovo-studio-configuration-field-guide.md, and the Runtime Context Map pilot evidence. Do not write to Studio, Jira, or Confluence. Document the minimum full package for team-facing agents: runtime contract, Runtime Context Map, guardrails, knowledge source plan, evaluation prompt pack, Studio promotion packet, owner/backup owner, measurement, change log, and post-Studio parity check. Also document a lightweight variant for personal, one-off, or low-risk helpers. Keep Shark Tank language truthful: ROVO is the user-facing runtime today, while the Agent Lab/repo pattern is the proposed approved workshop/control layer for faster governed development.
+```
+
+Acceptance checks:
+
+- Team-facing agents have a clear default package that mirrors agentic AI development best practices without making normal ROVO users read the repo.
+- The pattern distinguishes runtime context from setup, governance, evaluation, and promotion evidence.
+- Lightweight exceptions are allowed for personal, one-off, or low-risk helpers.
+- Shark Tank wording avoids claiming the Agent Lab is already official enterprise infrastructure.
+- No live Studio, Jira, or Confluence writes are performed.
+- No Runtime Context Map is claimed live until a human manually configures and verifies Studio knowledge sources.
+
+## 34. Next: Principles Foundation For Collaborators
+
+```text
+/goal Create a repo-facing principles foundation for incoming collaborators. Start from AGENTS.md, START-HERE.md, docs/toolkit-operating-model.md, docs/stage-5-agent-factory-start-here.md, docs/stage-5-contributor-helper-guide.md, docs/stage-5-pilot-boundaries.md, and docs/implementation-backlog.md. Do not write to Studio, Jira, or Confluence. Assess where the repo already follows primary values and first-principles reasoning, where it is inconsistent or implicit, and add the smallest collaborator-facing guidance needed to make the foundation repeatable. Frame Biblical principles in work-safe operating language for shared enterprise use: truthfulness, stewardship, humility, service, justice/fairness, care for people, and accountability. Treat first-principles reasoning as the secondary design method: define the actual problem, identify source truth, reduce scope, expose assumptions, test the smallest useful slice, and avoid unnecessary complexity. Add backlog/checklist items for any gaps that should not be fixed in the first slice.
+```
+
+Acceptance checks:
+
+- The foundation helps a new collaborator understand why the repo uses read-only-first, dry-run-first, source-of-truth order, human-owned decisions, evidence labels, runtime context maps, and small reviewable slices.
+- Guidance distinguishes personal moral foundation from enterprise-safe shared wording.
+- The checklist is actionable, not philosophical only.
+- It identifies current gaps without claiming the repo follows the principles perfectly everywhere.
+- No live Studio, Jira, or Confluence writes are performed.

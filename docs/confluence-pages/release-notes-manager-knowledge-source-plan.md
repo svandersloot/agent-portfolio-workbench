@@ -31,6 +31,20 @@ Release Notes Manager uses approved release-specific sources only. It should pre
 | Release Health Analyst output | Confluence / supplied text | Reference | Reuse health findings, blockers, and data-completeness flags. | Per run | Route health scoring back to Release Health Analyst. |
 | Mobilitas Release Notes Agent materials | Legacy export / archive | Archive Reference | Learn from examples only when relevant. | Static | Do not generalize as default behavior. |
 
+## Runtime Context Map
+
+Use this map to keep runtime retrieval narrow. The live agent should use the smallest trusted source that matches the user's task and should not substitute adjacent governance pages when the mapped source is missing.
+
+This section is a repo-backed prototype until a human manually configures and verifies the matching Studio knowledge sources.
+
+| User or task intent | Use this source first | Do not substitute | Fallback if missing | Smoke test prompt |
+|---|---|---|---|---|
+| Build a release-level deployment runbook or deployment work-package rollup from Jira Deployment Notes. | `Deployment Notes Standard for Jira Work Items`, `Deployment Notes Agent Pilot`, exact Jira fixVersion or supplied issue list, and story-level Deployment Notes evidence. | MOBRM Team Jira Standards, Organization-Wide Jira Ticket Quality Standard, generic Jira hygiene pages, or Studio memory from earlier drafts. | Say the Deployment Notes standard or Jira scope could not be verified, ask for the page content or issue list, and mark the missing source as `Data Incomplete`. | Build deployment work packages for `MR26-3076, MR26-2831, M26-788, SRNGR-4539, MR26-810, MR26-2708, SMOBL-4073, SRNGR-3815, M26-231, MOBPXD-1399`. |
+| Draft technical release notes for a release. | Exact Jira fixVersion, release filter, supplied issue list, release plan, existing release notes page, and approved technical source context. | Mobilitas archive materials as default behavior, Release Health Analyst output as the release scope, or fuzzy fixVersion matching. | Ask for the exact release identifier, release scope source, or existing draft/template; mark release scope or template gaps with `RNM-DI-001`, `RNM-DI-002`, or `RNM-DI-003`. | Draft technical release notes for this fixVersion and list source coverage gaps before the draft. |
+| Compare or synchronize an existing release-note draft against release scope. | Existing release notes page or pasted draft, exact Jira scope source, release plan, and release owner notes. | Unsupported Jira search guesses, old release notes as current scope, or Release Health Analyst findings as automatic corrections. | Return unsupported claims, missing items, and conflicts for release-owner decision; do not silently resolve the draft. | Compare this release-note draft against the supplied issue list and identify unsupported claims. |
+| Produce a business or executive release summary. | Product or business summary, release plan, stakeholder notes, approved technical notes, and user-provided audience context. | Technical implementation detail alone, archive examples, or inferred customer impact. | Keep business summary out of scope until audience and product context are supplied; mark `RNM-DI-004` when missing. | Turn this release context into a business summary and identify what audience context is missing. |
+| Answer release health, blocker, source-completeness, or go/no-go readiness questions. | Release Health Analyst configuration, assessment template, prompt library, and supplied Release Health Analyst output as reference only. | Release Notes Manager runbook rules, release notes draft status, or deployment work-package grouping as readiness approval. | Route the request to Release Health Analyst and offer to prepare release-note or deployment-work-package evidence for that workflow. | Score release readiness and identify blockers for this release. |
+
 ## Mobilitas Application Source Repositories
 
 Use these repositories when a deployment note references files in a Guidewire application repo:

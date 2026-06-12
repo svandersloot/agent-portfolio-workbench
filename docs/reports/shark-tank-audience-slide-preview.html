@@ -1,0 +1,1377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Readiness Accelerator - Slide Preview</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f5f7fb;
+      --muted: #b7c2d8;
+      --panel: #111827;
+      --panel-2: #172033;
+      --line: #334155;
+      --navy: #0b1220;
+      --blue: #2f80ed;
+      --teal: #00b8a9;
+      --gold: #f2b84b;
+      --red: #d75f5f;
+      --green: #7ac47f;
+      --paper: #eef3f8;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #050b15 0%, #0a1426 45%, #111827 100%);
+      color: var(--ink);
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .deck {
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 24px;
+      gap: 14px;
+    }
+
+    .slide {
+      display: none;
+      width: min(1180px, calc(100vw - 48px));
+      height: min(664px, calc(100vh - 112px));
+      margin: auto;
+      background:
+        linear-gradient(135deg, rgba(47, 128, 237, 0.12), transparent 32%),
+        linear-gradient(180deg, rgba(25, 35, 58, 0.99), rgba(7, 13, 25, 0.99));
+      border: 1px solid rgba(242, 184, 75, 0.22);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .slide-inner {
+      height: 100%;
+      padding: 42px 52px 38px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(242, 184, 75, 0.92) 0 8px, transparent 8px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 22%);
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -72px;
+      bottom: -90px;
+      border: 1px solid rgba(217, 164, 65, 0.25);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 28px rgba(217, 164, 65, 0.05);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 64px;
+      line-height: 1.02;
+      max-width: 870px;
+    }
+
+    h2 {
+      font-size: 40px;
+      line-height: 1.08;
+      max-width: 860px;
+    }
+
+    h3 {
+      font-size: 19px;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.38;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+
+    .lead {
+      font-size: 24px;
+      line-height: 1.32;
+      max-width: 830px;
+      color: #dce6f6;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #8fa2c5;
+      font-size: 13px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 12px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 30px;
+      align-items: center;
+      min-height: 0;
+    }
+
+    .content-grid.wide-left {
+      grid-template-columns: 1.22fr 0.78fr;
+    }
+
+    .content-grid.even {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .callout {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 5px solid var(--teal);
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+
+    .callout.gold {
+      border-left-color: var(--gold);
+    }
+
+    .callout.blue {
+      border-left-color: var(--blue);
+    }
+
+    .callout p {
+      font-size: 18px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      min-height: 118px;
+      border-radius: 8px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(47, 128, 237, 0.15), rgba(238, 243, 248, 0.075));
+      border: 1px solid rgba(242, 184, 75, 0.28);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 31px;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 15px;
+      line-height: 1.32;
+      color: var(--muted);
+    }
+
+    .diagram {
+      border-radius: 8px;
+      background: rgba(8, 17, 31, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 20px;
+      min-height: 330px;
+      display: grid;
+      align-content: center;
+      gap: 16px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .flow.six {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .node {
+      position: relative;
+      min-height: 104px;
+      border-radius: 8px;
+      padding: 14px;
+      background: linear-gradient(180deg, rgba(47, 128, 237, 0.24), rgba(255, 255, 255, 0.055));
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .node::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 1px);
+      right: -13px;
+      width: 13px;
+      height: 2px;
+      background: rgba(217, 164, 65, 0.75);
+    }
+
+    .node:nth-child(3n)::after,
+    .node:last-child::after {
+      display: none;
+    }
+
+    .node .num {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(217, 164, 65, 0.9);
+      color: #111827;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .node p {
+      font-size: 15px;
+      line-height: 1.28;
+      color: #dbe6f6;
+    }
+
+    .agent-map {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .agent-card {
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 18px;
+      min-height: 184px;
+    }
+
+    .agent-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: inline-grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .agent-card:nth-child(2) .mark {
+      background: var(--teal);
+    }
+
+    .agent-card ul {
+      padding-left: 18px;
+    }
+
+    .agent-card li {
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .proof-card {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 18px;
+      align-items: center;
+      background: rgba(217, 164, 65, 0.08);
+      border: 1px solid rgba(217, 164, 65, 0.28);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .release-dial {
+      width: 190px;
+      aspect-ratio: 1;
+      margin: auto;
+      border-radius: 50%;
+      background:
+        conic-gradient(var(--green) 0 46%, var(--gold) 46% 73%, var(--red) 73% 100%);
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .release-dial::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border-radius: 50%;
+      background: #121b2b;
+    }
+
+    .release-dial span {
+      position: relative;
+      color: white;
+      font-weight: 700;
+      font-size: 22px;
+      text-align: center;
+      line-height: 1.12;
+    }
+
+    .path-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .path-item {
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #dce6f6;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .path-item.primary {
+      background: rgba(38, 166, 154, 0.16);
+      border-color: rgba(38, 166, 154, 0.55);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(242, 184, 75, 0.28);
+      color: #dce6f6;
+      font-size: 14px;
+      line-height: 1.1;
+    }
+
+    .chip strong {
+      color: #ffffff;
+    }
+
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .risk {
+      border-radius: 8px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .risk h3 {
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .risk p {
+      font-size: 16px;
+    }
+
+    .risk .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(217, 164, 65, 0.18);
+      color: #f2d397;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .bars {
+      display: grid;
+      gap: 16px;
+    }
+
+    .bar-row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      color: #dce6f6;
+      font-size: 15px;
+    }
+
+    .bar-track {
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.11);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+    }
+
+    .ask-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .ask-item {
+      min-height: 92px;
+      border-radius: 8px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .ask-item h3 {
+      margin-bottom: 6px;
+    }
+
+    .ask-item p {
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .title-visual {
+      display: grid;
+      grid-template-columns: 1fr 0.92fr;
+      gap: 30px;
+      align-items: center;
+      height: 100%;
+    }
+
+    .hero-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .orbit {
+      min-height: 370px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(135deg, rgba(49, 120, 198, 0.18), rgba(38, 166, 154, 0.08)),
+        rgba(255, 255, 255, 0.045);
+      overflow: hidden;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      width: 290px;
+      height: 290px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+    }
+
+    .orbit-ring.two {
+      width: 420px;
+      height: 190px;
+      transform: rotate(-18deg);
+      border-color: rgba(217, 164, 65, 0.24);
+    }
+
+    .core {
+      position: relative;
+      width: 154px;
+      height: 154px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--blue), var(--teal));
+      display: grid;
+      place-items: center;
+      color: white;
+      text-align: center;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.08;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    .sat {
+      position: absolute;
+      width: 112px;
+      min-height: 58px;
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(10, 18, 32, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #dce6f6;
+      font-size: 13px;
+      line-height: 1.15;
+      text-align: center;
+    }
+
+    .sat.one { top: 44px; left: 46px; }
+    .sat.two { top: 38px; right: 56px; }
+    .sat.three { bottom: 52px; left: 70px; }
+    .sat.four { bottom: 46px; right: 58px; }
+
+    .controls {
+      width: min(1180px, calc(100vw - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 14px;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-radius: 8px;
+      min-width: 44px;
+      height: 42px;
+      padding: 0 14px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus {
+      outline: none;
+      border-color: rgba(217, 164, 65, 0.8);
+      background: rgba(217, 164, 65, 0.16);
+    }
+
+    .progress {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, var(--blue), var(--teal), var(--gold));
+      border-radius: 999px;
+      transition: width 160ms ease;
+    }
+
+    .counter {
+      color: var(--muted);
+      font-size: 14px;
+      min-width: 76px;
+      text-align: right;
+    }
+
+    .mobile-note {
+      display: none;
+    }
+
+    @media (min-width: 761px) and (max-width: 1000px) {
+      .deck {
+        padding: 14px;
+        gap: 10px;
+      }
+
+      .slide {
+        width: min(980px, calc(100vw - 28px));
+        height: min(636px, calc(100vh - 92px));
+      }
+
+      .slide-inner {
+        padding: 26px 30px 24px;
+        gap: 10px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 28px;
+        max-width: 720px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p,
+      li {
+        font-size: 15px;
+        line-height: 1.28;
+      }
+
+      li + li {
+        margin-top: 6px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        margin-bottom: 6px;
+      }
+
+      .content-grid,
+      .content-grid.wide-left,
+      .content-grid.even,
+      .title-visual {
+        gap: 16px;
+      }
+
+      .stack {
+        gap: 10px;
+      }
+
+      .callout {
+        padding: 10px 12px;
+      }
+
+      .callout p {
+        font-size: 14px;
+      }
+
+      .metric-row {
+        gap: 10px;
+      }
+
+      .metric {
+        min-height: 82px;
+        padding: 12px;
+      }
+
+      .metric strong {
+        font-size: 24px;
+      }
+
+      .metric span {
+        font-size: 12px;
+      }
+
+      .diagram {
+        min-height: 196px;
+        padding: 14px;
+        gap: 10px;
+      }
+
+      .node {
+        min-height: 68px;
+        padding: 10px;
+      }
+
+      .node .num {
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+        margin-bottom: 5px;
+      }
+
+      .node p {
+        font-size: 12px;
+      }
+
+      .agent-card {
+        min-height: 142px;
+        padding: 12px;
+      }
+
+      .agent-card li {
+        font-size: 12px;
+      }
+
+      .mark {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+      }
+
+      .proof-card {
+        padding: 14px;
+        gap: 12px;
+      }
+
+      .release-dial {
+        width: 128px;
+      }
+
+      .release-dial span {
+        font-size: 16px;
+      }
+
+      .path-item {
+        padding: 10px;
+        font-size: 13px;
+      }
+
+      .chip {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      .chip-row {
+        display: none;
+      }
+
+      .risk {
+        padding: 12px;
+      }
+
+      .risk p {
+        font-size: 13px;
+      }
+
+      .bar-label {
+        font-size: 12px;
+      }
+
+      .bar-track {
+        height: 12px;
+      }
+
+      .ask-item {
+        min-height: 76px;
+        padding: 12px;
+      }
+
+      .ask-item p {
+        font-size: 12px;
+      }
+
+      .orbit {
+        min-height: 292px;
+      }
+
+      .orbit-ring {
+        width: 220px;
+        height: 220px;
+      }
+
+      .orbit-ring.two {
+        width: 320px;
+        height: 150px;
+      }
+
+      .core {
+        width: 118px;
+        height: 118px;
+        font-size: 16px;
+      }
+
+      .sat {
+        width: 92px;
+        min-height: 48px;
+        font-size: 11px;
+      }
+
+      .sat.one { top: 34px; left: 32px; }
+      .sat.two { top: 32px; right: 36px; }
+      .sat.three { bottom: 42px; left: 42px; }
+      .sat.four { bottom: 38px; right: 34px; }
+
+      .footer {
+        display: none;
+      }
+
+      .controls {
+        width: min(980px, calc(100vw - 28px));
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        overflow: auto;
+      }
+
+      .deck {
+        height: auto;
+        padding: 12px;
+      }
+
+      .slide {
+        width: 100%;
+        height: auto;
+        min-height: calc(100vh - 84px);
+      }
+
+      .slide-inner {
+        padding: 28px 24px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .lead {
+        font-size: 20px;
+      }
+
+      .content-grid,
+      .content-grid.wide-left,
+      .content-grid.even,
+      .title-visual,
+      .proof-card {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-row,
+      .flow,
+      .flow.six,
+      .risk-grid,
+      .ask-list,
+      .path-list,
+      .agent-map {
+        grid-template-columns: 1fr;
+      }
+
+      .node::after {
+        display: none;
+      }
+
+      .orbit {
+        min-height: 320px;
+      }
+
+      .controls {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: #111827;
+        overflow: visible;
+      }
+
+      .deck {
+        display: block;
+        height: auto;
+        padding: 0;
+      }
+
+      .slide,
+      .slide.active {
+        display: block;
+        width: 11in;
+        height: 6.1875in;
+        margin: 0;
+        box-shadow: none;
+        break-after: page;
+      }
+
+      .controls {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-label="Agent Readiness Accelerator slide preview">
+    <section class="slide active" data-title="Title">
+      <div class="slide-inner">
+        <div class="title-visual">
+          <div class="hero-stack">
+            <div>
+              <div class="eyebrow">Innovation Challenge Pitch Preview</div>
+              <h1>Agent Readiness Accelerator</h1>
+            </div>
+            <p class="lead">A repeatable readiness flow and approved Agent Lab for launching safer enterprise agents faster.</p>
+            <div class="metric-row">
+              <div class="metric">
+                <strong>Real</strong>
+                <span>already proven through Release Health Analyst</span>
+              </div>
+              <div class="metric">
+                <strong>Safe</strong>
+                <span>human-owned approvals stay clear</span>
+              </div>
+              <div class="metric">
+                <strong>Fast</strong>
+                <span>builders move from blank page to pilot packet</span>
+              </div>
+            </div>
+          </div>
+          <div class="orbit" aria-label="Agent governance system visual">
+            <div class="orbit-ring"></div>
+            <div class="orbit-ring two"></div>
+            <div class="core">Governance<br>Flow</div>
+            <div class="sat one">Fit Intake</div>
+            <div class="sat two">Doc Health</div>
+            <div class="sat three">Measurement</div>
+            <div class="sat four">Human Approval</div>
+          </div>
+        </div>
+        <div class="footer"><span>ROVO first. Reusable across agent platforms.</span><span>Slide 1</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Problem">
+      <div class="slide-inner">
+        <header>
+          <div class="eyebrow">Problem Statement</div>
+          <h2>Agent adoption can move faster than governance.</h2>
+        </header>
+        <div class="content-grid wide-left">
+          <div class="stack">
+            <div class="callout gold">
+              <h3>Blank-page friction</h3>
+              <p>Builders want to create or improve agents but do not always know which questions to ask first.</p>
+            </div>
+            <div class="callout blue">
+              <h3>Sprawl and duplication</h3>
+              <p>Teams can create overlapping agents without a reliable reuse check or shared design trail.</p>
+            </div>
+            <div class="callout">
+              <h3>Unclear readiness</h3>
+              <p>Source ownership, freshness, measurement, backup owners, and review dates are easy to miss.</p>
+            </div>
+          </div>
+          <div class="diagram">
+            <div class="path-list">
+              <div class="path-item">Should this be an agent?</div>
+              <div class="path-item">What sources should it trust?</div>
+              <div class="path-item">Who owns it?</div>
+              <div class="path-item">How do we measure value?</div>
+              <div class="path-item">What risks need approval?</div>
+              <div class="path-item primary">What is safe to scale?</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span>Core challenge</span><span>Slide 2</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Solution">
+      <div class="slide-inner">
+        <header>
+          <div class="eyebrow">Your Solution</div>
+          <h2>A reusable readiness flow, already proven through a working agent.</h2>
+        </header>
+        <div class="content-grid even">
+          <div class="agent-map">
+            <div class="agent-card">
+              <h3><span class="mark">DA</span> ROVO Design Agent</h3>
+              <ul>
+                <li>Starts with fit intake</li>
+                <li>Frames ideas as workflow problems</li>
+                <li>Routes to prompt, automation, extension, template, candidate, new agent, or not ready</li>
+                <li>Guides a manual inventory and Project Brain review</li>
+              </ul>
+            </div>
+            <div class="agent-card">
+              <h3><span class="mark">DS</span> Agent Doc Steward</h3>
+              <ul>
+                <li>Reviews documentation health</li>
+                <li>Checks source readiness and ownership</li>
+                <li>Flags measurement and review gaps</li>
+                <li>Turns ideas into maintainable source-backed artifacts</li>
+              </ul>
+            </div>
+          </div>
+          <div class="proof-card">
+            <div class="release-dial"><span>Proof<br>Point</span></div>
+            <div>
+              <h3>Release Health Analyst</h3>
+              <p>Already created and improved using these readiness lessons. It proves the meta-agent pattern can turn release work into measurable evidence, clearer ownership, and safer expansion.</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span>Not starting from theory. Formalizing a pattern that is already working.</span><span>Slide 3</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Experience">
+      <div class="slide-inner">
+        <header>
+          <div class="eyebrow">Art Of The Possible</div>
+          <h2>Imagine a builder starts with only a release-readiness idea.</h2>
+        </header>
+        <div class="content-grid even">
+          <div class="callout gold">
+            <h3>Before</h3>
+            <p>“I think we need an agent for release readiness.”</p>
+            <ul>
+              <li>Blank page and unclear path</li>
+              <li>Unknown source quality</li>
+              <li>No baseline for value</li>
+              <li>Risk discovered late</li>
+            </ul>
+          </div>
+          <div class="callout blue">
+            <h3>After</h3>
+            <p>“Here is the right route, missing evidence, and pilot packet.”</p>
+            <ul>
+              <li>Reuse or build decision</li>
+              <li>Owner, sources, risk level, and measurement plan</li>
+              <li>Evaluation prompts and evidence checklist</li>
+              <li>Clear human approval boundary</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer"><span>The future state is a guided experience, not a governance scavenger hunt.</span><span>Slide 4</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Flow">
+      <div class="slide-inner">
+        <header>
+          <div class="eyebrow">Enterprise Readiness Flow</div>
+          <h2>One path for creating and improving enterprise agents.</h2>
+        </header>
+        <div class="diagram">
+          <div class="flow six">
+            <div class="node"><span class="num">1</span><p>Start with workflow pain, not the tool.</p></div>
+            <div class="node"><span class="num">2</span><p>Choose the lightest useful path.</p></div>
+            <div class="node"><span class="num">3</span><p>Run manual inventory and source-readiness review.</p></div>
+            <div class="node"><span class="num">4</span><p>Capture owner, sources, risks, and measurement.</p></div>
+            <div class="node"><span class="num">5</span><p>Package for human setup in the target platform.</p></div>
+            <div class="node"><span class="num">6</span><p>Review quality, adoption, and gaps before expanding.</p></div>
+          </div>
+        </div>
+        <div class="footer"><span>Platform-neutral</span><span>Slide 5</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Ask">
+      <div class="slide-inner">
+        <header>
+          <div class="eyebrow">Approved Agent Lab / Ask</div>
+          <h2>Preflight agents before they reach user-facing platforms.</h2>
+        </header>
+        <div class="ask-list">
+          <div class="ask-item">
+            <h3>Adopt the readiness flow</h3>
+            <p>Use it as the standard path for creating or improving enterprise agents.</p>
+          </div>
+          <div class="ask-item">
+            <h3>Stand up the Agent Lab</h3>
+            <p>Create the governed workspace for versioning, testing, comparing, and reviewing agent instructions, templates, evaluations, and evidence.</p>
+          </div>
+          <div class="ask-item">
+            <h3>Prepare the knowledge layer</h3>
+            <p>Confluence for ROVO; SharePoint or equivalent knowledge pages for Copilot; reusable source packets for future platforms.</p>
+          </div>
+          <div class="ask-item">
+            <h3>Approve agentic tooling</h3>
+            <p>Provide Claude Code, Amazon Q, or equivalent approved tooling to power the Agent Lab and speed drafting, testing, comparison, and maintenance.</p>
+          </div>
+        </div>
+        <div class="callout gold">
+          <p>ROVO and Copilot are user-facing runtimes. The Agent Lab is the governed preflight workspace. Approved agentic tooling is what makes that workspace faster to operate.</p>
+        </div>
+        <div class="footer"><span>Decision needed: adopt the flow and approve the platform path</span><span>Slide 6</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Benefits">
+      <div class="slide-inner">
+        <header>
+          <div class="eyebrow">Enterprise Benefits And Metrics</div>
+          <h2>Measure value, quality, adoption, and governance health.</h2>
+        </header>
+        <div class="content-grid">
+          <div class="stack">
+            <div class="callout">
+              <h3>Benefits</h3>
+              <ul>
+                <li>Safer ROVO adoption</li>
+                <li>Less agent sprawl</li>
+                <li>Faster builder onboarding</li>
+                <li>Better auditability</li>
+                <li>Leadership visibility</li>
+                <li>Reusable controls for Copilot and future platforms</li>
+              </ul>
+            </div>
+          </div>
+          <div class="diagram">
+            <div class="bars">
+              <div class="callout gold">
+                <h3>Measure the pilot with simple signals</h3>
+                <ul>
+                  <li>Time from blank page to design packet</li>
+                  <li>Required readiness fields completed</li>
+                  <li>False blockers corrected through evidence</li>
+                  <li>Manual follow-up reduced</li>
+                </ul>
+              </div>
+              <div class="callout blue">
+                <h3>What leaders get</h3>
+                <p>A clearer view of which agents are useful, owned, measured, safe to scale, or not ready yet.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span>Evidence over novelty</span><span>Slide 7</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Risk">
+      <div class="slide-inner">
+        <header>
+          <div class="eyebrow">Risk Management</div>
+          <h2>Move deliberately where trust, visibility, and write authority matter.</h2>
+        </header>
+        <div class="risk-grid">
+          <div class="risk">
+            <span class="tag">Risk</span>
+            <h3>Governance slows builders down</h3>
+            <p>Use the lightest useful route. Prompt, automation, extension, template, candidate, new agent, and not ready are all valid outcomes.</p>
+          </div>
+          <div class="risk">
+            <span class="tag">Risk</span>
+            <h3>Agents overclaim readiness</h3>
+            <p>Meta-agents recommend. Humans still own Active, Ready, visibility, risky tools, and launch decisions.</p>
+          </div>
+          <div class="risk">
+            <span class="tag">Risk</span>
+            <h3>Sources are stale or too broad</h3>
+            <p>Require context readiness checks and named sources before durable design or broader rollout.</p>
+          </div>
+          <div class="risk">
+            <span class="tag">Risk</span>
+            <h3>Pattern depends on one builder</h3>
+            <p>Use backup ownership, shared review, and approved work infrastructure for the Agent Lab.</p>
+          </div>
+        </div>
+        <div class="footer"><span>Guardrails are part of the product</span><span>Slide 8</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Proof Point">
+      <div class="slide-inner">
+        <header>
+          <div class="eyebrow">Proof Point</div>
+          <h2>Release Health Analyst already moved a release from risk to ready.</h2>
+        </header>
+        <div class="content-grid">
+          <div class="stack">
+            <div class="callout blue">
+              <h3>The situation</h3>
+              <p>A June release appeared at risk across 46 items, with open workflow statuses, business effective dates, and scattered evidence creating noise.</p>
+            </div>
+            <div class="callout gold">
+              <h3>What changed</h3>
+              <p>Release Health Analyst separated status noise from real evidence, moving the conversation from RED risk to YELLOW clarification to GREEN readiness.</p>
+            </div>
+          </div>
+          <div class="diagram">
+            <div class="flow six">
+              <div class="node"><span class="num">1</span><p>Assumption corrected: 6/1 effective dates did not block 6/12 deployment.</p></div>
+              <div class="node"><span class="num">2</span><p>Hidden SIT evidence found in a linked ticket.</p></div>
+              <div class="node"><span class="num">3</span><p>Two misassigned stories removed within 24 hours.</p></div>
+              <div class="node"><span class="num">4</span><p>Aging item spotlighted: Legal Invoice risk was tracked until resolved.</p></div>
+              <div class="node"><span class="num">5</span><p>Readiness moved from checkbox status to evidence quality.</p></div>
+              <div class="node"><span class="num">6</span><p>Daily 11 a.m. assessment created a measurable rhythm.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span>A real agent becomes the proving ground for the readiness flow</span><span>Slide 9</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Close">
+      <div class="slide-inner">
+        <header>
+          <div class="eyebrow">Close / Decision</div>
+          <h2>Adopt the readiness flow as the enterprise path for safer agent creation.</h2>
+        </header>
+        <div class="content-grid">
+          <div class="stack">
+            <div class="callout">
+              <h3>Start narrow</h3>
+              <p>Begin with a ROVO pilot and Release Health Analyst as the proof point.</p>
+            </div>
+          <div class="callout">
+            <h3>Design to scale</h3>
+            <p>Apply the same controls to Copilot agents and future platforms, using approved agentic AI tooling to maintain instructions, templates, tests, and evidence.</p>
+          </div>
+          <div class="callout gold">
+            <h3>Keep authority clear</h3>
+            <p>No automated Studio writes, Jira writes, or Confluence publishing without explicit approval.</p>
+            </div>
+          </div>
+          <div class="diagram">
+            <div class="metric-row">
+              <div class="metric"><strong>Adopt</strong><span>the readiness flow</span></div>
+              <div class="metric"><strong>Pilot</strong><span>Release Health Analyst</span></div>
+              <div class="metric"><strong>Approve</strong><span>the Agent Lab tooling path</span></div>
+            </div>
+            <div class="callout blue">
+              <p>The current agents show the pattern. The next step is sponsorship plus an approved Agent Lab to mature it safely.</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span>Decision-ready ask</span><span>Slide 10</span></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Q&A">
+      <div class="slide-inner">
+        <div class="title-visual">
+          <div class="hero-stack">
+            <div>
+              <div class="eyebrow">Thank You / Q&A</div>
+              <h1>Questions?</h1>
+            </div>
+            <p class="lead">The ask: sponsor a narrow pilot, use Release Health Analyst as the proof point, and approve the Agent Lab path for safer agent readiness.</p>
+            <div class="metric-row">
+              <div class="metric"><strong>Adopt</strong><span>readiness flow</span></div>
+              <div class="metric"><strong>Pilot</strong><span>Release Health Analyst</span></div>
+              <div class="metric"><strong>Approve</strong><span>Agent Lab tooling path</span></div>
+            </div>
+          </div>
+          <div class="orbit" aria-label="Question and answer visual">
+            <div class="orbit-ring"></div>
+            <div class="orbit-ring two"></div>
+            <div class="core">Scale<br>Safely</div>
+            <div class="sat one">Value</div>
+            <div class="sat two">Evidence</div>
+            <div class="sat three">Ownership</div>
+            <div class="sat four">Trust</div>
+          </div>
+        </div>
+        <div class="footer"><span>Agent Readiness Accelerator</span><span>Slide 11</span></div>
+      </div>
+    </section>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button type="button" id="prev" aria-label="Previous slide">Prev</button>
+      <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+      <button type="button" id="next" aria-label="Next slide">Next</button>
+      <div class="counter" id="counter" aria-live="polite">1 / 11</div>
+    </nav>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const counter = document.getElementById("counter");
+    const progress = document.getElementById("progress");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    let current = 0;
+
+    function showSlide(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === current);
+      });
+      window.scrollTo(0, 0);
+      counter.textContent = `${current + 1} / ${slides.length}`;
+      progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+      document.title = `${slides[current].dataset.title} - Agent Readiness Accelerator`;
+    }
+
+    prev.addEventListener("click", () => showSlide(current - 1));
+    next.addEventListener("click", () => showSlide(current + 1));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+        event.preventDefault();
+        showSlide(current + 1);
+      }
+      if (event.key === "ArrowLeft" || event.key === "PageUp") {
+        event.preventDefault();
+        showSlide(current - 1);
+      }
+      if (event.key === "Home") {
+        event.preventDefault();
+        showSlide(0);
+      }
+      if (event.key === "End") {
+        event.preventDefault();
+        showSlide(slides.length - 1);
+      }
+    });
+
+    showSlide(0);
+  </script>
+</body>
+</html>
