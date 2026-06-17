@@ -282,6 +282,96 @@ pages:
       - jira-work-item
     pageId: null
     parentPageId: null
+  - slug: qa-test-case-architect-v2-project-brain
+    title: QA Test Case Architect v2 Project Brain
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-project-brain.md
+    labels:
+      - agent-governance
+      - project-brain
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-case-architect-v2-agent-design-record
+    title: QA Test Case Architect v2 - Agent Design Record
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-agent-design-record.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - agent-design-record
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-case-architect-v2-knowledge-source-plan
+    title: Knowledge Source Plan - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-knowledge-source-plan.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - knowledge-source-plan
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-case-architect-v2-subagent-settings
+    title: Subagent Settings - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-subagent-settings.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - subagent-settings
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-case-architect-v2-studio-setup
+    title: Studio Setup - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-studio-setup.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - agent-setup
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-case-architect-v2-rovo-studio-configuration
+    title: ROVO Studio Configuration - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-rovo-studio-configuration.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-case-architect-v2-evaluation
+    title: Evaluation - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-evaluation.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - agent-evaluation
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-case-architect-v2-measurement-plan
+    title: Measurement Plan - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-measurement-plan.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - agent-measurement
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-case-architect-v2-change-log
+    title: Change Log - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-change-log.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - agent-change-log
+      - qa-test
+    pageId: null
+    parentPageId: null
   - slug: release-evidence-ledger-contract
     title: Release Evidence Ledger Contract
     sourcePath: docs/confluence-pages/release-evidence-ledger-contract.md

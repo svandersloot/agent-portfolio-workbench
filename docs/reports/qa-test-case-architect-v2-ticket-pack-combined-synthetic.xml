@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TicketPackCombined packId="QATCA-PROD-SYNTH-001" generatedAt="2026-06-11T00:00:00Z">
+  <SourceManifest>
+    <Source id="SRC-001" type="JiraStory" authority="SystemOfRecord" reference="SYNTH-QA-201"/>
+    <Source id="SRC-002" type="BusinessRule" authority="ProcessEvidence" reference="Synthetic business rules"/>
+    <Source id="SRC-003" type="APISchema" authority="TechnicalEvidence" reference="Synthetic endpoint notes"/>
+  </SourceManifest>
+  <Story issueKey="SYNTH-QA-201" issueType="Story">
+    <Summary>Validate address normalization during quote intake</Summary>
+    <Description>As a quoting user, I want addresses normalized before quote submission so that downstream policy systems receive consistent address data.</Description>
+    <AcceptanceCriteria>
+      <AcceptanceCriterion id="AC1">Given a valid street address with lowercase text, when quote intake validates the address, then the normalized address uses uppercase street and city values.</AcceptanceCriterion>
+      <AcceptanceCriterion id="AC2">Given an address missing postalCode, when quote intake validates the address, then validation returns ADDRESS_POSTAL_CODE_REQUIRED and the quote is not submitted.</AcceptanceCriterion>
+      <AcceptanceCriterion id="AC3">Given the address normalization service is unavailable, when quote intake validates the address, then the user sees ADDRESS_VALIDATION_TEMPORARILY_UNAVAILABLE and the quote is not submitted.</AcceptanceCriterion>
+    </AcceptanceCriteria>
+    <BusinessRules>
+      <Rule id="BR1">Do not submit a quote until address validation succeeds.</Rule>
+      <Rule id="BR2">Normalized address values must be stored without changing policyholder identity data.</Rule>
+    </BusinessRules>
+    <ApiSchemaNotes>
+      <Endpoint method="POST" path="/quote/address/normalize">
+        <Field name="street" required="true"/>
+        <Field name="city" required="true"/>
+        <Field name="state" required="true"/>
+        <Field name="postalCode" required="true"/>
+      </Endpoint>
+    </ApiSchemaNotes>
+    <PrivacyNotes>Synthetic internal test data only. No PII or PHI.</PrivacyNotes>
+  </Story>
+</TicketPackCombined>
