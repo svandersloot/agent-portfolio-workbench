@@ -83,6 +83,7 @@ Current API and platform evidence:
 Dropped boundary:
 
 - Do not build Studio write-back. Keep ROVO Studio configuration manual until Atlassian exposes a stable supported API for Studio-created agent configuration.
+- Do not use Confluence databases as the primary release health dashboard/store. A 2026-06-23 pilot showed CSV import and saved views work, but dashboard consumption is too clunky for the value. See `docs/reports/release-health-confluence-database-pilot-retrospective-2026-06-23.md`.
 
 ## Milestone 1: Space Cleanup
 
