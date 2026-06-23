@@ -4,6 +4,16 @@ Use this page as the canonical inventory of governed ROVO agents and agent candi
 
 `Rovo Agent Inventory Home` is the space overview/root. It should not be used as the detailed inventory record source.
 
+## User-Facing Starting Points
+
+| Need | Start With |
+|---|---|
+| Find an approved agent for everyday use | `User Guide - Using Approved Agents` |
+| Request a new agent or improve an existing agent | `Request or Improve an Agent` |
+| Review the full governed inventory and status fields | This page |
+
+The approved-user guide must show only source-backed `Active` or `Team Approved` agents for the intended audience. Do not infer approval from useful, promising, pilot-only, or draft inventory rows.
+
 ## Inventory Policy
 
 - Keep one canonical row per governed agent, extension, or serious agent candidate.
@@ -12,6 +22,7 @@ Use this page as the canonical inventory of governed ROVO agents and agent candi
 - Record owner, backup owner, audience, knowledge sources, tools or skills, measurement, and last-reviewed date before broad launch.
 - Use `Needs Cleanup` when required governance fields are missing.
 - Do not delete or recreate duplicate pages as part of cleanup. Use focused legacy notes, moves, or reparenting only after review.
+- Keep pilot-only, experimental, draft, in-review, needs-cleanup, candidate, archived, superseded, and historical-reference agents out of the everyday approved-agent list.
 
 ## Required Inventory Fields
 

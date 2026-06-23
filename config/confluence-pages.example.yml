@@ -54,6 +54,25 @@ pages:
       - agent-governance
     pageId: null
     parentPageId: null
+  - slug: user-guide-using-approved-agents
+    title: User Guide - Using Approved Agents
+    sourcePath: docs/confluence-pages/user-guide-using-approved-agents.md
+    parentSlug: agent-inventory
+    labels:
+      - agent-governance
+      - user-guide
+    pageId: null
+    parentPageId: null
+  - slug: request-or-improve-agent
+    title: Request or Improve an Agent
+    sourcePath: docs/confluence-pages/request-or-improve-agent.md
+    parentSlug: governance-and-safety
+    labels:
+      - agent-governance
+      - agent-intake
+      - user-guide
+    pageId: null
+    parentPageId: null
   - slug: measurement-and-value-tracking
     title: Measurement and Value Tracking
     sourcePath: docs/confluence-pages/measurement-and-value-tracking.md

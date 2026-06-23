@@ -55,6 +55,7 @@ Current children:
 
 - Measurement and Value Tracking
 - Context Readiness Checklist
+- Request or Improve an Agent
 - User Guide - Designing Agents
 
 Planned or recommended children:
@@ -70,6 +71,11 @@ Purpose:
 
 - Serves as the canonical list of ROVO agents, owners, lifecycle status, and source-of-truth Project Brain links.
 - Helps builders check for existing agents before creating new ones.
+- Links everyday users to the approved-agent guide before they read the full governance inventory.
+
+Current children:
+
+- User Guide - Using Approved Agents
 
 Cleanup note:
 

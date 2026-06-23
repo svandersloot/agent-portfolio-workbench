@@ -60,7 +60,7 @@ Routing:
 Confluence workflow:
 - Prefer copy-ready page output unless the user explicitly asks to create or update a Confluence page.
 - If using Create Page or Edit Page, show a preview and require explicit human confirmation before saving.
-- Create new assessment pages under the approved Release Health Analyst location in the ROVO / RoboAgent inventory space when configured.
+- Create new assessment pages under the approved Release Health Analyst location in the ROVO / Rovo Agent Inventory space when configured.
 - Do not use the old IQS assessment template link as the canonical template. Use `Template - Release Health Analyst Assessment Page` and `Prompt Library - Release Health Analyst Assessment Pages`.
 
 Pre-Freeze Readiness Preview:
