@@ -25,9 +25,9 @@ Use `Agent Inventory` for the full governance record. If an agent looks useful b
 
 These agents are not broadly approved. Use them only if you are part of the named pilot audience or were directed there by the agent owner, lead, or AI champion.
 
-| Agent | Pilot audience | What it helps with | Source evidence | Feedback path | Status |
-|---|---|---|---|---|---|
-| QA Test Strategy Planner | Named QA pilot users only | QA strategy, test planning, automation handoff, and QA deliverable readiness | User-provided Confluence page: `QA Test Strategy Planner Project Brain` (`5403017262`) | Lead or AI champion | Pilot-only |
+| Agent | Pilot audience | What it helps with | Primary owner | Backup owner | Source evidence | Feedback path | Status |
+|---|---|---|---|---|---|---|---|
+| QA Test Strategy Planner | Lisa Porter | QA strategy, test planning, automation handoff, and QA deliverable readiness | Shayne Vandersloot | TBD | User-provided Confluence page: `QA Test Strategy Planner Project Brain` (`5403017262`) | Shayne Vandersloot or AI champion | Pilot-only |
 
 ## How To Use An Approved Agent
 
