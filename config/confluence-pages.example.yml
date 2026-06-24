@@ -63,6 +63,17 @@ pages:
       - user-guide
     pageId: null
     parentPageId: null
+  - slug: self-guided-learning-using-rovo-agents-in-jira
+    title: Self-Guided Learning - Using Rovo Agents in Jira
+    sourcePath: docs/confluence-pages/self-guided-learning-using-rovo-agents-in-jira.md
+    parentSlug: user-guide-using-approved-agents
+    labels:
+      - agent-governance
+      - user-guide
+      - jira-work-item
+      - training
+    pageId: null
+    parentPageId: null
   - slug: request-or-improve-agent
     title: Request or Improve an Agent
     sourcePath: docs/confluence-pages/request-or-improve-agent.md
