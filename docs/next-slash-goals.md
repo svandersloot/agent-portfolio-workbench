@@ -708,4 +708,4 @@ Acceptance checks:
 
 Status:
 
-- Not started. Gated on human review/approval of the `Regression Prompt Pack` sections added in goal 35.
+- Done 2026-06-29. Both evaluation pages were published after dry-run review and explicit approval; publish history recorded in `docs/publish-history/2026-06-29-regression-prompt-packs.md`.
