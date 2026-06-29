@@ -131,7 +131,7 @@ Before producing a final-seeming ticket draft, identify:
 | MOBRM team standard available | Done | Published under Team Jira Standards as the first active overlay. |
 | Deployment Notes Standard available | Draft | Published for pilot use with Jira Work Item Assistant and Release Notes Manager. |
 | Deployment Notes Agent Pilot available | Draft | Use historical cards to validate the template before active promotion. |
-| First pilot board/project confirmed | Done | MOBRM project board supplied: `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM`. |
+| First pilot board/project confirmed | Done | MOBRM project board supplied: `[internal Atlassian URL]`. |
 | MOBRM field expectations captured | Partial | Parent and labels are first required/important fields; issue type and exact create mapping still need confirmation. |
 | Jira create field mapping confirmed | Open | Required before any write-capable creation workflow, especially bulk creation. |
 | Jira comment template and write mapping confirmed | Open | Required before any comment-posting workflow; draft-only comments are allowed during this migration slice. |

@@ -640,7 +640,7 @@ Result:
 ## 33. Next: Team-Facing Agent Full Pattern
 
 ```text
-/goal Define the fuller agentic development pattern as the default for team-facing ROVO, Copilot, or similar agents. Start from AGENTS.md, START-HERE.md, docs/toolkit-operating-model.md, docs/stage-5-agent-factory-start-here.md, docs/confluence-pages/agent-bootstrap-pattern.md, docs/confluence-pages/rovo-studio-configuration-field-guide.md, and the Runtime Context Map pilot evidence. Do not write to Studio, Jira, or Confluence. Document the minimum full package for team-facing agents: runtime contract, Runtime Context Map, guardrails, knowledge source plan, evaluation prompt pack, Studio promotion packet, owner/backup owner, measurement, change log, and post-Studio parity check. Also document a lightweight variant for personal, one-off, or low-risk helpers. Keep Shark Tank language truthful: ROVO is the user-facing runtime today, while the Agent Lab/repo pattern is the proposed approved workshop/control layer for faster governed development.
+/goal Define the fuller agentic development pattern as the default for team-facing ROVO, Copilot, or similar agents. Start from AGENTS.md, START-HERE.md, docs/toolkit-operating-model.md, docs/stage-5-agent-factory-start-here.md, docs/confluence-pages/agent-bootstrap-pattern.md, docs/confluence-pages/rovo-studio-configuration-field-guide.md, and the Runtime Context Map pilot evidence. Do not write to Studio, Jira, or Confluence. Document the minimum full package for team-facing agents: runtime contract, Runtime Context Map, guardrails, knowledge source plan, evaluation prompt pack, Studio promotion packet, owner/backup owner, measurement, change log, and post-Studio parity check. Also document a lightweight variant for personal, one-off, or low-risk helpers. Keep pitch language truthful: ROVO is the user-facing runtime today, while the Agent Lab/repo pattern is the proposed approved workshop/control layer for faster governed development.
 ```
 
 Acceptance checks:
@@ -648,7 +648,7 @@ Acceptance checks:
 - Team-facing agents have a clear default package that mirrors agentic AI development best practices without making normal ROVO users read the repo.
 - The pattern distinguishes runtime context from setup, governance, evaluation, and promotion evidence.
 - Lightweight exceptions are allowed for personal, one-off, or low-risk helpers.
-- Shark Tank wording avoids claiming the Agent Lab is already official enterprise infrastructure.
+- Pitch wording avoids claiming the Agent Lab is already official enterprise infrastructure.
 - No live Studio, Jira, or Confluence writes are performed.
 - No Runtime Context Map is claimed live until a human manually configures and verifies Studio knowledge sources.
 

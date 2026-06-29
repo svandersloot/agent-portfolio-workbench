@@ -32,7 +32,7 @@ Important:
 - Studio should be a thin bootstrap: identity, routing, safety, authoritative Confluence links, fallback behavior, and manually configured knowledge sources/skills.
 - Do not copy every detailed rule into Studio unless needed as fallback.
 - For Deployment Notes, the authoritative page is:
-  https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187
+  [internal Atlassian URL]
 - The Deployment Notes Standard must be configured as an explicit Studio knowledge source for both Jira Work Item Assistant and Release Notes Manager.
 - Do not let agents substitute MOBRM Team Jira Standards, Organization-Wide Jira Ticket Quality Standard, or other Jira hygiene pages as deployment-note standards.
 
@@ -76,15 +76,15 @@ Latest known published versions from the current conversation:
 
 | Page | URL | Version |
 |---|---|---:|
-| Deployment Notes Standard for Jira Work Items | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187` | v13 |
-| Deployment Notes Agent Pilot | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5363007530` | v9 |
-| ROVO Studio Configuration - Jira Work Item Assistant | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5349113857` | v12 |
-| Studio Setup - Jira Work Item Assistant | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362614357` | v5 |
-| Knowledge Source Plan - Jira Work Item Assistant | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5348655107` | v10 |
-| Rovo Studio Configuration - Release Notes Manager | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5300715546` | v8 |
-| Studio Setup - Release Notes Manager | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5363597417` | v1 |
-| Knowledge Source Plan - Release Notes Manager | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5300158474` | v9 |
-| Agent Bootstrap Pattern And Studio Setup Checklist | `https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5363499137` | v1 |
+| Deployment Notes Standard for Jira Work Items | `[internal Atlassian URL]` | v13 |
+| Deployment Notes Agent Pilot | `[internal Atlassian URL]` | v9 |
+| ROVO Studio Configuration - Jira Work Item Assistant | `[internal Atlassian URL]` | v12 |
+| Studio Setup - Jira Work Item Assistant | `[internal Atlassian URL]` | v5 |
+| Knowledge Source Plan - Jira Work Item Assistant | `[internal Atlassian URL]` | v10 |
+| Rovo Studio Configuration - Release Notes Manager | `[internal Atlassian URL]` | v8 |
+| Studio Setup - Release Notes Manager | `[internal Atlassian URL]` | v1 |
+| Knowledge Source Plan - Release Notes Manager | `[internal Atlassian URL]` | v9 |
+| Agent Bootstrap Pattern And Studio Setup Checklist | `[internal Atlassian URL]` | v1 |
 
 ## What Was Proven
 

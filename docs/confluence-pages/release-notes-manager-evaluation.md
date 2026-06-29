@@ -41,7 +41,7 @@ Human reference page:
 
 `Technical Runbook - 26.05.02 May Release`
 
-`https://csaaig.atlassian.net/wiki/spaces/MO/pages/5274697857/Technical+Runbook+-+26.05.02+May+Release`
+`[internal Atlassian URL]`
 
 Use the reference page as a style and completeness target for May release runbooks. Do not copy its content blindly; the agent must still use exact fixVersion evidence for the requested release.
 
