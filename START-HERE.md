@@ -18,7 +18,7 @@ For Codex or other AI-assisted work, read `AGENTS.md` first. It owns the repo op
 |---|---|---|
 | Shape a new agent idea | `docs/confluence-pages/agent-fit-intake.md` | Search `docs/confluence-pages/agent-inventory.md` and existing Project Brain pages before recommending a new governed agent. |
 | Update an existing agent | The agent's `*-project-brain.md` page under `docs/confluence-pages/` | Confirm owner, backup owner, lifecycle status, readiness, measurement, knowledge sources, evaluation, and change log evidence. |
-| Prepare Confluence publishing | `config/confluence-pages.example.yml` and the target source page | Run a dry-run with `.\scripts\Publish-ConfluencePages.ps1 -Slug <slug> -UpdateExisting`; apply only after approval. |
+| Prepare Confluence publishing | `config/confluence-pages.example.yml` and the target source page | If the ignored local manifest is missing a tracked slug, run `.\scripts\Sync-ConfluenceLocalManifest.ps1 -Slug <slug>` with approval. Then run a dry-run with `.\scripts\Publish-ConfluencePages.ps1 -Slug <slug> -UpdateExisting`; apply only after approval. |
 | Prepare or capture Studio setup | The agent's `*-rovo-studio-configuration.md` or `*-studio-setup.md` page | Follow the README Studio capture flow and keep raw captures in `data/raw/`. |
 | Run regression or pilot checks | The agent's `*-evaluation.md` page and any report under `docs/reports/` | Record safe evidence in reports or change logs; keep raw outputs private until sanitized. |
 | Create a handoff | `docs/handoffs/` | Include scope, branch/worktree guidance, files to read, files not to touch, validation, and companion artifacts. |
