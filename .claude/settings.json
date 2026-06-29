@@ -13,7 +13,6 @@
       "Bash(Test-Path*)"
     ],
     "deny": [
-      "Bash(*Publish-ConfluencePages.ps1* -Apply*)",
       "Read(./.env)",
       "Edit(./.env)",
       "Write(./.env)",

@@ -56,7 +56,7 @@ The following commands may run without per-call approval. Configure in `settings
 
 ### Approval-gated Confluence commands
 
-Claude may request, but must not auto-run, the Confluence publisher and local manifest sync helpers. Configure these under `permissions.ask`, while keeping `-Apply` denied by default:
+Claude may request, but must not auto-run, the Confluence publisher and local manifest sync helpers. Configure these under `permissions.ask`; apply-mode publisher runs require a separate explicit human approval after a clean dry-run review:
 
 ```json
 {
@@ -66,15 +66,12 @@ Claude may request, but must not auto-run, the Confluence publisher and local ma
       "Bash(./scripts/Publish-ConfluencePages.ps1*)",
       "Bash(.\\scripts\\Sync-ConfluenceLocalManifest.ps1*)",
       "Bash(./scripts/Sync-ConfluenceLocalManifest.ps1*)"
-    ],
-    "deny": [
-      "Bash(*Publish-ConfluencePages.ps1* -Apply*)"
     ]
   }
 }
 ```
 
-Use `Sync-ConfluenceLocalManifest.ps1` only to copy one slug block from the tracked public manifest into the ignored local manifest. Claude must not print, summarize, or directly edit `config/confluence-pages.yml`.
+Use `Sync-ConfluenceLocalManifest.ps1` only to copy one slug block from the tracked public manifest into the ignored local manifest. Claude must not print, summarize, or directly edit `config/confluence-pages.yml`. For live Confluence writes, the human approver must name the exact slug or slug list and approve the command containing `-Apply`.
 
 ### Explicit approval required
 
@@ -82,7 +79,7 @@ These actions must be approved individually, per-call:
 
 - Any `git add`, `git commit`, `git push`, `git merge`, or `git rebase`
 - Any PowerShell script that writes, moves, or deletes files
-- Any Confluence publisher script run (`Publish-ConfluencePages.ps1`), including dry-runs
+- Any Confluence publisher script run (`Publish-ConfluencePages.ps1`), including dry-runs and approved `-Apply` runs
 - Any local manifest sync (`Sync-ConfluenceLocalManifest.ps1`)
 - Any JSON or YAML write
 - Any curl, wget, or network-fetching command
@@ -132,7 +129,7 @@ Never auto-approve direct reads or writes to:
 ### Disallowed without explicit human approval
 
 - `git push` to `main` directly (always push to a named branch and open a PR or review)
-- Running `Publish-ConfluencePages.ps1` in apply mode (dry-run is always first, and `-Apply` requires a separate explicit approval)
+- Running `Publish-ConfluencePages.ps1` in apply mode without a clean dry-run and separate explicit approval for the exact slug or slug list
 - Committing anything under `data/raw/`, `.env`, or `config/confluence-pages.yml`
 - Any write, update, transition, assign, comment, or create action in Jira
 - Any save, visibility change, permission change, or configuration edit in ROVO Studio
