@@ -13,12 +13,33 @@ $ErrorActionPreference = "Stop"
 function Read-DotEnv {
     param([Parameter(Mandatory = $true)][string] $Path)
 
-    $resolvedPath = Resolve-Path -LiteralPath $Path
+    $requiredKeys = @("CONFLUENCE_API_BASE", "ATLASSIAN_EMAIL", "ATLASSIAN_API_TOKEN")
     $config = @{}
+
+    foreach ($key in $requiredKeys) {
+        $value = [Environment]::GetEnvironmentVariable($key)
+        if (-not [string]::IsNullOrWhiteSpace($value)) {
+            $config[$key] = $value
+        }
+    }
+
+    $missingKeys = @($requiredKeys | Where-Object { -not $config.ContainsKey($_) -or [string]::IsNullOrWhiteSpace($config[$_]) })
+    if ($missingKeys.Count -eq 0) {
+        return $config
+    }
+
+    if (-not (Test-Path -LiteralPath $Path)) {
+        return $config
+    }
+
+    $resolvedPath = Resolve-Path -LiteralPath $Path
     foreach ($line in Get-Content -LiteralPath $resolvedPath) {
         if ($line -match "^\s*#" -or [string]::IsNullOrWhiteSpace($line)) { continue }
         if ($line -match "^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$") {
-            $config[$Matches[1]] = $Matches[2].Trim().Trim('"').Trim("'")
+            $key = $Matches[1]
+            if (-not $config.ContainsKey($key) -or [string]::IsNullOrWhiteSpace($config[$key])) {
+                $config[$key] = $Matches[2].Trim().Trim('"').Trim("'")
+            }
         }
     }
 
@@ -228,7 +249,7 @@ function New-ConfluenceHeaders {
 
     foreach ($key in @("CONFLUENCE_API_BASE", "ATLASSIAN_EMAIL", "ATLASSIAN_API_TOKEN")) {
         if (-not $Config.ContainsKey($key) -or [string]::IsNullOrWhiteSpace($Config[$key])) {
-            throw "Missing required .env value: $key"
+            throw "Missing required environment or .env value: $key"
         }
     }
 

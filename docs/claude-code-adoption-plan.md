@@ -2,7 +2,7 @@
 
 Date: 2026-06-25
 Accepted: 2026-06-29
-Status: Accepted — governance reference for Claude Code use in this repo
+Status: Accepted - governance reference for Claude Code use in this repo
 
 The read-only permission allowlist and deny paths in this plan are implemented in `.claude/settings.json`. CI/automated checks remain a future slice (see backlog item 8.9).
 
@@ -54,20 +54,40 @@ The following commands may run without per-call approval. Configure in `settings
 }
 ```
 
+### Approval-gated Confluence commands
+
+Claude may request, but must not auto-run, the Confluence publisher and local manifest sync helpers. Configure these under `permissions.ask`; apply-mode publisher runs require a separate explicit human approval after a clean dry-run review:
+
+```json
+{
+  "permissions": {
+    "ask": [
+      "Bash(.\\scripts\\Publish-ConfluencePages.ps1*)",
+      "Bash(./scripts/Publish-ConfluencePages.ps1*)",
+      "Bash(.\\scripts\\Sync-ConfluenceLocalManifest.ps1*)",
+      "Bash(./scripts/Sync-ConfluenceLocalManifest.ps1*)"
+    ]
+  }
+}
+```
+
+Use `Sync-ConfluenceLocalManifest.ps1` only to copy one slug block from the tracked public manifest into the ignored local manifest. Claude must not print, summarize, or directly edit `config/confluence-pages.yml`. For live Confluence writes, the human approver must name the exact slug or slug list and approve the command containing `-Apply`.
+
 ### Explicit approval required
 
 These actions must be approved individually, per-call:
 
 - Any `git add`, `git commit`, `git push`, `git merge`, or `git rebase`
 - Any PowerShell script that writes, moves, or deletes files
-- Any Confluence publisher script run (`Publish-ConfluencePages.ps1`)
+- Any Confluence publisher script run (`Publish-ConfluencePages.ps1`), including dry-runs and approved `-Apply` runs
+- Any local manifest sync (`Sync-ConfluenceLocalManifest.ps1`)
 - Any JSON or YAML write
 - Any curl, wget, or network-fetching command
 - Any shell command that modifies system state outside the repo
 
 ### Deny-list paths
 
-Never auto-approve file writes to:
+Never auto-approve direct reads or writes to:
 
 - `.env`
 - `config/confluence-pages.yml`
@@ -79,11 +99,12 @@ Never auto-approve file writes to:
 ## Data Handling Rules
 
 1. **No secrets in prompts.** Do not paste `.env`, `config/confluence-pages.yml`, authentication headers, API tokens, cookies, or private URLs into any Claude session.
-2. **No raw exports in repo.** `data/raw/` is Git-ignored. Keep Studio responses, HAR files, and unsanitized captures there until normalized and sanitized.
-3. **Normalize before committing.** Run `Normalize-StudioExport.ps1` before committing any Studio configuration data. Commit only the normalized output under `agents/`.
-4. **API key via environment variable only.** Set `ANTHROPIC_API_KEY` in the shell environment or system keychain. Never write it into CLAUDE.md, a script, or a committed config file.
-5. **Scan before staging.** Run `.\scripts\Test-PrivateDataScan.ps1` before every `git add` or `git commit`. If the scan flags anything, stop and resolve before proceeding.
-6. **Enterprise plan note.** If your org uses Anthropic's enterprise plan, enable the Compliance API integration and configure DLP and SIEM integrations through approved providers. Verify data retention settings match your org's policy before starting sensitive governance work.
+2. **Private manifest stays private.** Keep `config/confluence-pages.yml` as ignored local operational state. If it drifts behind `config/confluence-pages.example.yml`, use `Sync-ConfluenceLocalManifest.ps1 -Slug <slug>` with approval instead of pasting private config into a prompt or using a generic shell append.
+3. **No raw exports in repo.** `data/raw/` is Git-ignored. Keep Studio responses, HAR files, and unsanitized captures there until normalized and sanitized.
+4. **Normalize before committing.** Run `Normalize-StudioExport.ps1` before committing any Studio configuration data. Commit only the normalized output under `agents/`.
+5. **API key via environment variable only.** Set `ANTHROPIC_API_KEY` in the shell environment or system keychain. Never write it into CLAUDE.md, a script, or a committed config file.
+6. **Scan before staging.** Run `.\scripts\Test-PrivateDataScan.ps1` before every `git add` or `git commit`. If the scan flags anything, stop and resolve before proceeding.
+7. **Enterprise plan note.** If your org uses Anthropic's enterprise plan, enable the Compliance API integration and configure DLP and SIEM integrations through approved providers. Verify data retention settings match your org's policy before starting sensitive governance work.
 
 ---
 
@@ -95,6 +116,7 @@ Never auto-approve file writes to:
 - Edit Markdown, YAML, JSON, and PowerShell scripts within the working directory
 - Run `git status`, `git diff`, `git log`, `git branch`, and other read-only git commands
 - Run PowerShell dry-run scripts (`-WhatIf`, `-DryRun`, or read-only modes)
+- Run `Sync-ConfluenceLocalManifest.ps1 -Slug <slug>` after approval when the slug already exists in `config/confluence-pages.example.yml`
 - Run `.\scripts\Test-ConfluencePageFamilyConsistency.ps1`
 - Run `.\scripts\Test-PrivateDataScan.ps1`
 - Run `.\scripts\Test-StaleHandoffs.ps1`
@@ -107,7 +129,7 @@ Never auto-approve file writes to:
 ### Disallowed without explicit human approval
 
 - `git push` to `main` directly (always push to a named branch and open a PR or review)
-- Running `Publish-ConfluencePages.ps1` in apply mode (dry-run is always first)
+- Running `Publish-ConfluencePages.ps1` in apply mode without a clean dry-run and separate explicit approval for the exact slug or slug list
 - Committing anything under `data/raw/`, `.env`, or `config/confluence-pages.yml`
 - Any write, update, transition, assign, comment, or create action in Jira
 - Any save, visibility change, permission change, or configuration edit in ROVO Studio
@@ -263,7 +285,7 @@ The repo contains no scripts that write to Jira, Confluence (except the dry-run-
 
 ### Drift detection
 
-If Git, Confluence, Studio, or Jira disagree about an agent's status, readiness, ownership, or runtime behavior, stop and report the drift. Do not choose one surface as truth silently. Use the source-of-truth order: repo → Confluence → Studio → Jira.
+If Git, Confluence, Studio, or Jira disagree about an agent's status, readiness, ownership, or runtime behavior, stop and report the drift. Do not choose one surface as truth silently. Use the source-of-truth order: repo -> Confluence -> Studio -> Jira.
 
 ---
 
@@ -304,7 +326,7 @@ Never automate these actions from this repo:
 Allowed: prepare Studio copy packets, dry-run Confluence outputs, draft Jira text for
 human review, normalize Studio exports, produce handoff instructions.
 
-## Human-Owned Decisions — Do Not Imply Approval For
+## Human-Owned Decisions - Do Not Imply Approval For
 
 - Marking any agent Active, broadly Ready, or approved for broad pilot
 - Owner or backup owner assignment
@@ -352,11 +374,11 @@ any follow-ups or blocked items.
 
 ## Related Files
 
-- `AGENTS.md` — operating contract (authoritative)
-- `CLAUDE.md` — session bootstrap (references AGENTS.md)
-- `START-HERE.md` — common workflow entry points
-- `docs/toolkit-operating-model.md` — strategic direction and source-of-truth model
-- `docs/stage-5-pilot-boundaries.md` — approved and prohibited workflows for first team pilot
-- `.\scripts\Test-PrivateDataScan.ps1` — pre-commit private data scan
-- `.\scripts\Test-ConfluencePageFamilyConsistency.ps1` — page family and publish plan checks
-- `.\scripts\Test-StaleHandoffs.ps1` — handoff freshness check
+- `AGENTS.md` - operating contract (authoritative)
+- `CLAUDE.md` - session bootstrap (references AGENTS.md)
+- `START-HERE.md` - common workflow entry points
+- `docs/toolkit-operating-model.md` - strategic direction and source-of-truth model
+- `docs/stage-5-pilot-boundaries.md` - approved and prohibited workflows for first team pilot
+- `.\scripts\Test-PrivateDataScan.ps1` - pre-commit private data scan
+- `.\scripts\Test-ConfluencePageFamilyConsistency.ps1` - page family and publish plan checks
+- `.\scripts\Test-StaleHandoffs.ps1` - handoff freshness check

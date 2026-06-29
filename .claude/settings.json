@@ -32,6 +32,16 @@
       "Write(**/*secret*)",
       "Edit(**/*credential*)",
       "Write(**/*credential*)"
+    ],
+    "ask": [
+      "Bash(.\\scripts\\Publish-ConfluencePages.ps1*)",
+      "Bash(./scripts/Publish-ConfluencePages.ps1*)",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\Publish-ConfluencePages.ps1*)",
+      "Bash(pwsh -NoProfile -File .\\scripts\\Publish-ConfluencePages.ps1*)",
+      "Bash(.\\scripts\\Sync-ConfluenceLocalManifest.ps1*)",
+      "Bash(./scripts/Sync-ConfluenceLocalManifest.ps1*)",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\Sync-ConfluenceLocalManifest.ps1*)",
+      "Bash(pwsh -NoProfile -File .\\scripts\\Sync-ConfluenceLocalManifest.ps1*)"
     ]
   }
 }

@@ -665,3 +665,47 @@ Acceptance checks:
 - The checklist is actionable, not philosophical only.
 - It identifies current gaps without claiming the repo follows the principles perfectly everywhere.
 - No live Studio, Jira, or Confluence writes are performed.
+
+## 35. Completed Locally: Regression Prompt Pack Pilot (Backlog 8.5)
+
+```text
+/goal Create a small, consistent regression prompt pack for the two pilot agents, Jira Work Item Assistant and Release Notes Manager. Each pack covers source verification, fallback trap, unsafe-write trap, and 2-3 behavior regressions with explicit pass/partial/fail criteria. Reuse the Runtime Context Map smoke tests and live regression evidence already in the repo. Keep the work repo-only and dry-run-first. Do not write to Studio, Jira, or Confluence. Do not claim any pack was run against a live agent.
+```
+
+Acceptance checks:
+
+- Each pilot agent has a small prompt pack with source verification, fallback trap, unsafe-write trap, and three behavior regressions.
+- Every prompt has explicit pass / partial / fail criteria.
+- The packs reuse existing Runtime Context Map smoke tests and live regression evidence rather than duplicating it.
+- The work is repo-only; no live-system writes occur; nothing is claimed as a live test result.
+
+Completed local artifacts:
+
+- `docs/confluence-pages/jira-work-item-assistant-evaluation.md` `Regression Prompt Pack` section (`JWA-R1`-`JWA-R6`).
+- `docs/confluence-pages/release-notes-manager-evaluation.md` `Regression Prompt Pack` section (`RNM-R1`-`RNM-R6`).
+- `docs/implementation-backlog.md` status updates for backlog item 8.5.
+
+Result:
+
+- Added a `Regression Prompt Pack` section to each pilot agent's evaluation page; no new page was created and no manifest change was needed.
+- Each pack seeds R1/R2 from the agent's Runtime Context Map smoke tests and forbidden-substitute / fallback columns, R3 from the existing unsafe-write evaluation case, and R4-R6 from the live regression and golden runbook reports.
+- Packs are labeled repo-only prompts plus expected-behavior criteria; results are recorded with the existing `Test Run` block in `docs/reports/deployment-notes-agent-live-regression-2026-06-08.md` only after a human runs them.
+- Confluence publishing of the new sections is deferred to goal 36 below.
+
+## 36. Next: Publish Regression Prompt Pack Sections
+
+```text
+/goal After the Regression Prompt Pack shape is reviewed and approved, publish the updated Jira Work Item Assistant and Release Notes Manager evaluation pages to Confluence. Run .\scripts\Publish-ConfluencePages.ps1 -Slug jira-work-item-assistant-evaluation -UpdateExisting and .\scripts\Publish-ConfluencePages.ps1 -Slug release-notes-manager-evaluation -UpdateExisting as dry-runs first, confirm each plan targets exactly one intended page with the expected currentVersion and plannedVersion, and apply only after explicit approval. Do not write to Studio or Jira. Record a publish-history entry for each applied page.
+```
+
+Acceptance checks:
+
+- Each dry-run targets exactly one intended page before any apply.
+- Apply runs only after the pack shape is approved and the dry-run is confirmed.
+- A publish-history record is created under `docs/publish-history/` for each applied page.
+- `config/confluence-pages.yml` remains ignored and out of Git.
+- No Studio or Jira writes occur.
+
+Status:
+
+- Done 2026-06-29. Both evaluation pages were published after dry-run review and explicit approval; publish history recorded in `docs/publish-history/2026-06-29-regression-prompt-packs.md`.
