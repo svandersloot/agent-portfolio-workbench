@@ -1,7 +1,10 @@
 # Claude Code Adoption Plan
 
 Date: 2026-06-25
-Status: Draft — for review before committing as governance reference
+Accepted: 2026-06-29
+Status: Accepted — governance reference for Claude Code use in this repo
+
+The read-only permission allowlist and deny paths in this plan are implemented in `.claude/settings.json`. CI/automated checks remain a future slice (see backlog item 8.9).
 
 This plan defines how Claude Code should be adopted for this repo's governance workflow. It is scoped to the local repo workbench. It does not approve changes to ROVO Studio, Jira, Confluence, or any other live system.
 

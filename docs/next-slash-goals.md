@@ -601,6 +601,11 @@ Acceptance checks:
 - The plan preserves no Studio write-back, no Jira writes, Confluence dry-run-first publishing, and private-data guardrails.
 - Readiness checklist covers branch strategy, PR review, CI/checks, secrets handling, publish workflow, evidence capture, and stakeholder communication.
 
+Status:
+
+- Accepted on 2026-06-29. `docs/claude-code-adoption-plan.md` is the accepted governance reference and `.claude/settings.json` implements the read-only allowlist and deny paths derived from current repo truth.
+- Remaining future slice: CI/automated checks (tracked under backlog item 8.9).
+
 ## 32. Completed Locally: Pilot Runtime Context Maps For Source Routing
 
 ```text
