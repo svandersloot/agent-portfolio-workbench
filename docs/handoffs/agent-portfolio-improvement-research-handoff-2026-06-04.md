@@ -35,13 +35,13 @@ Please help me research improvement opportunities, design manual tests, and reco
 
 | Area | Page |
 |---|---|
-| Jira Work Item Assistant Studio | https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5349113857 |
-| Jira Work Item Assistant Subagents | https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5349081089 |
-| Jira Work Item Assistant Evaluation | https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5348524037 |
-| Release Drift Monitor Prompt Library | https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5333385319 |
-| Release Drift Monitor Studio | https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5318770794 |
-| Release Health Analyst Prompt Library | https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5334073374 |
-| Release Health Analyst Studio | https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5289476102 |
+| Jira Work Item Assistant Studio | [internal Atlassian URL] |
+| Jira Work Item Assistant Subagents | [internal Atlassian URL] |
+| Jira Work Item Assistant Evaluation | [internal Atlassian URL] |
+| Release Drift Monitor Prompt Library | [internal Atlassian URL] |
+| Release Drift Monitor Studio | [internal Atlassian URL] |
+| Release Health Analyst Prompt Library | [internal Atlassian URL] |
+| Release Health Analyst Studio | [internal Atlassian URL] |
 | Release Notes Manager Project Brain | `docs/confluence-pages/release-notes-manager-project-brain.md` |
 | Release Notes Manager Evaluation | `docs/confluence-pages/release-notes-manager-evaluation.md` |
 | Agent Inventory | `docs/confluence-pages/agent-inventory.md` |

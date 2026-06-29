@@ -16,7 +16,7 @@ Future improvement candidates should be tracked separately from the accepted sta
 |---|---|
 | Team | MOBRM |
 | Jira project key | `MOBRM` |
-| Board or filter | MOBRM board `7690`: `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM/boards/7690?issueType=10001` |
+| Board or filter | MOBRM board `7690`: `[internal Atlassian URL]` |
 | Team owner | Shayne Vandersloot |
 | Standards owner | Shayne Vandersloot |
 | Backup owner | Harish |
@@ -347,7 +347,7 @@ RITM0113754 - Request for PC Prod access.
 
 Every story must be linked to the appropriate epic based on work type and the current month or quarter.
 
-Source filter: `https://csaaig.atlassian.net/issues/?filter=57805`
+Source filter: `[internal Atlassian URL]`
 
 The epics listed here are 2026 planning values. Keep the selection rule evergreen, but review and refresh the epic list when the next year's epics are created.
 

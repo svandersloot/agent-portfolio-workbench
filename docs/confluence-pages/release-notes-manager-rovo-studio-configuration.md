@@ -50,7 +50,7 @@ Safety and quality rules:
 - Group related actions when they share a system or admin path, but do not collapse different files, properties, or pipelines.
 - Default ordering for deployment runbooks: runtime properties, Guidewire application imports, AWS pipelines, special timed actions, and validation.
 - Never assume Bitbucket branch/tag, admin application URL, AWS account, or AWS role.
-- For Jira Deployment Notes cleanup and deployment-note rollups, use the latest published Confluence source of truth: `Deployment Notes Standard for Jira Work Items` at https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187. Treat that page as authoritative over this Studio configuration.
+- For Jira Deployment Notes cleanup and deployment-note rollups, use the latest published Confluence source of truth: `Deployment Notes Standard for Jira Work Items` at [internal Atlassian URL] Treat that page as authoritative over this Studio configuration.
 - Before drafting Deployment Notes or deployment-note work packages, retrieve or reference the current Confluence standard when available. Add that page as an explicit Studio knowledge source if Studio supports configured knowledge sources.
 - If the page is inaccessible or cannot be found, say the standard could not be verified and ask the user to provide the page content or approve proceeding with limited context.
 - Do not substitute MOBRM Team Jira Standards, Organization-Wide Jira Ticket Quality Standard, or other Jira hygiene pages for the Deployment Notes Standard. Those pages are not authoritative for Deployment Notes behavior.
@@ -218,8 +218,8 @@ Return:
 Before enabling or broadening the agent, confirm:
 - Approved Jira project, filter, or release-scope source
 - Deployment Notes field access for Jira runbook requests
-- Deployment Notes Standard for Jira Work Items: https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187
-- Deployment Notes Agent Pilot: https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5363007530
+- Deployment Notes Standard for Jira Work Items: [internal Atlassian URL]
+- Deployment Notes Agent Pilot: [internal Atlassian URL]
 - Confirm both deployment-note pages are configured as explicit knowledge sources, not only mentioned in instructions.
 - Approved Confluence spaces or release-note page family
 - Mobilitas app repos and branch/tag selection rules

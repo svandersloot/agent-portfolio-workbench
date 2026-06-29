@@ -4,6 +4,6 @@
 agents:
   - slug: improvements-to-design-agent
     name: Improvements to Design Agent
-    studioUrl: https://csaaig.atlassian.net/...
+    studioUrl: <your-studio-agent-url>
     owner: your-name
     governancePage: ROVO > Rovo Design Agent vNext - Rovo Studio Configuration

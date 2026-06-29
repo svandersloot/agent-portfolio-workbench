@@ -11,6 +11,7 @@ For Codex or other AI-assisted work, read `AGENTS.md` first. It owns the repo op
 - Do not publish or update Confluence without a focused dry-run and explicit approval.
 - Keep `.env`, `config/confluence-pages.yml`, `data/raw/`, HARs, cookies, headers, tokens, private URLs, and unsanitized exports out of Git.
 - Commit normalized, sanitized, repo-backed artifacts only.
+- Keep personal learning notes, pitch decks, presenter scripts, stakeholder-specific ask drafts, and private operational overlays out of Git. Use ignored local folders such as `docs/private-overlays/` for material that should not become shared repo truth.
 
 ## Common Workflows
 

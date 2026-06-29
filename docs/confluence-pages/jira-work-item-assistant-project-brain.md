@@ -73,7 +73,7 @@ Jira Work Item Assistant helps requesters, release owners, and delivery leads tu
 | Field | Decision |
 |---|---|
 | Initial pilot | MOBRM first, broader multi-team design later. |
-| Pilot board/project | `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM` |
+| Pilot board/project | `[internal Atlassian URL]` |
 | Standards | Organization-wide Jira ticket standard plus MOBRM Team Jira Standards. |
 | MOBRM required fields | Parent and labels are the first required/important fields. |
 | Not required for MOBRM pilot | fixVersion, component, priority, and sprint. |
