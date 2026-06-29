@@ -1,6 +1,7 @@
 .env
 .env.*
 !.env.example
+.codex-worktrees/
 
 # Raw Studio captures can contain Atlassian ARIs, account IDs, and private URLs.
 data/raw/
@@ -9,6 +10,11 @@ data/raw/
 data/exports/
 data/reports/
 docs/infographics/
+docs/handoffs/agent-readiness-demo-evidence-preview-handoff-*.md
+docs/reports/agent-readiness-*-preview.html
+docs/reports/demo-assets/
+docs/reports/shark-tank-show-style-*.html
+docs/reports/shark-tank-show-style-*.md
 rovo-export/
 rovo-iqs-reference-report.csv
 rovo-page-inventory.csv
@@ -18,6 +24,7 @@ automation-rule-*.json
 # Local multi-agent tracking config can contain private Studio URLs.
 config/studio-agents.yml
 config/confluence-pages.yml
+config/atlassian-knowledge-inventory.yml
 
 # PowerShell/editor noise.
 *.log
