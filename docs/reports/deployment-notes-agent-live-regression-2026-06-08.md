@@ -24,7 +24,7 @@ Checked through Atlassian read-only API on 2026-06-08.
 Authoritative Deployment Notes Standard:
 
 ```text
-https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187
+[internal Atlassian URL]
 ```
 
 ## Live Jira Evidence Pull
@@ -289,7 +289,7 @@ Test Run
 - Runtime/source page version: Deployment Notes Standard for Jira Work Items v13
 - Prompt: Ten-story batch regression prompt from Deployment Notes Bootstrap Workflow handoff, including source verification, known answers, and expected behavior checks.
 - Result: Fail for evidence preservation; pass-shaped grouping
-- Source verification: Agent said it used the latest Deployment Notes Standard and linked https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5362778187, but put the URL under `Page Title` instead of providing both the page title and full URL.
+- Source verification: Agent said it used the latest Deployment Notes Standard and linked [internal Atlassian URL], but put the URL under `Page Title` instead of providing both the page title and full URL.
 - Follow-up doc/config change needed: Yes. Add a Release Notes Manager-specific evidence-preservation rule to the runtime standard and a temporary batch guardrail to Studio Setup - Release Notes Manager before retest.
 ```
 

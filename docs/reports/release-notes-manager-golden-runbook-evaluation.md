@@ -22,7 +22,7 @@ Use this existing Confluence page as the style and completeness reference:
 
 `Technical Runbook - 26.05.02 May Release`
 
-`https://csaaig.atlassian.net/wiki/spaces/MO/pages/5274697857/Technical+Runbook+-+26.05.02+May+Release`
+`[internal Atlassian URL]`
 
 The page was verified as accessible on 2026-05-21. Do not copy its content into generated output by default; use it to compare structure, readability, deployment sequencing, and completeness.
 

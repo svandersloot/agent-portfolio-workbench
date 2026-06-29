@@ -11,13 +11,13 @@ The user requested migration of Jira Work Item Assistant from the legacy MO sour
 Legacy source supplied by user:
 
 ```text
-https://csaaig.atlassian.net/wiki/spaces/MO/folder/5090410548
+[internal Atlassian URL]
 ```
 
 Target space supplied by user:
 
 ```text
-https://csaaig.atlassian.net/wiki/spaces/ROVO
+[internal Atlassian URL]
 ```
 
 Chrome authenticated retrieval was attempted during this migration turn, but the local Chrome extension bridge reported it was not trusted. The legacy folder content was therefore not captured in this repo during this pass.
@@ -44,7 +44,7 @@ Help release owners and delivery leads turn release/Kanban context into clear, s
 | Question Area | Current Decision |
 |---|---|
 | Scope | Design broader than MOBRM, but prove with MOBRM first. Do not create one agent per team by default. |
-| First pilot board | MOBRM board/project: `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM` |
+| First pilot board | MOBRM board/project: `[internal Atlassian URL]` |
 | Standards model | Use a global Jira ticket standard plus documented team standards. MOBRM is the first team overlay. |
 | Jira creation | The agent should be able to create Jira tickets after explicit human approval through a governed write path. |
 | Bulk creation | Bulk candidate ticket creation should be supported when multiple tickets are known up front. |
@@ -81,7 +81,7 @@ These questions should be answered before promotion beyond `In Review`.
 
 ### Source And Standards
 
-6. Which Jira project and Kanban board should be first pilot scope? Answer: MOBRM board/project at `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM`.
+6. Which Jira project and Kanban board should be first pilot scope? Answer: MOBRM board/project at `[internal Atlassian URL]`.
 7. Which team standard should apply first: MOBRM Team Jira Standards, another page in the MO folder, or a standard not yet migrated? Answer: global standard plus MOBRM team standard for the pilot.
 8. Should Jira Work Item Assistant read the Organization-Wide Jira Ticket Quality Standard directly, or should Jira Ticket Polisher be the only standards gate?
 9. What release sources are authoritative: fixVersion, release calendar, release plan page, change ticket, deployment notes, current Kanban board, or a weekly meeting page?

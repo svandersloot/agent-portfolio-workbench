@@ -13,11 +13,11 @@ Current goal:
 - Keep Jira create/comment posting disabled; the agent should produce copy-ready drafts only.
 
 Key pages:
-- ROVO Studio Configuration - Jira Work Item Assistant: https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5349113857
-- Subagent Settings - Jira Work Item Assistant: https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5349081089
-- Evaluation - Jira Work Item Assistant: https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5348524037
-- Prompt Library - Team Jira Standards Discovery: https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5348458502
-- MOBRM Team Jira Standards: https://csaaig.atlassian.net/wiki/spaces/ROVO/pages/5327847473
+- ROVO Studio Configuration - Jira Work Item Assistant: [internal Atlassian URL]
+- Subagent Settings - Jira Work Item Assistant: [internal Atlassian URL]
+- Evaluation - Jira Work Item Assistant: [internal Atlassian URL]
+- Prompt Library - Team Jira Standards Discovery: [internal Atlassian URL]
+- MOBRM Team Jira Standards: [internal Atlassian URL]
 
 Important current rules to verify:
 - Do not create, update, transition, assign, rank, move, or comment on Jira.

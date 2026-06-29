@@ -37,7 +37,7 @@ The exact page was not found in the local old-space export by searching for `MOB
 | Question | Decision |
 |---|---|
 | Automatic application | MOBRM standards should theoretically apply to every `MOBRM-*` ticket. |
-| Board mapping | MOBRM board URL confirmed: `https://csaaig.atlassian.net/jira/software/c/projects/MOBRM/boards/7690?issueType=10001`. |
+| Board mapping | MOBRM board URL confirmed: `[internal Atlassian URL]`. |
 | Related keys | `MR26`, `M26`, and `CLE` should not trigger MOBRM standards. `CLE` may appear as the selected epic for monthly release cards, environment maintenance, or quarterly planning. |
 | ROVO owner | Shayne Vandersloot. |
 | ROVO backup owner | Harish. |
