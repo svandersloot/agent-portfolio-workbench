@@ -44,6 +44,14 @@ Use P1-P5 consistently in every section. Do not mix severity words such as `High
 
 If a free-text severity must be shown for a stakeholder, map it to a P-level in the same row rather than replacing the P-level.
 
+## Release Stage And Pre-Freeze Preview
+
+Match language to the release stage.
+
+- **Before code freeze**, give a readiness *preview*, not final approval. Do not use P1 blocker language unless a hard gate has already failed, evidence contradicts readiness, or policy says it blocks. Use `WARN`, `UNKNOWN`, `Data Incomplete`, or P2/P3 risk language for incomplete or still-moving evidence.
+- **At and after code freeze**, the release branch is the source of truth (see `Release Evidence Ledger Contract`). A P1 is appropriate when a hard gate fails or evidence contradicts readiness.
+- On the first assessment for a release, use `Baseline` in trend sections.
+
 ## Run Cadence And Timing
 
 - Run **one canonical assessment per readiness checkpoint**. A rerun is allowed when source evidence has changed; the rerun supersedes the prior draft for that checkpoint rather than standing as a competing report.
