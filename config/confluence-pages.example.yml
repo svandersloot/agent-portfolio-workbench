@@ -575,6 +575,14 @@ pages:
       - release-health
     pageId: null
     parentPageId: null
+  - slug: release-health-analyst-assessment-behavior-rules
+    title: Release Health Analyst Assessment Behavior Rules
+    sourcePath: docs/confluence-pages/release-health-analyst-assessment-behavior-rules.md
+    labels:
+      - agent-governance
+      - release-health
+    pageId: null
+    parentPageId: null
   - slug: jira-ticket-polisher-project-brain
     title: Jira Ticket Polisher Project Brain
     sourcePath: docs/confluence-pages/jira-ticket-polisher-project-brain.md
