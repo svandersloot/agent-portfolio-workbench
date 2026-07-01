@@ -12,7 +12,7 @@ $ErrorActionPreference = "Stop"
 
 function Get-PageBlock {
     param(
-        [Parameter(Mandatory = $true)][string[]] $Lines,
+        [Parameter(Mandatory = $true)][AllowEmptyString()][string[]] $Lines,
         [Parameter(Mandatory = $true)][string] $Slug
     )
 
