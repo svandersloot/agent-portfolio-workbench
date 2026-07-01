@@ -46,3 +46,29 @@ Published the per-team scope knowledge source and the vNext behavior-rules knowl
 - Add `Release Scope Definition` (this team) and `Release Health Analyst Assessment Behavior Rules` as named knowledge sources.
 - Confirm the scope instruction uses the team's declared `fixVersion`-only query with no added project filter.
 - Run the comment-over-status, calibration, and scope smoke prompts from `agent-portfolio-lab/test-runs/004-vnext-behavior-calibration/findings.md`.
+
+## Guardrail Hardening Update
+
+Published after a focused dry-run on 2026-07-01, following the first evaluation run (10/14 pass). The four misses were negative constraints under-enforced by the thinned parent instructions: the agent guessed a fuzzy release identity, recommended dispositions, and set Blocked off a status-versus-comment reconciliation.
+
+| Page | Page ID | Parent | Action | Version After |
+|---|---|---|---|---|
+| Rovo Studio Configuration - Release Health Analyst | `5289476102` | `5288362010` | update | `11` |
+| Release Health Analyst Assessment Behavior Rules | `5450924071` | `5288362010` | update | `2` |
+
+Changes:
+
+- Promoted non-negotiable guardrails inline in the parent instructions: fuzzy-release fail-closed with no scope counts from an assumed release; scope every assessment with the declared fixVersion-only query and never add a project clause; no disposition (never recommend defer/keep/move/reopen, and never say a deferral is "recommended" or "not recommended"); a status-versus-comment conflict is an evidence gap plus a status-verification question, not an owned Blocked call or auto-P1.
+- Mirrored the comment-over-status strengthening in the behavior-rules page.
+
+Validation:
+
+- Focused dry-run targeted exactly the two pages before apply.
+- Apply updated the Studio configuration page to version `11` and the behavior-rules page to version `2`, both in place under the Release Health Analyst Project Brain.
+- No Studio changes were made; the live Studio agent still requires a manual re-copy of the strengthened parent instructions to enforce the new guardrails.
+- No Jira tickets were read or written during publishing.
+
+Manual Studio follow-up:
+
+- Re-copy the strengthened `Guardrails` block from `Rovo Studio Configuration - Release Health Analyst` into the live Studio agent parent instructions. Publishing the Confluence page alone does not change agent behavior.
+- Re-run the 17-case evaluation (`docs/reports/release-health-analyst-vnext-eval-2026-07-01.csv`); target the four previously UNRESOLVED cases (fuzzy release, both disposition cases, and the classification case).
