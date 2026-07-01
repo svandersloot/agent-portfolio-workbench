@@ -410,6 +410,15 @@ pages:
       - agent-design-record
     pageId: null
     parentPageId: null
+  - slug: release-scope-definition-template
+    title: Template - Release Scope Definition
+    sourcePath: docs/confluence-pages/release-scope-definition-template.md
+    labels:
+      - agent-governance
+      - agent-template
+      - release-health
+    pageId: null
+    parentPageId: null
   - slug: release-drift-monitor-project-brain
     title: Release Drift Monitor Project Brain
     sourcePath: docs/confluence-pages/release-drift-monitor-project-brain.md
@@ -563,6 +572,14 @@ pages:
     labels:
       - agent-governance
       - prompt-library
+      - release-health
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-assessment-behavior-rules
+    title: Release Health Analyst Assessment Behavior Rules
+    sourcePath: docs/confluence-pages/release-health-analyst-assessment-behavior-rules.md
+    labels:
+      - agent-governance
       - release-health
     pageId: null
     parentPageId: null
