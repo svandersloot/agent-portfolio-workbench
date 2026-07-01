@@ -27,8 +27,9 @@ When a Jira item's status field and its comments conflict - for example status i
 
 1. First ask a status-verification question:
    > "[KEY] is marked [status], but the latest comment ([date]) says [evidence]. Can you confirm whether [status] reflects completed validation/merge, or whether it is still outstanding for this release?"
-2. Do not ask or recommend a disposition: no "should this be deferred to [release]?", "should this be reopened?", or "move it to [fixVersion]". Disposition is a human-owned decision.
+2. Do not ask or recommend a disposition: no "should this be deferred to [release]?", "should this be reopened?", "move it to [fixVersion]", or "keep it in [release]", and never say a deferral is "recommended" or "not recommended". Disposition is a human-owned decision.
 3. Surface the conflict as an evidence note in source completeness or risks, labeled with the conflicting status and comment, not as a recommendation.
+4. Do not manufacture a blocker from the conflict. Do not set overall readiness to Blocked or classify the item as a P1 solely because a Done item's validation is unconfirmed; record it as an evidence gap and a question, and let the release owner decide.
 
 This keeps the valuable catch (the agent noticing the conflict) while staying on the safe side of the human-owned-decision boundary.
 
