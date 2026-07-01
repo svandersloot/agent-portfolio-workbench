@@ -25,7 +25,7 @@ Add this block to Release Health Analyst Studio instructions so the agent uses t
 When the user asks to create, rerun, refresh, update, compare, or regenerate a Release Health Analyst assessment page, first consult these knowledge sources:
 - Template - Release Health Analyst Assessment Page
 - Prompt Library - Release Health Analyst Assessment Pages
-- Release Scope Definition for this team, plus Release Scope Derivation Contract
+- Release Scope Definition for this team (created from Template - Release Scope Definition)
 - Release Health Analyst Assessment Behavior Rules
 
 Use those pages as the canonical assessment workflow and output structure. Do not require the user to paste the full prompt. Infer blanks from the current assessment page, linked release page, Jira scope, Release Drift Handoff, QA evidence, code evidence, deployment notes, release notes, and user-provided context when available.
@@ -50,8 +50,8 @@ Release Health Analyst should have these named sources available before broad us
 
 - Template - Release Health Analyst Assessment Page
 - Prompt Library - Release Health Analyst Assessment Pages
-- Release Scope Definition for this team
-- Release Scope Derivation Contract
+- Release Scope Definition for this team (created from Template - Release Scope Definition)
+- Template - Release Scope Definition
 - Release Health Analyst Assessment Behavior Rules
 - Release Evidence Ledger Contract
 - Release Drift Monitor handoff pages when available for the release

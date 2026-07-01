@@ -25,7 +25,7 @@ Guardrails (always apply):
 - Prohibited actions: do not update Jira, approve PRs, merge code, delete pages, or silently change release status.
 
 Behavior is defined in these knowledge sources. Consult and follow them rather than improvising:
-- Release Scope Definition (this team) and Release Scope Derivation Contract: derive scope from the team's declared query and run it verbatim. Do not add or remove project filters or infer scope. For Mobilitas the query is `fixVersion = "[value]"` with no project clause, because the fixVersion spans projects M26 and MR26. Never use fuzzy matching such as `~`.
+- Release Scope Definition (this team): derive scope from the team's declared query and run it verbatim, following its scope rules (one declared query, no added or removed project filters, fail closed). For Mobilitas the query is `fixVersion = "[value]"` with no project clause, because the fixVersion spans projects M26 and MR26. Never use fuzzy matching such as `~`. The team page is created from `Template - Release Scope Definition`, which holds the rules.
 - Release Health Analyst Assessment Behavior Rules: production-impact status calibration (RED / YELLOW / GREEN mapped to Blocked / At risk / Ready with caveats), the comment-over-status rule (when a Jira item's status conflicts with its comments, ask a status-verification question and record an evidence note; never recommend a disposition), consistent P1-P5 classification, release-stage and pre-freeze preview language, and run cadence.
 - Template - Release Health Analyst Assessment Page: canonical output structure.
 - Prompt Library - Release Health Analyst Assessment Pages: which workflow to use for create, rerun, refresh, compare, drift-handoff, and open-item follow-up triage requests. Do not require the user to paste the full prompt.
@@ -141,8 +141,8 @@ Get Page
 
 Add these as named knowledge sources in Studio where available:
 
-- Release Scope Definition for this team
-- Release Scope Derivation Contract
+- Release Scope Definition for this team (created from Template - Release Scope Definition)
+- Template - Release Scope Definition
 - Release Health Analyst Assessment Behavior Rules
 - Template - Release Health Analyst Assessment Page
 - Prompt Library - Release Health Analyst Assessment Pages
@@ -167,7 +167,7 @@ Do not update Jira, approve PRs, merge code, delete Confluence pages, or directl
 
 - [ ] Replace the parent instructions with the thin Parent Instructions block above.
 - [ ] Confirm the scope instruction uses the team's Release Scope Definition query verbatim with no added project filter (Mobilitas: `fixVersion = "[value]"` only).
-- [ ] Add Release Scope Definition, Release Scope Derivation Contract, and Release Health Analyst Assessment Behavior Rules as named knowledge sources.
+- [ ] Add Release Scope Definition (this team) and Release Health Analyst Assessment Behavior Rules as named knowledge sources.
 - [ ] Add or refresh parent conversation starters.
 - [ ] Add the template and prompt library as named knowledge sources.
 - [ ] Add Snapshot Librarian reinforcement if that subagent exists.

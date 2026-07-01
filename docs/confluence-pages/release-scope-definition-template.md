@@ -8,7 +8,7 @@ Create one page per team. Suggested title pattern:
 Release Scope Definition - [Team or Space]
 ```
 
-This template implements the reusable `Release Scope Derivation Contract`. The contract holds the rules; this page holds one team's declared method.
+This template is the canonical, human-facing home for the scope-derivation rules. Its source of truth is the reusable-core `Release Scope Derivation Contract`; keep the two in sync. Each team's `Release Scope Definition` page is created from this template and carries the rules with it, so the agent only needs the team page as a knowledge source.
 
 ## How To Use This Page
 

@@ -10,8 +10,7 @@ Keep these instructions thin. Consult these sources for the actual behavior, and
 
 | Source | Use for |
 |---|---|
-| `Release Scope Definition` (this team's page) | How to derive the release item set. Run its declared query verbatim. |
-| `Release Scope Derivation Contract` | Scope rules: one declared query, no project-filter toggling, fail closed. |
+| `Release Scope Definition` (this team) | Derive the release item set: run its declared query verbatim and follow its scope rules (one declared query, no project-filter toggling, fail closed). Created from `Template - Release Scope Definition`. |
 | `Release Health Analyst Assessment Behavior Rules` | Status calibration, comment-over-status rule, P1-P5 taxonomy, run cadence. |
 | `Template - Release Health Analyst Assessment Page` | Canonical assessment page structure. |
 | `Prompt Library - Release Health Analyst Assessment Pages` | Which workflow to use for create, rerun, refresh, compare. |
