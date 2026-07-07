@@ -111,7 +111,7 @@ Dropped boundary:
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
 | 3.1 | Create Governance and Safety section | P0 | 1.3 | Working group lead | Done: parent page exists under Agent Governance Home. Remaining children to move or create include Governance Review Checklist, Known Risks and Limitations, and Formatting Standards. |
-| 3.2 | Create Known Risks and Limitations page | P1 | None | Working group lead | Page includes platform limitations, organizational risks, mitigations, and workarounds. |
+| 3.2 | Create Known Risks and Limitations page | P1 | None | Working group lead | Local page-ready draft exists at `docs/confluence-pages/known-risks-and-limitations.md` with platform limitations, organizational risks, mitigations, and workarounds; manifest entry added to `config/confluence-pages.example.yml`. Confluence publishing is deferred to a separate approved dry-run. |
 | 3.3 | Add Context Readiness Assessment to Doc Health Gate | P1 | 2.2 | Meta-agent owner | Doc Health Gate includes context readiness as a P1 audit check. |
 | 3.4 | Add measurement plan check to Doc Health Gate | P1 | 5.1 | Meta-agent owner | Doc Health Gate includes measurement plan as a P1 check. |
 | 3.5 | Create first three ADRs | P2 | 2.4, 2.5 | Working group lead | ADRs exist for Project Brain pattern, fit triage framework, and meta-agent collaboration model. |
@@ -147,7 +147,7 @@ Dropped boundary:
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
 | 6.1 | Create User Guide - Designing Agents | P1 | 1.5, 2.1 | Working group lead | Done: page-ready draft exists at `docs/confluence-pages/user-guide-designing-agents.md`; Confluence page created under `Governance and Safety`. |
-| 6.2 | Create Admin and Owner Guide | P2 | None | Space admin | Page exists with admin responsibilities, label management, review cadence, and retirement process. |
+| 6.2 | Create Admin and Owner Guide | P2 | None | Space admin | Local page-ready draft exists at `docs/confluence-pages/admin-and-owner-guide.md` with admin responsibilities, owner/backup-owner expectations, review cadence, label/inventory hygiene, and the retirement/deprecation process; manifest entry added to `config/confluence-pages.example.yml`. Confluence publishing is deferred to a separate approved dry-run. |
 | 6.3 | Create Backlog and Improvement Roadmap | P1 | None | Working group lead | All open CoP action items are migrated. |
 | 6.4 | Run pilot with one new builder | P1 | 6.1 | Working group lead | Builder completes process and at least three improvements are identified. |
 | 6.5 | Conduct post-pilot retrospective | P2 | 6.4 | Working group lead | Retrospective notes and template updates are documented. |
