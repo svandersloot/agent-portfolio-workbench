@@ -366,7 +366,7 @@ Acceptance checks:
 - States whether Experimental agents can be limited to individual pilot users, groups/teams, or only manual promotion controls.
 - Keeps raw captures, headers, cookies, and tokens out of Git.
 
-## 21. Next: Make Governance Reports Repeatable
+## 21. Completed Locally: Make Governance Reports Repeatable
 
 ```text
 /goal Make the repo-only governance reports repeatable without Confluence or Studio writes. Use the Agent Inventory, publish history, completeness contract, normalized Studio captures if present, and existing docs/reports to define the smallest repeatable process for governance completeness, duplicate-agent discovery, and the monthly governance snapshot. Prefer scripts or checklists only where they reduce manual drift. Do not add Studio write-back or percentage-based completeness scoring.
@@ -378,6 +378,21 @@ Acceptance checks:
 - Duplicate discovery compares one duplicate group at a time before any cleanup recommendation.
 - Monthly snapshot can be regenerated from named source inputs.
 - No new quarterly review template is created.
+
+Completed local artifacts:
+
+- `docs/reports/governance-report-generation-process.md`
+- `scripts/Test-GovernanceReportInputs.ps1`
+- `docs/implementation-backlog.md` note added to backlog item 8.4
+
+Result:
+
+- Documented the smallest repeatable, repo-only process for the three governance reports (governance completeness, duplicate-agent discovery, monthly governance snapshot), with named source inputs, per-report regeneration steps, and field-level output rules.
+- Completeness output stays field-level: a present/total field **count** and a missing/unproven field list, never a percentage score.
+- Duplicate discovery compares one duplicate group at a time and stops at "compare/verify" before any human-owned cleanup.
+- Monthly snapshot regenerates from named inputs (Agent Inventory, publish history, completeness contract, existing reports, snapshot template; normalized Studio captures only if present).
+- Added `scripts/Test-GovernanceReportInputs.ps1`, a read-only preflight that confirms each report's named inputs exist; verified in read-only mode (`Missing required inputs: 0`, exit 0). No Confluence, Studio, or Jira writes; no quarterly review template created.
+- Known drift left for backlog item `8.10`: the completeness contract and snapshot template still carry legacy percentage-completeness wording; the process doc instructs field-level counts instead.
 
 ## 22. Later: Builder Pilot And Retrospective
 
@@ -665,7 +680,7 @@ Result:
 - Kept pitch wording proposal-level: ROVO is the user-facing runtime today, and the Agent Lab/repo pattern is the proposed approved workshop/control layer, not already-official enterprise infrastructure. No Runtime Context Map is claimed live in Studio.
 - Repo-only; no writes to Studio, Jira, or Confluence. Owner/backup owner, status, visibility, and promotion remain human-owned.
 
-## 34. Next: Principles Foundation For Collaborators
+## 34. Completed Locally: Principles Foundation For Collaborators
 
 ```text
 /goal Create a repo-facing principles foundation for incoming collaborators. Start from AGENTS.md, START-HERE.md, docs/toolkit-operating-model.md, docs/stage-5-agent-factory-start-here.md, docs/stage-5-contributor-helper-guide.md, docs/stage-5-pilot-boundaries.md, and docs/implementation-backlog.md. Do not write to Studio, Jira, or Confluence. Assess where the repo already follows primary values and first-principles reasoning, where it is inconsistent or implicit, and add the smallest collaborator-facing guidance needed to make the foundation repeatable. Frame Biblical principles in work-safe operating language for shared enterprise use: truthfulness, stewardship, humility, service, justice/fairness, care for people, and accountability. Treat first-principles reasoning as the secondary design method: define the actual problem, identify source truth, reduce scope, expose assumptions, test the smallest useful slice, and avoid unnecessary complexity. Add backlog/checklist items for any gaps that should not be fixed in the first slice.
@@ -678,6 +693,18 @@ Acceptance checks:
 - The checklist is actionable, not philosophical only.
 - It identifies current gaps without claiming the repo follows the principles perfectly everywhere.
 - No live Studio, Jira, or Confluence writes are performed.
+
+Completed local artifact:
+
+- `docs/principles-foundation.md`
+
+Result:
+
+- Created `docs/principles-foundation.md` mapping the operating model to seven enterprise-safe primary values (truthfulness, stewardship, humility, service, justice/fairness, care for people, accountability), each linked to existing repo rules with an honest per-value repo status.
+- Documented first-principles reasoning as the secondary design method (define the actual problem, identify source truth, reduce scope, expose assumptions, test the smallest useful slice, avoid unnecessary complexity) and added an actionable collaborator checklist covering truth-before-usefulness, people-impact review, stewardship/reuse, smallest useful slice, evidence labels, human-owned decisions, and source-failure behavior.
+- Distinguished the maintainer's personal moral foundation from enterprise-safe shared wording and kept sectarian phrasing out of anything that could reach agent runtime.
+- Included an honest gap assessment: adherence is strong on truthfulness, stewardship, humility, and accountability, but uneven or implicit on fairness across page families and on explicitly naming people-impact; the doc does not claim perfect adherence.
+- Updated backlog item 7.12. No live Studio, Jira, or Confluence writes; no Publish-*.ps1 run.
 
 ## 35. Completed Locally: Regression Prompt Pack Pilot (Backlog 8.5)
 
