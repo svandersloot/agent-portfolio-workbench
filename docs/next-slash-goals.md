@@ -366,7 +366,7 @@ Acceptance checks:
 - States whether Experimental agents can be limited to individual pilot users, groups/teams, or only manual promotion controls.
 - Keeps raw captures, headers, cookies, and tokens out of Git.
 
-## 21. Next: Make Governance Reports Repeatable
+## 21. Completed Locally: Make Governance Reports Repeatable
 
 ```text
 /goal Make the repo-only governance reports repeatable without Confluence or Studio writes. Use the Agent Inventory, publish history, completeness contract, normalized Studio captures if present, and existing docs/reports to define the smallest repeatable process for governance completeness, duplicate-agent discovery, and the monthly governance snapshot. Prefer scripts or checklists only where they reduce manual drift. Do not add Studio write-back or percentage-based completeness scoring.
@@ -378,6 +378,21 @@ Acceptance checks:
 - Duplicate discovery compares one duplicate group at a time before any cleanup recommendation.
 - Monthly snapshot can be regenerated from named source inputs.
 - No new quarterly review template is created.
+
+Completed local artifacts:
+
+- `docs/reports/governance-report-generation-process.md`
+- `scripts/Test-GovernanceReportInputs.ps1`
+- `docs/implementation-backlog.md` note added to backlog item 8.4
+
+Result:
+
+- Documented the smallest repeatable, repo-only process for the three governance reports (governance completeness, duplicate-agent discovery, monthly governance snapshot), with named source inputs, per-report regeneration steps, and field-level output rules.
+- Completeness output stays field-level: a present/total field **count** and a missing/unproven field list, never a percentage score.
+- Duplicate discovery compares one duplicate group at a time and stops at "compare/verify" before any human-owned cleanup.
+- Monthly snapshot regenerates from named inputs (Agent Inventory, publish history, completeness contract, existing reports, snapshot template; normalized Studio captures only if present).
+- Added `scripts/Test-GovernanceReportInputs.ps1`, a read-only preflight that confirms each report's named inputs exist; verified in read-only mode (`Missing required inputs: 0`, exit 0). No Confluence, Studio, or Jira writes; no quarterly review template created.
+- Known drift left for backlog item `8.10`: the completeness contract and snapshot template still carry legacy percentage-completeness wording; the process doc instructs field-level counts instead.
 
 ## 22. Later: Builder Pilot And Retrospective
 
