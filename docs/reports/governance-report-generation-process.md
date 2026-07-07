@@ -130,9 +130,10 @@ as the section shape.
 Field-level output rules:
 
 - The Governance Completeness table in the snapshot uses the same present/total **count**
-  and missing-field list as Report 1. Do not fill the template's `[%]` cell with a
-  percentage; use the field count instead. (The template and contract still carry legacy
-  percentage wording; aligning that wording is tracked under backlog item `8.10`.)
+  and missing-field list as Report 1. Fill the template's Completeness cell with the field
+  count (e.g. `8/11`), never a percentage. (The template and contract now describe
+  field-level counts directly; the earlier percentage wording was reconciled under backlog
+  item `8.10`.)
 - Keep the snapshot concise and human-facing for leadership and builders.
 
 ## Validation
@@ -150,9 +151,9 @@ For docs-only report changes, a manual cross-read against the named inputs is th
 check; state that validation was manual. Do not claim any Confluence publish, Studio save,
 or Jira action happened.
 
-## Known Drift To Reconcile Later
+## Reconciled Drift
 
-- The completeness contract "Dry-Run Report Shape" and the monthly snapshot template still
-  describe a percentage "Completeness" column. The chosen policy is field-level counts and
-  missing-field lists. Reconciling that wording is tracked under backlog item `8.10` and is
-  out of scope for this process doc.
+- The completeness contract "Dry-Run Report Shape" and the monthly snapshot template
+  previously described a percentage "Completeness" column. Under backlog item `8.10` both now
+  describe field-level present/total counts and a missing-or-unproven field list, matching the
+  chosen policy (backlog decision `4.6`) and this process doc.

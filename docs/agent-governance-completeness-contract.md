@@ -58,8 +58,8 @@ Future completeness checks should produce a read-only report with this shape.
 |---|---|
 | Agent | Display name from inventory or normalized Studio export. |
 | Status | Current lifecycle status. |
-| Completeness | Percent of required fields present for the current lifecycle step. |
-| Missing Required Fields | Comma-separated list of missing fields. |
+| Completeness | Count of required fields proven present over the total required for the current lifecycle step (e.g. `8/11`). This is a field-level count, never a percentage score. |
+| Missing Or Unproven Required Fields | List of missing or unproven required fields by name. `Unproven` means local evidence did not prove the field, not that it is absent from Confluence or Studio. |
 | Readiness | Ready, Needs Cleanup, or Not Ready. |
 | Duplicate Or Reuse Signal | Existing agent, extension candidate, template candidate, or none found. |
 | Risk Notes | Tool, source, permission, or audience concerns. |
@@ -73,3 +73,4 @@ Future completeness checks should produce a read-only report with this shape.
 - Older Green/Yellow/Red measurement language can map into readiness and remediation status during migration.
 - `Active` and `Ready` are separate concepts: `Active` is lifecycle status; `Ready` is readiness evidence.
 - Prompts, automations, templates, and agent candidates can be recorded as intake outcomes without becoming governed agents.
+- Completeness reporting stays field-level: a present/total field count plus a missing-or-unproven field list, never a percentage score (backlog decisions `4.6` and `8.10`). See `docs/reports/governance-report-generation-process.md` for the report-generation rules.

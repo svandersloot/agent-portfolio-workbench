@@ -36,9 +36,14 @@ Use this snapshot for leadership, agent owners, and builders who need to underst
 
 ## Governance Completeness
 
-| Agent | Status | Completeness | Missing Fields | Readiness | Owner | Last Reviewed | Next Action |
+Completeness is field-level: report a present/total field count and the missing-or-unproven
+field list, never a percentage score (backlog decisions `4.6` and `8.10`). Use the same
+counts and missing-field lists as the governance completeness report; see
+`docs/reports/governance-report-generation-process.md`.
+
+| Agent | Status | Completeness | Missing Or Unproven Required Fields | Readiness | Owner | Last Reviewed | Next Action |
 |---|---|---|---|---|---|---|---|
-| [Agent] | [Status] | [%] | [Fields] | Ready / Needs Cleanup / Not Ready | [Owner] | [Date] | [Action] |
+| [Agent] | [Status] | [present/total, e.g. 8/11] | [Fields] | Ready / Needs Cleanup / Not Ready | [Owner] | [Date] | [Action] |
 
 ## Intake Routing Summary
 
