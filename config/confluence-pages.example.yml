@@ -26,6 +26,24 @@ pages:
       - agent-governance
     pageId: null
     parentPageId: null
+  - slug: known-risks-and-limitations
+    title: Known Risks and Limitations
+    sourcePath: docs/confluence-pages/known-risks-and-limitations.md
+    parentSlug: governance-and-safety
+    labels:
+      - agent-governance
+      - known-risks
+    pageId: null
+    parentPageId: null
+  - slug: admin-and-owner-guide
+    title: Admin and Owner Guide
+    sourcePath: docs/confluence-pages/admin-and-owner-guide.md
+    parentSlug: governance-and-safety
+    labels:
+      - agent-governance
+      - admin-guide
+    pageId: null
+    parentPageId: null
   - slug: agent-bootstrap-pattern
     title: Agent Bootstrap Pattern And Studio Setup Checklist
     sourcePath: docs/confluence-pages/agent-bootstrap-pattern.md
