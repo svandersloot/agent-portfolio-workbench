@@ -652,7 +652,7 @@ Result:
 - Added Studio setup review notes so manual configurators can verify mapped sources and forbidden substitutes after Studio setup.
 - Ran a local Agent Lab artifact-level evaluation and recorded both agents as improved for source-routing clarity, with live-output score not run.
 
-## 33. Next: Team-Facing Agent Full Pattern
+## 33. Completed Locally: Team-Facing Agent Full Pattern
 
 ```text
 /goal Define the fuller agentic development pattern as the default for team-facing ROVO, Copilot, or similar agents. Start from AGENTS.md, START-HERE.md, docs/toolkit-operating-model.md, docs/stage-5-agent-factory-start-here.md, docs/confluence-pages/agent-bootstrap-pattern.md, docs/confluence-pages/rovo-studio-configuration-field-guide.md, and the Runtime Context Map pilot evidence. Do not write to Studio, Jira, or Confluence. Document the minimum full package for team-facing agents: runtime contract, Runtime Context Map, guardrails, knowledge source plan, evaluation prompt pack, Studio promotion packet, owner/backup owner, measurement, change log, and post-Studio parity check. Also document a lightweight variant for personal, one-off, or low-risk helpers. Keep pitch language truthful: ROVO is the user-facing runtime today, while the Agent Lab/repo pattern is the proposed approved workshop/control layer for faster governed development.
@@ -666,6 +666,19 @@ Acceptance checks:
 - Pitch wording avoids claiming the Agent Lab is already official enterprise infrastructure.
 - No live Studio, Jira, or Confluence writes are performed.
 - No Runtime Context Map is claimed live until a human manually configures and verifies Studio knowledge sources.
+
+Completed local artifacts:
+
+- `docs/team-facing-agent-pattern.md` new repo doc defining the default full package and the lightweight variant.
+- `docs/implementation-backlog.md` status updates for backlog item 7.11 (both the priority table and the Milestone 7 table).
+
+Result:
+
+- Documented the default ten-element package for team-facing agents: runtime contract, Runtime Context Map, guardrails, knowledge source plan, evaluation prompt pack, Studio promotion packet, owner/backup owner, measurement, change log, and post-Studio parity check.
+- Separated the five evidence layers (runtime context, setup, governance, evaluation, promotion) so builders do not treat a setup page as behavior source or an evaluation as a promotion decision.
+- Added a clearly separated lightweight variant for personal, one-off, or low-risk helpers, with explicit qualifying boundaries and a promotion trigger back to the full package.
+- Kept pitch wording proposal-level: ROVO is the user-facing runtime today, and the Agent Lab/repo pattern is the proposed approved workshop/control layer, not already-official enterprise infrastructure. No Runtime Context Map is claimed live in Studio.
+- Repo-only; no writes to Studio, Jira, or Confluence. Owner/backup owner, status, visibility, and promotion remain human-owned.
 
 ## 34. Completed Locally: Principles Foundation For Collaborators
 
