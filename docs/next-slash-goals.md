@@ -652,7 +652,7 @@ Acceptance checks:
 - No live Studio, Jira, or Confluence writes are performed.
 - No Runtime Context Map is claimed live until a human manually configures and verifies Studio knowledge sources.
 
-## 34. Next: Principles Foundation For Collaborators
+## 34. Completed Locally: Principles Foundation For Collaborators
 
 ```text
 /goal Create a repo-facing principles foundation for incoming collaborators. Start from AGENTS.md, START-HERE.md, docs/toolkit-operating-model.md, docs/stage-5-agent-factory-start-here.md, docs/stage-5-contributor-helper-guide.md, docs/stage-5-pilot-boundaries.md, and docs/implementation-backlog.md. Do not write to Studio, Jira, or Confluence. Assess where the repo already follows primary values and first-principles reasoning, where it is inconsistent or implicit, and add the smallest collaborator-facing guidance needed to make the foundation repeatable. Frame Biblical principles in work-safe operating language for shared enterprise use: truthfulness, stewardship, humility, service, justice/fairness, care for people, and accountability. Treat first-principles reasoning as the secondary design method: define the actual problem, identify source truth, reduce scope, expose assumptions, test the smallest useful slice, and avoid unnecessary complexity. Add backlog/checklist items for any gaps that should not be fixed in the first slice.
@@ -665,6 +665,18 @@ Acceptance checks:
 - The checklist is actionable, not philosophical only.
 - It identifies current gaps without claiming the repo follows the principles perfectly everywhere.
 - No live Studio, Jira, or Confluence writes are performed.
+
+Completed local artifact:
+
+- `docs/principles-foundation.md`
+
+Result:
+
+- Created `docs/principles-foundation.md` mapping the operating model to seven enterprise-safe primary values (truthfulness, stewardship, humility, service, justice/fairness, care for people, accountability), each linked to existing repo rules with an honest per-value repo status.
+- Documented first-principles reasoning as the secondary design method (define the actual problem, identify source truth, reduce scope, expose assumptions, test the smallest useful slice, avoid unnecessary complexity) and added an actionable collaborator checklist covering truth-before-usefulness, people-impact review, stewardship/reuse, smallest useful slice, evidence labels, human-owned decisions, and source-failure behavior.
+- Distinguished the maintainer's personal moral foundation from enterprise-safe shared wording and kept sectarian phrasing out of anything that could reach agent runtime.
+- Included an honest gap assessment: adherence is strong on truthfulness, stewardship, humility, and accountability, but uneven or implicit on fairness across page families and on explicitly naming people-impact; the doc does not claim perfect adherence.
+- Updated backlog item 7.12. No live Studio, Jira, or Confluence writes; no Publish-*.ps1 run.
 
 ## 35. Completed Locally: Regression Prompt Pack Pilot (Backlog 8.5)
 
