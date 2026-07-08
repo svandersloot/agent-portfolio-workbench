@@ -126,7 +126,7 @@ Dropped boundary:
 | 4.3 | Add inventory dedup check to Design Agent | P1 | 1.1 | Meta-agent owner | Done locally: intake flow requires `Agent Inventory` and related Project Brain checks before recommending `New governed agent`. |
 | 4.4 | Add risk tier classification to Design Agent output | P2 | None | Meta-agent owner | Risk tier appears in every design packet. |
 | 4.5 | Update Doc Steward to check measurement plans | P1 | None | Meta-agent owner | Missing measurement plan is flagged as P1. |
-| 4.6 | Update Doc Steward to generate completeness score | P2 | None | Meta-agent owner | Doc Health Gate output includes completeness percentage. |
+| 4.6 | Update Doc Steward to generate completeness score | P2 | None | Meta-agent owner | Dropped (decision `4.6`): percentage completeness scoring was rejected as false precision. Use field-level present/total counts plus a missing-or-unproven field list instead, per `docs/reports/governance-report-generation-process.md` and backlog item `8.10`. |
 | 4.7 | Update Evaluation Library with new scenarios | P2 | 4.1-4.5 | Meta-agent owner | At least three new test cases per meta-agent cover new capabilities. |
 | 4.8 | Investigate Studio visibility and team assignment | P1 | None | Atlassian admin + space admin | Local read-only investigation exists at `docs/reports/studio-visibility-team-assignment-investigation.md`. Next: manually confirm Studio/admin controls because local exports do not expose team assignment or discoverability fields. |
 

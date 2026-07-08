@@ -392,7 +392,7 @@ Result:
 - Duplicate discovery compares one duplicate group at a time and stops at "compare/verify" before any human-owned cleanup.
 - Monthly snapshot regenerates from named inputs (Agent Inventory, publish history, completeness contract, existing reports, snapshot template; normalized Studio captures only if present).
 - Added `scripts/Test-GovernanceReportInputs.ps1`, a read-only preflight that confirms each report's named inputs exist; verified in read-only mode (`Missing required inputs: 0`, exit 0). No Confluence, Studio, or Jira writes; no quarterly review template created.
-- Known drift left for backlog item `8.10`: the completeness contract and snapshot template still carry legacy percentage-completeness wording; the process doc instructs field-level counts instead.
+- Drift reconciled under backlog item `8.10` (done): the completeness contract and snapshot template now describe field-level present/total counts and a missing-or-unproven field list, matching this process doc and backlog decision `4.6`. No percentage-completeness wording remains.
 
 ## 22. Later: Builder Pilot And Retrospective
 
