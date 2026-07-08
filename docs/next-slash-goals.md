@@ -732,7 +732,7 @@ Result:
 - Packs are labeled repo-only prompts plus expected-behavior criteria; results are recorded with the existing `Test Run` block in `docs/reports/deployment-notes-agent-live-regression-2026-06-08.md` only after a human runs them.
 - Confluence publishing of the new sections is deferred to goal 36 below.
 
-## 36. Next: Publish Regression Prompt Pack Sections
+## 36. Completed: Publish Regression Prompt Pack Sections
 
 ```text
 /goal After the Regression Prompt Pack shape is reviewed and approved, publish the updated Jira Work Item Assistant and Release Notes Manager evaluation pages to Confluence. Run .\scripts\Publish-ConfluencePages.ps1 -Slug jira-work-item-assistant-evaluation -UpdateExisting and .\scripts\Publish-ConfluencePages.ps1 -Slug release-notes-manager-evaluation -UpdateExisting as dry-runs first, confirm each plan targets exactly one intended page with the expected currentVersion and plannedVersion, and apply only after explicit approval. Do not write to Studio or Jira. Record a publish-history entry for each applied page.
