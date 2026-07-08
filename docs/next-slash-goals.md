@@ -2,6 +2,20 @@
 
 These goals are executable from the current local repo state. Confluence writes should still be dry-run-first.
 
+## Current Queue
+
+Use this queue before scanning the completed history below.
+
+| Rank | Status label | Goal | Boundary |
+|---|---|---|---|
+| 1 | Human action required | Select the first 1-2 Stage 5 pilot agents and run the readiness review from `docs/stage-5-agent-factory-start-here.md`. | Repo-only readiness review until a human approves any pilot action. |
+| 2 | Repo-only | Refresh merge-readiness evidence before the next commit-ready slice. See goal 30. | No Confluence, Studio, Jira, or push. |
+| 3 | Manual Studio | Copy and capture the published Design Agent Studio configuration. See goal 18. | Codex guides only; a human performs Studio saves and capture. |
+| 4 | Manual Studio | Confirm Studio governance controls manually. See goal 20. | Inspect only; do not save Studio/admin changes. |
+| 5 | Human action required | Review the Release Notes Manager scaffold with the release owner before pilot. See goal 24. | Owner, backup owner, sources, pilot audience, and overlap decisions remain human-owned. |
+
+Do not run superseded Jira Ticket Polisher goals as active work. Active ticket review, polishing, standards alignment, gap checking, improved field drafting, and status/comment drafting route to Jira Work Item Assistant.
+
 ## 1. Completed: Apply Space Structure Update
 
 ```text
@@ -18,7 +32,7 @@ Applied result:
 - Apply command: `.\scripts\Publish-ConfluencePages.ps1 -Slug space-structure-and-navigation -UpdateExisting -Apply`
 - Verified body includes `Governance and Safety`, `Measurement and Value Tracking`, `Context Readiness Checklist`, and `User Guide - Designing Agents`.
 
-## 2. Use Generic Publisher Update-Mode
+## 2. Standing Practice: Use Generic Publisher Update-Mode
 
 ```text
 /goal Use the generic Confluence publisher update-mode for future markdown-backed page updates. Keep config/confluence-pages.yml as the local source of page IDs, keep config/confluence-pages.example.yml tracked with null IDs, require dry-run before -Apply, and use -Slug for targeted existing-page updates.
@@ -31,7 +45,7 @@ Acceptance checks:
 - `-Slug <slug> -UpdateExisting` limits the plan to one intended page.
 - `.env` and `config/confluence-pages.yml` remain ignored.
 
-## 3. Started: Add Publish History Records
+## 3. Repo-Only Follow-Up: Standardize Publish History Records
 
 ```text
 /goal Add local publish-history records for Confluence page updates. For every API-assisted apply, record page ID, page title, old version, new version, source file, command, timestamp, and verification result under docs/publish-history/. Keep dry-run-first behavior and do not include tokens or private config values.
@@ -42,8 +56,9 @@ Acceptance checks:
 - A publish-history file is created for the Agent Fit Intake page publish.
 - Future apply runs can produce a similar record.
 - The record is safe to commit.
+- Proposed tiny follow-up: add a local helper that converts reviewed Confluence publisher output plus operator-provided verification notes into a safe `docs/publish-history/` Markdown record. Keep it post-apply only; do not add CI, live publishing, or private config handling in this slice.
 
-## 4. Inventory Cleanup Dry-Run
+## 4. Completed Locally: Inventory Cleanup Dry-Run
 
 ```text
 /goal Produce an inventory cleanup plan with no Confluence writes. Treat Agent Inventory as the likely canonical inventory page unless new evidence contradicts it, treat Rovo Agent Inventory Home as the space overview/root, compare references to both, and recommend history-preserving link updates, page moves, or legacy/banner steps without copy/recreate.
@@ -129,7 +144,7 @@ Confluence status:
 - Not applied in this goal.
 - Run `.\scripts\Publish-ConfluencePages.ps1 -Slug agent-fit-intake -UpdateExisting` and confirm it shows exactly one intended page before requesting approval to apply.
 
-## 8. Started Locally: Investigate Studio Visibility Controls
+## 8. Manual Studio: Investigate Studio Visibility Controls
 
 ```text
 /goal Investigate ROVO Studio team assignment and discoverability controls for Draft, In Review, and Experimental agents. Determine whether experimental agents can be limited to a select audience, document who can change visibility, and update the governance policy with recommended controls.
@@ -209,7 +224,7 @@ Acceptance checks:
 - Studio visibility report clearly states that local exports do not prove team assignment/discoverability controls and require manual Studio/admin confirmation.
 - Completeness, duplicate-agent, and monthly snapshot reports use the existing contract and local evidence.
 
-## 12. Next: Inventory Cleanup Apply Plan
+## 12. Completed: Inventory Cleanup Apply Plan
 
 ```text
 /goal Prepare focused Confluence update plans from docs/reports/inventory-cleanup-dry-run.md. First, update only the local source draft needed for Agent Inventory to add the completeness contract fields and harvested inventory-home field concepts. Then run a dry-run that targets exactly Agent Inventory. Do not apply until I approve. Do not copy/recreate pages, and do not write to Studio.
@@ -266,7 +281,7 @@ Result:
 - `User Guide - Designing Agents` was corrected to remove the accidentally published Codex pipeline and is now version `5`.
 - Publish history: `docs/publish-history/2026-05-21-codex-rovo-pattern-and-inventory.md`.
 
-## 15. Ready: Manual Studio Configuration And Capture
+## 15. Completed Locally: Manual Studio Configuration Copy Packet
 
 ```text
 /goal Prepare the manual ROVO Studio copy packet for the Design Agent from the published Agent Fit Intake, User Guide, and Agent Inventory changes. Do not write to Studio. Produce clear parent instructions, scenario/routing guidance, conversation starter suggestions, knowledge source checklist, and a post-copy capture checklist so the Studio configuration can be manually updated and then captured back into this repo.
@@ -283,7 +298,9 @@ Prepared packet:
 
 - `docs/handoffs/design-agent-studio-copy-handoff.md`
 
-## 16. Next: Execute Design Agent Studio Update And Capture
+## 16. Superseded: Execute Design Agent Studio Update And Capture
+
+Superseded by goal 18 after the `Rovo Design Agent vNext - Rovo Studio Configuration` page was published as the manual Studio source. Use goal 18 for the active Design Agent manual copy and capture loop.
 
 ```text
 /goal Execute the Design Agent manual Studio update and capture loop from docs/handoffs/design-agent-studio-copy-handoff.md. First, inspect the handoff packet, README.md, docs/operator-guide.md, docs/confluence-pages/agent-fit-intake.md, docs/confluence-pages/agent-inventory.md, and current git status. Do not write to Studio directly from Codex. If I have not manually applied the Studio update yet, guide me through copying the parent instructions, scenario/routing guidance, conversation starters, knowledge source checklist, and tool/skill safety stance into ROVO Studio. If I have already applied it, start with capture and verification. After the manual save, capture the Studio response, normalize it, compare the normalized config against the handoff packet, update safe repo docs/reports if needed, keep .env, config/confluence-pages.yml, data/raw, HARs, cookies, headers, and tokens out of Git, then commit safe local changes.
@@ -322,7 +339,7 @@ Applied result:
 - Post-apply dry-run confirmed `currentVersion: 2` and `plannedVersion: 3`.
 - Publish history: `docs/publish-history/2026-05-21-design-agent-studio-configuration.md`.
 
-## 18. Next: Manual Studio Copy And Capture
+## 18. Manual Studio: Design Agent Copy And Capture
 
 ```text
 /goal Use the published Rovo Design Agent vNext - Rovo Studio Configuration page as the source for the manual ROVO Studio update. Do not write to Studio from Codex. Guide me through manually copying the parent fields, parent conversation starters, and subagent trigger/instruction/knowledge/skill blocks into ROVO Studio. After I save Studio manually, capture the current Studio configuration, normalize it, compare it against the published page and docs/handoffs/design-agent-studio-copy-handoff.md, update safe repo docs/reports from proven captured evidence, keep .env, config/confluence-pages.yml, data/raw, HARs, cookies, headers, and tokens out of Git, then commit safe local changes.
@@ -353,7 +370,7 @@ API/platform conclusion:
 - Manual only: ROVO Studio-created agent configuration and Studio visibility/user-access changes.
 - Dropped from active backlog: Studio write-back, percentage-based Doc Steward completeness scoring, the standalone quarterly review template, and a duplicate Confluence backlog/roadmap page.
 
-## 20. Next: Confirm Studio Governance Controls Manually
+## 20. Manual Studio: Confirm Studio Governance Controls Manually
 
 ```text
 /goal Confirm ROVO Studio governance controls manually without saving changes. Use docs/studio-visibility-team-assignment-investigation-checklist.md and current Atlassian public guidance to inspect who can create agents, who can edit/manage the Design Agent, whether Open to all users can be disabled, whether specific users can be added, and whether group/team-based user access restriction is unavailable. Do not write to Studio. Capture only safe notes in docs/reports/studio-visibility-team-assignment-investigation.md, then update backlog status if evidence changes.
@@ -394,7 +411,7 @@ Result:
 - Added `scripts/Test-GovernanceReportInputs.ps1`, a read-only preflight that confirms each report's named inputs exist; verified in read-only mode (`Missing required inputs: 0`, exit 0). No Confluence, Studio, or Jira writes; no quarterly review template created.
 - Drift reconciled under backlog item `8.10` (done): the completeness contract and snapshot template now describe field-level present/total counts and a missing-or-unproven field list, matching this process doc and backlog decision `4.6`. No percentage-completeness wording remains.
 
-## 22. Later: Builder Pilot And Retrospective
+## 22. Future: Builder Pilot And Retrospective
 
 ```text
 /goal After the Design Agent Studio copy/capture is current and Studio governance controls are confirmed, run a small builder pilot through Agent Fit Intake and the Design Agent. Track whether the builder reuses an existing agent, extends an existing agent, creates a candidate, or decides not to build. Capture lessons and update only the smallest necessary repo docs.
@@ -440,7 +457,7 @@ Acceptance checks:
 - After approval, Confluence apply created eight Release Notes Manager pages under `Release and Change Agents`; post-apply dry-run confirmed each page exists at version `1`.
 - Ignored local files stay out of Git: `.env`, `config/confluence-pages.yml`, `data/raw`, exports, cookies, headers, and tokens.
 
-## 24. Next: Release Notes Manager Manual Review And Pilot Gate
+## 24. Human Action Required: Release Notes Manager Manual Review And Pilot Gate
 
 ```text
 /goal Review the Release Notes Manager governed scaffold with the release owner. Confirm primary owner, backup owner, approved Jira and Confluence sources, release-note template, pilot audience, and whether Release Management Assistant owns any overlapping coordination workflows. Do not write to Studio from Codex. If approved, manually copy the Studio configuration blocks from the published ROVO Studio Configuration - Release Notes Manager page into Studio, then run the evaluation prompts and capture safe repo evidence.
@@ -491,7 +508,7 @@ Acceptance checks:
 - Config examples and local dry-run manifest include the new page slugs.
 - `config/confluence-pages.yml` remains ignored and out of Git.
 
-## 26. Next: Jira Ticket Polisher MOBRM Standards Publish And Pilot Gate
+## 26. Superseded: Jira Ticket Polisher MOBRM Standards Publish And Pilot Gate
 
 Superseded on 2026-06-09. Do not run this goal as written. Active ticket review, polishing, standards alignment, gap checking, improved field drafting, and comment drafting now belong to Jira Work Item Assistant's Ticket Review / Polish workflow. Keep Jira Ticket Polisher pages visible as archived/superseded historical reference only.
 
@@ -591,7 +608,7 @@ Validation:
 - `.\scripts\Test-PrivateDataScan.ps1` passes the current candidate commit slice with one warning for an existing Atlassian URL in `docs/next-slash-goals.md` and no blocking secret findings.
 - `.\scripts\Test-PrivateDataScan.ps1 -Scope AllTracked -WarnOnly` reports existing Atlassian URL warnings for tracked repo-backed docs and no blocking secret findings.
 
-## 30. Next: Refresh Merge-Readiness Guardrail Before Commits
+## 30. Repo-Only: Refresh Merge-Readiness Guardrail Before Commits
 
 ```text
 /goal Refresh the merge-readiness report before the next commit-ready slice. Use current git status, stale-handoff output, private-data scan output, and the changed-file list to produce a concise commit-slice recommendation. Keep the report repo-only, do not publish Confluence, do not write to Studio, do not write to Jira, and do not push unless explicitly asked.
@@ -603,7 +620,7 @@ Acceptance checks:
 - Private-data and stale-handoff guardrails are included in the validation evidence.
 - Unrelated local files remain out of the proposed commit.
 
-## 31. Later: Claude Code Migration Readiness Slice
+## 31. Future: Claude Code Migration Readiness Slice
 
 ```text
 /goal Prepare the future Claude Code/work-backed migration readiness slice. Start from current AGENTS.md, START-HERE.md, docs/roadmap.md, docs/implementation-backlog.md, the maintainability guardrail scripts, and Stage 5 pilot boundaries. Do not resurrect or merge the deleted stale codex/agentic-operating-contract branch as-is. Define what belongs in Claude Code, what remains Confluence/ROVO Studio-facing, what approval gate is required before migration, and what Claude-specific settings or SOPs are safe companion artifacts.

@@ -122,14 +122,9 @@ Builder pattern:
 - Capture Studio configuration back into this repo for version control and drift review.
 - For Stage 5, use this repo as the behind-the-scenes control plane while normal pilot users consume approved agents through Jira, Confluence, and ROVO/Studio workflows.
 
-The next recommended actions are:
+Use `docs/next-slash-goals.md` for the current actionable queue. It keeps the active top queue, repo-only follow-ups, manual Studio gates, Confluence dry-run items, superseded goals, and completed history in one place so README does not drift into a second planning surface.
 
-1. Review the Stage 5 start-here, pilot boundaries, feedback tracker, contributor guide, and promotion packet before choosing the first 1-2 pilot agents.
-2. Review the inventory cleanup dry-run and approve focused Confluence updates when ready.
-3. Manually update the ROVO Design Agent Studio configuration from `docs/handoffs/design-agent-studio-copy-handoff.md`, or capture the current Studio config first if you believe it is already live.
-4. Run manual Studio/admin confirmation for visibility and team assignment controls.
-5. Turn the dry-run completeness and duplicate reports into repeatable report generation.
-6. Run `.\scripts\Test-ConfluencePageFamilyConsistency.ps1` before committing governed-agent page families or Confluence publish plans.
+Run `.\scripts\Test-ConfluencePageFamilyConsistency.ps1` before committing governed-agent page families or Confluence publish plans.
 
 ## Why This Exists
 
