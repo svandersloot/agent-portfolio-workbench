@@ -205,6 +205,19 @@ Cross-references (already tracked — do not duplicate here): first team pilot �
 
 Human- and org-owned, **not** repo backlog work (flagged, not scheduled here): org-hosted Git + a second maintainer (research §9.2); pilot approval, team promotion, and adoption of a risk-tier policy; agent visibility/permission decisions. These require a human/organizational decision, not a repo change.
 
+### Suggested Sequencing (aligned to the 2026-07 30/60/90 roadmap)
+
+The research is explicit that **the first team pilot (item `7.9`) is the top priority and everything else is secondary to real pilot numbers**; its Day 1-30 guidance even says to *stop* backfilling page families and creating new governance docs that are not pointers (`docs/research/roadmap-30-60-90-2026-07.md`). So the discipline for this milestone is: do repo work now only where it makes the pilot *lighter*, *cheaper to prove*, or *testable* — defer the rest until pilot data exists. This ordering is a suggestion; final sequencing stays human-owned.
+
+| Phase | Items | Why now / why wait |
+|---|---|---|
+| **Now — pilot-enabling** | `9.1` (+ the risk-tier field from `9.2`), `9.9`, `9.8`; `9.4` only if the pilot is imminent | `9.1`/`9.9` reduce the process weight that is the program's top self-identified risk, so they make the pilot faster rather than competing with it. `9.8` starts the reuse/duplicates-prevented value metric before novelty fades (a Day 1-30 evidence item). `9.4` is worth it only when the pilot's eval pack needs to be an executable run. |
+| **Day 31-60** | `9.3` (needs `9.2`), `9.5` | Platform-neutral registry and the scheduled drift-diff routine make sense once the loop is proven and a teammate/CI can run checks. |
+| **Day 61-90** | `9.7` | Second-platform registry row; also blocked on a real non-Rovo agent existing to capture. |
+| **Anytime / low-urgency** | `9.6`, `9.10` | Small, no hard dependency; slot in when they serve a concrete need. |
+
+The single highest-value next move — running the pilot (`7.9`) — is human-owned and is not a repo change. Scope repo work around it, not ahead of it.
+
 | ID | Summary | Priority | Dependencies | Suggested Owner | Acceptance Criteria |
 |---|---|---|---|---|---|
 | 9.1 | Consolidate lifecycle to five gates with risk tiers | P1 (proposed) | 7.x Stage 5 docs | Governance steward | Proposed: map the existing 13-step Stage 5 lifecycle / 8 promotion stages to the five human gates (G1 Fit, G2 Design, G3 Build & verify, G4 Pilot & measure, G5 Operate & retire) from research §3, with depth scaled by risk tier. Include a delete-or-pointer pass so redundant lifecycle docs become thin pointers. Docs-only; no change to approval authority. |
