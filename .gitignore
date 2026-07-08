@@ -37,3 +37,6 @@ config/atlassian-knowledge-inventory.yml
 *.log
 *.tmp
 .vscode/
+
+# Personal Claude Code permission overrides (per-user, not team-governed).
+.claude/settings.local.json
