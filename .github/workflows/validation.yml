@@ -1,0 +1,48 @@
+name: Repository validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  repository-validation:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check committed diff whitespace
+        shell: pwsh
+        run: |
+          if ($env:GITHUB_EVENT_NAME -eq "pull_request") {
+            git diff --check "origin/$env:GITHUB_BASE_REF...HEAD"
+          } else {
+            git diff --check "$env:GITHUB_SHA^" "$env:GITHUB_SHA"
+          }
+
+      - name: Scan tracked files for private data
+        shell: pwsh
+        run: .\scripts\Test-PrivateDataScan.ps1 -Scope AllTracked
+
+      - name: Check stale handoffs
+        shell: pwsh
+        run: .\scripts\Test-StaleHandoffs.ps1
+
+      - name: Check Confluence page families
+        shell: pwsh
+        run: .\scripts\Test-ConfluencePageFamilyConsistency.ps1
+
+      - name: Parse JSON schemas
+        shell: pwsh
+        run: |
+          Get-ChildItem -LiteralPath schemas -Filter *.json | ForEach-Object {
+            Get-Content -Raw -LiteralPath $_.FullName | ConvertFrom-Json | Out-Null
+            Write-Host "Validated $($_.Name)"
+          }

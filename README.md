@@ -2,6 +2,12 @@
 
 Git-backed, read-only-first workbench for designing, evaluating, governing, and operating AI agent portfolios across team workflows.
 
+## Quick Start
+
+New contributors should use the Atlassian MCP path first for Jira and Confluence context, the work GitHub identity for source control, and the local `.env` path only when a script explicitly requires direct API access. See [CONTRIBUTING.md](CONTRIBUTING.md) for the complete setup and [docs/mcp-setup.md](docs/mcp-setup.md) for MCP-specific guidance.
+
+Start by reading `AGENTS.md`, `README.md`, `START-HERE.md`, and `docs/toolkit-operating-model.md`. Then run the read-only checks in the contributor guide before opening a branch or pull request.
+
 The first workflow captures a Studio agent configuration response, normalizes it into reviewable Markdown/YAML, and lets Git show meaningful governance changes: instructions, subagents, knowledge sources, tools, web search, and activation state.
 
 The second workflow turns ROVO space improvement plans into maintained Confluence-ready templates and implementation backlog items.
