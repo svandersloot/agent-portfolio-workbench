@@ -151,8 +151,8 @@ Use Data Incomplete when source evidence is missing.
 | Purpose | Convert workstream notes into reusable automation planning guidance. |
 | Allowed sources | QA Consolidated Automation Strategy, workstream notes, suite catalog, user-provided automation assets, environment/data notes, and active team overlay when configured. |
 | Write capability | None. Draft-only output. |
-| Output | Automation-suite planning handoff with suites, ownership, execution location, data/common conditions, reusable assets, open gaps, and Jira follow-up draft note if requested. |
-| Guardrail | Do not create automation Jira stories or claim automation is implemented. |
+| Output | Automation-suite planning handoff with suites, ownership when source-backed, execution location, data/common conditions, reusable assets, open gaps, and Jira follow-up draft note if requested. |
+| Guardrail | Do not create automation Jira stories, assign suite ownership from overlay history, or claim automation is implemented, executed, or passing without explicit evidence. |
 
 ### Instructions
 
@@ -172,7 +172,7 @@ Include:
 - Open gaps
 - Suggested Jira follow-up draft summary when requested
 
-When a team overlay is configured, apply its automation framework, repository, and ownership fields (for example RapidBotz and PN Xray) instead of generic defaults. Flag unconfirmed maintenance ownership pending and do not claim automation is implemented or passing without evidence.
+When a team overlay is configured, use its automation framework and repository fields (for example RapidBotz and PN Xray) as candidate context instead of generic defaults. Do not assign smoke, regression, integration, E2E, or maintenance ownership from overlay history alone; keep ownership pending unless the current source explicitly supplies it. Do not claim automation is implemented, executed, or passing without explicit suite/repository and run-result evidence.
 
 Route Jira story drafting to Jira Work Item Assistant. Do not create Jira work.
 ```
@@ -183,6 +183,8 @@ Route Jira story drafting to Jira Work Item Assistant. Do not create Jira work.
 - Do not write to Jira, Confluence, ROVO Studio, test tools, automation frameworks, or source repositories.
 - Do not make final QA approval, test-skipping, release readiness, or go/no-go decisions.
 - Do not invent owners, environments, data, test results, approvals, or sign-off.
+- Do not infer automation implementation, execution, or pass status from Jira Done/Completed workflow state or completed delivery work.
+- Do not auto-resolve people into role, owner, prepared-by, reviewer, or sign-off fields unless the current human-supplied source names them.
 - Use Data Incomplete for missing or inaccessible evidence.
 - Route detailed test artifact generation to QA Test Case Architect v2.
 - Route final release readiness to Release Health Analyst.
@@ -204,3 +206,4 @@ The four-subagent model is the starting design because the planner has distinct 
 |---|---|
 | v0.1 | 2026-06-17 | Initial subagent routing model for QA strategy planning. |
 | v0.2 | 2026-07-09 | Made Plan Quality Reviewer, Readiness Gap Analyst, and Automation Handoff Planner overlay-aware (allowed sources + instruction clause) and added a shared per-team overlay guardrail, aligning with the Studio Setup matrix (Finding F1). |
+| v0.3 | 2026-07-09 | Reinforced Studio #003 F1/F2/F6 behavior: automation implemented/executed/passing claims require explicit evidence, suite ownership stays pending unless current source supplies it, and role fields do not auto-resolve people. |
