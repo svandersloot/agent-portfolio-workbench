@@ -10,6 +10,7 @@ The lab does not connect to Jira, Confluence, Bitbucket, GitHub, Rovo, deploymen
 - `release-drift-monitor`: compares supplied release signals and identifies drift, gaps, and stale assumptions.
 - `release-health-analyst`: summarizes readiness from supplied evidence and routes follow-up work.
 - `release-notes-manager`: drafts release-note candidates from supplied notes, health findings, and approved context.
+- `qa-test-strategy-planner`: drafts QA strategy/test-plan sections, reviews plan quality, identifies readiness gaps, and routes detailed test artifacts to QA Test Case Architect v2.
 
 New agents should be added as `reusable-core/agents/[agent-slug]/` with the same package files:
 

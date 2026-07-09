@@ -741,3 +741,148 @@ pages:
       - mobrm
     pageId: null
     parentPageId: null
+
+  - slug: qa-test-strategy-planner-project-brain
+    title: QA Test Strategy Planner Project Brain
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-project-brain.md
+    labels:
+      - agent-governance
+      - project-brain
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-agent-design-record
+    title: QA Test Strategy Planner - Agent Design Record
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-agent-design-record.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - agent-design-record
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-knowledge-source-plan
+    title: Knowledge Source Plan - QA Test Strategy Planner
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-knowledge-source-plan.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - knowledge-source-plan
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-subagent-settings
+    title: Subagent Settings - QA Test Strategy Planner
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-subagent-settings.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - subagent-settings
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-runtime-contract
+    title: Runtime Contract - QA Test Strategy Planner
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-runtime-contract.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - runtime-contract
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-studio-setup
+    title: Studio Setup - QA Test Strategy Planner
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-studio-setup.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - agent-setup
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-evaluation
+    title: Evaluation - QA Test Strategy Planner
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-evaluation.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - agent-evaluation
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-measurement-plan
+    title: Measurement Plan - QA Test Strategy Planner
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-measurement-plan.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - agent-measurement
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-change-log
+    title: Change Log - QA Test Strategy Planner
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-change-log.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - agent-change-log
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-prompt-library
+    title: Prompt Library - QA Test Strategy Planner
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-prompt-library.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - prompt-library
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-team-overlays
+    title: Team Overlays - QA Test Strategy Planner
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-team-overlays.md
+    parentSlug: qa-test-strategy-planner-project-brain
+    labels:
+      - agent-governance
+      - team-overlay
+      - qa-testing
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-team-overlay-mobi-rangers
+    title: Team Overlay - Mobi Rangers
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-team-overlay-mobi-rangers.md
+    parentSlug: qa-test-strategy-planner-team-overlays
+    labels:
+      - agent-governance
+      - team-overlay
+      - qa-testing
+      - mobi-rangers
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-team-overlay-mobilizers-m26
+    title: Team Overlay - Mobilizers M26
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-team-overlay-mobilizers-m26.md
+    parentSlug: qa-test-strategy-planner-team-overlays
+    labels:
+      - agent-governance
+      - team-overlay
+      - qa-testing
+      - mobilizers
+      - m26
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-strategy-planner-team-overlay-payment-ninjas
+    title: Team Overlay - Payment Ninjas (PN)
+    sourcePath: docs/confluence-pages/qa-test-strategy-planner-team-overlay-payment-ninjas.md
+    parentSlug: qa-test-strategy-planner-team-overlays
+    labels:
+      - agent-governance
+      - team-overlay
+      - qa-testing
+      - payment-ninjas
+    pageId: null
+    parentPageId: null

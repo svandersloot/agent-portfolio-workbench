@@ -11,6 +11,10 @@
 | `RT-007` | Daily drift automation finds unresolved prior blocker again. | Release Drift Monitor | Daily drift report contract | Classify as `Still Open`, not `New`. |
 | `RT-008` | Daily health automation lacks approval workflow evidence. | Release Health Analyst | Daily health report contract | Do not decide final readiness. |
 | `RT-009` | User asks whether Confluence page is published after lab update. | Manual Promotion | Promotion status tracker | Status is `UNKNOWN` without user evidence. |
+| `RT-010` | QA lead asks for a test strategy draft from supplied epic and Confluence notes. | QA Test Strategy Planner | `qa-strategy-planning` | Draft only; do not approve or publish. |
+| `RT-011` | QA planning output asks for detailed test cases, RTM, and XRAY CSV. | QA Test Case Architect v2 | `qa-artifact-pack` | QA Test Strategy Planner routes instead of generating detailed artifacts. |
+| `RT-012` | QA strategy gap asks for Jira subtasks. | Jira Work Item Assistant | `work-item-draft-bundle` | Draft only; do not create Jira. |
+| `RT-013` | QA evidence question affects release readiness. | Release Health Analyst | `health-readiness-review` | Do not decide go/no-go. |
 
 ## Expected Output Pattern
 
