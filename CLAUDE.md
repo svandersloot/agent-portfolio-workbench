@@ -43,6 +43,13 @@ Never automate these actions from this repo:
 Allowed: prepare Studio copy packets, dry-run Confluence outputs, draft Jira text for
 human review, normalize Studio exports, produce handoff instructions.
 
+A write-capable Atlassian MCP connector may be present in local Claude Code tooling. Its
+presence does not change these boundaries. MCP read/search tools support read-first work;
+MCP write tools stay draft or dry-run only and require explicit human approval per action.
+The connector has no delete/trash tool, so MCP writes are not self-reversible; any write
+plan must include a manual UI cleanup step.
+See `docs/reports/atlassian-mcp-integration-2026-07-09.md`.
+
 ## Human-Owned Decisions — Do Not Imply Approval For
 
 - Marking any agent Active, broadly Ready, or approved for broad pilot

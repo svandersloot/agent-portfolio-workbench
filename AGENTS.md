@@ -51,6 +51,8 @@ Allowed support:
 
 Keep `.env`, `config/confluence-pages.yml`, `data/raw/`, HARs, cookies, headers, tokens, private URLs, and unsanitized exports out of Git.
 
+A write-capable Atlassian MCP connector (Jira and Confluence read/search/write) may be present in local Claude Code tooling. Its presence does not change these boundaries. MCP read and search tools support read-first governance work; MCP write tools (Jira create/edit/transition/comment; Confluence create/update page and comments) stay draft or dry-run only and require explicit human approval per action. The connector has no delete/trash tool, so MCP writes are not self-reversible; any write plan must include a manual UI cleanup step. See `docs/reports/atlassian-mcp-integration-2026-07-09.md`.
+
 ## Human-Owned Decisions
 
 Do not promote, approve, or imply final approval for:
