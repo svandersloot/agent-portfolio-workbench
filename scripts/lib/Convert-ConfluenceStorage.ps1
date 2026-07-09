@@ -10,18 +10,36 @@ function ConvertTo-ConfluenceStorage {
         param([AllowNull()][string] $Text)
 
         if ($null -eq $Text) { return "" }
-        # Explicit XML-safe encoding for the Confluence v2 storage representation.
-        # Emits only the five XML built-in entities; all other characters (including
-        # non-breaking spaces, arrows, and dashes) are left as literal UTF-8, which
-        # Confluence storage accepts. This is equivalent in XML-safety to the previous
-        # WebUtility.HtmlEncode (which emits numeric entities, not named ones) but is
-        # kept explicit so the output is auditable and guaranteed free of named
-        # entities. Ampersand must be replaced first.
-        $encoded = $Text -replace '&', '&amp;'
-        $encoded = $encoded -replace '<', '&lt;'
-        $encoded = $encoded -replace '>', '&gt;'
-        $encoded = $encoded -replace '"', '&quot;'
-        return $encoded
+        # ASCII-safe encoding for the Confluence v2 storage representation.
+        # 1) Escape the XML specials (ampersand first).
+        # 2) Convert every non-ASCII character to a NUMERIC XML entity (e.g. arrow
+        #    -> &#8594;, ellipsis -> &#8230;, non-breaking space -> &#160;). This keeps
+        #    the request body pure ASCII and free of named entities, which avoids both
+        #    undeclared-named-entity rejections and the "Invalid UTF-8 middle byte" 400
+        #    seen when literal UTF-8 was sent through a non-UTF-8 transport. The publisher
+        #    also sends the body as UTF-8 bytes as defense-in-depth (see New-/Update-ConfluencePage).
+        $escaped = $Text -replace '&', '&amp;'
+        $escaped = $escaped -replace '<', '&lt;'
+        $escaped = $escaped -replace '>', '&gt;'
+        $escaped = $escaped -replace '"', '&quot;'
+
+        $sb = New-Object System.Text.StringBuilder
+        for ($i = 0; $i -lt $escaped.Length; $i++) {
+            $c = $escaped[$i]
+            $code = [int]$c
+            if ($code -le 127) {
+                [void]$sb.Append($c)
+            }
+            elseif ([char]::IsHighSurrogate($c) -and ($i + 1) -lt $escaped.Length -and [char]::IsLowSurrogate($escaped[$i + 1])) {
+                $cp = [char]::ConvertToUtf32($c, $escaped[$i + 1])
+                $i++
+                [void]$sb.Append('&#' + $cp + ';')
+            }
+            else {
+                [void]$sb.Append('&#' + $code + ';')
+            }
+        }
+        return $sb.ToString()
     }
 
     function Convert-InlineMarkdown {

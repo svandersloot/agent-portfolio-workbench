@@ -126,7 +126,7 @@ function New-ConfluenceHeaders {
     return @{
         Authorization = "Basic $auth"
         Accept = "application/json"
-        "Content-Type" = "application/json"
+        "Content-Type" = "application/json; charset=utf-8"
     }
 }
 
@@ -207,8 +207,9 @@ function New-ConfluencePage {
     }
 
     $json = $body | ConvertTo-Json -Depth 100
+    $bytes = [System.Text.Encoding]::UTF8.GetBytes($json)
     try {
-        return Invoke-RestMethod -Method Post -Uri "$BaseUrl/rest/api/content" -Headers $Headers -Body $json
+        return Invoke-RestMethod -Method Post -Uri "$BaseUrl/rest/api/content" -Headers $Headers -Body $bytes
     }
     catch {
         throw "Confluence create failed for '$($Page.title)': $(Get-ConfluenceErrorDetail $_)"
@@ -240,8 +241,9 @@ function Update-ConfluencePage {
     }
 
     $json = $body | ConvertTo-Json -Depth 100
+    $bytes = [System.Text.Encoding]::UTF8.GetBytes($json)
     try {
-        return Invoke-RestMethod -Method Put -Uri "$BaseUrl/api/v2/pages/$PageId" -Headers $Headers -Body $json
+        return Invoke-RestMethod -Method Put -Uri "$BaseUrl/api/v2/pages/$PageId" -Headers $Headers -Body $bytes
     }
     catch {
         throw "Confluence update failed for page $PageId ($Title): $(Get-ConfluenceErrorDetail $_)"
@@ -258,7 +260,8 @@ function Add-ConfluenceLabels {
 
     if (@($Labels).Count -eq 0) { return $null }
     $body = @($Labels | ForEach-Object { @{ prefix = "global"; name = $_ } }) | ConvertTo-Json -Depth 10
-    return Invoke-RestMethod -Method Post -Uri "$BaseUrl/rest/api/content/$PageId/label" -Headers $Headers -Body $body
+    $bytes = [System.Text.Encoding]::UTF8.GetBytes($body)
+    return Invoke-RestMethod -Method Post -Uri "$BaseUrl/rest/api/content/$PageId/label" -Headers $Headers -Body $bytes
 }
 
 function Write-LocalPageIds {
@@ -361,7 +364,7 @@ foreach ($page in $selectedPages) {
         if ($page.PSObject.Properties["parentSlug"] -and -not [string]::IsNullOrWhiteSpace($page.parentSlug) -and [string]::IsNullOrWhiteSpace($parentPageId)) {
             throw "Cannot create '$($page.title)' because parent '$($page.parentSlug)' has no pageId yet."
         }
-        $markdown = Get-Content -LiteralPath $page.sourcePath -Raw
+        $markdown = Get-Content -LiteralPath $page.sourcePath -Raw -Encoding UTF8
         $storage = ConvertTo-ConfluenceStorage -Markdown $markdown
         $created = New-ConfluencePage -BaseUrl $baseUrl -Headers $headers -SpaceKey $pageConfig.spaceKey -Page $page -StorageValue $storage -ParentPageId $parentPageId
         $createdPageId = [string] $created.id
@@ -371,7 +374,7 @@ foreach ($page in $selectedPages) {
         }
     }
     elseif ($Apply -and $action -eq "update") {
-        $markdown = Get-Content -LiteralPath $page.sourcePath -Raw
+        $markdown = Get-Content -LiteralPath $page.sourcePath -Raw -Encoding UTF8
         $storage = ConvertTo-ConfluenceStorage -Markdown $markdown
         $updated = Update-ConfluencePage -BaseUrl $baseUrl -Headers $headers -PageId $page.pageId -Title $page.title -StorageValue $storage -VersionNumber $plannedVersion
         $currentVersion = [int] $updated.version.number
