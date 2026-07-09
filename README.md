@@ -1,24 +1,24 @@
-# ROVO Governance Admin Toolkit
+# Agent Portfolio Workbench
 
-Small, read-only-first tools for managing ROVO agent governance from Studio and Confluence exports.
+Git-backed, read-only-first workbench for designing, evaluating, governing, and operating AI agent portfolios across team workflows.
 
 The first workflow captures a Studio agent configuration response, normalizes it into reviewable Markdown/YAML, and lets Git show meaningful governance changes: instructions, subagents, knowledge sources, tools, web search, and activation state.
 
 The second workflow turns ROVO space improvement plans into maintained Confluence-ready templates and implementation backlog items.
 
-The long-term direction is a lightweight governance operating system: publish core governance pages safely, audit space health, check agent governance completeness, and produce human-facing reports that help builders reuse existing agents instead of creating duplicate work.
+The long-term direction is a lightweight agent portfolio operating system: publish durable governance pages safely, audit workspace health, check agent completeness, evaluate reusable agent and automation patterns, and produce human-facing reports that help builders reuse existing solutions instead of creating duplicate work.
 
 ## Project Areas
 
 - `AGENTS.md`: operating contract for Codex and other AI-assisted repo work.
-- `START-HERE.md`: entry point for common governance workflows, safety boundaries, checks, and commit slices.
+- `START-HERE.md`: entry point for common portfolio workflows, safety boundaries, checks, and commit slices.
 - `scripts/`: local automation for Studio export normalization and future Confluence operations.
 - `schemas/`: contracts for normalized config output.
 - `templates/confluence/`: maintained source templates for governance pages.
 - `docs/confluence-pages/`: page-ready governance drafts for publishing or manual creation in Confluence.
 - `docs/`: operator guidance, roadmap, improvement plan, and implementation backlog.
 - `docs/reports/`: local dry-run reports and governance snapshots.
-- `config/`: reusable governance config such as labels, page publishing targets, and tracked Studio agent list examples.
+- `config/`: reusable portfolio and governance config such as labels, page publishing targets, and tracked Studio agent list examples.
 - `agent-portfolio-lab/`: local-only reusable-core, team-overlay, handoff, fixture, export, and manual evaluation workspace for coordinated release/Jira agent portfolio testing.
 - `docs/stage-5-agent-factory-start-here.md`: repo-backed start-here for the first team pilot of the ROVO agent factory/control-plane model.
 - `schemas/agent-governance-record.schema.json`: first structured contract for governed agent completeness.

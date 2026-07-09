@@ -1,6 +1,6 @@
-# ROVO Governance Agent Operating Contract
+# Agent Portfolio Workbench Operating Contract
 
-Use this file as the front door for Codex and other AI-assisted work in this repo. This repo is a governance workbench and audit trail for ROVO agent artifacts; ROVO Studio, Confluence, and Jira remain live systems with explicit approval boundaries.
+Use this file as the front door for Codex and other AI-assisted work in this repo. This repo is a Git-backed workbench and audit trail for agent portfolio artifacts; ROVO Studio, Confluence, and Jira remain live systems with explicit approval boundaries.
 
 ## Operating Posture
 
