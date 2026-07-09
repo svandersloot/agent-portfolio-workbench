@@ -233,6 +233,36 @@ Include:
 8. Overall recommendation: proceed to limited pilot, revise prompts, revise overlays, revise Studio setup, or stop.
 ```
 
+## Capture Improvement Notes After A QA Planning Session
+
+Use this after a meaningful planning session, not as evidence of approval, readiness, owner acceptance, or validated team standard status.
+
+```text
+Review this conversation as a draft improvement note for QA Test Strategy Planner.
+
+Summarize:
+1. What source context helped most.
+2. What information was missing or repeatedly needed.
+3. Where the agent gave useful QA strategy, readiness, automation, or routing guidance.
+4. Where the output needed human correction.
+5. Whether any team overlay fields should be added, clarified, validated, or marked Data Incomplete.
+6. Any prompt-library examples that would help future users.
+7. Any possible runtime-contract, Studio setup, knowledge-source, evaluation, or measurement-plan follow-up.
+
+Do not update any source docs, Studio configuration, Jira issue, or Confluence page. Return a draft improvement note that a human can review and decide whether to add to the repo.
+```
+
+The output is a draft note only. Save a sanitized summary as a dated repo report (for example, `docs/reports/qa-test-strategy-planner-session-improvement-note-YYYY-MM-DD.md`) and treat it as evidence, not an approved change. A human should review it and apply any durable learning to the correct source doc:
+
+- prompt issue -> this prompt library
+- behavior or guardrail issue -> `Runtime Contract - QA Test Strategy Planner`
+- source or context gap -> `Knowledge Source Plan - QA Test Strategy Planner`
+- evaluation gap -> `Evaluation - QA Test Strategy Planner`
+- team-specific pattern -> the relevant team overlay
+- value signal -> `Measurement Plan - QA Test Strategy Planner`
+
+This prompt does not authorize the agent to update repo docs, Studio configuration, Jira, or Confluence on its own, and it does not imply the agent can self-improve autonomously.
+
 ## Good Output Checklist
 
 Strong responses should:
