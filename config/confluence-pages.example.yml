@@ -9,7 +9,8 @@ pages:
     labels:
       - agent-governance
     pageId: null
-    parentPageId: null  - slug: space-structure-and-navigation
+    parentPageId: null
+  - slug: space-structure-and-navigation
     title: Space Structure and Navigation
     sourcePath: docs/confluence-pages/space-structure-and-navigation.md
     labels:
