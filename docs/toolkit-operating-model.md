@@ -1,6 +1,6 @@
-# Toolkit Operating Model
+# Agent Portfolio Workbench Operating Model
 
-This toolkit exists to make ROVO agent governance repeatable without turning agent building into a bottleneck.
+Agent Portfolio Workbench exists to make agent portfolio governance repeatable without turning agent building into a bottleneck. The current implementation is Rovo-first, but the operating model is intended to work across runtimes.
 
 The current Atlassian reality is:
 
@@ -49,7 +49,7 @@ The current read-only evidence suggests:
 
 ## Non-Negotiable Agent Fields
 
-Every governed ROVO agent should have:
+Every governed agent should have:
 
 - Agent name
 - Owner
@@ -119,7 +119,7 @@ The toolkit should help turn informal requests into structured governance artifa
 6. Record owner, status, measurement, context readiness, and launch evidence.
 7. Publish or report updates through dry-run-first tooling.
 
-## Codex-To-Rovo Agent Build Pipeline
+## Workbench-To-Runtime Handoff
 
 Use this repo and Codex as the builder workbench for technical builders who can move faster in Git-backed artifacts than in ROVO Studio.
 
