@@ -1,4 +1,4 @@
-# Agent Portfolio Workbench Overview
+# Agent Portfolio Overview
 
 ## What this is
 
@@ -29,13 +29,13 @@ Pilot users are a named subset of end users, not a separate consumer product or 
 
 ## Find the next page
 
-- `Space Structure and Navigation` — page tree and navigation model.
-- `Agent Inventory` — canonical reuse and lifecycle check.
-- `Agent Fit Intake` — route a problem to a prompt, automation, extension, template, candidate, governed agent, or not-ready outcome.
-- `Governance and Safety` — shared controls and escalation guidance.
-- `Measurement and Value Tracking` — portfolio and per-agent evidence.
-- `User Guide - Designing Agents` — builder workflow.
-- `Admin and Owner Guide` — accountability and manual live-system boundaries.
+- `Space Structure and Navigation` â€” page tree and navigation model.
+- `Agent Inventory` â€” canonical reuse and lifecycle check.
+- `Agent Fit Intake` â€” route a problem to a prompt, automation, extension, template, candidate, governed agent, or not-ready outcome.
+- `Governance and Safety` â€” shared controls and escalation guidance.
+- `Measurement and Value Tracking` â€” portfolio and per-agent evidence.
+- `User Guide - Designing Agents` â€” builder workflow.
+- `Admin and Owner Guide` â€” accountability and manual live-system boundaries.
 
 ## Source-of-truth and safety rule
 
