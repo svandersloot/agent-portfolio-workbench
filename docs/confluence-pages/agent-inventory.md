@@ -8,11 +8,11 @@ Use this page as the canonical inventory of governed ROVO agents and agent candi
 
 | Need | Start With |
 |---|---|
-| Find an approved agent for everyday use | `User Guide - Using Approved Agents` |
+| Find an approved agent for approved-agent use | `User Guide - Using Approved Agents` |
 | Request a new agent or improve an existing agent | `Request or Improve an Agent` |
 | Review the full governed inventory and status fields | This page |
 
-The approved-user guide must show only source-backed `Active` or `Team Approved` agents for the intended audience. Do not infer approval from useful, promising, pilot-only, or draft inventory rows.
+The approved-agent guide must show only source-backed `Active` or `Team Approved` agents for the intended audience. Do not infer approval from useful, promising, pilot-only, or draft inventory rows.
 
 ## Inventory Policy
 
