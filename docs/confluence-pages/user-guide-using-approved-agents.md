@@ -2,7 +2,7 @@
 
 Use this page when you want to find and use an approved ROVO agent in the Rovo Agent Inventory space.
 
-This guide is for everyday users. You do not need to understand Project Brain pages, Studio configuration, or governance templates before using an approved agent. You do need to confirm that the agent is approved for your audience and that you can review its output before acting on it.
+This guide is for end users, including pilot users. You do not need to understand Project Brain pages, Studio configuration, or governance templates before using an approved agent. You do need to confirm that the agent is approved for your audience and that you can review its output before acting on it.
 
 ## What Counts As Approved
 
@@ -21,9 +21,9 @@ No source-backed approved agents are confirmed in the repo-backed inventory for 
 
 Use `Agent Inventory` for the full governance record. If an agent looks useful but is not listed here, ask your lead or AI champion to route the need through `Request or Improve an Agent`.
 
-## Pilot-Only Agents
+## Pilot-Approved Capabilities
 
-These agents are not broadly approved. Use them only if you are part of the named pilot audience or were directed there by the agent owner, lead, or AI champion.
+These capabilities are not broadly approved. Use them only if you are part of the named pilot audience or were directed there by the agent owner, lead, or AI champion.
 
 | Agent | Pilot audience | What it helps with | Primary owner | Backup owner | Source evidence | Feedback path | Status |
 |---|---|---|---|---|---|---|---|
