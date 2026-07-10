@@ -1,6 +1,6 @@
 # Agent Portfolio Workbench Operating Contract
 
-Use this file as the front door for Codex and other AI-assisted work in this repo. This repo is a Git-backed workbench and audit trail for agent portfolio artifacts; ROVO Studio, Confluence, and Jira remain live systems with explicit approval boundaries.
+Use this file as the front door for AI-assisted work in this repo. Agent Portfolio Workbench is a Git-backed, read-only-first governance workbench for designing, evaluating, governing, measuring, and handing off agent portfolios across runtimes. ROVO Studio is the current pilot runtime; Confluence, Jira, and other delivery platforms remain live systems with explicit approval boundaries.
 
 ## Operating Posture
 
@@ -67,7 +67,7 @@ Do not promote, approve, or imply final approval for:
 
 The Design Agent may recommend not building an agent. Treat `prompt`, `automation`, `existing-agent extension`, `Confluence template`, `agent candidate`, and `not ready` as valid intake outcomes when the evidence supports them.
 
-## Current Agent Posture
+## Current Pilot Posture (Rovo-First)
 
 - Jira Work Item Assistant owns active Jira ticket drafting, Ticket Review / Polish, standards alignment, gap checking, draft status comments, proposed team standards, and common-task guidance.
 - Jira Ticket Polisher is archived / superseded history. Do not configure or promote it as a separate active user-facing agent unless a new governed decision reopens it.
