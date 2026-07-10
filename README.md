@@ -24,7 +24,9 @@ Start by reading `AGENTS.md`, `README.md`, `START-HERE.md`, and `docs/toolkit-op
 
 ## Current Operating Model
 
-Use this repository for durable design, evidence, evaluation, measurement, governance, and operational handoff artifacts. Use permission-scoped connectors and the relevant live delivery platforms for current context and runtime execution, with human approval gates for any write or access change.`n`nAgent Portfolio Workbench is the builder-facing governance and evidence layer above those runtimes. Confluence is the human-facing portal for approved guidance, inventory views, reports, and navigation; the configured runtime remains authoritative for the behavior that actually runs.
+Use this repository for durable design, evidence, evaluation, measurement, governance, and operational handoff artifacts. Use permission-scoped connectors and the relevant live delivery platforms for current context and runtime execution, with human approval gates for any write or access change.
+
+Agent Portfolio Workbench is the builder-facing governance and evidence layer above those runtimes. Confluence is the human-facing portal for approved guidance, inventory views, reports, and navigation; the configured runtime remains authoritative for the behavior that actually runs.
 
 The workbench supports a reusable portfolio lifecycle:
 
@@ -34,6 +36,8 @@ The workbench supports a reusable portfolio lifecycle:
 4. Review changes in Git and run the repository checks.
 5. Apply approved runtime or documentation changes manually or through a focused, auditable workflow.
 6. Keep the repository record aligned with the live system without treating chat history or unsanitized exports as source of truth.
+
+The canonical positioning and audience model is in `docs/agent-portfolio-workbench-positioning.md`. The planned Confluence human-facing entry point is `docs/confluence-pages/agent-portfolio-overview.md`.
 
 Use `docs/next-slash-goals.md` for the current actionable queue, `docs/implementation-backlog.md` for backlog sequencing, and `docs/roadmap.md` for longer-term direction. These files, not this README, are the planning surfaces.
 
