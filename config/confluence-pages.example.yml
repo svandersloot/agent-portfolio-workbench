@@ -3,7 +3,13 @@
 # local file if your organization treats them as sensitive.
 spaceKey: ROVO
 pages:
-  - slug: space-structure-and-navigation
+  - slug: agent-portfolio-overview
+    title: Agent Portfolio Overview
+    sourcePath: docs/confluence-pages/agent-portfolio-overview.md
+    labels:
+      - agent-governance
+    pageId: null
+    parentPageId: null  - slug: space-structure-and-navigation
     title: Space Structure and Navigation
     sourcePath: docs/confluence-pages/space-structure-and-navigation.md
     labels:
