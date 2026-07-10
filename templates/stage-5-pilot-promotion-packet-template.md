@@ -12,10 +12,10 @@ Use this packet to request pilot approval or team promotion for 1-2 initial ROVO
 | Agent type | `[governed agent / extension / candidate / meta-agent]` |
 | Current lifecycle stage | `[Idea/Candidate/Prototype/Pilot Approved/Team Approved/Needs Remediation/Deprecated/Retired]` |
 | Target stage | `[Pilot Approved/Team Approved/Needs Remediation/Deprecated/Retired]` |
-| Target pilot audience | `[named team/users]` |
+| Target audience | `[named team/users]` |
 | Agent owner | `[name/team]` |
 | Backup owner | `[name/team or gap owner]` |
-| Reviewer/manager | `[name/team]` |
+| Designated reviewer | `[name/team]` |
 | Packet prepared by | `[name/helper]` |
 | Prepared date | `[YYYY-MM-DD]` |
 

@@ -1,8 +1,8 @@
 # Stage 5 Agent Factory Start Here
 
-Use this page to run the first team pilot of the ROVO agent factory model.
+Use this page to run the first team pilot of the Agent Portfolio Workbench model.
 
-Stage 5 reframes this repo as the behind-the-scenes control plane for approved ROVO agents. The repo holds specs, source links, evaluation prompts, approval evidence, pilot metrics, promotion packets, and retirement decisions. Normal pilot users should not need this repo. They should use approved agents through Jira, Confluence, and ROVO/Studio workflows, then send feedback through the pilot channel named in the promotion packet.
+Stage 5 is a Rovo-first pilot of a platform-neutral governance workbench. The repo holds specs, source links, evaluation prompts, approval evidence, pilot metrics, promotion packets, and retirement decisions. End users should not need this repo. They should use approved agents through Jira, Confluence, and ROVO/Studio workflows, then send feedback through the pilot channel named in the promotion packet.
 
 The first target is one initial team pilot. Do not treat these artifacts as an org-wide launch plan.
 
@@ -24,7 +24,7 @@ The Stage 5 control plane keeps governance evidence durable while keeping user e
 - Builders use this repo to draft and review specs, tests, templates, metrics, promotion packets, and retirement notes.
 - Agent owners use this repo to maintain Project Brain evidence, approved sources, evaluation results, measurement plans, and change history.
 - Reviewers use this repo to approve pilot scope, risk boundaries, audience, escalation triggers, and promotion decisions.
-- Pilot users use approved ROVO agents in Atlassian tools. They should not need Git, branch names, Markdown templates, or Studio configuration details.
+- End users use approved capabilities in the supported business workflow. Pilot users are a named subset of end users during evaluation. They should not need Git, branch names, Markdown templates, or Studio configuration details.
 - ROVO Studio remains the runtime where approved configuration is copied manually. This repo does not write to Studio.
 
 ## Audience Map

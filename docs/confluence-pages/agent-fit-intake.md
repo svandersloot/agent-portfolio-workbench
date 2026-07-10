@@ -1,6 +1,6 @@
 # Agent Fit Intake
 
-Use this intake before creating a new ROVO agent. The goal is to help builders choose the lightest useful solution, avoid duplicate agents, and make governance explicit before Studio configuration starts.
+Use this intake before creating a new governed agent capability. The goal is to help builders choose the lightest useful solution, avoid duplicate agents, and make governance explicit before Studio configuration starts.
 
 The first step for most requests is to use the ROVO Design Agent. The Design Agent is the front door for agent governance: it should guide the builder through this intake, check the governance docs and Agent Inventory, and scaffold documentation only when the idea is durable enough.
 

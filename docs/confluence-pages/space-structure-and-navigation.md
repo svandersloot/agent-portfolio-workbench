@@ -1,6 +1,6 @@
 # Space Structure and Navigation
 
-This page defines the recommended structure for the centralized ROVO Agent Governance space.
+This page defines the recommended structure for the centralized agent governance space. The current space is Rovo-first, while new portfolio-facing navigation should use platform-neutral wording.
 
 ## Design Goal
 
@@ -8,7 +8,7 @@ The space should be easy for both humans and ROVO agents to navigate. It should 
 
 ## Recommended Page Tree
 
-- Agent Governance Home
+- Agent Governance Home`n- Agent Portfolio Overview
 - Start Here - Agent Fit and Governance Front Gate
 - Governance and Safety
 - Agent Inventory
@@ -65,11 +65,11 @@ Planned or recommended children:
 - Confluence Formatting Standards
 - Admin and Owner Guide
 
-### Agent Inventory
+### Agent Portfolio Overview`n`nPurpose:`n`n- Acts as the human-facing portfolio and leadership entry point.`n- Routes builders, owners, reviewers, auditors, leaders, and end users to canonical pages.`n- Provides a dated portfolio view without duplicating the canonical inventory.`n`n### Agent Inventory
 
 Purpose:
 
-- Serves as the canonical list of ROVO agents, owners, lifecycle status, and source-of-truth Project Brain links.
+- Serves as the canonical list of governed agent capabilities, owners, lifecycle status, and source-of-truth Project Brain links.
 - Helps builders check for existing agents before creating new ones.
 - Links everyday users to the approved-agent guide before they read the full governance inventory.
 
