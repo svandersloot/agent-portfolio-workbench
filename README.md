@@ -24,7 +24,7 @@ Start by reading `AGENTS.md`, `README.md`, `START-HERE.md`, and `docs/toolkit-op
 
 ## Current Operating Model
 
-Use this repository for durable design, evidence, evaluation, measurement, governance, and operational handoff artifacts. Use permission-scoped connectors and the relevant live delivery platforms for current context and runtime execution, with human approval gates for any write or access change.
+Use this repository for durable design, evidence, evaluation, measurement, governance, and operational handoff artifacts. Use permission-scoped connectors and the relevant live delivery platforms for current context and runtime execution, with human approval gates for any write or access change.`n`nAgent Portfolio Workbench is the builder-facing governance and evidence layer above those runtimes. Confluence is the human-facing portal for approved guidance, inventory views, reports, and navigation; the configured runtime remains authoritative for the behavior that actually runs.
 
 The workbench supports a reusable portfolio lifecycle:
 
