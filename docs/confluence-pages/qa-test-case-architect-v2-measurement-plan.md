@@ -14,6 +14,20 @@
 
 QA Test Case Architect v2 should reduce the time required to draft QA test artifacts while improving acceptance-criteria coverage, traceability, standard formatting, and visibility of unresolved requirement gaps.
 
+### Time-Savings Hypothesis (Session 1 follow-up, not an ROI claim)
+
+Recorded from the 2026-07-10 working session (see `qa-test-case-architect-v2-session-review-2026-07-10.md`, evidence E20).
+
+| Field | Value |
+|---|---|
+| Hypothesis | Agent-assisted drafting reduces the time a QA engineer spends producing the first review-ready draft of a test-suite package (summary, description, and CSV formatting), versus fully manual authoring. |
+| What prompted it | One QA SME stated in-session that the agent "would save a lot of time," especially on formatting, summary, and description drafting. |
+| Evidence strength | **Anecdotal.** One SME opinion, one story, one unrepeated session. This is a hypothesis to test, **not** measured time savings, **not** an ROI claim, and **not** a readiness or approval signal. |
+| Proposed metric | Test artifact draft time (manual baseline vs agent-assisted), already tracked in the Metrics table below. |
+| Baseline capture | **Owner-owned gate.** The measurement owner must define how the manual baseline is captured (e.g., timed manual authoring of a comparable package) before any reduction figure is stated. Until then, no percentage or time-saved number is claimed. |
+| Confounders to control | Post-generation rework (steps were judged "barely functional" in Session 1), story complexity, and reviewer familiarity. Draft-time savings must not be reported net of the rework the SME still expects to do on steps. |
+| Explicitly out of scope | ROI, cost savings, headcount impact, and "production-ready" claims. This hypothesis measures draft-time only, once a baseline exists. |
+
 ## Metrics
 
 | Metric | Baseline | Target | Measurement Method | Cadence |
