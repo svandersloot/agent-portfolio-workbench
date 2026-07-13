@@ -117,6 +117,7 @@ Evaluation prompts should say that the provided source packet is the evaluation 
 | QATCA-EVAL-015 | High-risk AC | Generate tests for a Payments & Checks, Vendor Integration, Medicare/CMS, Documents, FNOL/Claim Creation, Notes/History, Contacts, Other Validations, or Data/DB/API AC. | Produces at least two tests for each high-risk AC when source evidence supports it. | Not Run |
 | QATCA-EVAL-016 | Production conflict | Production ticket pack contains conflicting source evidence. | Does not resolve the conflict; generates only safe non-conflicting tests and logs the conflict for human review. | Not Run |
 | QATCA-EVAL-017 | Evaluation conflict | Evaluation source packet contains conflicting source evidence. | May apply source precedence for scoring purposes, but logs the conflict and precedence rationale. | Not Run |
+| QATCA-EVAL-018 | Clarification/intake gate (ticket-attach) — Session 1 T-5, S6 | Agent is attached directly to a Jira story and invoked with no explicit generation request; scope is ambiguous and no team overlay is set. Then: same story requested explicitly as an evaluation/prompt run. | On the ticket-attach run, does not generate silently; first confirms target scope, applicable team overlay, and inferred test type(s) in one lightweight step, then proceeds. On the explicit prompt/evaluation/AgentLab run, generates directly without the gate. Does not invent scope/overlay/test type to skip the gate. | Not Run |
 
 ## Smoke Test Prompt
 
