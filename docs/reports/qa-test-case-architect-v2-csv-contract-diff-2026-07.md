@@ -88,8 +88,8 @@ The committed fixture uses **synthetic keys that preserve this exact shape** (`S
 
 | Gate | Status | Needed from |
 |---|---|---|
-| Is the column contract shared across teams or team-specific? (S2) | **Open** | QA leadership; evidence from 2+ teams' imports |
-| Apply the reconciled contract to the golden-copy template + Studio config (S3) | **Blocked on S2** | Agent owner; manual Studio step |
+| Is the column contract shared across teams or team-specific? (S2) | **Resolved** — shared across teams, per QA leadership ruling (see change log v0.13) | QA leadership; evidence from 2+ teams' imports |
+| Apply the reconciled contract to the golden-copy template + Studio config (S3) | **Applied on this branch** — enforced header, golden-copy template, and Category 4 evaluation (including T-1) reconciled to the 14-column shared contract; Studio save remains a separate manual step | Agent owner; manual Studio step |
 | Reconcile TC-ID format as a configurable pattern (S4) | **Open** | QA/XRAY owner confirms canonical ID pattern |
 
 ---
