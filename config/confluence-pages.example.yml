@@ -427,6 +427,17 @@ pages:
       - qa-test
     pageId: null
     parentPageId: null
+  - slug: qa-test-case-architect-v2-team-overlay-payment-ninjas
+    title: Team Overlay - Payment Ninjas (PN) - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-team-overlay-payment-ninjas.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - team-overlay
+      - qa-test
+      - payment-ninjas
+    pageId: null
+    parentPageId: null
   - slug: release-evidence-ledger-contract
     title: Release Evidence Ledger Contract
     sourcePath: docs/confluence-pages/release-evidence-ledger-contract.md
