@@ -16,7 +16,7 @@ QA Test Case Architect v2 should reduce the time required to draft QA test artif
 
 ### Time-Savings Hypothesis (Session 1 follow-up, not an ROI claim)
 
-Recorded from the 2026-07-10 working session (see [session review](../reports/qa-test-case-architect-v2-session-review-2026-07-10.md), evidence E20).
+Recorded from the 2026-07-10 working session (see `qa-test-case-architect-v2-session-review-2026-07-10.md`, evidence E20).
 
 | Field | Value |
 |---|---|

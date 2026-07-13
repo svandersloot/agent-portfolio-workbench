@@ -4,7 +4,7 @@
 |---|---|
 | Date | 2026-07-13 |
 | Author | Governance workbench (Claude Code), read-only-first |
-| Related | GitHub issue #13 (Slice S10); [session review](qa-test-case-architect-v2-session-review-2026-07-10.md); [followup slice plan](qa-test-case-architect-v2-session-review-followups-2026-07-10.md) |
+| Related | GitHub issue #13 (Slice S10); `qa-test-case-architect-v2-session-review-2026-07-10.md`; `qa-test-case-architect-v2-session-review-followups-2026-07-10.md` |
 | Purpose | Document the manual CSV-to-file conversion flow observed in Session 1 and define a plan to verify the XRAY import round-trip, which was explicitly **not** verified in-session. |
 | Boundary | Repo documentation only. No ROVO Studio, Jira, XRAY, or Confluence write. The import dry-run itself is a gated follow-up session action, not performed by this repo. |
 
