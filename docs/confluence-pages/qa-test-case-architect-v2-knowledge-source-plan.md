@@ -84,4 +84,7 @@ Before generating final-seeming artifacts, the agent must confirm:
 | Golden-copy examples for remaining artifacts confirmed | Open | Needed for FeatureBrief, CoverageMap, RTM, E2E_Scenarios, MiniTestPlan, TestSummary, ConflictLog, and TBDLog. |
 | Full artifact catalog confirmed | Done | Nine required artifacts are documented. |
 | XRAY ID and upload model confirmed | Partial | XRAY numbering occurs on import after ROVO provides CSV text and a human uses Copilot/manual flow to produce/import the actual CSV. |
+| XRAY column contract scope (shared vs team-specific) | Decided (2026-07-13) | S2 ruling relayed by owner: the XRAY CSV column contract is **shared across teams**. The 14-column golden ([contract-diff note](../reports/qa-test-case-architect-v2-csv-contract-diff-2026-07.md)) is the shared base contract; team-specific *values* stay overlay-scoped. Applying it in source is S3 (held for owner review). |
+| TC-ID canonical convention | Held | Golden observed as `{ProjectKey}-{StoryNumber}-{Seq}`; enforced ID rule unchanged until the QA/XRAY owner supplies the written convention (S4). |
+| Test-type allow-list source | Open | S7 needs the confirmed allowed test-type values and their source of truth from the QA owner before allow-list validation can be built. |
 | Permission model reviewed | Open | No write tools should be enabled in current design. |
