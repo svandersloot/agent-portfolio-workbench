@@ -6,7 +6,9 @@
 | Author | Governance workbench (Claude Code), read-only-first |
 | Related | GitHub issue #4 (Slice S1); `qa-test-case-architect-v2-session-review-2026-07-10.md`; `qa-test-case-architect-v2-session-review-followups-2026-07-10.md` |
 | Purpose | Document the drift between the currently-enforced XRAY CSV contract and the team-confirmed golden import, so the reconciliation (S3) is measurable and reviewable. |
-| Boundary | Repo evidence only. No change to the Studio config header, the golden-copy template, or canonical agent instructions in this slice. No ROVO Studio / Jira / XRAY / Confluence write. |
+| Boundary | Repo evidence only. As originally written (S1) this report only captured the drift and changed no enforced surface. S3 (PR #20) has since applied the reconciliation in repo source: the Studio config header, the golden-copy template, and the canonical agent instructions now match the confirmed golden. Still no ROVO Studio / Jira / XRAY / Confluence writes; Studio save remains a separate manual step. |
+
+> Status (2026-07-13): S3 has applied this reconciliation in repo source — the confirmed golden (B) is now the enforced 14-column contract. Sections 2–5 document the pre-S3 drift. Studio save remains a separate manual step.
 
 ---
 
@@ -84,7 +86,7 @@ The committed fixture uses **synthetic keys that preserve this exact shape** (`S
 
 ---
 
-## 6. Open decisions / gates (not resolved by this slice)
+## 6. Decisions / gates
 
 | Gate | Status | Needed from |
 |---|---|---|
@@ -94,8 +96,9 @@ The committed fixture uses **synthetic keys that preserve this exact shape** (`S
 
 ---
 
-## 7. What this slice changes
+## 7. What the reconciliation changed
 
-- Adds the sanitized golden fixture (Section 1 B).
-- Adds this diff note.
-- Adds one **draft** eval row (T-1) to [qa-test-case-architect-v2-eval-category-4-xray-csv-compliance.csv](qa-test-case-architect-v2-eval-category-4-xray-csv-compliance.csv), marked pending-S3. Existing Category 4 rows and the enforced header are intentionally left unchanged until S2/S3.
+S1 added the sanitized golden fixture (Section 1 B) and this diff note. S3 (PR #20) has since applied the reconciliation:
+
+- Promoted the T-1 eval row in [qa-test-case-architect-v2-eval-category-4-xray-csv-compliance.csv](qa-test-case-architect-v2-eval-category-4-xray-csv-compliance.csv) from draft to the enforced shared contract.
+- Reconciled the enforced header, the golden-copy template, and the existing Category 4 rows to the confirmed 14-column contract (golden B).
