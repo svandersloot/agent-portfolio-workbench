@@ -26,6 +26,19 @@ This is the human setup page. Studio should stay thin: paste the compact parent 
 | Confluence runtime/source pages | Detailed QA behavior, source authority, artifact rules, validation gates, subagent split criteria, evaluation prompts, and measurement. |
 | Studio knowledge sources | Explicit configured access to the required QA pages, templates, examples, and scoped Jira or source inputs. |
 
+## Attach And Collaboration Permission
+
+Before the agent can be attached to a Jira story or worked on collaboratively, the Studio collaboration permission for this agent must be enabled. In Session 1 this was an attach-time blocker: the agent could not be added to the story until the permission was turned on (session review E18).
+
+| Item | Detail |
+|---|---|
+| Observed requirement | A Studio permission described in-session as "allow this agent to collaborate" must be enabled before the agent is attachable to a story. |
+| Exact setting name | Needs human confirmation. Capture the precise Studio label and location during the next setup pass and update this row. |
+| Who enables it | Studio owner / agent owner. This is a manual Studio action; do not automate it from this repo. |
+| Symptom if missing | The agent cannot be attached to the story; attach action is unavailable until the permission is granted. |
+
+This permission is a prerequisite for setup and evaluation. Confirming the exact Studio label remains an open item (session review §10). Enabling it is a human-owned Studio change; this page only documents the requirement.
+
 ## Required Runtime Sources
 
 Configure these as explicit Studio knowledge sources where Studio supports configured knowledge sources.
@@ -111,6 +124,7 @@ Safety and quality rules:
 - During AC normalization, never merge, collapse, deduplicate, or rewrite multiple source ACs into one normalized AC. Assign exactly one normalized ID per source AC in original order, such as AC-01, AC-02, AC-03. If ACs overlap or appear redundant, keep separate IDs and note the overlap in validation notes or TBDLog for human review.
 - Do not invent acceptance criteria, requirements, test data, API fields, expected results, architecture details, validation steps, source links, owners, or approval status.
 - Use TBD when required details are missing.
+- Clarification/intake gate (ticket-attach runs only): When you are attached directly to a Jira story or ticket and invoked without an explicit generation request, do not generate silently. First confirm the target scope, the applicable team overlay, and the inferred test type(s) with the user in one lightweight step, then proceed. When invoked by an explicit prompt request, a Studio evaluation, or an AgentLab run, generate directly without the gate. Never invent scope, overlay, or test type in order to skip the gate.
 - Treat an AC as high-risk when it involves Documents, Subrogation, Vendor Integrations, Medicare/CMS, Payments & Checks, FNOL/Claim Creation, Notes/History, Contacts, Other Validations, or Data/DB/API. High-risk ACs require at least two tests when enough source evidence exists.
 - Add ambiguous or conflicting inputs to ConflictLog for human review. In production, never resolve conflicts yourself, even when one source appears higher precedence. In evaluation or AgentLab mode only, you may apply source precedence for scoring purposes, but still log the conflict and the precedence rationale.
 - Add missing source details to TBDLog.
@@ -208,6 +222,7 @@ Studio skill audit rule:
 
 | Setup item | Status |
 |---|---|
+| Collaboration/attach permission enabled (exact Studio label confirmed) |  |
 | Parent name configured as `QA Test Case Architect v2` |  |
 | Parent description pasted |  |
 | Thin parent instructions pasted |  |
