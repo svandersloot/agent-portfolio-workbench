@@ -78,7 +78,7 @@ Category 2, 3, and 4 evaluation result exports from Robert's review showed one u
 - AC normalization must preserve one normalized AC ID per source AC and must not deduplicate overlapping ACs.
 - Deterministic test IDs must use `TC-{StoryID}-{AC}-{AREA}-{TYPE}-{NNN}` when the needed source data exists.
 - Requests for XRAY CSV only or raw CSV only must return only CSV header and rows, with no markdown, headings, logs, or checklist unless explicitly requested.
-- Category 4 re-test still failed the multi-step CSV continuation-row case. Hardened behavior now states that the governed continuation-row rule overrides conflicting retrieved templates: continuation rows must leave Story ID through Sprint blank and may populate only Action and Expected Result. The XRAY CSV header must include `Execution Type` and `Test Type`, never duplicate `Test Type`.
+- Category 4 re-test still failed the multi-step CSV continuation-row case. Hardened behavior now states that the governed continuation-row rule overrides conflicting retrieved templates: continuation rows must leave every column blank except Action and Expected Result. The XRAY CSV header is the team-confirmed shared 14-column contract: Story ID,TC ID,Summary,Description,Test Type,Application list,Test Type,Regression,Automated,Assignee,Functionality,Data,Action,Expected Result. It intentionally contains two `Test Type` columns (the first holds Manual/Automated, the second holds the functional category); there is no `Execution Type`, `Priority`, or `Sprint` column; the label is `Assignee` (not `Assignee Name`); `Functionality` is present and usually blank.
 
 ## Known Evaluation Finding
 
