@@ -1,0 +1,185 @@
+Story ID,TC ID,Summary,Description,Test Type,Application list,Test Type,Regression,Automated,Assignee,Functionality,Data,Action,Expected Result
+SYNTH-1001,SYNTH-1001-1,Ensuring no outbound messages are sent to contacts marked Opt-Out when initiated via CAS UI.,Ensuring no outbound messages are sent to contacts marked Opt-Out when initiated via CAS UI.,Manual,CAS,Functional,No,No,QA Owner,,,Log in to the Claim Center,Successfully logged in to the Claim Center.
+,,,,,,,,,,,,Create an auto claim,Auto claim is created.
+,,,,,,,,,,,,Clear the CCQ,CCQ is cleared.
+,,,,,,,,,,,,Navigate to the Parties Involved screen,Insured details are displayed.
+,,,,,,,,,,,,Opt in to text preference (Yes),User is able to select the opt-in option.
+,,,,,,,,,,,,Navigate to Postman,Postman application opens.
+,,,,,,,,,,,,Generate the token,Token is generated successfully.
+,,,,,,,,,,,,Navigate to the Body section,Body section opens.
+,,,,,,,,,,,,Enter the claim number,Claim number is entered.
+,,,,,,,,,,,,Click Send Request,Response is displayed showing the preference action with Opt-In.
+SYNTH-1001,SYNTH-1001-2,Verifying that valid opt-out events are correctly sent downstream from API Hub to CCM/CXone.,Verifying that valid opt-out events are correctly sent downstream from API Hub to CCM/CXone.,Manual,CAS,Functional,No,No,QA Owner,,,Log in to the Claim Center,Successfully logged in to the Claim Center.
+,,,,,,,,,,,,Create an auto claim,Auto claim is created.
+,,,,,,,,,,,,Clear the CCQ,CCQ is cleared.
+,,,,,,,,,,,,Navigate to the Parties Involved screen,Insured details are displayed.
+,,,,,,,,,,,,Opt in to text preference (Yes),User is able to select the opt-in option.
+,,,,,,,,,,,,Log in to the CXONE application.,Able to log in to the CXONE application.
+,,,,,,,,,,,,Search for the phone number.,Able to search for the phone number.
+,,,,,,,,,,,,Send a message to the specific claim number.,Able to send a text message to the associated claim number.
+,,,,,,,,,,,,Verify that the text message is successfully received on the phone.,The text message is successfully received on the phone.
+,,,,,,,,,,,,Opt out the contact in Claim Center.,The contact is successfully opted out.
+,,,,,,,,,,,,Attempt to send a text message from CXONE.,"An error message is displayed in CXONE stating:""Unable to send reply or outbound message."""
+SYNTH-1002,SYNTH-1002-1,Change #1: Added OKNG to the grey highlight variable in Paragraph B for Form Version 27.02 for Auto LOB.,"Change #1: Added OKNG to the grey highlight variable in Paragraph B for Form Version
+27.02 for Auto LOB.",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> OK
+PolPrdTyp -> OKNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option 27.02 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L27 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section 27.02 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1002,SYNTH-1002-2,Change #2: Added WVNG to the grey highlight variable in Paragraph B for Form Version 27.02 for Auto LOB.,"Change #2: Added WVNG to the grey highlight variable in Paragraph B for Form Version
+27.02 for Auto LOB.",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> WV
+PolPrdTyp -> WVNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option 27.02 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L27 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section 27.02 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1002,SYNTH-1002-3,Change #3:Added PANG to the grey highlight variable in Paragraph B for Form Version 27.02 for Auto LOB.,"Change #3:Added PANG to the grey highlight variable in Paragraph B for Form Version
+27.02 for Auto LOB.",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> PA
+PolPrdTyp -> PANG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option 27.02 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L27 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section 27.02 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1002,SYNTH-1002-4,Change #4: Added UTNG to the grey highlight variable in Paragraph B for Form Version 27.02 for Auto LOB.,"Change #4: Added UTNG to the grey highlight variable in Paragraph B for Form Version
+27.02 for Auto LOB.",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> UT
+PolPrdTyp -> UTNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option 27.02 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L27 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section 27.02 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1002,SYNTH-1002-5,Change #5: Added OKNG to the grey highlight variable in Paragraph B for Form Version 27.02 for Auto LOB.,"Change #5: Added OKNG to the grey highlight variable in Paragraph B for Form Version
+27.02 for Auto LOB.",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> OK
+PolPrdTyp -> OKNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option27.02 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L27 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section27.02 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1002,SYNTH-1002-6,Change #6: Added OHNG to the grey highlight variable in Paragraph B for Form Version 27.02 for Auto LOB.,"Change #6: Added OHNG to the grey highlight variable in Paragraph B for Form Version
+27.02 for Auto LOB.",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> OH
+PolPrdTyp -> OHNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option27.02 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L27 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section27.02 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1002,SYNTH-1002-7,Change #7: Added VANG to the grey highlight variable in Paragraph B for Form Version 27.02 for Auto LOB.,"Change #7: Added VANG to the grey highlight variable in Paragraph B for Form Version
+27.02 for Auto LOB.",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> VA
+PolPrdTyp -> VANG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option27.02 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L27 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section27.02 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1002,SYNTH-1002-8,Change #8: Added IDNG to the grey highlight variable in Paragraph B for Form Version 27.02 for Auto LOB.,"Change #8: Added IDNG to the grey highlight variable in Paragraph B for Form Version
+27.02 for Auto LOB.",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> ID
+PolPrdTyp -> IDNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option27.02 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L27 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section27.02 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1003,SYNTH-1003-1,"Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.33 section","Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.33 section",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA1 region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> IN
+PolPrdTyp -> INNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option 437.33 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L437 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section 437.33 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1003,SYNTH-1003-2,"Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.43 section","Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.43 section",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA1 region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> IN
+PolPrdTyp -> INNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option 437.43 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L437 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section 437.43 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1003,SYNTH-1003-3,"Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.44 section","Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.44 section",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA1 region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> IN
+PolPrdTyp -> INNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option 437.44 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L437 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section 437.44 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1003,SYNTH-1003-4,"Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.45 section","Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.45 section",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA1 region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> IN
+PolPrdTyp -> INNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option 437.45 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L437 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section 437.45 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1003,SYNTH-1003-5,"Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.62 section","Change #2: CAS_L437 - Denial Letter - First Party - KS, OK, IN, OH, KY - Added INNG to the 437.62 section",Manual,CAS,Functional,No,No,QA Owner,,,"Send live SOAP requests in the QA1 region.
+Note:
+
+PolTyp -> Auto
+PolStInfo -> IN
+PolPrdTyp -> INNG",A successful response is received with HTTP status code 200.
+,,,,,,,,,,,,Copy the DocumentUri from the response and paste it into a browser.,The DraftEditor page is displayed.
+,,,,,,,,,,,,Open DraftEditor using a valid login and password.,The DraftEditor application opens successfully.
+,,,,,,,,,,,,Select option 437.62 and enter all required (mandatory) details.,The letter content is displayed correctly.
+,,,,,,,,,,,,"Click ""Preview"".",The CAS_L437 PDF is generated successfully.
+,,,,,,,,,,,,Validate the content of section 437.62 and compare it with the expected document.,The output validation matches the Business Analyst (BA) requirements.
+SYNTH-1004,SYNTH-1004-1,"Validate that for New Business and Renewal policies with an effective date of 09/02/2026 or later, the new deductible options of $2,500 and $5,000 are available and applicable.","Validate that for New Business and Renewal policies with an effective date of 09/02/2026 or later, the new deductible options of $2,500 and $5,000 are available and applicable.",Manual,CAS,Functional,No,No,QA Owner,,,Log in to ClaimCenter.,Successfully logged in to ClaimCenter.
+,,,,,,,,,,,,Click New Claim.,The New Claim page opened successfully.
+,,,,,,,,,,,,Enter the policy number.,The policy number was entered.
+,,,,,,,,,,,,Click Search.,The policy was successfully retrieved.
+,,,,,,,,,,,,Navigate to the next step in the claim creation process.,Step 2 opened successfully.
+,,,,,,,,,,,,Verify that the correct value is displayed.,The correct amount was displayed successfully.
+SYNTH-1004,SYNTH-1004-2,"Validate that for New Business and Renewal policies with an effective date before 09/02/2026, the new deductible options of $2,500 and $5,000 are not available and are not applicable.","Validate that for New Business and Renewal policies with an effective date before 09/02/2026, the new deductible options of $2,500 and $5,000 are not available and are not applicable.",Manual,CAS,Functional,No,No,QA Owner,,,Log in to ClaimCenter.,Successfully logged in to ClaimCenter.
+,,,,,,,,,,,,Click New Claim.,The New Claim page opened successfully.
+,,,,,,,,,,,,Enter the policy number.,The policy number was entered.
+,,,,,,,,,,,,Click Search.,The policy was successfully retrieved.
+,,,,,,,,,,,,Navigate to the next step in the claim creation process.,Step 2 opened successfully.
+,,,,,,,,,,,,Verify that the correct value is displayed.,The correct amount was displayed successfully.
