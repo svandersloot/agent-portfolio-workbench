@@ -10,6 +10,8 @@
 
 > Status (2026-07-13): S3 has applied this reconciliation in repo source — the confirmed golden (B) is now the enforced 14-column contract. Sections 2–5 document the pre-S3 drift. Studio save remains a separate manual step.
 
+> Status (2026-07-14): **Reversing the 2026-07-13 "drop Priority" decision.** Per `qa-test-case-architect-v2-session-2-csv-import-decisions-2026-07.md` (§2), `Priority` is required for downstream workflow completion even though import may succeed without it, so `Priority` (default `Low`) has been re-added to the enforced contract, positioned immediately after `Functionality` and before `Data`. The enforced contract is now **15 columns**. This re-adds the same `Priority` column S3 had dropped from the confirmed-golden (B) side; it does not change the committed team-golden import fixture (`qa-test-case-architect-v2-team-golden-import-payment-ninjas.csv`), which is intentionally left 14-column because it predates the Priority requirement and its import already succeeded without Priority. Sections 2–5 below are historical (pre-S3 and S3-era) snapshots and are left unchanged; see the updated §3 row and §6 gate row for the current state.
+
 ---
 
 ## 1. Sources compared
@@ -57,7 +59,7 @@ Regression, Automated, Assignee, Functionality, Data, Action, Expected Result
 | **Recase** | `Application List` | `Application list` | Golden header (lowercase "list") |
 | **Rename** | `Assignee Name` | `Assignee` | Session review E15; golden header |
 | **Add** | - | `Functionality` (blank in every golden row) | Session review E12; golden header |
-| **Drop** | `Priority` | *(absent)* | **Decided 2026-07-13:** QA team lead confirmed `Priority` is intentionally excluded from the import contract. Supersedes the earlier "default `Priority=Low`" idea (session review E13 / P-1). |
+| **Drop** | `Priority` | *(absent)* | **Decided 2026-07-13, reversed 2026-07-14:** QA team lead initially confirmed `Priority` was excluded from the import contract, superseding the earlier "default `Priority=Low`" idea (session review E13 / P-1). **Reversed 2026-07-14** per Session-2 decision (`qa-test-case-architect-v2-session-2-csv-import-decisions-2026-07.md` §2): import may succeed without `Priority`, but downstream workflow completion requires it. `Priority` is re-added to the enforced contract, positioned after `Functionality` and before `Data`, default value `Low`. |
 | **Drop** | `Sprint` | *(absent)* | Session review E14; golden has no `Sprint` |
 | **Reorder** | `Summary`/`Description` follow the type columns | `Summary`/`Description` moved ahead of the type columns; `Data` moved to just before `Action`; `Automated` precedes `Assignee` | Golden column order |
 | **Unchanged** | `Story ID`, `TC ID`, `Regression`, `Automated`, `Data`, `Action`, `Expected Result` | same labels present | - |
@@ -91,7 +93,8 @@ The committed fixture uses **synthetic keys that preserve this exact shape** (`S
 | Gate | Status | Needed from |
 |---|---|---|
 | Is the column contract shared across teams or team-specific? (S2) | **Resolved** — shared across teams, per QA leadership ruling (see change log v0.13) | QA leadership; evidence from 2+ teams' imports |
-| Apply the reconciled contract to the golden-copy template + Studio config (S3) | **Applied on this branch** — enforced header, golden-copy template, and Category 4 evaluation (including T-1) reconciled to the 14-column shared contract; Studio save remains a separate manual step | Agent owner; manual Studio step |
+| Apply the reconciled contract to the golden-copy template + Studio config (S3) | **Applied on this branch (2026-07-13), superseded 2026-07-14** — enforced header, golden-copy template, and Category 4 evaluation (including T-1) reconciled to the 14-column shared contract at the time; Studio save remains a separate manual step | Agent owner; manual Studio step |
+| Re-add `Priority` (default `Low`) to the enforced contract, reversing the S3 drop (2026-07-14) | **Applied on this branch** — enforced header (ROVO Studio Configuration + Studio Setup thin instructions), golden-copy template, evaluation hardened-behavior note, and Category 4 evaluation (including T-1) reconciled to the new 15-column contract; `Priority` positioned after `Functionality`, before `Data`, default `Low`. Committed team-golden import fixture intentionally left 14-column (predates the Priority requirement). Studio save remains a separate manual step. Exact column index pending confirmation against a real Priority-bearing import. | Owner (approved per Session-2 decisions); manual Studio step |
 | Reconcile TC-ID format as a configurable pattern (S4) | **Open** | QA/XRAY owner confirms canonical ID pattern |
 
 ---
