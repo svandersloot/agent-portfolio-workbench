@@ -104,4 +104,4 @@ The committed fixture uses **synthetic keys that preserve this exact shape** (`S
 S1 added the sanitized golden fixture (Section 1 B) and this diff note. S3 (PR #20) has since applied the reconciliation:
 
 - Promoted the T-1 eval row in [qa-test-case-architect-v2-eval-category-4-xray-csv-compliance.csv](qa-test-case-architect-v2-eval-category-4-xray-csv-compliance.csv) from draft to the enforced shared contract.
-- Reconciled the enforced header, the golden-copy template, and the existing Category 4 rows to the confirmed 14-column contract (golden B).
+- Reconciled the enforced header, the golden-copy template, and the existing Category 4 rows to the confirmed 14-column contract (golden B); `Priority` was later re-added 2026-07-14, so the enforced contract is now 15 columns (see the 2026-07-14 status note above and §6).

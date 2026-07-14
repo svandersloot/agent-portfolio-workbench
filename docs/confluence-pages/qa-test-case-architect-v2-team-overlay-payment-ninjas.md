@@ -35,7 +35,7 @@ Pattern components:
 
 ## XRAY Column Contract
 
-Payment Ninjas uses the shared 14-column XRAY CSV contract documented in `ROVO Studio Configuration - QA Test Case Architect v2` (Story ID, TC ID, Summary, Description, Test Type, Application list, Test Type, Regression, Automated, Assignee, Functionality, Data, Action, Expected Result). This overlay does not redefine or vary that contract; the column names, order, and count are shared across teams.
+Payment Ninjas uses the shared 15-column XRAY CSV contract documented in `ROVO Studio Configuration - QA Test Case Architect v2` (Story ID, TC ID, Summary, Description, Test Type, Application list, Test Type, Regression, Automated, Assignee, Functionality, Priority, Data, Action, Expected Result). This overlay does not redefine or vary that contract; the column names, order, and count are shared across teams.
 
 Team-specific column *values* (for example, the `Application list` entries relevant to PN) come from the sanitized golden fixture `qa-test-case-architect-v2-team-golden-import-payment-ninjas.csv`, not from this page. Use the golden as the source of truth for PN-specific value examples.
 
