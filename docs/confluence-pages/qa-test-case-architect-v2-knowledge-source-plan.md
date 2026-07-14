@@ -57,6 +57,21 @@ Before generating final-seeming artifacts, the agent must confirm:
 | QATCA-DI-007 | Golden-copy example is missing for the requested artifact. | Format validation is limited. | Provide an approved example or template. |
 | QATCA-DI-008 | Golden-copy example is missing for a non-TestSuite artifact. | Format validation is limited. | Provide approved example or template. |
 
+## Controlled Vocabularies (XRAY field values)
+
+The two `Test Type` columns and `Application List` in the TestSuite/XRAY CSV are constrained to approved values. The agent must infer the value from the story and supporting context, present the inferred value(s) to the user, and proceed only after confirmation. The agent must not invent a value that is not on the approved list; when it cannot confidently determine a value, it must flag the field for human review instead of guessing.
+
+- **Execution-mode Test Type** (first `Test Type` column): approved values are `Manual`, `Generic`, `Cucumber`. This team uses `Manual`. Source: Jira/XRAY configuration.
+- **Functional Test Type** (second `Test Type` column): approved values are `Batch`, `Certification`, `Container - Security Test`, `DAST - Security Test`, `Database`, `E2E`, `ETL`, `Functional`, `IaC - Security Test`, `IAST - Security Test`, `Integration`, `Performance`, `Production`, `RASP - Security Test`, `Regression`, `SAST - Security Test`, `SCA - Security Test`, `Security`, `Security Test – Container`, `Security Test – DAST`, `Security Test – IaC`, `Security Test – IAST`, `Security Test – RASP`, `Security Test – SAST`, `Security Test – SCA`, `User Acceptance`. Source: Jira/XRAY custom field. Last confirmed: 2026-07-14 (Session 2).
+- **Application List**: an authoritative controlled picklist maintained in the Jira/XRAY configuration; configure it as a Studio knowledge source. The full list is intentionally not enumerated in this repo (internal application inventory); only `CAS` appears in existing fixtures. The agent must select from the approved list and flag for review when it cannot confidently determine the value.
+
+| Open item | Status |
+|---|---|
+| Cross-team scope: are values identical across teams? | OPEN |
+| Multi-value delimiter for Application List | UNKNOWN / not discussed |
+| Formal governance owner of the lists (Jira admins referenced) | OPEN |
+| Full sanitized Application List | Held out pending sanitization/approval |
+
 ## Source Handling Rules
 
 - Do not invent acceptance criteria, test data, expected results, APIs, or system behavior.
@@ -86,3 +101,4 @@ Before generating final-seeming artifacts, the agent must confirm:
 | XRAY ID and upload model confirmed | Partial | XRAY numbering occurs on import after ROVO provides CSV text and a human uses Copilot/manual flow to produce/import the actual CSV. |
 | XRAY column contract scope (shared vs team-specific) | Decided (2026-07-13; updated 2026-07-14) | S2 ruling relayed by owner: the XRAY CSV column contract is **shared across teams**; team-specific *values* stay overlay-scoped. The shared base contract was first captured as the 14-column golden ([contract-diff note](../reports/qa-test-case-architect-v2-csv-contract-diff-2026-07.md)) and applied in source by S3; `Priority` (default `Low`) was re-added 2026-07-14, so the enforced contract is now **15 columns**. |
 | Permission model reviewed | Open | No write tools should be enabled in current design. |
+| Controlled vocabularies (Test Type / Application List) | Partial (2026-07-14) | Test Type values captured from Jira/XRAY config; Application List referenced as a knowledge source (full list held out); cross-team scope, delimiter, and list owner still open. |
