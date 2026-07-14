@@ -27,7 +27,7 @@ QA Test Case Architect v2 should work from explicit, current QA source evidence.
 | Attachments and supporting documentation | File / supplied text | User-Supplied Evidence / Reference | Use as supporting context for feature briefs, test suites, coverage maps, and RTMs. | Per request | Ask user to identify source authority and freshness. |
 | Architecture diagrams | Image/file | Technical Source / Reference | Extract visible flows, systems, and integration points for test coverage ideas. | Per diagram version | Use `TBD` for unclear OCR or ambiguous relationships. |
 | API schemas | File or URL | Technical Source | Identify endpoints, fields, validations, and negative cases. | Per schema version | Ask for current schema or mark API coverage incomplete. |
-| Golden-copy XRAY CSV example | Confluence / supplied example | Process Authority when approved | Validate TestSuite/XRAY CSV field names, row grouping, action/expected-result pattern, and manual/automated fields. | Review after template changes | Use sanitized repo fixture until approved Confluence copy is attached. |
+| Golden-copy XRAY CSV example | Confluence / supplied example | Process Authority when approved | Validate TestSuite/XRAY CSV field names, row grouping, action/expected-result pattern, and manual/automated fields. Also the SME-approved (2026-07-14, Session 2) step-style/precondition example source for `Action`/`Expected Result` voice and structure — use for style/patterns only, not verbatim copying. | Review after template changes | Use sanitized repo fixture until approved Confluence copy is attached. |
 | Golden-copy artifact examples for XML/CSV/TXT outputs | Confluence / supplied examples | Process Authority when approved | Validate FeatureBrief, CoverageMap, RTM, E2E_Scenarios, MiniTestPlan, TestSummary, ConflictLog, and TBDLog shape. | Review after template changes | Mark format validation limited. |
 
 ## Required Input Check
@@ -67,9 +67,10 @@ The two `Test Type` columns and `Application List` in the TestSuite/XRAY CSV are
 
 | Open item | Status |
 |---|---|
-| Cross-team scope: are values identical across teams? | OPEN |
-| Multi-value delimiter for Application List | UNKNOWN / not discussed |
-| Formal governance owner of the lists (Jira admins referenced) | OPEN |
+| Cross-team scope of the Test Type / Application List values | Shared org-wide (confirmed 2026-07-14) — sourced from global Jira/XRAY custom fields |
+| Multi-value Application List / delimiter | Single-value (confirmed 2026-07-14); one Application List per test; multi-value not used |
+| Governance owner of the lists | Jira/XRAY administrators own the picklists; QA is the consumer (confirmed 2026-07-14) |
+| Application List field hygiene | Live field contains near-duplicate/variant entries (differing casing and spacing, plus two dash conventions in the security-test labels); the field owner should reconcile them. The agent matches the field as-is meanwhile. |
 | Full sanitized Application List | Held out pending sanitization/approval |
 
 ## Source Handling Rules
@@ -101,4 +102,4 @@ The two `Test Type` columns and `Application List` in the TestSuite/XRAY CSV are
 | XRAY ID and upload model confirmed | Partial | XRAY numbering occurs on import after ROVO provides CSV text and a human uses Copilot/manual flow to produce/import the actual CSV. |
 | XRAY column contract scope (shared vs team-specific) | Decided (2026-07-13; updated 2026-07-14) | S2 ruling relayed by owner: the XRAY CSV column contract is **shared across teams**; team-specific *values* stay overlay-scoped. The shared base contract was first captured as the 14-column golden ([contract-diff note](../reports/qa-test-case-architect-v2-csv-contract-diff-2026-07.md)) and applied in source by S3; `Priority` (default `Low`) was re-added 2026-07-14, so the enforced contract is now **15 columns**. |
 | Permission model reviewed | Open | No write tools should be enabled in current design. |
-| Controlled vocabularies (Test Type / Application List) | Partial (2026-07-14) | Test Type values captured from Jira/XRAY config; Application List referenced as a knowledge source (full list held out); cross-team scope, delimiter, and list owner still open. |
+| Controlled vocabularies (Test Type / Application List) | Confirmed (2026-07-14) | Test Type values captured; Application List referenced as a knowledge source (shared org-wide, single-value, owned by Jira/XRAY admins; full list held out); field-hygiene cleanup flagged to the owner. |
