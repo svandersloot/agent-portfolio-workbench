@@ -376,6 +376,16 @@ pages:
       - qa-test
     pageId: null
     parentPageId: null
+  - slug: qa-test-case-architect-v2-runtime-contract
+    title: Runtime Contract - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-runtime-contract.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - runtime-contract
+      - qa-test
+    pageId: null
+    parentPageId: null
   - slug: qa-test-case-architect-v2-studio-setup
     title: Studio Setup - QA Test Case Architect v2
     sourcePath: docs/confluence-pages/qa-test-case-architect-v2-studio-setup.md

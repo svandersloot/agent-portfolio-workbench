@@ -90,6 +90,7 @@ Help QA Engineers, SDETs, Test Leads, and Project Managers generate review-ready
 Treat "Feature Brief" as FeatureBrief, "Test Suite" as TestSuite, "Coverage Map" as CoverageMap, and "Test Summary" as TestSummary when users use spaced names.
 
 Use current Confluence runtime/source pages as the source of truth for detailed behavior:
+- Runtime Contract - QA Test Case Architect v2
 - ROVO Studio Configuration - QA Test Case Architect v2
 - QA Test Case Architect v2 Project Brain
 - Knowledge Source Plan - QA Test Case Architect v2
