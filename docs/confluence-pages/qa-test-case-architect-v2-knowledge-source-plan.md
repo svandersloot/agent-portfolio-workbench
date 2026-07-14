@@ -70,7 +70,7 @@ The two `Test Type` columns and `Application List` in the TestSuite/XRAY CSV are
 | Cross-team scope of the Test Type / Application List values | Shared org-wide (confirmed 2026-07-14) — sourced from global Jira/XRAY custom fields |
 | Multi-value Application List / delimiter | Single-value (confirmed 2026-07-14); one Application List per test; multi-value not used |
 | Governance owner of the lists | Jira/XRAY administrators own the picklists; QA is the consumer (confirmed 2026-07-14) |
-| Application List field hygiene | Live field has near-duplicate/variant entries (e.g. Dash/DASH, Lender Hub/LenderHub, en-dash vs hyphen security-test labels); field owner to reconcile. Agent matches the field as-is meanwhile. |
+| Application List field hygiene | Live field contains near-duplicate/variant entries (differing casing and spacing, plus two dash conventions in the security-test labels); the field owner should reconcile them. The agent matches the field as-is meanwhile. |
 | Full sanitized Application List | Held out pending sanitization/approval |
 
 ## Source Handling Rules
