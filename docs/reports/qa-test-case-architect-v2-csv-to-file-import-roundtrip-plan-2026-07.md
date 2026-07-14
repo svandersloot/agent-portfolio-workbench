@@ -8,6 +8,8 @@
 | Purpose | Document the manual CSV-to-file conversion flow observed in Session 1 and define a plan to verify the XRAY import round-trip, which was explicitly **not** verified in-session. |
 | Boundary | Repo documentation only. No ROVO Studio, Jira, XRAY, or Confluence write. The import dry-run itself is a gated follow-up session action, not performed by this repo. |
 
+> **Status note (2026-07-14):** Per the Session-2 decision ("Generate the full CSV file that we just download and import. No more Copilot in the middle." — `qa-test-case-architect-v2-session-2-csv-import-decisions-2026-07.md`, §2/§6), the agent is now instructed to generate the finalized, validation-passing TestSuite CSV directly as a downloadable UTF-8 `.csv` file when the runtime supports file emission. The manual Copilot conversion step in §2 below is superseded as the intended path under that condition and is retained as the **fallback path** for runtimes that cannot emit a file. The manual XRAY import and the round-trip verification in §3 remain the gated follow-up (human action; no XRAY write from this repo).
+
 ---
 
 ## 1. Current state (Session 1)
@@ -18,7 +20,7 @@
 
 This flow is consistent with the governance boundary: the agent produces review-ready text; all writes into XRAY/Jira remain manual and human-driven until an approved connector exists.
 
-## 2. Documented CSV-to-file conversion flow (manual)
+## 2. Documented CSV-to-file conversion flow (manual — fallback path)
 
 The steps below describe the observed manual path. They are a **description of the current manual process**, not an automation this repo performs.
 
