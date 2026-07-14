@@ -39,13 +39,21 @@ Payment Ninjas uses the shared 15-column XRAY CSV contract documented in `ROVO S
 
 Team-specific column *values* (for example, the `Application list` entries relevant to PN) come from the sanitized golden fixture `qa-test-case-architect-v2-team-golden-import-payment-ninjas.csv`, not from this page. Use the golden as the source of truth for PN-specific value examples.
 
+## Step Style And Preconditions (S5)
+
+- **Step-style source**: the sanitized golden set `qa-test-case-architect-v2-team-golden-import-payment-ninjas.csv` is the SME-approved (Session 2) style/pattern reference for PN `Action` and `Expected Result` steps. Use it for voice and structure only — do not copy its wording verbatim into new test cases.
+- **Precondition patterns observed in the golden set** (express these as preconditions rather than repeating them in every test case within a suite):
+  - Login (for example, Claim Center / CXONE) before the functional steps begin.
+  - Claim or exposure creation used as shared setup for multiple tests in the same story.
+  - Environment/setup steps (for example, sending a live request in a specific test region, or clearing a queue) that recur across sibling test cases.
+- **Missing setup**: when the story implies a required setup or prerequisite that is not present in the source evidence, log it in TBDLog naming the missing prerequisite; never fabricate concrete steps to fill the gap.
+
 ## Not Yet Defined In This Overlay
 
 The following items are explicitly out of scope for this overlay and this slice (S4). They are deferred to other slices and are blocked on inputs this overlay does not yet have. Do not infer or fabricate their content from this page.
 
 | Item | Status | Deferred to |
 |---|---|---|
-| Step-voice / prerequisite enrichment for PN test steps | Not yet supplied; blocked on SME historical examples | Slice S5 |
 | Test-type allow-list for PN work | Not yet supplied; blocked on QA owner source | Slice S7 |
 
 ## Guardrails And Non-Assumptions
