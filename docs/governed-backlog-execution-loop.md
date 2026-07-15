@@ -151,6 +151,8 @@ After S8 activation, and only then, the agent may perform these narrowly scoped 
 
 **Properties (all required):** field-allowlisted, idempotent, repository/project-scoped, and recorded in the evidence receipt.
 
+Field semantics, states, transition ownership, the claim protocol, leases, receipts, and recovery rules are specified in `docs/loop-state-machine.md`.
+
 ---
 
 ## 7. Bounded recovery
