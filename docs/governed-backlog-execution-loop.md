@@ -1,7 +1,7 @@
 # Governed Backlog Execution Loop — Canonical Contract
 
 Date: 2026-07-15
-Status: Draft — canonical, platform-neutral contract for graduated backlog execution autonomy
+Status: Canonical contract — autonomy inactive pending §9 activation gates
 Companion to: `docs/claude-code-adoption-plan.md` (accepted governance reference)
 
 This document defines the target capability:
@@ -10,7 +10,7 @@ This document defines the target capability:
 
 **Authority precedence.** `AGENTS.md` remains the repository's authoritative operating contract. This document is canonical **only for backlog-loop behavior**. Where they conflict, resolve to `AGENTS.md` first, then to the **more restrictive** rule. This contract cannot grant authority that `AGENTS.md` prohibits.
 
-This is a **platform-neutral** contract. Claude Code and Codex are **adapters** that implement it. Platform-specific permissions, hooks, and settings must implement this contract and must not define competing or wider policies. Where a platform cannot enforce a control, the missing enforcement is a gap to close before that platform operates the loop — not a license to widen the policy.
+This is a **platform-neutral** contract, implemented by **runtime adapters**. Platform-specific permissions, hooks, and settings must implement this contract and must not define competing or wider policies. Where a platform cannot enforce a control, the missing enforcement is a gap to close before that platform operates the loop — not a license to widen the policy.
 
 This contract does not by itself relax any approval posture. The graduated git/PR autonomy it describes activates only through issue **#51 (S8)** after the activation gates below pass.
 
@@ -170,7 +170,7 @@ The loop runs autonomously within its authorized level and pauses only for:
 - live-system, permission, secret, or destructive actions
 - high-risk changes outside the issue's authorized autonomy
 - repeated validation failure after the bounded retry budget (§7)
-- final merge, unless separately authorized later
+- final approval and merge, which remain human-owned under this contract
 
 Durable state is held in GitHub via a project Loop-State field plus labels, with defined transition ownership, concurrency protection, receipts, and stale-claim/return-to-queue recovery — specified in **#52 (S11)**.
 
@@ -219,7 +219,7 @@ Enablement is staged, and **each stage requires explicit human review and approv
 ## 12. Adapters
 
 - **Claude Code** — implements this contract via `.claude/settings.json` (permission mechanics, #44), `.claude/hooks/` (deny/secret enforcement, #45), and `CLAUDE.md` (thin adapter, #43). None of these may widen the contract.
-- **Codex** — a future adapter must drive the same eligibility rules, permitted/human-only actions, state fields, and recovery bounds.
+- **Separately approved runtimes** — any future runtime adapter must drive the same eligibility rules, permitted/human-only actions, state fields, and recovery bounds.
 
 ## Related files
 
