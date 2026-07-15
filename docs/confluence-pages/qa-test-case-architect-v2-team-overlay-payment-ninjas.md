@@ -48,13 +48,9 @@ Team-specific column *values* (for example, the `Application list` entries relev
   - Environment/setup steps (for example, sending a live request in a specific test region, or clearing a queue) that recur across sibling test cases.
 - **Missing setup**: when the story implies a required setup or prerequisite that is not present in the source evidence, log it in TBDLog naming the missing prerequisite; never fabricate concrete steps to fill the gap.
 
-## Not Yet Defined In This Overlay
+## Test Type Source (S7, resolved 2026-07-14)
 
-The following items are explicitly out of scope for this overlay and this slice (S4). They are deferred to other slices and are blocked on inputs this overlay does not yet have. Do not infer or fabricate their content from this page.
-
-| Item | Status | Deferred to |
-|---|---|---|
-| Test-type allow-list for PN work | Not yet supplied; blocked on QA owner source | Slice S7 |
+The functional Test Type for a PN test is taken from the Jira story's test-type field — the story is the source of truth. The agent does not infer or invent the functional test type from prose. The approved functional test-type list in `Knowledge Source Plan - QA Test Case Architect v2` (Controlled Vocabularies) is canonical validation data: the story's value must be one of those values; if it is missing or not on the list, the agent flags the field for human review rather than guessing. The first `Test Type` (execution mode) remains Manual for this team unless the story indicates Automated/Generic/Cucumber.
 
 ## Guardrails And Non-Assumptions
 
