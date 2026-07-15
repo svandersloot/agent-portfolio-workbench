@@ -1,5 +1,18 @@
 # Team Overlay - Payment Ninjas (PN) - QA Test Case Architect v2
 
+## Reconciliation Note (2026-07-14) - Flag For Human Review
+
+This reconcile pass was asked to merge this repo file against live Confluence pageId `5477793868` ("Team Overlay - Payment Ninjas (PN)"). On inspection, that live page is **not** a QA Test Case Architect v2 page:
+
+- Its Confluence parent is `Team Overlays - QA Test Strategy Planner` (pageId `5404885001`), not the `QA Test Case Architect Project Brain` family (pageId `5377720354`) that the other four QATCA v2 pages in this reconcile batch belong to.
+- Its content operates at test-strategy level (LOB coverage scope, environment/data patterns, automation-suite ownership, release/readiness signals, and several named internal system/vendor integrations) rather than QATCA v2's test-case level scope (deterministic TC-ID pattern, XRAY CSV column contract, step style/preconditions).
+- It explicitly states that detailed test-case, RTM, coverage-map, and XRAY CSV generation "routes to QA Test Case Architect v2" - i.e., it is QA Test Strategy Planner's overlay, which hands work off to this agent rather than being this agent's overlay.
+- The QA Test Case Architect Project Brain's own "Required Linked Artifacts" table (checked live) does not list any Team Overlay - Payment Ninjas page, so there is currently no published QATCA v2-specific team overlay page to reconcile this file against.
+
+Because of this mismatch, this reconcile did **not** import the QA Test Strategy Planner page's content (team identity fields, LOB scope, environment map, named systems/integrations) into this file: doing so would misattribute another agent's overlay into QATCA v2's page family, and several of that page's named integrations are internal application/vendor names beyond the `CAS` exception this file is scoped to. This file's own content (S4 TC-ID pattern, S5 step style/preconditions, App List handling, below) is left as authored in the repo.
+
+**Human decision needed:** confirm whether (a) pageId `5477793868` was the intended live target and should instead be treated as out-of-family (no action needed here), or (b) a QATCA v2-specific "Team Overlay - Payment Ninjas" page needs to be created live under the QA Test Case Architect Project Brain before this repo file can be published.
+
 ## Status And Ownership
 
 | Field | Value |

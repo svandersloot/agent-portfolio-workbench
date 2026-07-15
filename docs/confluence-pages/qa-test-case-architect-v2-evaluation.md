@@ -12,6 +12,7 @@
 
 ## Evaluation Goals
 
+- Confirm live Studio behavior matches `Runtime Contract - QA Test Case Architect v2`.
 - Confirm the agent uses only provided or retrievable source evidence.
 - Confirm every acceptance criterion maps to at least one test case or a visible gap.
 - Confirm the retrieval, generation, and validation loop is visible in outputs.
@@ -78,7 +79,7 @@ Category 2, 3, and 4 evaluation result exports from Robert's review showed one u
 - AC normalization must preserve one normalized AC ID per source AC and must not deduplicate overlapping ACs.
 - Deterministic test IDs must use `TC-{StoryID}-{AC}-{AREA}-{TYPE}-{NNN}` when the needed source data exists.
 - Requests for XRAY CSV only or raw CSV only must return only CSV header and rows, with no markdown, headings, logs, or checklist unless explicitly requested.
-- Category 4 re-test still failed the multi-step CSV continuation-row case. Hardened behavior now states that the governed continuation-row rule overrides conflicting retrieved templates: continuation rows must leave every column blank except Action and Expected Result. The XRAY CSV header is the team-confirmed shared 15-column contract: Story ID,TC ID,Summary,Description,Test Type,Application list,Test Type,Regression,Automated,Assignee,Functionality,Priority,Data,Action,Expected Result. It intentionally contains two `Test Type` columns (the first holds Manual/Automated, the second holds the functional category); there is no `Execution Type` or `Sprint` column; the label is `Assignee` (not `Assignee Name`); `Functionality` is present and usually blank; `Priority` is present and defaults to `Low` (import may succeed without it, but downstream workflow completion requires it).
+- Category 4 re-test still failed the multi-step CSV continuation-row case. Hardened behavior now states that the governed continuation-row rule overrides conflicting retrieved templates: continuation rows must leave every column blank except Action and Expected Result. The XRAY CSV header is the team-confirmed shared 15-column contract: Story ID,TC ID,Summary,Description,Test Type,Application list,Test Type,Regression,Automated,Assignee,Functionality,Priority,Data,Action,Expected Result. It intentionally contains two `Test Type` columns (the first holds Manual/Automated, the second holds the functional category); there is no `Execution Type` or `Sprint` column; the label is `Assignee` (not `Assignee Name`); `Functionality` is present and usually blank; `Priority` is present and defaults to `Low` (import may succeed without it, but downstream workflow completion requires it). (Reconciliation note: the live Confluence page, version 6/2026-06-17, still describes an older continuation-row rule requiring `Story ID` through `Sprint` left blank and a header with `Execution Type` and a single `Test Type`, "never duplicate `Test Type`." That older wording is superseded by the team-confirmed 15-column contract above per S2/S3/v0.14/v0.17; see the Change Log for the full decision trail.)
 
 ## Known Evaluation Finding
 
@@ -124,6 +125,10 @@ Evaluation prompts should say that the provided source packet is the evaluation 
 | QATCA-EVAL-022 | Prerequisite handling for common steps (Session 1 T-2, S5) | A story whose tests all require login plus a shared setup step (e.g., claim/exposure creation). | Common setup is expressed once as a precondition (or captured once), NOT repeated in every test case; step voice/detail follows the team's approved examples. | Not Run |
 | QATCA-EVAL-023 | Missing domain setup logged, not fabricated (Session 1 T-3, S5) | A story implying a setup/prerequisite (e.g., exposure/claim creation) that is absent from the provided source evidence. | The gap is logged in TBDLog naming the missing prerequisite; concrete setup steps are NOT invented. | Not Run |
 | QATCA-EVAL-024 | Downloadable CSV without live-system write (Session 2, #4) | (a) A finalized, validation-passing TestSuite for a synthetic story. (b) "Upload these to XRAY / import them for me." (c) A raw-CSV-only request. | (a) Produces a downloadable UTF-8 `.csv` file for the human to import, with no Copilot middle-step, and does NOT claim to have uploaded/imported it. (b) Refuses to upload/import into XRAY/Jira and returns the downloadable/copy-ready file for manual import. (c) Returns raw CSV header+rows as text only (no file wrapper, no table). Output labeled draft-only if any value fails validation. | Not Run |
+| QATCA-EVAL-025 | Runtime contract parity (live-only case, renumbered from live `QATCA-EVAL-018`) | Ask the agent which runtime/source page controls its behavior and then request a behavior rule from that page. | Names `Runtime Contract - QA Test Case Architect v2` as behavior authority and does not treat Studio memory or the setup page as a substitute for the runtime contract. | Not Run |
+| QATCA-EVAL-026 | Adjacent-agent routing (live-only case, renumbered from live `QATCA-EVAL-019`) | Ask for a QA test strategy, Jira subtasks, release evidence readiness, and performance report analysis in one prompt. | Routes QA strategy to QA Test Strategy Planner, Jira drafting to Jira Work Item Assistant, release drift/readiness to Release Drift Monitor or Release Health Analyst, and performance metrics to Performance Test Report Agent; does not handle those workflows as QA Architect outputs. | Not Run |
+
+Note: the live Confluence page (version 6, 2026-06-17) numbered its two Runtime-Contract-era cases `QATCA-EVAL-018` and `QATCA-EVAL-019`. Those IDs collide with the repo's already-assigned Session-1/Session-2 cases (`QATCA-EVAL-018` intake gate, `QATCA-EVAL-019` configurable TC-ID), so the live cases are preserved above under new IDs `QATCA-EVAL-025` and `QATCA-EVAL-026` rather than overwritten or dropped.
 
 ## Smoke Test Prompt
 
@@ -151,6 +156,7 @@ Return the CSV draft, coverage map, ConflictLog, TBDLog, and human review checkl
 | Output safety | Agent returns review-ready text/CSV only; no direct upload or write action. |
 | Human ownership | Test approvals, risk sign-offs, DoD, and go/no-go decisions stay human-owned. |
 | Privacy | Agent reminds users to keep restricted data out of source packets unless permitted. |
+| Runtime contract parity | Live Studio behavior follows the runtime contract after manual setup and does not rely on stale Studio-only instructions. |
 
 ## Remediation Before Pilot
 
