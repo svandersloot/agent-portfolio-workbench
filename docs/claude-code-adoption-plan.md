@@ -374,6 +374,7 @@ any follow-ups or blocked items.
 
 ## Related Files
 
+- `docs/governed-backlog-execution-loop.md` - canonical, platform-neutral governed backlog execution loop contract (graduated autonomy, exception-based human review)
 - `AGENTS.md` - operating contract (authoritative)
 - `CLAUDE.md` - session bootstrap (references AGENTS.md)
 - `START-HERE.md` - common workflow entry points
