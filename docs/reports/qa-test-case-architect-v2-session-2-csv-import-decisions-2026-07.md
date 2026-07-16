@@ -41,6 +41,8 @@ The team's direction is to **reduce non-determinism** by constraining these fiel
 ### 3.1 Execution-mode Test Type (first Test Type column)
 Approved values: **Manual**, **Generic**, **Cucumber**. This team uses **Manual** only. `DECISION`
 
+> **Amendment (2026-07-16):** superseding owner decision — the agent emits `Manual` only. `Generic` and `Cucumber` remain XRAY vocabulary but are not emitted in the first `Test Type` column unless a future approved source changes the shared contract. The separate `Automated` column stays Yes/No. See change log v0.23.
+
 ### 3.2 Functional Test Type (second Test Type column)
 Approved values (extracted from the Jira/Xray custom field): `DECISION`
 
