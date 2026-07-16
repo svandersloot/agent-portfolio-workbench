@@ -9,11 +9,11 @@
 | Parent agent | QA Test Case Architect v2 |
 | Primary owner | Needs human confirmation; not formally assigned |
 | Backup owner | Needs human confirmation; not formally assigned |
-| Last reviewed | 2026-07-13 |
+| Last reviewed | 2026-07-16 |
 
 ## Purpose
 
-This overlay configures QA Test Case Architect v2 for Payment Ninjas (PN) work. It is scoped to Slice S4: the configurable deterministic test-case ID (TC-ID) pattern, plus the minimal team identity needed to select this overlay. It does not restate the shared XRAY column contract, and it does not define step-voice/prerequisite enrichment or the test-type allow-list, both of which remain open items owned by other slices (see `Not yet defined in this overlay` below).
+This overlay configures QA Test Case Architect v2 for Payment Ninjas (PN) work. It covers the configurable deterministic test-case ID (TC-ID) pattern (S4), the PN step-style and precondition guidance (S5, see `Step Style And Preconditions`), and the PN application of the test-type sourcing rule (S7, see `Test Type Source`). It does not restate the shared XRAY column contract, which is defined in `ROVO Studio Configuration - QA Test Case Architect v2` and is shared across teams.
 
 Use this overlay only when the user is working with Payment Ninjas, the PN workstream, or an explicitly supplied PN source packet. Apply the clarification/intake gate defined in `ROVO Studio Configuration - QA Test Case Architect v2` and `Studio Setup - QA Test Case Architect v2` before assuming this overlay applies on a ticket-attach run with ambiguous scope.
 
@@ -22,13 +22,13 @@ Use this overlay only when the user is working with Payment Ninjas, the PN works
 | Field | Value |
 |---|---|
 | Pattern | `{ProjectPrefix}-{StoryNumber}-{Seq}` |
-| Example | `BB26-2620-1` |
+| Example | `SYNTH-1001-1` (synthetic) |
 | Base/default fallback (no overlay) | `TC-{StoryID}-{AC}-{AREA}-{TYPE}-{NNN}` (see `ROVO Studio Configuration - QA Test Case Architect v2`) |
 
 Pattern components:
 
-- `{ProjectPrefix}` and `{StoryNumber}` come directly from the source Jira story key (for example, a story key of `BB26-2620` supplies `ProjectPrefix = BB26` and `StoryNumber = 2620`).
-- `{Seq}` increments per test case within the story, starting at 1 (`BB26-2620-1`, `BB26-2620-2`, `BB26-2620-3`, and so on).
+- `{ProjectPrefix}` and `{StoryNumber}` come directly from the source Jira story key (for example, a synthetic story key of `SYNTH-1001` supplies `ProjectPrefix = SYNTH` and `StoryNumber = 1001`).
+- `{Seq}` increments per test case within the story, starting at 1 (`SYNTH-1001-1`, `SYNTH-1001-2`, `SYNTH-1001-3`, and so on).
 - IDs must be deterministic and stable across reruns: the same source story and test-case set must produce the same IDs every time the agent regenerates output. Do not vary sequence assignment based on run order, wall-clock time, or random tie-breaking.
 - ROVO draft IDs generated under this pattern are internal draft identifiers only. They are not final XRAY keys. XRAY numbering happens on import, after the human/Copilot/manual CSV flow described in `ROVO Studio Configuration - QA Test Case Architect v2`.
 - When no team overlay is configured, or when this overlay does not apply, the agent falls back to the base default pattern `TC-{StoryID}-{AC}-{AREA}-{TYPE}-{NNN}`, not this pattern.
@@ -37,7 +37,7 @@ Pattern components:
 
 Payment Ninjas uses the shared 15-column XRAY CSV contract documented in `ROVO Studio Configuration - QA Test Case Architect v2` (Story ID, TC ID, Summary, Description, Test Type, Application list, Test Type, Regression, Automated, Assignee, Functionality, Priority, Data, Action, Expected Result). This overlay does not redefine or vary that contract; the column names, order, and count are shared across teams.
 
-Team-specific column *values* (for example, the `Application list` entries relevant to PN) come from the sanitized golden fixture `qa-test-case-architect-v2-team-golden-import-payment-ninjas.csv`, not from this page. Use the golden as the source of truth for PN-specific value examples.
+Team-specific column *values* do not come from this page or the golden fixture. The functional `Test Type` comes from the Jira story's test-type field, validated against the canonical list in `Knowledge Source Plan - QA Test Case Architect v2` (Controlled Vocabularies); `Application list` comes from the approved Jira/XRAY picklist configured as a knowledge source. The sanitized golden fixture `qa-test-case-architect-v2-team-golden-import-payment-ninjas.csv` is style/format evidence only — use it for illustrative value examples (for example, `CAS`), not as a value authority.
 
 ## Step Style And Preconditions (S5)
 
@@ -50,7 +50,7 @@ Team-specific column *values* (for example, the `Application list` entries relev
 
 ## Test Type Source (S7, resolved 2026-07-14)
 
-The functional Test Type for a PN test is taken from the Jira story's test-type field — the story is the source of truth. The agent does not infer or invent the functional test type from prose. The approved functional test-type list in `Knowledge Source Plan - QA Test Case Architect v2` (Controlled Vocabularies) is canonical validation data: the story's value must be one of those values; if it is missing or not on the list, the agent flags the field for human review rather than guessing. The first `Test Type` (execution mode) remains Manual for this team unless the story indicates Automated/Generic/Cucumber.
+The functional Test Type for a PN test is taken from the Jira story's test-type field — the story is the source of truth. The agent does not infer or invent the functional test type from prose. The approved functional test-type list in `Knowledge Source Plan - QA Test Case Architect v2` (Controlled Vocabularies) is canonical validation data: the story's value must be one of those values; if it is missing or not on the list, the agent flags the field for human review rather than guessing. The first `Test Type` (execution mode) is `Manual` — the default and only currently approved value (decided 2026-07-16); no other value is emitted unless a future approved source changes the shared contract.
 
 ## Guardrails And Non-Assumptions
 
