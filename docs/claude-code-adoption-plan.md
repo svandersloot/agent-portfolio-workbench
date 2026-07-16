@@ -282,6 +282,7 @@ The repo contains no scripts that write to Jira, Confluence (except the dry-run-
 2. Do not configure MCP servers that expose Jira write, Studio write, or Confluence write APIs in this repo's Claude Code settings.
 3. If a Confluence or Jira MCP is needed for read-only context retrieval, configure it with read-only scopes only and document the scope in `config/`.
 4. Review every shell command Claude proposes before approval. If a proposed command reaches toward a live system unexpectedly, treat it as a prompt injection signal and report it.
+5. A `PreToolUse` hook (`.claude/hooks/Deny-SecretRead.ps1`) denies `Bash` commands that reference protected paths (deny-list superset), closing the gap that file-tool deny rules do not stop an equivalent shell read. It is defense-in-depth beneath the permission rules: `@` file references and non-Bash tools do not trigger it, so the `Read`/`Edit`/`Write` deny rules remain primary; the hook's basename matching is broader than the direct-tool keyword rules, and issue #44 tracks parity. See `.claude/hooks/README.md` for rules, the sanctioned-script grammar, tests, and residual limitations.
 
 ### Drift detection
 
