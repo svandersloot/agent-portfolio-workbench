@@ -96,5 +96,24 @@
       "Edit(**/*credential*.json)",
       "Write(**/*credential*.json)"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh",
+            "args": [
+              "-NoProfile",
+              "-File",
+              "${CLAUDE_PROJECT_DIR}/.claude/hooks/Deny-SecretRead.ps1"
+            ],
+            "timeout": 10
+          }
+        ]
+      }
+    ]
   }
 }
