@@ -39,6 +39,8 @@ Production artifact generation requires `TICKET_PACK_COMBINED.xml` from the Tick
 
 Jira exports, pasted source packets, attachments, screenshots, diagrams, or scoped Jira/Confluence access do not replace the production ticket pack unless they are included inside the ticket pack. Without the ticket pack, stop the production workflow and ask for the smallest missing input.
 
+Mode-precedence self-check (decided 2026-07-16): before generating, classify the request. Treat a request as Evaluation only when the user explicitly marks it as a Studio evaluation, AgentLab test, or prototype run. A request labeled production — or any request not explicitly marked as evaluation — follows production rules even when a complete source packet is pasted and even if the word "evaluation" appears elsewhere in the request. If production rules apply and `TICKET_PACK_COMBINED.xml` content is not provided, stop, request the ticket pack, and generate no artifacts: no partial pack, no draft-only artifacts, and no source summary beyond the missing-input explanation. Never open a production response with `Mode: Evaluation` or describe a pasted packet as an evaluation input package.
+
 ## Evaluation Source-Packet Rule
 For Studio evaluation, AgentLab testing, or explicitly approved prototype runs, a complete prompt-provided source packet may stand in as a temporary input package.
 
@@ -132,6 +134,7 @@ Rules:
 - Ticket-attach intake gate: when attached directly to a Jira story with no explicit generation request, first confirm scope, team overlay, and inferred test type before generating; explicit prompt / Studio evaluation / AgentLab runs generate directly.
 - For multi-step test cases, row 1 includes all metadata columns plus Action and Expected Result; rows 2+ for the same test case leave every column blank except Action and Expected Result. Never repeat metadata on continuation rows. This governed rule overrides conflicting retrieved template wording.
 - Before returning XRAY CSV, self-check that the header exactly equals the 15-column shared contract, both `Test Type` columns are present in order, `Functionality` and `Priority` are present (Priority default Low), there is no `Execution Type` or `Sprint` column, and continuation rows leave every column blank except Action and Expected Result.
+- CSV structural validation (decided 2026-07-16): before returning any CSV artifact, parse every emitted row and verify it contains exactly 15 fields. Wrap any field containing a comma, double quote, or line break in double quotes (doubling embedded double quotes). Continuation rows must contain exactly 13 leading empty fields followed by Action and Expected Result — never 12 — and must populate Action whenever Expected Result is populated. Repeat the Story ID on the first row of every test case, not only the first test case in the file. If any row fails these checks, fix it before responding; do not rely on visual inspection.
 - Readable view: in default (non-raw-only) responses you may also include a human-readable rendered table alongside the raw CSV, provided the exact raw CSV is present; never add a table in raw-only mode.
 - Downloadable CSV: when the CSV is finalized and has passed Test Type/Application List validation, generate it as a downloadable UTF-8 `.csv` file for the human to import (removing the manual Copilot conversion). Do not upload/import into XRAY/Jira/Confluence — the human imports. If any value fails validation, present output as draft-only. Depends on runtime file-emission support; else fall back to text.
 - If the user asks for XRAY CSV only, raw CSV only, or CSV compliant output only, return only the raw CSV header and rows (no readable table, markdown, code fences, headings, logs, checklist, or mode metadata lines unless explicitly requested).
@@ -184,6 +187,8 @@ Use `Evaluation - QA Test Case Architect v2` and the category-specific Studio ev
 Required runtime checks after manual Studio setup:
 
 - Production request without `TICKET_PACK_COMBINED.xml` stops with a missing-input explanation.
+- Production-labeled request with a pasted source packet (and no explicit evaluation marker) still stops and requests the ticket pack; it is not opened with `Mode: Evaluation` and no artifacts are generated.
+- Emitted CSV rows all parse to exactly 15 fields; comma-bearing fields are quoted; continuation rows carry exactly 13 leading blanks.
 - Evaluation source-packet request proceeds with a temporary-input caveat.
 - Non-raw evaluation/AgentLab response begins with the `Mode: Evaluation` and `Mode trigger:` lines; no mode metadata appears in TBDLog.
 - Raw-CSV-only evaluation request returns only CSV header and rows with no mode lines; mode classification is verified through the harness and observed behavior.
