@@ -1,0 +1,2 @@
+{ "token": "test-actor:run1", "lease": "2026-07-22T00:00:00Z",
+  "reads": [ { "claimedBy": "rival:run7", "leaseExpires": "2026-07-23T00:00:00Z", "loopState": "Claimed" } ] }
