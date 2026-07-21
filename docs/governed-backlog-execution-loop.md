@@ -1,7 +1,7 @@
 # Governed Backlog Execution Loop — Canonical Contract
 
 Date: 2026-07-15
-Status: Canonical contract — autonomy inactive pending §9 activation gates
+Status: Canonical contract — S8 activated 2026-07-21 in constrained pilot form (all §9 gates satisfied; activation record and limitations on issue #51)
 Companion to: `docs/claude-code-adoption-plan.md` (accepted governance reference)
 
 This document defines the target capability:
@@ -180,7 +180,7 @@ Durable state is held in GitHub via a project Loop-State field plus labels, with
 
 ## 9. S8 activation gates
 
-The graduated git/PR autonomy in #51 (S8) is **approved in principle (2026-07-15)** but **inactive**. It activates only after all of the following pass and are verified:
+The graduated git/PR autonomy in #51 (S8) was approved in principle 2026-07-15 and **activated 2026-07-21** after all of the following passed and were verified (evidence on the #51 gate ledger). Activation limitations — draft PRs only, no autonomous merging, approvals 0 with procedural human review, staged rollout per §10 — are recorded in the #51 activation record and `docs/claude-code-adoption-plan.md`:
 
 1. **#47** — this canonical contract is merged.
 2. **#45** — deny/secret hook is tested.
@@ -210,7 +210,7 @@ Enablement is staged, and **each stage requires explicit human review and approv
 ## 11. Dependency order
 
 1. #46 / #47 — vocabulary and contract
-2. #51 (S8) — approved autonomy policy (decision-gated; inactive until §9 gates pass)
+2. #51 (S8) — approved autonomy policy (activated 2026-07-21 after all §9 gates passed)
 3. #52 (S11) — durable state machine
 4. #50 — minimum CI enforcement (backlog `8.9`)
 5. #53 (S9) — executable backlog controller

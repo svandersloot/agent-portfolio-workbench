@@ -636,7 +636,7 @@ Acceptance checks:
 Status:
 
 - Accepted on 2026-06-29. `docs/claude-code-adoption-plan.md` is the accepted governance reference and `.claude/settings.json` implements the read-only allowlist and deny paths derived from current repo truth.
-- Remaining future slice: CI/automated checks (tracked under backlog item 8.9).
+- CI/automated checks delivered 2026-07-21 (issue #50; `repository-validation` required under the `main-protection` ruleset; backlog item 8.9).
 
 ## 32. Completed Locally: Pilot Runtime Context Maps For Source Routing
 
