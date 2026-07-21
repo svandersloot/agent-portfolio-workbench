@@ -17,11 +17,11 @@
 
 Grader scores: Category 1 **100%** (6/6), Category 4 **91%** (10/11). Independent strict verdicts: Category 1 five clean + one partial; Category 4 eight clean, two partial, one fail. No baseline is changed and no readiness is claimed.
 
-## 2. Run provenance — v0.25-attributed with one caveat
+## 2. Run provenance — v0.25-attributed, capture-verified
 
 - The prompts match the merged v0.25 datasets exactly (the new C1-006 trap and C4-009/010 rows are present), so the post-PR-#61 datasets were imported.
 - Behavior matches v0.25-only instructions: production rows cite the production input rule and mode classification; mode-line discipline is perfect (non-raw evaluation rows open with `Mode:`/`Mode trigger:`; raw-only and production rows carry no mode lines, 17/17).
-- **Caveat:** the owner reported updating the Studio instructions before this run, but the saved parent-instruction text has not yet been pulled and verified (capture #3 pending). Attribution is behavioral-plus-owner-statement, not capture-verified.
+- ~~Caveat: capture #3 pending~~ **Resolved same day:** the owner's pull of the saved parent instructions is content-identical to the merged v0.25 copy block (64/64 normalized lines) — see [instruction capture #3](qa-test-case-architect-v2-studio-instruction-capture-2026-07-21.md). Attribution is capture-verified, subject to the standing same-day-ordering caveat (no interim-edit audit trail) and the knowledge-sources/tools fields remaining admin-only.
 
 ## 3. Closure criteria, row by row
 
@@ -71,6 +71,6 @@ Grader scores: Category 1 **100%** (6/6), Category 4 **91%** (10/11). Independen
 
 ## 7. What this run does not establish
 
-- It does not verify the saved Studio parent instructions (capture #3 pending).
+- ~~Capture #3 pending~~ Resolved: the saved parent instructions are capture-verified identical to v0.25 ([capture #3](qa-test-case-architect-v2-studio-instruction-capture-2026-07-21.md)); knowledge sources/tools remain unverified (admin-only).
 - It does not close R-4, R-3 (formally), F9, or F10. The downloadable-file false-link behavior (R-6) is gone this run — C4-007 fell back to text with an explicit statement — but runtime file-emission capability itself remains unverified.
 - It does not change lifecycle status, readiness, baselines, or promotion posture.
