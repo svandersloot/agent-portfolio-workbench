@@ -19,7 +19,7 @@ This brief records the human decisions for S8 activation gate #3 ("human merge p
 
 *Original record (superseded, retained for audit):* Option A — a GitHub Pro upgrade keeping the repository private — was the initially chosen path, with public visibility rejected at the time as a larger exposure decision. The owner subsequently made that exposure decision deliberately, which resolved the capability constraint without billing changes.
 
-## Decision 2 — Protection policy for `main` (CONFIRMED 2026-07-21, apply via ruleset after upgrade)
+## Decision 2 — Protection policy for `main` (CONFIRMED 2026-07-21, applied via ruleset `main-protection` the same day)
 
 | Rule | Setting |
 |---|---|
