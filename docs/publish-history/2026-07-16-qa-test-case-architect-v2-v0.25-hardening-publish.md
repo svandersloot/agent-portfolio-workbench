@@ -4,7 +4,7 @@
 |---|---|
 | Date | 2026-07-16 |
 | Space | ROVO (`csaaig.atlassian.net`) |
-| Mechanism | Governed publisher, per-page dry-run (target identity asserted programmatically: action=update, expected page ID, expected current version) then `-Apply -UpdateExisting`, run from a worktree at merged `origin/main` with owner-authorized `-EnvPath`/`-ConfigPath` |
+| Mechanism | Governed publisher (`scripts/Publish-ConfluencePages.ps1`), per-page dry-run (target identity asserted programmatically: action=update, expected page ID, expected current version) then `-Apply -UpdateExisting`, run from a worktree at merged `origin/main` with owner-authorized `-EnvPath`/`-ConfigPath` |
 | Source | `origin/main` merges `efd035a` (PR #60, v0.24 republish record) and `b14c25f` (PR #61, commit `d77eb2f` — F2/R-1 + R-4 hardening) |
 | Approval | Owner sequencing instruction: merge #60 and #61, refresh IDs/versions via MCP, publish the five pages in order with MCP read-back per page |
 | Boundary | Exactly five pages updated. No Jira, XRAY, or ROVO Studio action. MCP used for pre-publish refresh and per-page read-back only. Team overlay, Knowledge Source Plan, and Measurement Plan unchanged and not republished. |
@@ -26,6 +26,10 @@ All five pages: single candidate per ID, correct titles, last-modified timestamp
 ## Change published (v0.25)
 
 F2/R-1 mode-precedence self-check (Evaluation only when explicitly marked; production-labeled or unmarked requests stop without the ticket pack and generate nothing; never `Mode: Evaluation` on production) and R-4 CSV structural validation (exactly 15 fields per row; comma/quote/newline fields double-quoted; 13 leading blanks on continuation rows; Action populated whenever Expected Result is; Story ID on each test case's first row) — plus evals QATCA-EVAL-032/033 and the Category 4 dataset lineage reconciliation (prominently disclosed in PR #61).
+
+## Notes
+
+- Known converter trait (disclosed since the v0.23 publish) still applies to all five pages: inline bold/italic and markdown links inside bullets and table cells render as literal characters; content is complete and correct.
 
 ## Remaining human-owned
 
