@@ -2,11 +2,29 @@
 
 Date: 2026-06-25
 Accepted: 2026-06-29
+Amended: 2026-07-21 - records S8 activation (see "S8 Graduated Autonomy Status" below)
 Status: Accepted - governance reference for Claude Code use in this repo
 
-The read-only permission allowlist and deny paths in this plan are implemented in `.claude/settings.json`. CI/automated checks remain a future slice (see backlog item 8.9).
+The read-only permission allowlist and deny paths in this plan are implemented in `.claude/settings.json`. CI/automated checks are delivered: the `repository-validation` workflow runs the minimum checks (`docs/ci-minimum-checks.md`) and is a required status check under the `main-protection` ruleset (backlog item 8.9 delivered via issue #50).
 
 This plan defines how Claude Code should be adopted for this repo's governance workflow. It is scoped to the local repo workbench. It does not approve changes to ROVO Studio, Jira, Confluence, or any other live system.
+
+## S8 Graduated Autonomy Status (activated 2026-07-21)
+
+The graduated draft-PR autonomy policy (issue #51, "S8") is **active** in its constrained pilot form, per the canonical contract `docs/governed-backlog-execution-loop.md` and the activation record on issue #51. Everything below this section describes the **default posture, which still applies to all work that is not S8-eligible**; it is preserved unchanged as the pre-activation history and fallback.
+
+What S8 activation changes: for issues passing the contract's full §4 conjunctive eligibility rule (labels `agent:draft-pr` + `risk:low`, no `blocked`/`decision-gate`, groomed acceptance criteria and validation commands, declared path scope, clean isolated branch/worktree, no protected-path or policy surface), the §5 permitted actions may run without per-call approval: edit within scope, validate, stage, commit, push the named feature branch, create/update a **draft** PR, read CI/review feedback, apply bounded fixes, and perform §6 claim/state writes.
+
+Exact limits (part of the activation decision):
+
+- **Draft PRs only.** No merge, no ready-for-review promotion, no autonomous merging of anything.
+- **No pushes to `main`**, no force-pushes, no rebases.
+- **No settings, permission, ruleset, billing, visibility, or ownership changes.**
+- **Protected paths excluded** (contract §4 set, including this file, `AGENTS.md`, `CLAUDE.md`, the canonical contract, `.claude/settings.json`, `.claude/hooks/**`, `.github/CODEOWNERS`, `.github/workflows/**`).
+- **Bounded retries:** one transient-infrastructure retry; at most two CI/review correction cycles, then `blocked` with an evidence receipt; successful work is never restarted.
+- **Human review remains procedural, not GitHub-enforced:** required approving reviews are 0 while the repository is solo-maintained; merges are human-only under the operating contract, with the `main-protection` ruleset enforcing the PR/check process floor.
+- **Staged rollout applies** (contract §10): one selected low-risk documentation issue, then an explicit human gate, then a 2-3 issue pilot, then an explicit human gate, before broader processing. Every controller run requires a human-authorized mandate (§3).
+- The current `.claude/settings.json` adapter is deliberately narrower than S8 (no git-write allowlist entries), so per-call prompts continue during the first pilot; expanding the allowlist is deferred (#44) until S9/S10 prove the branch-scoped controls.
 
 ---
 
