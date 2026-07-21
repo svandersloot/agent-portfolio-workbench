@@ -1,6 +1,6 @@
 # GitHub Branch Protection Decision Brief — 2026-07-21
 
-Status: Decisions recorded — enforcement pending manual account upgrade and separately approved settings action
+Status: Amended 2026-07-21 — enforcement applied via the public-repository ruleset path; live configuration recorded in `docs/reports/github-main-protection-readback-2026-07-21.md`
 Decision owner: repository admin/account owner (human)
 Companion to: `docs/governed-backlog-execution-loop.md` (§9 activation gates), issue #49, issue #51 (S8 gate ledger)
 
@@ -13,13 +13,13 @@ This brief records the human decisions for S8 activation gate #3 ("human merge p
 - `CODEOWNERS` is `* @svandersloot` with a note to formalize ownership later.
 - The only existing CI check is `repository-validation` (`.github/workflows/validation.yml`), running on pull requests and pushes to `main`.
 
-## Decision 1 — Enforcement capability (DECIDED 2026-07-21)
+## Decision 1 — Enforcement capability (SUPERSEDED 2026-07-21)
 
-**Chosen: Option A — upgrade the personal account to GitHub Pro**, keeping the repository private. The account owner performs the upgrade manually. No billing or repository-setting change is automated; the settings action after upgrade requires its own explicit approval.
+**Superseding decision (human, 2026-07-21): the repository was intentionally made public**, enabling rulesets on the free personal plan with **no plan purchase**. No Pro upgrade was made or is recommended. The visibility change was a human account action taken after a public-history audit found no material findings (only the placeholder `.env.example` was ever tracked among sensitive-pattern names); it was not automated.
 
-Rejected alternatives: making the repo public (work-content exposure decision far larger than this gate); moving to an organization (private-repo protection still requires a paid org plan); accepting no platform enforcement (would have required redefining gate #3 entirely).
+*Original record (superseded, retained for audit):* Option A — a GitHub Pro upgrade keeping the repository private — was the initially chosen path, with public visibility rejected at the time as a larger exposure decision. The owner subsequently made that exposure decision deliberately, which resolved the capability constraint without billing changes.
 
-## Decision 2 — Protection policy for `main` (CONFIRMED 2026-07-21, apply via ruleset after upgrade)
+## Decision 2 — Protection policy for `main` (CONFIRMED 2026-07-21, applied via ruleset `main-protection` the same day)
 
 | Rule | Setting |
 |---|---|
@@ -45,7 +45,9 @@ GitHub enforces the **PR/check process floor** (PR-only merges into `main`, requ
 
 The agent currently operates with the maintainer's own credential, so platform rules cannot distinguish agent from human: nothing technical prevents that credential from merging. Actor-level enforcement ("agent can open but can never merge") would require a separate machine identity (bot account or GitHub App) restricted by the ruleset. This is **accepted as a pilot residual risk** and recorded as a **future machine-identity hardening item** for the S9/S10 executable controller/loop work (#53, #54).
 
-## Enforcement and verification plan (after upgrade; each step separately approved)
+## Enforcement and verification plan (EXECUTED 2026-07-21 via the public-repository path; each step separately approved)
+
+All four steps below were completed on 2026-07-21: #50's checks merged (PR #68), the human-approved ruleset `main-protection` (id `19465731`) applied, and the live configuration verified by API read-back — see `docs/reports/github-main-protection-readback-2026-07-21.md`. Gate status changes on #49/#51 remain a separate human-approved step.
 
 1. #50 lands the minimum CI checks with stable check names (separate slice; the workflow itself does not need protection capability).
 2. Human approves the exact ruleset creation action; the ruleset above is applied.
