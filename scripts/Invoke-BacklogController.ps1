@@ -31,7 +31,8 @@ param(
     [Parameter(Mandatory)][string] $RunId,
     [int]    $LeaseHours = 24,
     [switch] $Apply,
-    [string] $FixturePath
+    [string] $FixturePath,
+    [string] $VerifyOnlyFixture
 )
 
 Set-StrictMode -Version Latest
@@ -39,6 +40,43 @@ $ErrorActionPreference = 'Stop'
 
 # -File invocation binds one token per parameter; parse the mandate list here.
 [int[]] $EligibleIssues = @($EligibleIssueList -split ',' | ForEach-Object { [int]$_.Trim() })
+
+# Claim-tuple verification with bounded retry/backoff (issue #76).
+# Reads is a provider returning successive observed tuples; outcomes:
+#   confirmed | confirmed-after-retry (exit 0) | true-collision | retry-exhausted (exit 3)
+$script:VerifyMaxAttempts = 3
+$script:VerifyDelaySeconds = 5
+function Resolve-ClaimVerification {
+    param([string]$Token, [string]$Lease, [scriptblock]$ReadTuple)
+    for ($attempt = 1; $attempt -le $script:VerifyMaxAttempts; $attempt++) {
+        $r = & $ReadTuple $attempt
+        $ok = ([string]$r.claimedBy -eq $Token) -and ([string]$r.leaseExpires -eq $Lease) -and ([string]$r.loopState -eq 'Claimed')
+        if ($ok) {
+            return @{ Outcome = $(if ($attempt -eq 1) { 'confirmed' } else { 'confirmed-after-retry' }); Attempts = $attempt }
+        }
+        # Foreign non-empty token = true collision: fail closed immediately, no retry.
+        if (-not [string]::IsNullOrWhiteSpace([string]$r.claimedBy) -and ([string]$r.claimedBy -ne $Token)) {
+            return @{ Outcome = 'true-collision'; Attempts = $attempt }
+        }
+        # Stale/partial read: retry after backoff (except after final attempt).
+        if ($attempt -lt $script:VerifyMaxAttempts -and -not $VerifyOnlyFixture) { Start-Sleep -Seconds $script:VerifyDelaySeconds }
+    }
+    return @{ Outcome = 'retry-exhausted'; Attempts = $script:VerifyMaxAttempts }
+}
+
+# Offline verification harness: simulate successive re-reads from a fixture and exit.
+if ($VerifyOnlyFixture) {
+    $sim = Get-Content -Raw -LiteralPath $VerifyOnlyFixture | ConvertFrom-Json
+    $i = 0
+    $reads = @($sim.reads)
+    $res = Resolve-ClaimVerification -Token $sim.token -Lease $sim.lease -ReadTuple {
+        param($attempt)
+        $idx = [Math]::Min($attempt - 1, $reads.Count - 1)
+        $reads[$idx]
+    }
+    @{ outcome = $res.Outcome; attempts = $res.Attempts } | ConvertTo-Json -Compress
+    if ($res.Outcome -in @('confirmed', 'confirmed-after-retry')) { exit 0 } else { exit 3 }
+}
 
 $script:ProtectedPathPattern = '(AGENTS\.md|CLAUDE\.md|governed-backlog-execution-loop|claude-code-adoption-plan|\.claude[/\\]settings|\.claude[/\\]hooks|CODEOWNERS|\.github[/\\]workflows)'
 
@@ -151,19 +189,34 @@ gh project item-edit --id $selected.itemId --project-id $projectId --field-id $f
 gh project item-edit --id $selected.itemId --project-id $projectId --field-id $fLease.id --text $lease | Out-Null
 gh project item-edit --id $selected.itemId --project-id $projectId --field-id $fLoop.id --single-select-option-id $optClaimed | Out-Null
 
-# Step 5: re-read and accept only on complete tuple match; fail closed otherwise.
-$verify = (gh project item-list $ProjectNumber --owner $ProjectOwner --format json --limit 300 | ConvertFrom-Json).items |
-    Where-Object { $_.content.number -eq $selected.number } | Select-Object -First 1
-$tupleOk = ($verify.'claimed By' -eq $token) -and ($verify.'lease Expires' -eq $lease) -and ($verify.'loop State' -eq 'Claimed')
+# Step 5: re-read with bounded retry/backoff; accept only on complete tuple match.
+$res = Resolve-ClaimVerification -Token $token -Lease $lease -ReadTuple {
+    param($attempt)
+    $v = (gh project item-list $ProjectNumber --owner $ProjectOwner --format json --limit 300 | ConvertFrom-Json).items |
+        Where-Object { $_.content.number -eq $selected.number } | Select-Object -First 1
+    @{ claimedBy = $v.'claimed By'; leaseExpires = $v.'lease Expires'; loopState = $v.'loop State' }
+}
 
 $receiptBase = "### Loop receipt $($token):1`n- Event ID: $($token):1`n- Actor: $ActorId`n- Timestamp: $((Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'))`n- Branch: n/a (claim)"
-if ($tupleOk) {
-    gh issue comment $selected.number --repo $Repo --body "$receiptBase`n- Transition: Eligible -> Claimed`n- Evidence: claim tuple verified by re-read (token/lease/state match)" | Out-Null
-    Write-Output ("CLAIMED #{0} (token {1}, lease {2})" -f $selected.number, $token, $lease)
-    exit 0
-}
-else {
-    gh issue comment $selected.number --repo $Repo --body "$receiptBase`n- Transition: claim-collision / partial-claim (invalid tuple on re-read)`n- Evidence: fail-closed; no further state-changing action; human recovery required if ownership ambiguous" | Out-Null
-    Write-Output ("FAIL-CLOSED: claim tuple mismatch on #{0}; collision receipt posted; no further action." -f $selected.number)
-    exit 3
+switch ($res.Outcome) {
+    'confirmed' {
+        gh issue comment $selected.number --repo $Repo --body "$receiptBase`n- Transition: Eligible -> Claimed`n- Evidence: claim tuple verified on first re-read" | Out-Null
+        Write-Output ("CLAIMED #{0} (token {1}, lease {2})" -f $selected.number, $token, $lease)
+        exit 0
+    }
+    'confirmed-after-retry' {
+        gh issue comment $selected.number --repo $Repo --body "$receiptBase`n- Transition: Eligible -> Claimed`n- Evidence: claim tuple verified after retry (attempt $($res.Attempts); earlier reads stale - API eventual consistency)" | Out-Null
+        Write-Output ("CLAIMED #{0} after retry attempt {1}" -f $selected.number, $res.Attempts)
+        exit 0
+    }
+    'true-collision' {
+        gh issue comment $selected.number --repo $Repo --body "$receiptBase`n- Transition: claim-collision (true; foreign token observed)`n- Evidence: fail-closed; no further state-changing action; human recovery required" | Out-Null
+        Write-Output ("FAIL-CLOSED: true collision on #{0} (foreign token); receipt posted." -f $selected.number)
+        exit 3
+    }
+    default {
+        gh issue comment $selected.number --repo $Repo --body "$receiptBase`n- Transition: claim-verification retry-exhausted (tuple never confirmed after $($res.Attempts) attempts)`n- Evidence: fail-closed; no further state-changing action; human recovery required if ownership ambiguous" | Out-Null
+        Write-Output ("FAIL-CLOSED: retry budget exhausted verifying #{0}; receipt posted." -f $selected.number)
+        exit 3
+    }
 }

@@ -82,6 +82,20 @@ $r6 = Invoke-Ctl -Issues 101,110
 $rep6 = Get-Report $r6.Out
 Assert 'other-claim-no-guard' ($r6.ExitCode -eq 0 -and $rep6.selected -eq 101)
 
+# 7. Claim-verification retry harness (issue #76): three outcome fixtures.
+function Invoke-Verify([string]$Fx) {
+    $a = @('-NoProfile','-File',$ctl,'-Repo','fixture/repo','-ProjectOwner','fixture','-ProjectNumber','1',
+        '-EligibleIssueList','101','-MaxIssues','1','-ActorId','test-actor','-RunId','run1',
+        '-VerifyOnlyFixture',(Join-Path $repoRoot "scripts/tests/fixtures/$Fx"))
+    $out = & pwsh @a 2>&1
+    return @{ ExitCode = $LASTEXITCODE; Out = ($out | Out-String) }
+}
+$v = Invoke-Verify 'claim-verify-delayed.json'
+Assert 'verify-delayed-confirmed-after-retry' ($v.ExitCode -eq 0 -and $v.Out -match 'confirmed-after-retry' -and $v.Out -match '"attempts":2')
+$v = Invoke-Verify 'claim-verify-collision.json'
+Assert 'verify-true-collision-immediate' ($v.ExitCode -eq 3 -and $v.Out -match 'true-collision' -and $v.Out -match '"attempts":1')
+$v = Invoke-Verify 'claim-verify-exhausted.json'
+Assert 'verify-retry-exhausted-failclosed' ($v.ExitCode -eq 3 -and $v.Out -match 'retry-exhausted' -and $v.Out -match '"attempts":3')
 Write-Output '# Backlog controller test results'
 foreach ($x in $results) { Write-Output ("{0} {1} {2}" -f ($(if ($x.Pass) {'PASS'} else {'FAIL'})), $x.Name, $x.Detail) }
 Write-Output ("Total: {0}/{1} passed" -f (@($results | Where-Object Pass).Count), $results.Count)
