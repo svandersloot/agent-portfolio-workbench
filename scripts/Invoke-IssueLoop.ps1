@@ -94,7 +94,17 @@ if ($Transition -eq 'Escalate' -and [string]::IsNullOrWhiteSpace($Reason)) {
     Fail 'Escalate requires -Reason naming the human decision needed'
 }
 
-$seq = $CycleCount + 2   # event sequence: claim was :1
+# Monotonic per-run event sequence (issue #77): derived from the number of
+# existing "Loop receipt <token>:" records - never caller-supplied. Claim was :1.
+if ($FixturePath) {
+    $prior = if ($item.PSObject.Properties['receiptCount']) { [int]$item.receiptCount } else { 1 }
+}
+else {
+    $comments = gh issue view $IssueNumber --repo $Repo --json comments | ConvertFrom-Json
+    $prior = @($comments.comments | Where-Object { $_.body -match [regex]::Escape("### Loop receipt $($token):") }).Count
+    if ($prior -lt 1) { $prior = 1 }
+}
+$seq = $prior + 1
 $eventId = "$($token):$seq"
 $decision = [ordered]@{
     mode = if ($Apply) { 'apply' } else { 'dry-run' }

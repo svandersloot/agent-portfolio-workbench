@@ -16,9 +16,9 @@ $fxDir = Join-Path $repoRoot 'scripts/tests/fixtures'
 New-Item -ItemType Directory -Force -Path $fxDir | Out-Null
 
 function Invoke-Loop {
-    param([string]$State, [string]$ClaimedBy, [string]$Transition, [int]$Cycles = 0, [string]$Reason, [switch]$Apply)
+    param([string]$State, [string]$ClaimedBy, [string]$Transition, [int]$Cycles = 0, [string]$Reason, [int]$ReceiptCount = 1, [switch]$Apply)
     $fx = Join-Path $fxDir 'issue-loop-item.tmp.json'
-    @{ loopState = $State; claimedBy = $ClaimedBy; itemId = 'FX_ITEM' } | ConvertTo-Json | Set-Content -LiteralPath $fx
+    @{ loopState = $State; claimedBy = $ClaimedBy; itemId = 'FX_ITEM'; receiptCount = $ReceiptCount } | ConvertTo-Json | Set-Content -LiteralPath $fx
     $a = @('-NoProfile','-File',$loop,'-Repo','fixture/repo','-ProjectOwner','fixture','-ProjectNumber','1',
         '-IssueNumber','41','-ActorId','test-actor','-RunId','run1','-Transition',$Transition,'-CycleCount',$Cycles,'-FixturePath',$fx)
     if ($Reason) { $a += @('-Reason',$Reason) }
@@ -63,9 +63,16 @@ Assert 'empty-claim-3' ($r.ExitCode -eq 3)
 $r = Invoke-Loop -State 'Claimed' -ClaimedBy $tok -Transition Start -Apply
 Assert 'fixture-apply-refused' ($r.ExitCode -ne 0 -and $r.Out -match 'Fixture mode cannot -Apply')
 
-# Event-ID sequencing distinguishes repeated cycles
-$r = Invoke-Loop -State 'Awaiting CI/Review' -ClaimedBy $tok -Transition FixCycle -Cycles 1
-Assert 'event-id-seq' ($r.Out -match 'test-actor:run1:3')
+# Monotonic event IDs (issue #77): sequence from receipt count, never CycleCount.
+# Same-cycle regression: Start then ToReview at cycle 0 -> distinct IDs :2 then :3.
+$r = Invoke-Loop -State 'Claimed' -ClaimedBy $tok -Transition Start -Cycles 0 -ReceiptCount 1
+Assert 'seq-start-is-2' ($r.Out -match 'test-actor:run1:2')
+$r = Invoke-Loop -State 'In Progress' -ClaimedBy $tok -Transition ToReview -Cycles 0 -ReceiptCount 2
+Assert 'seq-toreview-is-3-same-cycle' ($r.Out -match 'test-actor:run1:3')
+$r = Invoke-Loop -State 'Awaiting CI/Review' -ClaimedBy $tok -Transition FixCycle -Cycles 1 -ReceiptCount 3
+Assert 'seq-fixcycle-is-4' ($r.Out -match 'test-actor:run1:4')
+$r = Invoke-Loop -State 'In Progress' -ClaimedBy $tok -Transition Escalate -Reason 'x' -Cycles 0 -ReceiptCount 4
+Assert 'seq-escalate-is-5' ($r.Out -match 'test-actor:run1:5')
 
 Write-Output '# Issue loop test results'
 foreach ($x in $results) { Write-Output ("{0} {1} {2}" -f ($(if ($x.Pass) {'PASS'} else {'FAIL'})), $x.Name, $x.Detail) }
