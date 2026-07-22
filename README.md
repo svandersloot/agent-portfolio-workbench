@@ -13,6 +13,7 @@ Start by reading `AGENTS.md`, `README.md`, `START-HERE.md`, and `docs/toolkit-op
 - `AGENTS.md`: operating contract for AI-assisted work in this repository.
 - `docs/governed-backlog-execution-loop.md`: canonical contract for the governed backlog execution loop (graduated agent autonomy with human review gates).
 - `docs/ci-minimum-checks.md`: required-vs-advisory CI validation contract behind the `repository-validation` status check.
+- `docs/loop-state-machine.md`: durable loop-state model (fields, transitions, claim protocol, receipts) behind the governed backlog loop.
 - `START-HERE.md`: entry point for portfolio workflows, safety boundaries, checks, and commit slices.
 - `CONTRIBUTING.md`: MCP-first contributor setup, work-account GitHub fallback, direct-API fallback, validation, and PR expectations.
 - `docs/mcp-setup.md`: Atlassian MCP registration, OAuth, troubleshooting, and write boundaries.
