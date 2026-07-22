@@ -96,6 +96,20 @@ $v = Invoke-Verify 'claim-verify-collision.json'
 Assert 'verify-true-collision-immediate' ($v.ExitCode -eq 3 -and $v.Out -match 'true-collision' -and $v.Out -match '"attempts":1')
 $v = Invoke-Verify 'claim-verify-exhausted.json'
 Assert 'verify-retry-exhausted-failclosed' ($v.ExitCode -eq 3 -and $v.Out -match 'retry-exhausted' -and $v.Out -match '"attempts":3')
+# 8. Lease-instant normalization (issue #89).
+$v = Invoke-Verify 'claim-verify-datetime-typed.json'
+Assert 'lease-datetime-typed-confirms' ($v.ExitCode -eq 0 -and $v.Out -match '"outcome":"confirmed"')
+$v = Invoke-Verify 'claim-verify-same-instant-offset.json'
+Assert 'lease-same-instant-offset-confirms' ($v.ExitCode -eq 0)
+$v = Invoke-Verify 'claim-verify-noniso-string.json'
+Assert 'lease-noniso-string-confirms' ($v.ExitCode -eq 0)
+$v = Invoke-Verify 'claim-verify-null-lease.json'
+Assert 'lease-null-failclosed' ($v.ExitCode -eq 3)
+$v = Invoke-Verify 'claim-verify-malformed-lease.json'
+Assert 'lease-malformed-failclosed' ($v.ExitCode -eq 3)
+$v = Invoke-Verify 'claim-verify-wrong-instant.json'
+Assert 'lease-wrong-instant-failclosed' ($v.ExitCode -eq 3)
+
 Write-Output '# Backlog controller test results'
 foreach ($x in $results) { Write-Output ("{0} {1} {2}" -f ($(if ($x.Pass) {'PASS'} else {'FAIL'})), $x.Name, $x.Detail) }
 Write-Output ("Total: {0}/{1} passed" -f (@($results | Where-Object Pass).Count), $results.Count)

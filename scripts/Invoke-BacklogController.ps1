@@ -44,13 +44,40 @@ $ErrorActionPreference = 'Stop'
 # Claim-tuple verification with bounded retry/backoff (issue #76).
 # Reads is a provider returning successive observed tuples; outcomes:
 #   confirmed | confirmed-after-retry (exit 0) | true-collision | retry-exhausted (exit 3)
+# Lease values must compare as instants (issue #89): gh/ConvertFrom-Json may
+# deserialize the written ISO string into a DateTime. Null/malformed -> $null,
+# which never matches (fail closed).
+function ConvertTo-LeaseInstant {
+    param($Value)
+    if ($null -eq $Value) { return $null }
+    if ($Value -is [System.DateTimeOffset]) { return $Value.UtcTicks }
+    if ($Value -is [datetime]) {
+        $dt = if ($Value.Kind -eq 'Unspecified') { [datetime]::SpecifyKind($Value, 'Utc') } else { $Value }
+        return $dt.ToUniversalTime().Ticks
+    }
+    $s = [string]$Value
+    if ([string]::IsNullOrWhiteSpace($s)) { return $null }
+    $out = [System.DateTimeOffset]::MinValue
+    $styles = [System.Globalization.DateTimeStyles]::AssumeUniversal
+    if ([System.DateTimeOffset]::TryParse($s, [System.Globalization.CultureInfo]::InvariantCulture, $styles, [ref]$out)) {
+        return $out.UtcTicks
+    }
+    return $null
+}
+function Test-LeaseInstantEqual {
+    param($A, $B)
+    $ia = ConvertTo-LeaseInstant $A
+    $ib = ConvertTo-LeaseInstant $B
+    return ($null -ne $ia) -and ($null -ne $ib) -and ($ia -eq $ib)
+}
+
 $script:VerifyMaxAttempts = 3
 $script:VerifyDelaySeconds = 5
 function Resolve-ClaimVerification {
     param([string]$Token, [string]$Lease, [scriptblock]$ReadTuple)
     for ($attempt = 1; $attempt -le $script:VerifyMaxAttempts; $attempt++) {
         $r = & $ReadTuple $attempt
-        $ok = ([string]$r.claimedBy -eq $Token) -and ([string]$r.leaseExpires -eq $Lease) -and ([string]$r.loopState -eq 'Claimed')
+        $ok = ([string]$r.claimedBy -eq $Token) -and (Test-LeaseInstantEqual $r.leaseExpires $Lease) -and ([string]$r.loopState -eq 'Claimed')
         if ($ok) {
             return @{ Outcome = $(if ($attempt -eq 1) { 'confirmed' } else { 'confirmed-after-retry' }); Attempts = $attempt }
         }
