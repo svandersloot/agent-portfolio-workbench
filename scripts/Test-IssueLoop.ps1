@@ -44,6 +44,10 @@ $r = Invoke-Loop -State 'Awaiting CI/Review' -ClaimedBy $tok -Transition FixCycl
 Assert 'T5-cycle2-ok' ($r.ExitCode -eq 0)
 $r = Invoke-Loop -State 'In Progress' -ClaimedBy $tok -Transition Escalate -Reason 'needs owner decision'
 Assert 'T6-escalate-ok' ($r.ExitCode -eq 0 -and $r.Out -match 'Blocked-Decision')
+$r = Invoke-Loop -State 'Claimed' -ClaimedBy $tok -Transition Escalate -Reason 'needs owner decision'
+Assert 'T6-escalate-from-claimed-ok' ($r.ExitCode -eq 0 -and $r.Out -match 'Blocked-Decision')
+$r = Invoke-Loop -State 'Awaiting CI/Review' -ClaimedBy $tok -Transition Escalate -Reason 'needs owner decision'
+Assert 'T6-escalate-from-awaiting-ok' ($r.ExitCode -eq 0 -and $r.Out -match 'Blocked-Decision')
 
 # Fail-closed gates (exit 3)
 $r = Invoke-Loop -State 'Claimed' -ClaimedBy 'other:run9' -Transition Start
