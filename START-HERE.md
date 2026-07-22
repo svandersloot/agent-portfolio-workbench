@@ -24,6 +24,7 @@ For Codex or other AI-assisted work, read `AGENTS.md` first. It owns the repo op
 | Run regression or pilot checks | The agent's `*-evaluation.md` page and any report under `docs/reports/` | Record safe evidence in reports or change logs; keep raw outputs private until sanitized. |
 | Create a handoff | `docs/handoffs/` | Include scope, branch/worktree guidance, files to read, files not to touch, validation, and companion artifacts. |
 | Prepare a safe commit slice | `git status --short` and `git diff --check` | Keep Confluence, Studio, Jira, report, and config changes in separate slices when possible. |
+| Run the governed backlog loop | `docs/governed-backlog-execution-loop.md` | Dry-run `scripts/Invoke-BacklogController.ps1` first; after a human-approved claim, drive transitions with `scripts/Invoke-IssueLoop.ps1`. |
 
 ## Maintainability Checks
 
