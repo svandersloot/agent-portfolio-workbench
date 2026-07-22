@@ -46,6 +46,16 @@ Run the stale-handoff check before executing an older handoff packet or resuming
 
 The check is read-only. It flags superseded packets, handoffs without a clear date, missing referenced repo files, and referenced files with newer repo evidence than the handoff date. It does not delete or archive handoffs.
 
+Run the governed-loop offline suites when controller, loop, or hook tooling changes:
+
+```powershell
+.\scripts\Test-BacklogController.ps1
+.\scripts\Test-IssueLoop.ps1
+.\scripts\Test-DenySecretReadHook.ps1
+```
+
+These are read-only fixture suites; they never call GitHub or modify files.
+
 Run the private-data scan before staging or committing a slice:
 
 ```powershell
