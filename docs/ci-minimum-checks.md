@@ -1,7 +1,7 @@
 # CI Minimum Checks — Required vs Advisory for agent:draft-pr
 
 Status: Minimum-check contract for the governed backlog execution loop (backlog item `8.9`; issue #50)
-Companion to: `docs/governed-backlog-execution-loop.md` (§9 activation gates), `docs/reports/github-branch-protection-decision-brief-2026-07-21.md`
+Companion to: `docs/governed-backlog-execution-loop.md` (§9 activation gates), `docs/reports/github-branch-protection-decision-brief-2026-07-21.md`, `docs/reports/github-main-protection-readback-2026-07-21.md` (live required-check configuration)
 
 This document names the stable CI check(s) and defines which validations are **required** (blocking) versus **advisory** for `agent:draft-pr` eligibility and the S8 pilot.
 
