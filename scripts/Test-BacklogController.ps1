@@ -73,6 +73,18 @@ $rep1c = Get-Report $r1c.Out
 Assert 'invariant-duplicate-single-selection' ($r1c.ExitCode -eq 0 -and $rep1c.selected -eq 101)
 Assert 'invariant-duplicate-no-skips' (@($rep1c.skipped).Count -eq 0)
 
+# 1d. Unknown-mandate-number behavior pinned (issue #103): silent drop, no fix.
+$r1d = Invoke-Ctl -Issues 999
+$rep1d = Get-Report $r1d.Out
+Assert 'unknown-all-exit-2' ($r1d.ExitCode -eq 2)
+Assert 'unknown-all-selected-null' ($null -eq $rep1d.selected)
+Assert 'unknown-all-skipped-empty' (@($rep1d.skipped).Count -eq 0)
+Assert 'unknown-all-message' ($r1d.Out -match 'No eligible work in mandate')
+$r1e = Invoke-Ctl -Issues 101,999
+$rep1e = Get-Report $r1e.Out
+Assert 'unknown-mixed-selects-101' ($r1e.ExitCode -eq 0 -and $rep1e.selected -eq 101)
+Assert 'unknown-mixed-999-absent' (@(@($rep1e.skipped) | Where-Object { $_.number -eq 999 }).Count -eq 0 -and $rep1e.selected -ne 999)
+
 # 2. No eligible work -> exit 2.
 $r2 = Invoke-Ctl -Issues 103,104,105
 Assert 'none-exit-2' ($r2.ExitCode -eq 2) "exit=$($r2.ExitCode)"
