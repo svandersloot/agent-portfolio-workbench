@@ -60,6 +60,19 @@ Assert 'skip-113-validation' ($sk[113] -match 'no validation section')
 Assert 'skip-114-closed' ($sk[114] -match 'not open')
 Assert 'dry-run-token-preview' ($rep.wouldClaim.token -eq 'test-actor:run1')
 
+# 1b. One-claim-per-run invariant (issue #100): MaxIssues 2 still selects exactly one.
+$r1b = Invoke-Ctl -Issues 101,102 -Max 2
+$rep1b = Get-Report $r1b.Out
+$sk1b = @{}; foreach ($s in $rep1b.skipped) { $sk1b[[int]$s.number] = ($s.reasons -join '; ') }
+Assert 'invariant-max2-selects-one' ($r1b.ExitCode -eq 0 -and $rep1b.selected -eq 101)
+Assert 'invariant-max2-second-skipped' ($sk1b[102] -match 'exactly one')
+
+# 1c. Duplicate mandate entries (issue #100): single selection, no duplicate skips.
+$r1c = Invoke-Ctl -Issues 101,101 -Max 1
+$rep1c = Get-Report $r1c.Out
+Assert 'invariant-duplicate-single-selection' ($r1c.ExitCode -eq 0 -and $rep1c.selected -eq 101)
+Assert 'invariant-duplicate-no-skips' (@($rep1c.skipped).Count -eq 0)
+
 # 2. No eligible work -> exit 2.
 $r2 = Invoke-Ctl -Issues 103,104,105
 Assert 'none-exit-2' ($r2.ExitCode -eq 2) "exit=$($r2.ExitCode)"
