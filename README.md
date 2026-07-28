@@ -31,7 +31,7 @@ The full routing table, with follow-on reading for each audience, is in the [doc
 - `docs/governed-backlog-execution-loop.md`: canonical contract for the governed backlog execution loop (graduated agent autonomy with human review gates).
 - `docs/ci-minimum-checks.md`: required-vs-advisory CI validation contract behind the `repository-validation` status check.
 - `docs/loop-state-machine.md`: durable loop-state model (fields, transitions, claim protocol, receipts) behind the governed backlog loop.
-- `START-HERE.md`: entry point for portfolio workflows, safety boundaries, checks, and commit slices.
+- `START-HERE.md`: entry point for portfolio workflows, workflow safety notes (live-system boundaries live in `AGENTS.md`), checks, and commit slices.
 - `CONTRIBUTING.md`: MCP-first contributor setup, work-account GitHub fallback, direct-API fallback, validation, and PR expectations.
 - `docs/mcp-setup.md`: Atlassian MCP registration, OAuth, troubleshooting, and write boundaries.
 - `scripts/`: local automation for direct-API dry-runs, document checks, and sanitized evidence normalization.
@@ -65,7 +65,7 @@ Use `docs/next-slash-goals.md` for the current actionable queue, `docs/implement
 
 The governance entry points (completeness contract and schema, agent fit intake, Stage 5
 factory start-here, pilot boundaries, contributor helper guide, and pilot templates) are
-routed from the **Innovation & Governance Stakeholder** row of the
+routed from the **Innovation & Governance Stakeholders** section of the
 [documentation map](docs/README.md) — the single audience router. Follow the map rather
 than a second list here.
 

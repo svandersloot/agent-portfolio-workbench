@@ -38,7 +38,7 @@ model and executive message.
 The controls layer: what makes a governed agent complete and safe to promote, the
 lifecycle gates and risk tiers, and the boundaries a pilot must respect. Start with the
 [completeness contract](agent-governance-completeness-contract.md) (the required-fields
-contract, backed by [`schemas/agent-governance-record.schema.json`](../schemas)), then
+contract, backed by [`schemas/agent-governance-record.schema.json`](../schemas/agent-governance-record.schema.json)), then
 the [operating-model research](research/enterprise-agent-governance-operating-model-2026-07.md)
 for the full governance thesis.
 
