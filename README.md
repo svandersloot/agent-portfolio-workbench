@@ -8,6 +8,19 @@ New contributors should use the Atlassian MCP path first for Jira and Confluence
 
 Start by reading `AGENTS.md`, `README.md`, `START-HERE.md`, and `docs/toolkit-operating-model.md`. Then run the read-only checks in the contributor guide before opening a branch or pull request.
 
+## Who Should Read What
+
+The front-door read-first sequence above is written for contributors and AI-assisted work. If you are here for a different reason, use the persona router in **[docs/README.md](docs/README.md)** to reach the right depth quickly:
+
+| You are a… | Start here |
+| --- | --- |
+| **Sponsor / Leader** | [docs/research/executive-brief-2026-07.md](docs/research/executive-brief-2026-07.md) |
+| **Innovation / Governance Stakeholder** | [docs/agent-governance-completeness-contract.md](docs/agent-governance-completeness-contract.md) |
+| **Architect / Framework Designer** | [docs/research/architecture-diagram-2026-07.md](docs/research/architecture-diagram-2026-07.md) |
+| **Developer / Contributor** | [CONTRIBUTING.md](CONTRIBUTING.md) |
+
+The full routing table, with follow-on reading for each audience, is in the [documentation map](docs/README.md). `AGENTS.md` remains the single canonical operating contract.
+
 ## Project Areas
 
 - `AGENTS.md`: operating contract for AI-assisted work in this repository.
