@@ -18,7 +18,7 @@ Find your role, open the first link, and follow the "then read" trail.
 | **Sponsor / Leader** | Why this exists, what it delivers, the ask | [research/executive-brief-2026-07.md](research/executive-brief-2026-07.md) | [Positioning & audience model](agent-portfolio-workbench-positioning.md) · [30/60/90 plan](research/roadmap-30-60-90-2026-07.md) |
 | **Innovation / Governance Stakeholder** | How agents are governed, gated, and kept safe | [agent-governance-completeness-contract.md](agent-governance-completeness-contract.md) | [Operating-model research](research/enterprise-agent-governance-operating-model-2026-07.md) · [Pilot boundaries](stage-5-pilot-boundaries.md) · [Principles & values](principles-foundation.md) · [Roadmap](roadmap.md) |
 | **Architect / Framework Designer** | The reference architecture, contracts, autonomy model | [research/architecture-diagram-2026-07.md](research/architecture-diagram-2026-07.md) | [Operating model](toolkit-operating-model.md) · [Governed backlog loop](governed-backlog-execution-loop.md) · [Loop state machine](loop-state-machine.md) · [Team-facing agent pattern](team-facing-agent-pattern.md) · [`schemas/`](../schemas) |
-| **Developer / Contributor** | How to set up, work safely, and ship a slice | [../CONTRIBUTING.md](../CONTRIBUTING.md) | [START-HERE.md](../START-HERE.md) · [Operator guide](operator-guide.md) · [MCP setup](mcp-setup.md) · [CI minimum checks](ci-minimum-checks.md) · [`agent-portfolio-lab/`](../agent-portfolio-lab) |
+| **Developer / Contributor** | How to set up, work safely, and ship a slice | [../CONTRIBUTING.md](../CONTRIBUTING.md) | [START-HERE.md](../START-HERE.md) · [Operator guide](operator-guide.md) · [MCP setup](mcp-setup.md) · [CI minimum checks](ci-minimum-checks.md) · [GitHub governance](github-governance.md) · [`agent-portfolio-lab/`](../agent-portfolio-lab) |
 
 New here and unsure? Read [`AGENTS.md`](../AGENTS.md) first (the operating contract), then
 [`README.md`](../README.md) for the project overview.
@@ -129,6 +129,11 @@ For maintainers keeping this navigation coherent as the repo grows:
   (currently `@svandersloot`, pending formalization to an approved team). Governance
   decisions — owner assignment, readiness, approval, taxonomy/lifecycle authority —
   remain human-owned per [`AGENTS.md`](../AGENTS.md).
+- **GitHub platform governance.** How the repository itself is protected on GitHub —
+  the `main` branch ruleset, security/supply-chain settings, Actions posture and SHA
+  pinning, CodeQL, Dependabot, CODEOWNERS activation, and the staged collaboration plan —
+  is recorded in [github-governance.md](github-governance.md); vulnerability reporting is
+  in [`SECURITY.md`](../SECURITY.md).
 
 ## When You Add Or Move A Document
 
