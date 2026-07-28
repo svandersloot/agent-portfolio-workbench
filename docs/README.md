@@ -42,6 +42,14 @@ contract, backed by [`schemas/agent-governance-record.schema.json`](../schemas))
 the [operating-model research](research/enterprise-agent-governance-operating-model-2026-07.md)
 for the full governance thesis.
 
+The operational governance entry points — where governed-agent work actually starts —
+are: [agent fit intake](confluence-pages/agent-fit-intake.md),
+[Stage 5 agent factory start-here](stage-5-agent-factory-start-here.md),
+[pilot boundaries](stage-5-pilot-boundaries.md),
+[contributor helper guide](stage-5-contributor-helper-guide.md), and the pilot
+[feedback tracker](../templates/stage-5-pilot-feedback-tracker-template.md) and
+[promotion packet](../templates/stage-5-pilot-promotion-packet-template.md) templates.
+
 ### Architects & Framework Designers
 The design layer: the reference architecture (intake → workbench → human-facing →
 runtimes → approver), the source-of-truth hierarchy, the graduated-autonomy model, and

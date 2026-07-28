@@ -6,7 +6,11 @@ Git-backed, read-only-first workbench for designing, evaluating, governing, and 
 
 New contributors should use the Atlassian MCP path first for Jira and Confluence context, the work GitHub identity for source control, and the local `.env` path only when a script explicitly requires direct API access. See [CONTRIBUTING.md](CONTRIBUTING.md) for the complete setup and [docs/mcp-setup.md](docs/mcp-setup.md) for MCP-specific guidance.
 
-Start by reading `AGENTS.md`, `README.md`, `START-HERE.md`, and `docs/toolkit-operating-model.md`. Then run the read-only checks in the contributor guide before opening a branch or pull request.
+[`AGENTS.md`](AGENTS.md) is the single canonical operating contract; it defines the
+read-first sequence (`AGENTS.md` → `README.md` → `START-HERE.md` →
+`docs/toolkit-operating-model.md` → task-specific source docs) and all operating
+boundaries. Start there, then run the read-only checks in the contributor guide before
+opening a branch or pull request.
 
 ## Who Should Read What
 
@@ -59,16 +63,11 @@ Use `docs/next-slash-goals.md` for the current actionable queue, `docs/implement
 
 ## Governance Front Door
 
-The current local governance front door is defined in:
-
-- `docs/confluence-pages/agent-fit-intake.md`
-- `docs/agent-governance-completeness-contract.md`
-- `schemas/agent-governance-record.schema.json`
-- `docs/stage-5-agent-factory-start-here.md`
-- `docs/stage-5-pilot-boundaries.md`
-- `docs/stage-5-contributor-helper-guide.md`
-- `templates/stage-5-pilot-feedback-tracker-template.md`
-- `templates/stage-5-pilot-promotion-packet-template.md`
+The governance entry points (completeness contract and schema, agent fit intake, Stage 5
+factory start-here, pilot boundaries, contributor helper guide, and pilot templates) are
+routed from the **Innovation & Governance Stakeholder** row of the
+[documentation map](docs/README.md) — the single audience router. Follow the map rather
+than a second list here.
 
 Use the relevant design record, knowledge-source plan, runtime contract, evaluation, measurement plan, setup guidance, change log, and handoff artifacts for the portfolio item being changed. Run `.\scripts\Test-ConfluencePageFamilyConsistency.ps1` before committing governed page families or publish plans.
 
