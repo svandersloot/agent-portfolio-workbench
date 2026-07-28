@@ -1,2 +1,24 @@
-# Replace this maintainer with an approved team when ownership is formalized.
+# Code ownership for Agent Portfolio Workbench.
+#
+# STATUS: informational / future-ready. The `main-protection` ruleset does NOT enable
+# "Require review from Code Owners" while the repo is solo-maintained (GitHub forbids
+# self-approval, so an active code-owner requirement would block the sole maintainer's
+# own PRs). These entries stage the ownership map so the switch can be enabled with one
+# ruleset change once at least one independent reviewer exists.
+# See docs/github-governance.md and docs/reports/github-main-protection-readback-2026-07-21.md.
+#
+# Ownership assignment is a Human-Owned Decision under AGENTS.md. Replace the solo
+# maintainer with an approved team when ownership is formalized.
+
+# Default owner for everything not matched by a more specific rule below.
 * @svandersloot
+
+# High-risk paths — supply chain, automation, and machine-checkable contracts.
+# These are the paths most likely to change security posture, CI behavior, or the
+# guarantees other tooling relies on, so they get first-class review once code-owner
+# review is activated.
+/.github/workflows/** @svandersloot
+/scripts/**          @svandersloot
+/.claude/hooks/**    @svandersloot
+/config/**           @svandersloot
+/schemas/**          @svandersloot

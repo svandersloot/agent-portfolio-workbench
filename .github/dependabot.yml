@@ -1,0 +1,28 @@
+# Dependabot configuration.
+#
+# Only ecosystems actually present in this repository are configured. This repo has no
+# package manager manifest (no package.json/lockfile, requirements.txt, go.mod, etc.),
+# so the only version-updateable ecosystem is the GitHub Actions used by workflows under
+# .github/workflows/. Add new ecosystems here only when a real manifest is introduced.
+#
+# Security updates (Dependabot alerts -> patch PRs) are enabled separately in repository
+# settings and do not require an entry here. See docs/github-governance.md.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(actions)"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    # Keep review load low for the solo maintainer: batch all Actions bumps into a
+    # single grouped PR per run rather than one PR per action.
+    groups:
+      github-actions:
+        patterns:
+          - "*"

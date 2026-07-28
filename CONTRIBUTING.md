@@ -105,6 +105,13 @@ When schemas or fixtures change, parse every touched JSON file. When scripts cha
 
 ## Pull request expectations
 
+Direct pushes to `main` are blocked; every change merges through a pull request that
+passes the required `repository-validation` check and has its conversations resolved. How
+the repository is protected on GitHub — the `main` ruleset, security/supply-chain
+settings, Actions posture, CodeQL, Dependabot, and code ownership — is recorded in
+[docs/github-governance.md](docs/github-governance.md). Report suspected vulnerabilities
+via GitHub private vulnerability reporting as described in [SECURITY.md](SECURITY.md).
+
 - Keep the branch and diff small enough to review without live explanation.
 - Explain the user impact, scope, validation, and any follow-up.
 - Identify companion docs, schemas, workflows, reports, or templates that changed with the slice.
