@@ -15,18 +15,20 @@ It helps builders and reviewers answer:
 
 ## Audience model
 
-Builders are the primary users. They use the workbench to shape ideas, check for reuse, prepare durable artifacts, evaluate behavior, and assemble reviewable handoffs.
+This is the canonical six-role audience model (see
+[`docs/reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md`](reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md)).
+Governance builders are the primary users. They use the workbench to shape ideas, check for reuse, prepare durable artifacts, evaluate behavior, and assemble reviewable handoffs.
 
-| Audience | Primary need |
+| Role | Primary need |
 |---|---|
-| Agent owners | Maintain sources, guardrails, readiness, measurement, and lifecycle evidence. |
-| Designated reviewers and decision owners | Assess evidence, risk, pilot scope, and promotion requests. |
-| Auditors and assurance reviewers | Trace decisions to sources, evidence, owners, metrics, and change history. |
-| End users | Use approved capabilities in the supported business workflow and provide feedback. |
-| Pilot users | A named subset of end users who evaluate a capability before broader promotion. |
-| Leaders and executives | See portfolio shape, investment choices, risks, outcomes, and decisions needing attention. |
+| Governance builder | Shape ideas, check for reuse, prepare durable design and governance artifacts, evaluate behavior, and assemble reviewable handoffs. |
+| Agent owner | Maintain sources, guardrails, readiness, measurement, and lifecycle evidence. |
+| Reviewer / decision owner | Assess evidence, risk, pilot scope, and promotion requests. |
+| Assurance partner | Audit, security, privacy, legal, and compliance, consolidated. Trace decisions to sources, evidence, owners, metrics, and change history; decide when a use case needs formal review, extra controls, or rejection. |
+| End user | Use approved capabilities in the supported business workflow and provide feedback. Pilot users are a temporary subset of end users who evaluate a capability before broader promotion, not a separate role. |
+| Leader / executive | See portfolio shape, investment choices, risks, outcomes, and decisions needing attention. |
 
-Roles describe who someone is. Lifecycle stages describe when and how a capability may be used.
+Roles describe who someone is. Lifecycle gates describe when and how a capability may be used. The Stage 5 five-audience table is the pilot-specific operating view of this model, not a competing taxonomy.
 
 ## Three-plane operating model
 

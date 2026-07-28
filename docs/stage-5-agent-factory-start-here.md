@@ -29,6 +29,14 @@ The Stage 5 control plane keeps governance evidence durable while keeping user e
 
 ## Audience Map
 
+This five-audience table is the **pilot-specific operating view** of the canonical
+six-role audience model (Governance builder, Agent owner, Reviewer / decision owner,
+Assurance partner, End user, Leader / executive). It is not a competing taxonomy: here
+"Pilot users" are the temporary subset of end users in this pilot, and "Security, legal,
+compliance, and privacy partners" are the assurance-partner role scoped to pilot
+escalations. See
+[`docs/reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md`](reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md).
+
 | Audience | Primary interface | Should not need | Decisions owned | Required artifacts |
 |---|---|---|---|---|
 | Governance builders | This repo, Agent Fit Intake, Agent Inventory, Codex-assisted drafts | Live Studio writes, Jira writes, broad Confluence publishing rights | Fit route, duplicate-check recommendation, draft artifact readiness | Intake notes, duplicate comparison, Project Brain scaffold, evaluation prompts, promotion packet draft |
@@ -38,6 +46,20 @@ The Stage 5 control plane keeps governance evidence durable while keeping user e
 | Security, legal, compliance, and privacy partners | Escalation packet and source/risk summary | Full repo history or unrelated agent drafts | Whether a use case needs formal review, extra controls, or rejection | Escalation trigger, data/source summary, tool/action summary, risk notes, decision record |
 
 ## Lifecycle
+
+The canonical lifecycle structure is five gates; these 13 steps are the implementation
+checklist nested beneath them (see
+[`docs/reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md`](reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md)):
+
+- **G1 Fit** — steps 1–3 (Pain point, Intake, Duplicate check)
+- **G2 Design** — steps 4–5 (Spec, Context review)
+- **G3 Build & verify** — steps 6–8 (Prototype, Dry run, Human review)
+- **G4 Pilot & measure** — steps 9–11 (Pilot approval, Team promotion, Metrics and improvement)
+- **G5 Operate & retire** — steps 12–13 (Deprecation, Retirement)
+
+Adopting the five-gate structure does not change what these steps require. Risk-tier
+requirements and any changed gate-exit / approval semantics remain **proposed** (pending
+decisions 9.1/9.2, the completeness-contract and schema changes) and are not policy yet.
 
 | Step | Purpose | Required evidence | Exit decision |
 |---|---|---|---|
