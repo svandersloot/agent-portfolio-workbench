@@ -66,6 +66,17 @@ Every governed agent should have:
 
 These fields are the starting contract for future linting, reporting, and builder guidance.
 
+## Lifecycle Structure
+
+The canonical lifecycle structure is five gates — **G1 Fit**, **G2 Design**,
+**G3 Build & verify**, **G4 Pilot & measure**, **G5 Operate & retire** — with the Stage 5
+13 steps nested beneath as the implementation checklist. See
+[`docs/reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md`](reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md)
+for the gate-to-step mapping. The lifecycle statuses and non-negotiable fields below are
+unchanged by that decision. Risk-tier requirements, added fields, and any changed
+gate-exit / approval semantics remain **proposed** until decisions 9.1/9.2 (the
+completeness-contract and schema changes) are accepted.
+
 ## Agent Lifecycle Statuses
 
 Use these starting statuses for governed ROVO agents and agent ideas:
