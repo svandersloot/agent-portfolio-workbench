@@ -38,9 +38,17 @@ model and executive message.
 The controls layer: what makes a governed agent complete and safe to promote, the
 lifecycle gates and risk tiers, and the boundaries a pilot must respect. Start with the
 [completeness contract](agent-governance-completeness-contract.md) (the required-fields
-contract, backed by [`schemas/agent-governance-record.schema.json`](../schemas)), then
+contract, backed by [`schemas/agent-governance-record.schema.json`](../schemas/agent-governance-record.schema.json)), then
 the [operating-model research](research/enterprise-agent-governance-operating-model-2026-07.md)
 for the full governance thesis.
+
+The operational governance entry points — where governed-agent work actually starts —
+are: [agent fit intake](confluence-pages/agent-fit-intake.md),
+[Stage 5 agent factory start-here](stage-5-agent-factory-start-here.md),
+[pilot boundaries](stage-5-pilot-boundaries.md),
+[contributor helper guide](stage-5-contributor-helper-guide.md), and the pilot
+[feedback tracker](../templates/stage-5-pilot-feedback-tracker-template.md) and
+[promotion packet](../templates/stage-5-pilot-promotion-packet-template.md) templates.
 
 ### Architects & Framework Designers
 The design layer: the reference architecture (intake → workbench → human-facing →
