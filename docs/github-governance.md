@@ -44,18 +44,21 @@ Held at their current values on purpose while the repo is solo-maintained:
 - **Required approvals: 0.** GitHub forbids self-approval, so requiring ≥1 review would
   block the sole maintainer's own PRs. Raise to 1 only when a second acknowledged owner
   exists.
-- **Repository-admin emergency bypass: Always allow.** The Repository admin role retains
-  a standing bypass for genuine emergency recovery only. Everyday changes still go
-  through the PR + check floor.
+- **No standing bypass actor** (`bypass_actors: []`). Protections apply to admins;
+  genuine emergency recovery uses the explicit emergency procedure below, not a standing
+  "Always allow" bypass. Everyday changes always go through the PR + check floor.
 - **No** deployment, release, environment, linear-history, signed-commit,
   code-owner-review, code-quality, or coverage gate is required.
 
-> Note on bypass: this handoff's staged posture keeps a **repository-admin emergency
-> bypass ("Always allow")**. The earlier decision brief and read-back recorded
-> `bypass_actors: []` with an emergency *procedure* (temporary ruleset change →
-> restoration → read-back → receipt) instead of a standing bypass. Whichever is live in
-> GitHub is the source of truth; reconciling the two is a Human-Owned Decision. Either
-> way, admin bypass is for **emergency recovery only**, never routine merges.
+> Bypass decision (human, 2026-07-28): **no standing bypass actor** — the ruleset keeps
+> `bypass_actors: []` and relies on the explicit emergency *procedure* (temporary ruleset
+> change → restoration → read-back → receipt) instead. This resolves the earlier
+> discrepancy between the handoff's "Always allow" phrasing and the decision brief /
+> read-back's `bypass_actors: []`, choosing the latter so routine protection stays
+> unambiguous while a documented path remains for a genuine incident. Reconfirming and
+> recording the **live** GitHub setting against this decision is a post-merge human step
+> (see the change log and the decision brief's emergency-override procedure), so the
+> setting and this record cannot drift again.
 
 ### Staged collaboration plan
 
@@ -168,10 +171,14 @@ as part of the staged collaboration plan above once an independent reviewer exis
 
 ## Emergency bypass policy
 
-Admin bypass exists for **emergency recovery only** (e.g. restoring a broken `main` when
-the normal PR path cannot). Any use should be rare, deliberate, and recorded. Routine
-work — including the maintainer's own changes — always uses the PR + `repository-
-validation` floor. This preserves the audit trail the workbench depends on.
+**No standing bypass actor exists** (`bypass_actors: []`); protections apply to admins.
+Genuine emergency recovery (e.g. restoring a broken `main` when the normal PR path
+cannot) uses the explicit, receipted procedure — **explicit human approval → temporary
+ruleset change → restoration of the ruleset → GitHub read-back → a receipt recording all
+of the above** (see the decision brief's emergency-override procedure). Any use is rare,
+deliberate, and recorded. Routine work — including the maintainer's own changes — always
+uses the PR + `repository-validation` floor. This preserves the audit trail the workbench
+depends on.
 
 ## Change log
 
@@ -184,3 +191,8 @@ validation` floor. This preserves the audit trail the workbench depends on.
   (`Analyze (actions)`, `Analyze (javascript-typescript)`, aggregate `CodeQL`); recorded
   here. Designating the aggregate `CodeQL` check required remains a deferred, human-owned
   settings follow-up.
+- 2026-07-28 — Bypass decision (human): **no standing bypass actor**; the ruleset keeps
+  `bypass_actors: []` and relies on the explicit emergency procedure. Resolves the
+  handoff-vs-readback discrepancy in favor of the read-back's `bypass_actors: []`.
+  Post-merge human follow-up: reconfirm the live GitHub ruleset shows no bypass actor and
+  record that verification so the setting and this record cannot drift again.
