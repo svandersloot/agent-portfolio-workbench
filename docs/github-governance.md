@@ -97,21 +97,29 @@ CodeQL default setup is **enabled**. It detected **GitHub Actions** and
 branches, and weekly. It complements the existing tests, dependency alerts, and secret
 scanning.
 
-**Not yet a required check — by design.** CodeQL's code-scanning check name is confirmed
-only after its **first successful run**. Do not add a code-scanning result requirement to
-`main-protection` until:
+**Not yet a required check — by design.** A code-scanning result requirement is added to
+`main-protection` only after (1) the first CodeQL scan completes successfully, (2) its
+exact check name(s) are read back from GitHub and recorded here, and (3) designating it
+required will not block rollout. Steps 1–2 are now satisfied; step 3 (the required-check
+designation) remains a separately reviewed, human-owned settings change.
 
-1. The first CodeQL scan has completed successfully, and
-2. its **exact check name(s)** have been read back from GitHub and recorded here, and
-3. designating it required will **not** block the initial rollout.
+**Confirmed check names (first successful run, 2026-07-28, PR #122).** CodeQL default
+setup reports three checks on pull requests:
 
-Until then CodeQL runs advisory-only. When confirmed, record the exact name(s) in the
-table below and add the requirement in a reviewed follow-up.
+- `Analyze (actions)`
+- `Analyze (javascript-typescript)`
+- `CodeQL` — the aggregate result check
+
+Recommended requirement when activated: the aggregate **`CodeQL`** check (it rolls up the
+per-language analyses, so it stays stable if the detected languages change). Add it to
+`main-protection` in a reviewed follow-up; it passed cleanly on the initial rollout PR, so
+it will not block.
 
 | Check | Exact name | Required? |
 |---|---|---|
 | Repository validation | `repository-validation` | **Yes** (in `main-protection`) |
-| CodeQL / code scanning | _to be confirmed after first successful run_ | Not yet |
+| CodeQL (aggregate) | `CodeQL` | Not yet — confirmed, activation deferred |
+| CodeQL (per-language) | `Analyze (actions)`, `Analyze (javascript-typescript)` | No — covered by the aggregate |
 
 ## GitHub Actions posture
 
@@ -172,3 +180,7 @@ validation` floor. This preserves the audit trail the workbench depends on.
   settings, CodeQL enablement (check name pending first run), Actions posture with
   `actions/checkout` pinned to a full SHA, informational CODEOWNERS for high-risk paths,
   and `SECURITY.md` / `.github/dependabot.yml`.
+- 2026-07-28 — CodeQL first successful run on PR #122 confirmed the check names
+  (`Analyze (actions)`, `Analyze (javascript-typescript)`, aggregate `CodeQL`); recorded
+  here. Designating the aggregate `CodeQL` check required remains a deferred, human-owned
+  settings follow-up.
