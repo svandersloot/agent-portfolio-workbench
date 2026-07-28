@@ -87,24 +87,28 @@ Large, browse-by-need collections rather than start-to-finish reading:
   publishes.
 - [`docs/handoffs/`](handoffs) — dated work-handoff packets between sessions.
 
-## Known Inconsistencies (Human-Owned To Resolve)
+## Resolved: Canonical Information Architecture
 
-This map routes to existing documents; it does not silently reconcile governance
-decisions. Two known drifts are called out here so readers know to defer to the
-authoritative source rather than assume the docs agree:
+The two drifts previously listed here were resolved on 2026-07-28 by
+[`reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md`](reports/canonical-audience-and-lifecycle-ia-decision-2026-07-28.md).
+This map routes to existing documents; it does not itself define the taxonomy.
 
-1. **Two audience taxonomies.** The [positioning doc](agent-portfolio-workbench-positioning.md)
-   defines six roles; [stage-5-agent-factory-start-here.md](stage-5-agent-factory-start-here.md)
-   defines five. This map's four target audiences are a routing convenience layered over
-   both, not a third canonical taxonomy. Treat the positioning doc as canonical for roles.
-2. **Lifecycle model drift.** The 13-step / 8-stage / required-fields model in
-   [toolkit-operating-model.md](toolkit-operating-model.md),
+1. **Audience taxonomy — resolved.** A canonical **six-role** model
+   (Governance builder, Agent owner, Reviewer / decision owner, Assurance partner,
+   End user with pilot users as a temporary subset, Leader / executive) is defined in the
+   [positioning doc](agent-portfolio-workbench-positioning.md). The
+   [Stage 5 five-audience table](stage-5-agent-factory-start-here.md) is the pilot-specific
+   operating view of that model. This map's four target audiences remain a routing
+   convenience layered over the six-role model, not a competing taxonomy.
+2. **Lifecycle structure — resolved (structure only).** The canonical structure is
+   **five gates** (G1 Fit · G2 Design · G3 Build & verify · G4 Pilot & measure ·
+   G5 Operate & retire), with the existing 13 steps nested beneath as implementation
+   guidance across [toolkit-operating-model.md](toolkit-operating-model.md),
    [agent-governance-completeness-contract.md](agent-governance-completeness-contract.md),
-   and [stage-5-agent-factory-start-here.md](stage-5-agent-factory-start-here.md) differs
-   from the newer five-gate/risk-tier model proposed in
-   [research/enterprise-agent-governance-operating-model-2026-07.md](research/enterprise-agent-governance-operating-model-2026-07.md).
-   Which is authoritative is a human-owned governance decision (see `AGENTS.md` →
-   Human-Owned Decisions).
+   and [stage-5-agent-factory-start-here.md](stage-5-agent-factory-start-here.md). The
+   proposed **risk-tier requirements, added fields, and changed gate-exit / approval
+   semantics remain human-owned and are not yet policy** — they wait on decisions 9.1/9.2
+   (the completeness-contract and schema changes). See `AGENTS.md` → Human-Owned Decisions.
 
 ## Documentation Conventions
 
