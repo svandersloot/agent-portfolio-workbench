@@ -30,7 +30,7 @@ The approved-agent guide must show only source-backed `Active` or `Team Approved
 |---|---|
 | Agent | Current display name. |
 | Type | Governed agent / Extension / Candidate / Meta-agent. |
-| Lifecycle status | Idea / Draft / In Review / Experimental / Active / Needs Remediation / Deprecated / Archived / Superseded. |
+| Lifecycle status | Idea / Draft / In Review / Experimental / Active / Needs Remediation / Deprecated / Archived / Superseded. These statuses group under the five lifecycle gates (G1 Fit, G2 Design, G3 Build & verify, G4 Pilot & measure, G5 Operate & retire); see `Agent Fit Intake`. |
 | Readiness status | Ready / Needs Cleanup / Not Ready / Historical Reference. |
 | Purpose | What outcome the agent supports. |
 | Audience | Intended users, team, role, or group. |

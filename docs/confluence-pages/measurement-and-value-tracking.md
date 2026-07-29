@@ -35,7 +35,7 @@ Use this page to define how the ROVO agent portfolio measures value, quality, ad
 
 | Signal | Meaning | Expected Action |
 |---|---|---|
-| Lifecycle status | Idea, Draft, In Review, Experimental, Active, Needs Remediation, or Deprecated | Use the lifecycle policy from `Agent Fit Intake`. |
+| Lifecycle status | Idea, Draft, In Review, Experimental, Active, Needs Remediation, or Deprecated | Use the lifecycle policy from `Agent Fit Intake`. These statuses group under the five lifecycle gates (G1 Fit, G2 Design, G3 Build & verify, G4 Pilot & measure, G5 Operate & retire). |
 | Ready | The agent has evidence of value, current ownership, scoped knowledge, and recent review for its current lifecycle step. | Continue monitoring. |
 | Needs Cleanup | The agent is useful but has measurement, ownership, source, evaluation, or visibility gaps. | Add remediation action and review date. |
 | Not Ready | The agent is risky, stale, unused, duplicative, or lacks required governance controls. | Pause, redesign, consolidate, or retire. |
@@ -59,7 +59,7 @@ Each durable agent should document:
 |---|---|---|---|
 | Agent owner check | Monthly | Agent owner | Updated metric row, open issues, owner notes |
 | Working group review | Monthly | ROVO working group | Portfolio risks, consolidation candidates, backlog updates |
-| Leadership summary | Quarterly | Stakeholders | Value summary, adoption trends, quality signals, risk themes |
+| Leadership summary | Quarterly | Leaders / executives | Value summary, adoption trends, quality signals, risk themes |
 | Lifecycle review | At launch, major change, or retirement | Owner + reviewer | Decision to launch, continue, revise, consolidate, or retire |
 
 ## Feedback Loop
