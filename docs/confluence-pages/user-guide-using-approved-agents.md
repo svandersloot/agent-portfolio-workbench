@@ -15,6 +15,8 @@ An agent should appear on the approved-user list only when repo-backed or approv
 | Pilot Approved | Pilot-only. Use only if you are in the named pilot audience. |
 | Experimental, Draft, In Review, Needs Cleanup, Candidate, Archived, Superseded, or Historical Reference | Not an approved everyday-user agent. Use the request or improvement path instead. |
 
+As an end user you never need to track lifecycle detail. Behind the scenes these statuses sit in the last two lifecycle gates — G4 Pilot & measure and G5 Operate & retire — described in `Agent Fit Intake`.
+
 ## Approved Agents
 
 No source-backed approved agents are confirmed in the repo-backed inventory for this everyday-user list yet.

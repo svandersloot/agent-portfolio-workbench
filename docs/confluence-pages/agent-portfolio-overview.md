@@ -8,15 +8,18 @@ Rovo is the current first runtime. Rovo Studio and approved Atlassian surfaces s
 
 ## Who uses what
 
+This is the canonical six-role audience model. Roles describe who someone is; lifecycle gates describe when and how a capability may be used.
+
 | Role | Starting point | Contribution or decision |
 |---|---|---|
-| End users | Approved agents and the feedback path named for their workflow | Report usefulness, edits, rejection, missing context, or risk |
-| Pilot users | The named pilot agent and pilot feedback tracker | Provide structured evidence within the approved pilot boundary |
-| Builders and agent owners | Agent Fit Intake, Agent Inventory, Project Brain, evaluations, and templates | Draft the smallest useful solution and maintain evidence |
-| Designated reviewers / decision owners | Promotion packet, pilot boundaries, readiness evidence, and review records | Decide whether evidence supports pilot use or promotion |
-| Auditors / assurance reviewers | Git history, source links, validation output, and decision records | Check traceability and control evidence; no approval authority |
+| Governance builder | Agent Fit Intake, Agent Inventory, Project Brain, evaluations, and templates | Shape ideas, check for reuse, and draft the smallest useful governed solution |
+| Agent owner | Project Brain, knowledge sources, measurement plan, and change log | Maintain sources, guardrails, readiness, measurement, and lifecycle evidence |
+| Reviewer / decision owner | Promotion packet, pilot boundaries, readiness evidence, and review records | Decide whether evidence supports pilot use or promotion |
+| Assurance partner | Git history, source links, validation output, and decision records | Audit, security, privacy, legal, and compliance, consolidated. Check traceability and control evidence; decide when a use case needs formal review, extra controls, or rejection; no approval authority over the workflow itself |
+| End user | Approved agents and the feedback path named for their workflow | Report usefulness, edits, rejection, missing context, or risk |
+| Leader / executive | Portfolio and leadership views, and Measurement and Value Tracking summaries | See portfolio shape, investment choices, risks, outcomes, and decisions needing attention |
 
-Pilot users are a named subset of end users, not a separate consumer product or a default broad audience. Do not describe a pilot approval as broad readiness or org-wide rollout.
+Pilot users are a temporary subset of end users during evaluation, not a separate role, a separate consumer product, or a default broad audience. Do not describe a pilot approval as broad readiness or org-wide rollout.
 
 ## How the workbench relates to runtime
 

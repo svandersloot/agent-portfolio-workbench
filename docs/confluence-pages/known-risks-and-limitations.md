@@ -58,7 +58,7 @@ Until platform controls improve, use these documented workarounds.
 
 ### Interim Visibility Controls By Lifecycle Status
 
-Because group or team access restriction is not supported and Studio discoverability controls are unproven (Evidence: Unknown), rely on documentation and process discipline rather than a hard platform control.
+Because group or team access restriction is not supported and Studio discoverability controls are unproven (Evidence: Unknown), rely on documentation and process discipline rather than a hard platform control. These statuses sit within the five lifecycle gates (see `Agent Fit Intake`); the interim controls below apply regardless of gate framing.
 
 | Lifecycle Status | Interim Control |
 |---|---|

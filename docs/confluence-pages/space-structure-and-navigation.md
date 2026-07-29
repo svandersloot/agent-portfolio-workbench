@@ -65,7 +65,7 @@ Planned or recommended children:
 - Confluence Formatting Standards
 - Admin and Owner Guide
 
-### Agent Portfolio Overview`n`nPurpose:`n`n- Acts as the human-facing portfolio and leadership entry point.`n- Routes builders, owners, reviewers, auditors, leaders, and end users to canonical pages.`n- Provides a dated portfolio view without duplicating the canonical inventory.`n`n### Agent Inventory
+### Agent Portfolio Overview`n`nPurpose:`n`n- Acts as the human-facing portfolio and leadership entry point.`n- Routes the six audience roles (governance builders, agent owners, reviewers and decision owners, assurance partners, end users, and leaders and executives) to canonical pages.`n- Provides a dated portfolio view without duplicating the canonical inventory.`n`n### Agent Inventory
 
 Purpose:
 

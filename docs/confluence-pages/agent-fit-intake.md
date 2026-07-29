@@ -124,6 +124,20 @@ Every governed agent should have these fields before it moves beyond `Draft`.
 | Project Brain link | Link to the source-of-truth Project Brain or scaffold. |
 | Last-reviewed date | Date of the last owner, reviewer, or working-group review. |
 
+## Lifecycle Gates
+
+The canonical lifecycle structure is five gates, with the Stage 5 steps nested beneath each as the implementation checklist:
+
+- **G1 Fit** — pain point, intake, duplicate check
+- **G2 Design** — spec, context review
+- **G3 Build & verify** — prototype, dry run, human review
+- **G4 Pilot & measure** — pilot approval, team promotion, metrics and improvement
+- **G5 Operate & retire** — deprecation, retirement
+
+The seven statuses below are the states an item moves through across these gates: typically `Idea` at G1, `Draft` at G2, `In Review` at G3, `Experimental` then `Active` around G4, and `Needs Remediation` or `Deprecated` at G5.
+
+Only the gate structure and the status names are settled. The Entry/Exit criteria in the table below, the risk-tier attribute referenced in the completeness fields, and any fields beyond the current set remain **proposed and not yet policy** — they follow today's practice until the completeness-contract and schema decisions are accepted.
+
 ## Lifecycle Statuses
 
 | Status | Meaning | Entry Criteria | Exit Criteria |
