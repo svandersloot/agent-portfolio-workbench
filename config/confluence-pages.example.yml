@@ -629,6 +629,146 @@ pages:
       - release-health
     pageId: null
     parentPageId: null
+  # Operations/user-facing manual, distinct from the Release Health Analyst
+  # Project Brain family above. Published 2026-08-21 under human-confirmed
+  # canonical live parent: Confluence page 5299994681, ROVO space. Real
+  # published page IDs are recorded in
+  # docs/publish-history/2026-08-21-release-health-analyst-user-guide-publish.md,
+  # not in this tracked example manifest (pageId stays null here per
+  # convention; real IDs belong in the untracked config/confluence-pages.yml
+  # local copy if this family is later managed by the publisher scripts).
+  #
+  # DRIFT NOTE (reported, not resolved): the confirmed parent page's live
+  # title and full body are "Release Notes Manager Project Brain" -- a
+  # different agent's governance record. This is more than a cosmetic title
+  # mismatch; the page content itself does not reference Release Health
+  # Analyst. Per explicit instruction, the parent page was not renamed,
+  # updated, archived, or bannered. See the publish-history record above.
+  - slug: release-health-analyst-user-guide-home
+    title: Release Health Analyst - User Guide & Operations Manual
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-home.md
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+      - operations-manual
+    pageId: null
+    parentPageId: 5299994681
+  - slug: release-health-analyst-user-guide-overview
+    title: Release Health Analyst Overview
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-overview.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-manual-assessment
+    title: Running a Manual Release Assessment
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-manual-assessment.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-assessment-output
+    title: Understanding the Assessment Output
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-assessment-output.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-automation-setup
+    title: Release Health Automation Setup
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-automation-setup.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+      - automation-setup
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-automation-field-reference
+    title: Automation Field Reference
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-automation-field-reference.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+      - automation-setup
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-workflow
+    title: Release Health Assessment Workflow
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-workflow.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-best-practices
+    title: Best Practices
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-best-practices.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-known-limitations
+    title: Known Limitations and Caveats
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-known-limitations.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+      - known-risks
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-troubleshooting
+    title: Troubleshooting Guide
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-troubleshooting.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+      - troubleshooting
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-governance
+    title: Governance and Ownership
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-governance.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+      - admin-guide
+    pageId: null
+    parentPageId: null
+  - slug: release-health-analyst-user-guide-improvement-backlog
+    title: Continuous Improvement Backlog
+    sourcePath: docs/confluence-pages/release-health-analyst-user-guide-improvement-backlog.md
+    parentSlug: release-health-analyst-user-guide-home
+    labels:
+      - agent-governance
+      - release-health
+      - user-guide
+    pageId: null
+    parentPageId: null
   - slug: jira-ticket-polisher-project-brain
     title: Jira Ticket Polisher Project Brain
     sourcePath: docs/confluence-pages/jira-ticket-polisher-project-brain.md
