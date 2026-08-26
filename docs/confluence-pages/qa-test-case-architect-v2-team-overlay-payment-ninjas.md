@@ -23,7 +23,7 @@ Use this overlay only when the user is working with Payment Ninjas, the PN works
 |---|---|
 | Pattern | `{ProjectPrefix}-{StoryNumber}-{Seq}` |
 | Example | `SYNTH-1001-1` (synthetic) |
-| Base/default fallback (no overlay) | `TC-{StoryID}-{AC}-{AREA}-{TYPE}-{NNN}` (see `ROVO Studio Configuration - QA Test Case Architect v2`) |
+| Base/default fallback (no overlay) | `{StoryID}-{Seq}` (example: `BB26-1197-1`; corrected 2026-08-25, reverses the prior verbose `TC-{StoryID}-{AC}-{AREA}-{TYPE}-{NNN}` default — see `ROVO Studio Configuration - QA Test Case Architect v2`) |
 
 Pattern components:
 
@@ -31,11 +31,11 @@ Pattern components:
 - `{Seq}` increments per test case within the story, starting at 1 (`SYNTH-1001-1`, `SYNTH-1001-2`, `SYNTH-1001-3`, and so on).
 - IDs must be deterministic and stable across reruns: the same source story and test-case set must produce the same IDs every time the agent regenerates output. Do not vary sequence assignment based on run order, wall-clock time, or random tie-breaking.
 - ROVO draft IDs generated under this pattern are internal draft identifiers only. They are not final XRAY keys. XRAY numbering happens on import, after the human/Copilot/manual CSV flow described in `ROVO Studio Configuration - QA Test Case Architect v2`.
-- When no team overlay is configured, or when this overlay does not apply, the agent falls back to the base default pattern `TC-{StoryID}-{AC}-{AREA}-{TYPE}-{NNN}`, not this pattern.
+- When no team overlay is configured, or when this overlay does not apply, the agent falls back to the base default pattern `{StoryID}-{Seq}`, not this pattern. The base default is the same shape as this overlay's own pattern, minus the project-prefix/story-number split.
 
 ## XRAY Column Contract
 
-Payment Ninjas uses the shared 15-column XRAY CSV contract documented in `ROVO Studio Configuration - QA Test Case Architect v2` (Story ID, TC ID, Summary, Description, Test Type, Application list, Test Type, Regression, Automated, Assignee, Functionality, Priority, Data, Action, Expected Result). This overlay does not redefine or vary that contract; the column names, order, and count are shared across teams.
+Payment Ninjas uses the shared 14-column XRAY CSV contract documented in `ROVO Studio Configuration - QA Test Case Architect v2` (Story ID, TC ID, Summary, Description, Test Type, Application list, Test Type, Regression, Automated, Assignee, Functionality, Data, Action, Expected Result; `Priority` is not part of the contract as of 2026-08-25). This overlay does not redefine or vary that contract; the column names, order, and count are shared across teams.
 
 Team-specific column *values* do not come from this page or the golden fixture. The functional `Test Type` comes from the Jira story's test-type field, validated against the canonical list in `Knowledge Source Plan - QA Test Case Architect v2` (Controlled Vocabularies); `Application list` comes from the approved Jira/XRAY picklist configured as a knowledge source. The sanitized golden fixture `qa-test-case-architect-v2-team-golden-import-payment-ninjas.csv` is style/format evidence only — use it for illustrative value examples (for example, `CAS`), not as a value authority.
 

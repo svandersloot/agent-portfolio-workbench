@@ -15,7 +15,7 @@
 | Current source space | ROVO / QA AI Ops sources to confirm |
 | Recommended location | Agent Project Brains > QA and Testing Agents |
 | Last reviewed | 2026-06-11 |
-| Next action | Confirm owner, backup owner, Ticket Pack Builder path, QA standard source, golden-copy examples, and pilot validation path before Studio launch or broad use. |
+| Next action | Confirm owner, backup owner, QA standard source, golden-copy examples, and pilot validation path (including the new search-scope and overlay-discovery behavior) before Studio launch or broad use. |
 
 ## Source Evidence
 
@@ -39,10 +39,10 @@ This pipeline is an operating model, not approval for autonomous writes or unatt
 
 ### In Scope
 
-- Generate the required QA artifact package from `TICKET_PACK_COMBINED.xml` in production workflows.
+- Generate the required QA artifact package from a Jira epic or story link, gathering the rest of its own context (issue links, bounded Confluence search, team overlay match) in production workflows — see Runtime Contract, Source Context Gathering (retires the prior `TICKET_PACK_COMBINED.xml` requirement, 2026-08-25).
 - Use prompt-provided source packets only for Studio evaluation or controlled AgentLab testing.
-- Generate XRAY-compatible CSV test suites from ticket-pack story evidence.
-- Generate feature briefs from ticket-pack Jira, Confluence, attachment, diagram, or schema evidence.
+- Generate XRAY-compatible CSV test suites from gathered story evidence.
+- Generate feature briefs from gathered Jira, Confluence, attachment, diagram, or schema evidence.
 - Map acceptance criteria to test cases with 1:1 traceability.
 - Create coverage maps that show source requirements, acceptance criteria, test cases, and gaps.
 - Draft requirement traceability matrices from provided Jira or Confluence evidence.
@@ -89,10 +89,10 @@ This pipeline is an operating model, not approval for autonomous writes or unatt
 
 ## Operating Model
 
-1. Production user supplies `TICKET_PACK_COMBINED.xml` from the upstream Ticket Pack Builder workflow.
-2. Agent confirms the ticket pack includes requirements, acceptance criteria, source manifest, and relevant standards or template references.
+1. Production user supplies at least one Jira epic or story link (or pasted equivalent).
+2. Agent gathers its own context: description, ACs, comments, history, and attachments on the epic/story; issue links; a bounded Confluence search; and a team-overlay match by project prefix.
 3. For Studio evaluation or AgentLab testing only, the agent may treat a complete prompt-provided source packet as a temporary input package.
-4. Agent retrieves or reviews only specific supplied/configured sources, not broad `all Jira` or `all Confluence` scopes.
+4. Agent retrieves or reviews only sources within the bounded scope (home project, one linked hop, Confluence), not broad `all Jira` or `all Confluence` scopes.
 5. Agent applies the QA standard test case template and golden-copy examples where available.
 6. Agent produces the required artifact package with requirement-to-test traceability.
 7. Agent validates output for coverage completeness, XRAY/CSV formatting, source traceability, and missing data.
@@ -116,7 +116,7 @@ This pipeline is an operating model, not approval for autonomous writes or unatt
 |---|---|---|
 | Primary owner is not formally assigned. | Cannot promote beyond Draft. | Confirm primary owner and decision authority. |
 | Backup owner is missing. | Operational continuity gap. | Assign backup owner or delegate. |
-| Production Ticket Pack Builder path needs confirmation. | Agent may block or produce incomplete artifacts without context. | Confirm how `TICKET_PACK_COMBINED.xml` is generated and handed to the agent. |
+| Search-scope and team-overlay discovery are newly self-directed (2026-08-25) and unproven in live use. | Agent may under- or over-gather context without evaluation evidence. | Run the eval cases in `Evaluation - QA Test Case Architect v2` covering the bounded search scope and overlay discovery. |
 | Direct Jira/XRAY integration is not available. | Current workflow must remain manual copy/paste into Copilot and manual XRAY import. | Revisit only if Copilot gains a Jira or XRAY connector and governance approves the write path. |
 | Knowledge source access is not confirmed. | Agent may miss required QA standards or source exports. | Confirm named source pages and allowed attachments. |
 | Evaluation has not been run. | Quality and safety are unproven. | Run evaluation prompts against representative Jira stories and ambiguous AC examples. |

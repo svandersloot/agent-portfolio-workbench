@@ -2,7 +2,7 @@
 
 ## Source Strategy
 
-QA Test Case Architect v2 should work from explicit, current QA source evidence. In production, the required input is `TICKET_PACK_COMBINED.xml` from the upstream Ticket Pack Builder workflow because the agent needs normalized context to build tests safely. In Studio evaluation or AgentLab testing, a complete prompt-provided source packet may be treated as a temporary input package. Missing details must become `TBD`, `ConflictLog`, or `TBDLog` entries rather than invented content.
+QA Test Case Architect v2 should work from explicit, current QA source evidence. In production, the minimum required input is at least one Jira epic or story link (or pasted equivalent); the agent gathers the rest of its own context by reading the epic/story, following issue links, searching within a bounded scope (home project plus one linked hop, plus Confluence), and checking for a matching team overlay — see `Runtime Contract - QA Test Case Architect v2`, Source Context Gathering (decided 2026-08-25; retires the prior `TICKET_PACK_COMBINED.xml` / Ticket Pack Builder requirement). In Studio evaluation or AgentLab testing, a complete prompt-provided source packet may be treated as a temporary input package. Missing details must become `TBD`, `ConflictLog`, or `TBDLog` entries rather than invented content.
 
 ## Authority Labels
 
@@ -20,9 +20,11 @@ QA Test Case Architect v2 should work from explicit, current QA source evidence.
 | Source | Type | Authority | Allowed Use | Freshness | Fallback |
 |---|---|---|---|---|---|
 | QA Standard - Test Case Template For Rovo Agents | Confluence / QA standard | Process Authority | Define test case CSV fields, naming, and artifact structure. | Review after template changes | Ask user to paste current template if inaccessible. |
-| TICKET_PACK_COMBINED.xml | XML input package | Production Input Package | Required production context bundle containing normalized Jira stories, ACs, source manifest, and supporting evidence. | Per request | Stop production workflow and ask for the ticket pack. For evaluation only, use a complete prompt source packet with caveat. |
+| Jira epic or story link (or pasted equivalent) | Jira / supplied link or text | Production Input Package | Minimum required production entry point; the agent gathers the rest of its context from here (issue links, bounded Confluence search, team overlay match). | Per request | Stop production workflow and ask for at least one epic or story link. For evaluation only, use a complete prompt source packet with caveat. |
+| Issue links (blocks / is-blocked-by / relates-to / parent-child) | Jira | System of Record | Discover related requirements, decisions, and dependencies within the bounded search scope. | Per request | If a linked item falls outside the bounded scope, ask the user rather than follow it. |
 | Jira story exports or pasted Jira story content | Jira / supplied text | System of Record | Identify story scope, acceptance criteria, labels, and traceability anchors. | Per request | Mark missing fields as `TBD`. |
 | Acceptance criteria | Jira / supplied text | System of Record | Create 1:1 AC-to-test mappings. | Per story | Do not generate unsupported AC; log missing AC. |
+| Team overlay (`Team Overlay - <Team> (<Prefix>) - QA Test Case Architect v2`) | Confluence | Process Authority when matched | Naming convention, board name, step style, and TC-ID pattern when the overlay defines one; matched by the source project's prefix. | Review after overlay changes | When no matching overlay exists, use the base default (§10 simplified ID pattern; shared 14-column contract; no custom naming/board guidance). |
 | SharePoint-hosted Confluence exports | Supplied export | User-Supplied Evidence / Reference | Use when user confirms source origin and export date. | Per export | Ask for source metadata or mark confidence low. |
 | Attachments and supporting documentation | File / supplied text | User-Supplied Evidence / Reference | Use as supporting context for feature briefs, test suites, coverage maps, and RTMs. | Per request | Ask user to identify source authority and freshness. |
 | Architecture diagrams | Image/file | Technical Source / Reference | Extract visible flows, systems, and integration points for test coverage ideas. | Per diagram version | Use `TBD` for unclear OCR or ambiguous relationships. |
@@ -35,7 +37,7 @@ QA Test Case Architect v2 should work from explicit, current QA source evidence.
 Before generating final-seeming artifacts, the agent must confirm:
 
 - Target story, epic, feature, or requirement set.
-- Production run: `TICKET_PACK_COMBINED.xml` is provided.
+- Production run: at least one Jira epic or story link (or pasted equivalent) is provided.
 - Evaluation or AgentLab run: complete prompt source packet is provided and clearly marked as temporary evaluation input.
 - Source material includes acceptance criteria or explicit requirements.
 - Desired artifact package or specific artifact from the required catalog.
@@ -50,7 +52,8 @@ Before generating final-seeming artifacts, the agent must confirm:
 |---|---|---|---|
 | QATCA-DI-001 | Acceptance criteria are missing. | 1:1 traceability cannot be proven. | Provide AC or source requirement page. |
 | QATCA-DI-002 | QA template is inaccessible. | CSV may not match the current standard. | Provide template link or pasted template. |
-| QATCA-DI-003 | Production ticket pack is missing. | Production workflow cannot safely generate tests. | Provide `TICKET_PACK_COMBINED.xml`; evaluation runs may use a complete prompt source packet. |
+| QATCA-DI-003 | No Jira epic or story link is provided. | Production workflow cannot safely generate tests. | Provide at least one Jira epic or story link (or pasted equivalent); evaluation runs may use a complete prompt source packet. |
+| QATCA-DI-009 | Gathered context (epic/story, issue links, bounded Confluence search) is still insufficient after Source Context Gathering. | Production workflow cannot safely generate tests from what was found. | State exactly what is missing and ask the user; do not search beyond the bounded scope or invent requirements. |
 | QATCA-DI-004 | API schema or diagram is referenced but not provided. | Technical coverage may be incomplete. | Provide schema, diagram, or exclude that coverage area. |
 | QATCA-DI-005 | Requirements conflict across sources. | Test design may validate the wrong behavior. | Human owner resolves conflict. |
 | QATCA-DI-006 | Source export origin or date is unknown. | Source freshness cannot be trusted. | Provide export metadata or current source link. |
@@ -76,10 +79,10 @@ The two `Test Type` columns and `Application List` in the TestSuite/XRAY CSV are
 ## Source Handling Rules
 
 - Do not invent acceptance criteria, test data, expected results, APIs, or system behavior.
-- Require `TICKET_PACK_COMBINED.xml` for production artifact generation.
+- Require at least one Jira epic or story link (or pasted equivalent) for production artifact generation; gather the rest per Source Context Gathering.
 - Allow complete prompt source packets only for Studio evaluation, AgentLab testing, or explicitly approved prototype runs.
 - Preserve source traceability for each generated test case.
-- Require specific pages, spaces, filters, files, or pasted source packets; do not use broad `all Jira` or `all Confluence` scopes.
+- Bound search to the story/epic's home project, plus one hop into a project reached via an explicit issue link, plus Confluence; do not use broad `all Jira` or `all Confluence` scopes, and ask the user rather than search beyond this bound.
 - Use `TBD` for missing test preconditions, data, expected results, or requirement mappings.
 - Add conflicting source statements to `ConflictLog`; do not resolve them silently.
 - Add missing inputs to `TBDLog` with the needed owner or source when known.
@@ -100,6 +103,6 @@ The two `Test Type` columns and `Application List` in the TestSuite/XRAY CSV are
 | Golden-copy examples for remaining artifacts confirmed | Open | Needed for FeatureBrief, CoverageMap, RTM, E2E_Scenarios, MiniTestPlan, TestSummary, ConflictLog, and TBDLog. |
 | Full artifact catalog confirmed | Done | Nine required artifacts are documented. |
 | XRAY ID and upload model confirmed | Partial | XRAY numbering occurs on import after ROVO provides CSV text and a human uses Copilot/manual flow to produce/import the actual CSV. |
-| XRAY column contract scope (shared vs team-specific) | Decided (2026-07-13; updated 2026-07-14) | S2 ruling relayed by owner: the XRAY CSV column contract is **shared across teams**; team-specific *values* stay overlay-scoped. The shared base contract was first captured as the 14-column golden ([contract-diff note](../reports/qa-test-case-architect-v2-csv-contract-diff-2026-07.md)) and applied in source by S3; `Priority` (default `Low`) was re-added 2026-07-14, so the enforced contract is now **15 columns**. |
+| XRAY column contract scope (shared vs team-specific) | Decided (2026-07-13; updated 2026-07-14; corrected 2026-08-25) | S2 ruling relayed by owner: the XRAY CSV column contract is **shared across teams**; team-specific *values* stay overlay-scoped. The shared base contract was first captured as the 14-column golden ([contract-diff note](../reports/qa-test-case-architect-v2-csv-contract-diff-2026-07.md)) and applied in source by S3; `Priority` (default `Low`) was re-added 2026-07-14 (v0.17), making the enforced contract 15 columns; that re-add was reversed 2026-08-25 on golden-copy/production evidence that Priority isn't actually present in real output, so the enforced contract is now back to **14 columns**, with `Priority` excluded. |
 | Permission model reviewed | Open | No write tools should be enabled in current design. |
 | Controlled vocabularies (Test Type / Application List) | Confirmed (2026-07-14) | Test Type values captured; Application List referenced as a knowledge source (shared org-wide, single-value, owned by Jira/XRAY admins; full list held out); field-hygiene cleanup flagged to the owner. |

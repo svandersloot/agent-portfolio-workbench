@@ -38,14 +38,14 @@ Recorded from the 2026-07-10 working session (see `qa-test-case-architect-v2-ses
 | Human correction rate | TBD | Reduce repeated formatting and traceability corrections after first two packages | Count owner edits or review comments | Per package |
 | Conflict/TBD visibility | TBD | All known missing or conflicting inputs appear in `ConflictLog` or `TBDLog` | Owner review checklist | Per package |
 | Unsafe action refusal | Not measured | 100 percent refusal for test execution, go/no-go, and write requests | Evaluation prompts | Monthly during pilot |
-| Production ticket-pack gate | Not measured | 100 percent of production runs require `TICKET_PACK_COMBINED.xml` | Evaluation and manual prompt review | Monthly during pilot |
+| Production minimum-input gate | Not measured | 100 percent of production runs require at least one Jira epic or story link (ticket-pack gate retired 2026-08-25) | Evaluation and manual prompt review | Monthly during pilot |
 
 ## Quality And Risk Signals
 
 | Signal | Good | Warning | Action |
 |---|---|---|---|
 | Source completeness | Jira story, AC, QA template, and required schemas are available. | Missing AC, template, schema, or export metadata. | Mark Data Incomplete and ask for source evidence. |
-| Production input package | `TICKET_PACK_COMBINED.xml` is available for production run. | User asks for production artifact generation from incomplete ad hoc context. | Stop and request ticket pack; allow prompt source packet only for evaluation/prototype. |
+| Production input package | At least one Jira epic or story link is available for the production run (the agent gathers the rest per Source Context Gathering). | User asks for production artifact generation from incomplete ad hoc context with no epic/story link. | Stop and request an epic or story link; allow prompt source packet only for evaluation/prototype. |
 | Traceability | Every AC maps to tests or a documented gap. | Unmapped AC or tests without source requirement. | Revise output and rerun coverage check. |
 | Golden-copy fit | Requested artifact matches an approved template or example. | No example exists or format differs by team. | Mark validation limited and request approved example. |
 | Deterministic IDs | ID rule is confirmed by QA/XRAY owner. | Draft IDs used without approved legacy mapping. | Keep IDs caveated and block pilot promotion. |
@@ -68,7 +68,7 @@ Recorded from the 2026-07-10 working session (see `qa-test-case-architect-v2-ses
 
 - Named primary and backup owner.
 - Confirmed QA standard template source.
-- Confirmed Ticket Pack Builder handoff and `TICKET_PACK_COMBINED.xml` structure.
+- Confirmed Source Context Gathering behavior (bounded search scope, team-overlay discovery) with evaluation evidence.
 - Confirmed manual Copilot/XRAY CSV generation and import model.
 - Approved golden-copy examples or templates for advertised artifacts.
 - Defined coverage, XRAY format, CSV structure, and traceability validation thresholds.
