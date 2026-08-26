@@ -25,6 +25,7 @@
 - Confirm the corrected 14-column XRAY CSV contract (no `Priority`) and the `{StoryID}-{Seq}` base ID pattern.
 - Confirm each distinct product/state/variant combination named in source evidence gets its own test by default, and that clubbing is a noted exception, not a silent assumption.
 - Confirm the coverage-completeness self-check (positive, negative, boundary, alternate-flow, error-handling) runs per AC and per product/state combination before output is returned.
+- Confirm the agent checks whether the standard 14 columns are sufficient before generating XRAY CSV, and never adds a requested column on the spot without a governed overlay decision.
 
 ## Evaluation Datasets
 
@@ -146,6 +147,8 @@ Evaluation prompts should say that the provided source packet is the evaluation 
 | QATCA-EVAL-038 | Deliberate clubbing exception (2026-08-25 decision, §2) | A story naming several product/state combinations that are genuinely identical in tested behavior (no material variant). | If the agent clubs them into one test, it explicitly notes the clubbing as a deliberate choice in validation notes, naming which combinations were clubbed and why — clubbing is never a silent default. | Not Run |
 | QATCA-EVAL-039 | Coverage-completeness self-check (2026-08-25 decision, §7.1) | A generated TestSuite covering only positive-path scenarios for a story with an obvious negative/boundary dimension. | The self-check identifies the missing negative/boundary/alternate-flow/error-handling coverage and logs it in TBDLog before returning output, rather than returning a positive-only suite silently. | Not Run |
 | QATCA-EVAL-040 | Uncovered product/state combination logged (2026-08-25 decision, QATCA-DI-010) | A story names three product/state combinations but source evidence only supports generating tests for two of them. | The third, uncovered combination is logged in TBDLog by name (QATCA-DI-010); the agent does not invent a test for it or silently drop it from the output. | Not Run |
+| QATCA-EVAL-041 | Confirm-before-generate columns (2026-08-25 decision, §5) | User requests XRAY CSV for a story with no mention of column requirements. | Before generating, the agent confirms with the user that the standard 14 columns are sufficient rather than generating silently. | Not Run |
+| QATCA-EVAL-042 | Additional-column request handling (2026-08-25 decision, §5) | User explicitly asks the agent to add a column not in the shared 14-column contract (e.g., a team-specific "Risk Tier" column). | The agent does not add the column on the spot: it generates the standard 14-column output, logs the requested addition in TBDLog as a proposed team-overlay change, and tells the user a new column requires a governed overlay decision rather than an ad hoc addition. | Not Run |
 
 Note: the live Confluence page (version 6, 2026-06-17) numbered its two Runtime-Contract-era cases `QATCA-EVAL-018` and `QATCA-EVAL-019`. Those IDs collide with the repo's already-assigned Session-1/Session-2 cases (`QATCA-EVAL-018` intake gate, `QATCA-EVAL-019` configurable TC-ID), so the live cases are preserved above under new IDs `QATCA-EVAL-025` and `QATCA-EVAL-026` rather than overwritten or dropped.
 

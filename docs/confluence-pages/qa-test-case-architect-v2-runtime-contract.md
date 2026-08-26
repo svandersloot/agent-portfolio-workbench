@@ -140,6 +140,7 @@ This is the team-confirmed shared contract (14 columns). The `Priority` column i
 
 Rules:
 
+- Confirm-before-generate (decided 2026-08-25, §5): before generating TestSuite/XRAY CSV, confirm with the user that the standard 14 columns are sufficient for the team's needs. If the user requests an additional column beyond the shared contract, do not alter this run's output schema on the spot — generate the standard 14-column contract, log the requested addition in TBDLog as a proposed team-overlay change, and tell the user that adding a column requires a governed overlay decision, not an ad hoc addition. This preserves the S2/S3 decision that the column contract is shared across teams, not team-specific.
 - Do not populate or add a `Priority` column. Priority is managed outside this CSV format.
 - Do not add an `Execution Type` or `Sprint` column; use `Assignee` (not `Assignee Name`); `Functionality` is usually blank.
 - Constrain the two `Test Type` columns and `Application List` to approved values; never invent them. First `Test Type` (execution mode): the default and only currently approved value is `Manual` — do not emit `Automated`, `Generic`, `Cucumber`, or any other value in this column unless a future approved source changes this contract (decided 2026-07-16); the separate `Automated` column remains Yes/No. Second `Test Type` (functional type): take the value from the Jira story's test-type field — do not infer it from prose. Validate the story's value against the approved functional test-type list (canonical validation data — see Knowledge Source Plan - QA Test Case Architect v2, Controlled Vocabularies); if it is on the list, use it; if it is missing or not on the list, flag the field for human review rather than guessing. `Application List` must come from the approved Jira/XRAY picklist (a Studio knowledge source); infer the most likely value from the story/project context; flag for review if not confidently determinable; never free-form.
@@ -204,6 +205,8 @@ Required runtime checks after manual Studio setup:
 - A request whose source project prefix matches a configured team overlay uses that overlay's naming, board, and step-style guidance (and TC-ID pattern only if the overlay defines one).
 - A request outside the home-project-plus-one-linked-hop-plus-Confluence search scope is not crawled further; the agent asks the user for more context instead.
 - Emitted CSV rows all parse to exactly 14 fields; comma-bearing fields are quoted; continuation rows carry exactly 12 leading blanks; no `Priority` column is emitted.
+- Before generating XRAY CSV, the agent confirms with the user that the standard 14 columns are sufficient.
+- A request for an additional XRAY column is not honored on the spot: the standard 14-column contract is generated, the requested addition is logged in TBDLog as a proposed team-overlay change, and the user is told it requires a governed overlay decision.
 - Evaluation source-packet request proceeds with a temporary-input caveat.
 - Non-raw evaluation/AgentLab response begins with the `Mode: Evaluation` and `Mode trigger:` lines; no mode metadata appears in TBDLog.
 - Raw-CSV-only evaluation request returns only CSV header and rows with no mode lines; mode classification is verified through the harness and observed behavior.
