@@ -35,7 +35,7 @@ For production, the user provides at least one Jira epic or story link (or paste
 |---|---|
 | Decision | NEW GOVERNED AGENT CANDIDATE |
 | Reason | The workflow is repeatable, shared across QA roles, source-backed, and produces auditable QA artifacts. |
-| Why not prompt only? | A one-off prompt may help evaluation or prototype users, but production needs a normalized ticket pack to preserve context, source manifest, standard CSV formatting, traceability rules, and conflict logging across teams. |
+| Why not prompt only? | A one-off prompt may help evaluation or prototype users, but production needs a consistent, bounded context-gathering process (issue links, scoped search, team-overlay discovery), standard CSV formatting, traceability rules, and conflict logging across teams. |
 | Why not automation only? | The workflow needs interpretation of requirements, ambiguity handling, and human-facing documentation judgment. |
 | Why not existing-agent extension? | Jira Work Item Assistant supports work-item drafting and review; this agent focuses on QA artifact generation and XRAY-ready test documentation. |
 

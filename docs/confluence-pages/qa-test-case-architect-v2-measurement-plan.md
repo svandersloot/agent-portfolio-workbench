@@ -32,7 +32,7 @@ Recorded from the 2026-07-10 working session (see `qa-test-case-architect-v2-ses
 
 | Metric | Baseline | Target | Measurement Method | Cadence |
 |---|---|---|---|---|
-| Test artifact draft time | TBD during first pilot ticket pack | 25 percent reduction after two pilot ticket packs | QA owner estimates manual vs agent-assisted time | Per package |
+| Test artifact draft time | TBD during first pilot production run | 25 percent reduction after two pilot production runs | QA owner estimates manual vs agent-assisted time | Per package |
 | AC coverage completeness | TBD | 100 percent of provided AC mapped to tests or explicit gaps | Review coverage map | Per package |
 | Validation gate completeness | TBD | 100 percent of outputs include coverage, XRAY/CSV, traceability, and missing-data feedback when applicable | Review generated validation section | Per package |
 | Human correction rate | TBD | Reduce repeated formatting and traceability corrections after first two packages | Count owner edits or review comments | Per package |

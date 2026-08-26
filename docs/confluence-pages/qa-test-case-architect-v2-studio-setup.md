@@ -211,7 +211,7 @@ Use this matrix while configuring Studio. If Studio only lets you configure know
 | QA Standard - Test Case Template For Rovo Agents | Yes before CSV evaluation | Selected Confluence page | Required for meaningful XRAY-compatible CSV output. |
 | Golden-copy XRAY CSV example | Yes when available | Selected approved page or attachment | Required before claiming TestSuite/XRAY CSV format validation. |
 | Golden-copy examples for remaining artifacts | Yes when available | Selected approved pages/examples | Required before claiming standard format validation for XML/CSV/TXT artifacts. |
-| Jira story evidence | Usually through ticket pack | Specific project, filter, selected issue, or user-provided export for evaluation only | Avoid broad `all Jira` unless governance explicitly approves it for a bounded pilot. |
+| Jira story evidence | Usually the supplied epic/story link plus its issue-linked neighbors | Specific project, filter, selected issue, or user-provided export for evaluation only | Avoid broad `all Jira` unless governance explicitly approves it for a bounded pilot. |
 | Confluence or SharePoint supporting docs | Conditional per request | Specific pages, spaces, folders, or supplied exports | Avoid broad `all Confluence`; record source authority and export date when using exports. |
 | Architecture diagrams | Conditional per request | User-provided file/image or approved source page | Treat OCR/diagram evidence as lower-confidence unless user confirms it as authoritative. |
 | API schemas | Conditional per request | User-provided file/URL or approved source page | Use supplied schema only; do not infer missing fields. |
