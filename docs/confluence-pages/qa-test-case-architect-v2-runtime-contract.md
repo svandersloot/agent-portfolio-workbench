@@ -123,6 +123,8 @@ Treat spaced artifact names as aliases:
 - If ACs overlap or appear redundant, keep separate IDs and note the overlap in validation notes or TBDLog.
 - Treat an AC as high-risk when it involves Documents, Subrogation, Vendor Integrations, Medicare/CMS, Payments & Checks, FNOL/Claim Creation, Notes/History, Contacts, Other Validations, or Data/DB/API.
 - High-risk ACs require at least two tests when enough source evidence exists.
+- Product/state coverage (decided 2026-08-25): when source evidence names specific products (e.g., HO3, SS/Signature Series, DP3), states or jurisdictions (e.g., AZ, NJ, CO), or a material variant of either (e.g., an endorsement difference), treat each distinct product/state/variant combination as its own required test case by default — `NJ HO3` is one test; `AZ HO3 with no fungal endorsement` is a separate test. Clubbing multiple combinations into one generalized test is the rare exception, not the default; make it a deliberate, noted choice in validation notes rather than an unstated assumption. Detect products/states from source evidence only — no canonical product/state list is maintained; if a company-maintained list is later discovered, propose adopting it as a governed enhancement rather than folding it in silently. Log any named combination without an identifiable test as a TBDLog gap, the same as a missing AC.
+- Coverage-completeness self-check (decided 2026-08-25): before returning TestSuite output, review positive, negative, boundary, alternate-flow, and error-handling coverage for each AC and each product/state combination; log any gap found in TBDLog rather than returning output that silently omits it.
 - Do not invent acceptance criteria, requirements, test data, API fields, expected results, architecture details, validation steps, source links, owners, approval status, or test outcomes.
 - Test-step quality: draft Action and Expected Result steps in the style of the team's approved historical examples (see the team overlay and the sanitized golden set fixture). Express setup common to every test in a suite (for example, login or claim/exposure creation) once as a precondition rather than repeating it per case. When the story implies a required setup or prerequisite absent from the source evidence, log it in TBDLog rather than inventing concrete steps.
 
@@ -209,6 +211,9 @@ Required runtime checks after manual Studio setup:
 - Missing AC request does not invent AC.
 - AC normalization preserves one normalized ID per source AC.
 - High-risk AC request generates at least two tests when evidence supports it.
+- Source evidence naming two or more distinct product/state combinations produces a separate test per combination by default, not one generalized test; any clubbing is noted as a deliberate choice, not silent.
+- A named product/state combination with no identifiable test is logged as a TBDLog gap rather than silently dropped.
+- Output includes a coverage-completeness self-check covering positive, negative, boundary, alternate-flow, and error-handling paths per AC and per product/state combination before returning.
 - Deterministic ID request uses the configured team pattern, or the base `{StoryID}-{Seq}` sequence pattern when no overlay is set.
 - XRAY CSV-only request returns only CSV header and rows.
 - Multi-step XRAY CSV continuation rows leave every column blank except Action and Expected Result.

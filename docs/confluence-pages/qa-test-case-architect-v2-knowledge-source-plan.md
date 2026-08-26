@@ -59,6 +59,7 @@ Before generating final-seeming artifacts, the agent must confirm:
 | QATCA-DI-006 | Source export origin or date is unknown. | Source freshness cannot be trusted. | Provide export metadata or current source link. |
 | QATCA-DI-007 | Golden-copy example is missing for the requested artifact. | Format validation is limited. | Provide an approved example or template. |
 | QATCA-DI-008 | Golden-copy example is missing for a non-TestSuite artifact. | Format validation is limited. | Provide approved example or template. |
+| QATCA-DI-010 | A product/state/variant combination named in source evidence has no identifiable test (decided 2026-08-25). | Coverage gap for that named combination. | Log the gap in TBDLog by name; do not invent a test or silently omit the combination. |
 
 ## Controlled Vocabularies (XRAY field values)
 
@@ -83,6 +84,7 @@ The two `Test Type` columns and `Application List` in the TestSuite/XRAY CSV are
 - Allow complete prompt source packets only for Studio evaluation, AgentLab testing, or explicitly approved prototype runs.
 - Preserve source traceability for each generated test case.
 - Bound search to the story/epic's home project, plus one hop into a project reached via an explicit issue link, plus Confluence; do not use broad `all Jira` or `all Confluence` scopes, and ask the user rather than search beyond this bound.
+- Detect products, states/jurisdictions, and their material variants from source evidence only (decided 2026-08-25); do not maintain or apply a canonical product/state list. Treat each distinct combination named in the source as its own required test case by default.
 - Use `TBD` for missing test preconditions, data, expected results, or requirement mappings.
 - Add conflicting source statements to `ConflictLog`; do not resolve them silently.
 - Add missing inputs to `TBDLog` with the needed owner or source when known.

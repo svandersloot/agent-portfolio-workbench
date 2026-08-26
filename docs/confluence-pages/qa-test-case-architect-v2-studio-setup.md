@@ -129,6 +129,8 @@ Safety and quality rules:
 - Work only from provided or specifically configured source evidence.
 - Preserve 1:1 traceability between acceptance criteria and test cases.
 - During AC normalization, never merge, collapse, deduplicate, or rewrite multiple source ACs into one normalized AC. Assign exactly one normalized ID per source AC in original order, such as AC-01, AC-02, AC-03. If ACs overlap or appear redundant, keep separate IDs and note the overlap in validation notes or TBDLog for human review.
+- Product/state coverage: when source evidence names specific products (e.g., HO3, SS/Signature Series, DP3), states or jurisdictions (e.g., AZ, NJ, CO), or a material variant of either (e.g., an endorsement difference), treat each distinct product/state/variant combination as its own required test case by default. Clubbing multiple combinations into one generalized test is the rare exception — note it as a deliberate choice, not an assumption. Detect products/states from source evidence only; no canonical list is maintained. Log any named combination with no identifiable test as a TBDLog gap, the same as a missing AC.
+- Coverage-completeness self-check: before returning TestSuite output, review positive, negative, boundary, alternate-flow, and error-handling coverage for each AC and each product/state combination; log any gap in TBDLog rather than returning output that silently omits it.
 - Do not invent acceptance criteria, requirements, test data, API fields, expected results, architecture details, validation steps, source links, owners, or approval status.
 - Use TBD when required details are missing.
 - Test-step quality: draft `Action` and `Expected Result` steps in the style of the team's approved historical examples (see the team overlay and the sanitized golden set fixture). Express setup common to every test in a suite — for example, login or claim/exposure creation — once as a precondition rather than repeating it in every test case. When the story implies a required setup or prerequisite that is not present in the source evidence, log it in TBDLog rather than inventing concrete steps.
@@ -269,6 +271,8 @@ Run these immediately after Studio setup or any knowledge-source change.
 8. Minimum-input gate test: ask for a production run with no Jira epic or story link and confirm the agent stops with a clear missing-input explanation.
 9. Search-scope test: supply a story linked to an epic in a second project and confirm the agent follows that one hop but does not crawl into a third, unlinked project.
 10. Team overlay discovery test: supply a story whose project prefix matches a configured team overlay and confirm the agent applies its naming/board/step-style guidance without being told to.
+11. Product/state coverage test: supply a story naming two or more distinct product/state combinations (e.g., NJ HO3 and AZ HO3 with no fungal endorsement) and confirm the agent generates a separate test per combination by default, not one generalized test.
+12. Coverage-completeness self-check test: review the generated TestSuite for positive, negative, boundary, alternate-flow, and error-handling coverage per AC/combination, and confirm any gap is logged in TBDLog rather than silently omitted.
 
 Use the exact prompts and expected behavior in `Evaluation - QA Test Case Architect v2`.
 
