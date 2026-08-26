@@ -448,6 +448,87 @@ pages:
       - payment-ninjas
     pageId: null
     parentPageId: null
+  - slug: qa-test-adequacy-critic-project-brain
+    title: QA Test Adequacy Critic Project Brain
+    sourcePath: docs/confluence-pages/qa-test-adequacy-critic-project-brain.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - project-brain
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-adequacy-critic-agent-design-record
+    title: QA Test Adequacy Critic - Agent Design Record
+    sourcePath: docs/confluence-pages/qa-test-adequacy-critic-agent-design-record.md
+    parentSlug: qa-test-adequacy-critic-project-brain
+    labels:
+      - agent-governance
+      - agent-design-record
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-adequacy-critic-runtime-contract
+    title: Runtime Contract - QA Test Adequacy Critic
+    sourcePath: docs/confluence-pages/qa-test-adequacy-critic-runtime-contract.md
+    parentSlug: qa-test-adequacy-critic-project-brain
+    labels:
+      - agent-governance
+      - runtime-contract
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-adequacy-critic-rovo-studio-configuration
+    title: ROVO Studio Configuration - QA Test Adequacy Critic
+    sourcePath: docs/confluence-pages/qa-test-adequacy-critic-rovo-studio-configuration.md
+    parentSlug: qa-test-adequacy-critic-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-adequacy-critic-studio-setup
+    title: Studio Setup - QA Test Adequacy Critic
+    sourcePath: docs/confluence-pages/qa-test-adequacy-critic-studio-setup.md
+    parentSlug: qa-test-adequacy-critic-project-brain
+    labels:
+      - agent-governance
+      - rovo-studio-configuration
+      - agent-setup
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-adequacy-critic-subagent-settings
+    title: Subagent Settings - QA Test Adequacy Critic
+    sourcePath: docs/confluence-pages/qa-test-adequacy-critic-subagent-settings.md
+    parentSlug: qa-test-adequacy-critic-project-brain
+    labels:
+      - agent-governance
+      - subagent-settings
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-adequacy-critic-evaluation
+    title: Evaluation - QA Test Adequacy Critic
+    sourcePath: docs/confluence-pages/qa-test-adequacy-critic-evaluation.md
+    parentSlug: qa-test-adequacy-critic-project-brain
+    labels:
+      - agent-governance
+      - agent-evaluation
+      - qa-test
+    pageId: null
+    parentPageId: null
+  - slug: qa-test-adequacy-critic-change-log
+    title: Change Log - QA Test Adequacy Critic
+    sourcePath: docs/confluence-pages/qa-test-adequacy-critic-change-log.md
+    parentSlug: qa-test-adequacy-critic-project-brain
+    labels:
+      - agent-governance
+      - agent-change-log
+      - qa-test
+    pageId: null
+    parentPageId: null
   - slug: release-evidence-ledger-contract
     title: Release Evidence Ledger Contract
     sourcePath: docs/confluence-pages/release-evidence-ledger-contract.md

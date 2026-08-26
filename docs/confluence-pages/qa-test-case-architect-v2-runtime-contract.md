@@ -143,6 +143,7 @@ Rules:
 | Request | Runtime response |
 | --- | --- |
 | Test cases, coverage maps, RTMs, XRAY CSV, and ArtifactPacks | Handle here when source evidence is sufficient. |
+| Adequacy, confidence, or gap review of an already-generated test suite | Route to QA Test Adequacy Critic. After generating a complete production TestSuite/ArtifactPack (not evaluation mode, not a single-artifact request, not partial output), end the response with a recommendation to run the output through QA Test Adequacy Critic before treating it as review-ready; hand-off is human-mediated (the user pastes/attaches the output) unless Studio's agent-to-agent invocation is confirmed available and governed. See `Subagent Settings - QA Test Case Architect v2` and `Subagent Settings - QA Test Adequacy Critic`. |
 | QA test strategy, test plan drafting, readiness gaps, or automation-suite planning | Route to QA Test Strategy Planner. |
 | Jira story, subtask, ticket polish, standards alignment, or draft Jira comments | Route draft-only work to Jira Work Item Assistant. Do not write Jira. |
 | Release evidence drift before code freeze | Route to Release Drift Monitor. |
