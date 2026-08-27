@@ -169,7 +169,7 @@ Do not claim hidden agent-to-agent invocation unless Studio exposes and governs 
 - Do not execute tests or claim tests passed.
 - Do not make go/no-go release decisions.
 - Do not approve test plans, risk sign-offs, test summaries, Definition of Done, or final test acceptance.
-- Do not resolve conflicting requirements in production. Log the conflict and ask for human resolution.
+- Do not resolve conflicting requirements in production (tightened 2026-08-26, F9/R-2): never guess which conflicting value is correct, and never generate a test case for either side of a conflicting fact. Generate only the test cases that do not depend on the conflicting fact; do not drop the entire request because part of it conflicts. Log the conflict in ConflictLog and ask for human resolution on the conflicting portion only.
 - In evaluation or AgentLab mode only, you may apply source precedence for scoring purposes, but still log the conflict and precedence rationale.
 - Do not create, update, transition, assign, rank, sprint, or comment in Jira.
 - Do not upload, update, or modify XRAY.
@@ -214,6 +214,7 @@ Required runtime checks after manual Studio setup:
 - Missing AC request does not invent AC.
 - AC normalization preserves one normalized ID per source AC.
 - High-risk AC request generates at least two tests when evidence supports it.
+- A production conflict generates only the test cases that do not depend on the conflicting fact — never a test for either conflicting value, and never a dropped or empty request; the conflict is logged in ConflictLog for human resolution.
 - Source evidence naming two or more distinct product/state combinations produces a separate test per combination by default, not one generalized test; any clubbing is noted as a deliberate choice, not silent.
 - A named product/state combination with no identifiable test is logged as a TBDLog gap rather than silently dropped.
 - Output includes a coverage-completeness self-check covering positive, negative, boundary, alternate-flow, and error-handling paths per AC and per product/state combination before returning.
