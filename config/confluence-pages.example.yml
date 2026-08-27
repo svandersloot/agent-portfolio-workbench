@@ -448,6 +448,17 @@ pages:
       - payment-ninjas
     pageId: null
     parentPageId: null
+  - slug: qa-test-case-architect-v2-team-overlay-breaking-backlogs
+    title: Team Overlay - Breaking Backlogs (BB26) - QA Test Case Architect v2
+    sourcePath: docs/confluence-pages/qa-test-case-architect-v2-team-overlay-breaking-backlogs.md
+    parentSlug: qa-test-case-architect-v2-project-brain
+    labels:
+      - agent-governance
+      - team-overlay
+      - qa-test
+      - breaking-backlogs
+    pageId: null
+    parentPageId: null
   - slug: qa-test-adequacy-critic-project-brain
     title: QA Test Adequacy Critic Project Brain
     sourcePath: docs/confluence-pages/qa-test-adequacy-critic-project-brain.md
