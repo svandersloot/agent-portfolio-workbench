@@ -31,9 +31,9 @@ Breaking Backlogs does not need a custom TC-ID pattern. The base default introdu
 
 ## XRAY Column Contract
 
-Breaking Backlogs uses the shared 14-column XRAY CSV contract documented in `ROVO Studio Configuration - QA Test Case Architect v2` (Story ID, TC ID, Summary, Description, Test Type, Application list, Test Type, Regression, Automated, Assignee, Functionality, Data, Action, Expected Result; `Priority` is not part of the contract as of 2026-08-25). This overlay does not redefine or vary that contract; the column names, order, and count are shared across teams.
+Breaking Backlogs uses the shared 15-column XRAY CSV contract documented in `ROVO Studio Configuration - QA Test Case Architect v2` (Story ID, TC ID, Summary, Description, Test Type, Application list, Test Type, Regression, Automated, Assignee, Functionality, Priority, Data, Action, Expected Result; `Priority` is part of the contract, re-added 2026-08-27, and must always be populated — defaulting to `Low` unless the source evidence indicates otherwise — because it is required to close the underlying Jira ticket). This overlay does not redefine or vary that contract; the column names, order, and count are shared across teams.
 
-**Do not conflate BB26's Jira issue-level `Priority` field with the CSV `Priority` column.** BB26's own Team Standards require a Jira `Priority` value (Critical / High / Medium / Low) to be set before a story is ready for a sprint (see Definition of Ready below), and that field is a normal, expected part of a BB26 Jira issue. It has no bearing on the XRAY TestSuite CSV output: the shared CSV contract does not include a `Priority` column and none should be emitted, regardless of what Priority value the source BB26 story carries.
+**BB26's Jira issue-level `Priority` field and the CSV `Priority` column are two separate fields, even though they share a name.** BB26's own Team Standards require a Jira `Priority` value (Critical / High / Medium / Low) to be set before a story is ready for a sprint (see Definition of Ready below); that is a normal, expected part of a BB26 Jira issue and is independent of the CSV output. Do not automatically copy a BB26 story's Jira `Priority` value into the generated CSV `Priority` column — apply the shared default (`Low`, per `ROVO Studio Configuration - QA Test Case Architect v2`) unless a future overlay decision explicitly defines a mapping between the two.
 
 ## Ticket Naming And Structure Convention (source: Team Standards: Breaking Backlogs (BB26))
 
@@ -65,6 +65,6 @@ The functional Test Type for a BB26 test is taken from the Jira story's test-typ
 - Do not treat this overlay as `Active`, `Ready`, or approved for broad pilot use.
 - Do not invent a BB26-specific TC-ID pattern; use the base default (`{StoryID}-{Seq}`) unless a future governance decision defines one.
 - Do not modify the shared XRAY column contract from this page; any contract change routes through `ROVO Studio Configuration - QA Test Case Architect v2` and `Studio Setup - QA Test Case Architect v2`.
-- Do not emit a `Priority` column in generated XRAY CSV because BB26's Jira issues carry a Jira `Priority` field — the two are unrelated, and the CSV contract has no `Priority` column.
+- Do not copy a BB26 story's Jira `Priority` field value into the generated CSV `Priority` column; apply the shared default (`Low`) unless a future overlay decision explicitly defines a mapping between the two.
 - If a current BB26 story or source packet conflicts with this overlay, prefer the current source and log the conflict for human review.
 - This overlay does not perform, and must not be read as authorizing, any ROVO Studio, Jira, XRAY, or Confluence write action.
