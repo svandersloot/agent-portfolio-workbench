@@ -19,8 +19,15 @@ Context:
   what was decided and why.
 
 What's done so far (slice 1 of the plan, uncommitted on the current branch):
-- New pages: docs/confluence-pages/qa-test-adequacy-critic-{project-brain,agent-design-record,runtime-contract,
-  rovo-studio-configuration,studio-setup,subagent-settings,evaluation,change-log}.md
+- New pages:
+  - docs/confluence-pages/qa-test-adequacy-critic-project-brain.md
+  - docs/confluence-pages/qa-test-adequacy-critic-agent-design-record.md
+  - docs/confluence-pages/qa-test-adequacy-critic-runtime-contract.md
+  - docs/confluence-pages/qa-test-adequacy-critic-rovo-studio-configuration.md
+  - docs/confluence-pages/qa-test-adequacy-critic-studio-setup.md
+  - docs/confluence-pages/qa-test-adequacy-critic-subagent-settings.md
+  - docs/confluence-pages/qa-test-adequacy-critic-evaluation.md
+  - docs/confluence-pages/qa-test-adequacy-critic-change-log.md
 - Manifest entries added to config/confluence-pages.example.yml for the new family.
 - agent-inventory.md: added inventory row + reuse-check bullet for QA Test Adequacy Critic.
 - QATCA v2 side (minimal, routing only): one new Routing Rules row in
