@@ -27,7 +27,7 @@ QA teams need repeatable, source-backed test artifacts that preserve traceabilit
 
 ## Workflow Supported
 
-For production, the user provides `TICKET_PACK_COMBINED.xml` from the Ticket Pack Builder workflow. The ticket pack contains normalized source evidence such as Jira stories, acceptance criteria, attachments, supporting documentation, Confluence or SharePoint exports, architecture diagrams, or API schemas. For Studio evaluation or AgentLab testing, a complete prompt-provided source packet may stand in as a temporary input package. The agent runs a retrieval, generation, and validation loop: it normalizes requirements, drafts QA artifacts, maps acceptance criteria to tests, checks coverage and format, and reports conflicts or missing data for human review.
+For production, the user provides at least one Jira epic or story link (or pasted equivalent); the agent gathers its own normalized source evidence from there — description, ACs, comments, history, and attachments on the epic/story; issue links; a bounded Confluence search; and a team-overlay match — per Runtime Contract, Source Context Gathering (retires the prior `TICKET_PACK_COMBINED.xml` / Ticket Pack Builder requirement, 2026-08-25). For Studio evaluation or AgentLab testing, a complete prompt-provided source packet may stand in as a temporary input package. The agent runs a retrieval, generation, and validation loop: it normalizes requirements, drafts QA artifacts, maps acceptance criteria to tests, checks coverage and format, and reports conflicts or missing data for human review.
 
 ## Fit Decision
 
@@ -35,7 +35,7 @@ For production, the user provides `TICKET_PACK_COMBINED.xml` from the Ticket Pac
 |---|---|
 | Decision | NEW GOVERNED AGENT CANDIDATE |
 | Reason | The workflow is repeatable, shared across QA roles, source-backed, and produces auditable QA artifacts. |
-| Why not prompt only? | A one-off prompt may help evaluation or prototype users, but production needs a normalized ticket pack to preserve context, source manifest, standard CSV formatting, traceability rules, and conflict logging across teams. |
+| Why not prompt only? | A one-off prompt may help evaluation or prototype users, but production needs a consistent, bounded context-gathering process (issue links, scoped search, team-overlay discovery), standard CSV formatting, traceability rules, and conflict logging across teams. |
 | Why not automation only? | The workflow needs interpretation of requirements, ambiguity handling, and human-facing documentation judgment. |
 | Why not existing-agent extension? | Jira Work Item Assistant supports work-item drafting and review; this agent focuses on QA artifact generation and XRAY-ready test documentation. |
 
@@ -48,7 +48,7 @@ The primary trigger is a QA or project user asking to generate test cases, cover
 | Source | Type | Authority | Permissions | Freshness | Fallback |
 |---|---|---|---|---|---|
 | QA Standard - Test Case Template For Rovo Agents | Confluence / QA standard | Process Authority | Read-only | Review after template changes | Ask user to provide current template content if inaccessible. |
-| TICKET_PACK_COMBINED.xml | XML file | Production input package | User-provided / read-only | Per request | Stop production workflow if missing; use prompt packet only for evaluation/prototype runs. |
+| Jira epic or story link (or pasted equivalent) | Jira / supplied link or text | Production input package | User-provided / read-only | Per request | Stop production workflow if missing; use prompt packet only for evaluation/prototype runs. Retired 2026-08-25: this replaces the prior `TICKET_PACK_COMBINED.xml` requirement — see Runtime Contract, Source Context Gathering. |
 | Jira story export or pasted story details | Jira / supplied text | System of Record for story scope | Read-only or user-provided | Per request | Mark missing fields as `TBD`. |
 | Attachments and supporting documentation | File / supplied text | User-supplied evidence | Read-only | Per request | Ask user to clarify source authority. |
 | Acceptance criteria | Jira / supplied text | Requirement evidence | Read-only or user-provided | Per story | Do not invent missing AC; log gaps. |
@@ -117,7 +117,7 @@ The primary trigger is a QA or project user asking to generate test cases, cover
 | Template source inaccessible | Medium | CSV may drift from QA standard. | Ask user to provide current template. |
 | Missing golden-copy examples | Medium | Artifact format may drift between teams. | Keep output draft and flag the missing example. |
 | Broad source scope requested | Medium | Agent may retrieve unrelated or private context. | Require specific pages, spaces, filters, or supplied files. |
-| Ticket pack missing in production | High | Agent lacks required normalized context. | Stop and ask for `TICKET_PACK_COMBINED.xml`. |
+| No Jira epic or story link in production | High | Agent lacks a minimum entry point to gather context. | Stop and ask for at least one Jira epic or story link. |
 | XRAY import numbering misunderstood | Medium | Users may expect final XRAY IDs before import. | State that XRAY numbering happens on import after manual/Copilot CSV flow. |
 | Sensitive source data supplied | Medium | Privacy risk. | Remind user to use only permitted internal QA data. |
 

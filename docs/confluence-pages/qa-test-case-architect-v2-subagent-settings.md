@@ -2,9 +2,15 @@
 
 ## Current Subagent And Orchestration Model
 
-QA Test Case Architect v2 currently uses a single-parent-agent model. No subagents are required for the draft documentation slice.
+QA Test Case Architect v2 currently uses a single-parent-agent model. No subagents belong to this agent.
 
 This page exists to record that decision and prevent future Studio configuration drift. If subagents are added later, update this page before changing Studio.
+
+## Hand-off To QA Test Adequacy Critic (added 2026-08-25)
+
+QA Test Case Architect v2 is not itself a parent of QA Test Adequacy Critic, but the two agents are linked by a one-way hand-off: after this agent generates a **complete production TestSuite/ArtifactPack** (not evaluation mode, not a single-artifact request, not partial output), it ends its response with a recommendation to run the output through QA Test Adequacy Critic before treating it as review-ready. See `Runtime Contract - QA Test Case Architect v2` (Routing Rules) and `Subagent Settings - QA Test Adequacy Critic` for the exact trigger condition and hand-off contract.
+
+Do not claim hidden agent-to-agent invocation unless Studio exposes and governs that capability. Until confirmed, the hand-off is human-mediated: this agent's recommendation message is the extent of the behavior change, and the human reviewer copies/attaches the output into a separate conversation with QA Test Adequacy Critic.
 
 The agent should still follow a three-stage operating pipeline:
 
