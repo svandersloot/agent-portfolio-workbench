@@ -12,7 +12,7 @@ The helper role is valuable because it can draft faster than the owner can write
 | Duplicate comparison | Search inventory, list similar agents, compare audience/source/tool/output overlap | `docs/confluence-pages/agent-inventory.md` |
 | Project Brain scaffold | Draft purpose, audience, sources, ownership gaps, risks, and measurement idea | Completeness contract and owner-provided context |
 | Evaluation prompts | Draft source-verification, fallback, unsafe-write, and behavior regression prompts | Existing evaluation pages and approved source docs |
-| Metrics tracker | Prepare manual rows for usage, value, quality, risk, feedback, and decision capture | `templates/stage-5-pilot-feedback-tracker-template.md` |
+| Metrics tracker | For a selected improvement, link feedback, change, comparable retest, and verifier; record user usefulness separately and add a lesson candidate only when one emerges | [Pilot feedback tracker](../templates/stage-5-pilot-feedback-tracker-template.md#verification-of-an-improvement), existing evaluation and change-log evidence |
 | Promotion packet | Fill known fields and leave unknowns explicit | `templates/stage-5-pilot-promotion-packet-template.md` |
 | Readiness review | Summarize evidence, gaps, and recommended next action | Stage 5 start-here and pilot boundaries |
 
