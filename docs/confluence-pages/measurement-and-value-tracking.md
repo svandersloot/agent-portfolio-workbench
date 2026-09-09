@@ -70,7 +70,7 @@ Each durable agent should document:
 4. Update the agent design record, Project Brain, instructions, knowledge sources, or evaluations.
 5. Record material design decisions as ADRs.
 6. Update the implementation backlog when the pattern affects more than one agent.
-7. After an approved change, rerun the affected scenario and relevant existing regressions; link the change and result to the original feedback using the [tracker's verification record](../../templates/stage-5-pilot-feedback-tracker-template.md#verification-of-an-improvement). Record user usefulness separately and retrieve the record before similar work. Any reusable lesson remains a candidate with evidence, applicability, limits, and a return trigger until a separate human inclusion decision.
+7. After an approved change, use the [tracker's minimum verification record](../../templates/stage-5-pilot-feedback-tracker-template.md#verification-of-an-improvement) to link feedback, change, and a comparable retest. Record user usefulness separately. Try one real case before adding more structure; any reusable lesson remains a candidate until separately reviewed.
 
 ## Measurement Notes
 
